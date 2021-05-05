@@ -5,10 +5,6 @@
  */
 package Classes;
 
-/**
- *
- * @author USAURIO
- */
 public class User {
     private String dni;
     private String name;

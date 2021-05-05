@@ -7,10 +7,6 @@ package Classes;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author USAURIO
- */
 public class Account {
     private int id;
     private String payer;
@@ -64,8 +60,8 @@ public class Account {
         this.collector = collector;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDate(String date) {
+        this.date = LocalDate.parse(date);
     }
 
     public void setAmount(float amount) {
