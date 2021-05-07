@@ -5,8 +5,10 @@
  */
 package mvc;
 
+import Classes.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import tableModels.AccountTableModel;
 
 /**
@@ -35,12 +37,39 @@ public class Controller implements ActionListener{
         
         switch (actionCommand) {
             case "SUBMIT":
-                view.jDialog1.setVisible(true);
+                if(Login()){
+                    view.jDialog1.setVisible(true);
+                }else{
+                    System.out.println("Venga chaval, buen intento!");
+                }            
+                
+                
                 break;
         }
     }
     
     public void taulaEguneratuAccount(){
         this.view.jTableAccount.setModel(new AccountTableModel());
+    }
+    
+    public boolean Login(){
+        String u = view.jTextFieldEmailLogin.getText();
+        String p = new String(view.jPasswordFieldPasswordLogin.getPassword());
+        
+        ArrayList<User> us = model.showUsers();
+        boolean log = false;
+        
+        for (int i = 0;i < us.size();i++){
+            if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
+                log = true;
+                break;
+            }
+            else{
+                log = false;
+            }
+        }
+        
+        return log; 
+        
     }
 }
