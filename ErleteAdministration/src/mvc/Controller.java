@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import tableModels.AccountTableModel;
+import tableModels.MembersTableModel;
 
 /**
  *
@@ -24,6 +25,9 @@ public class Controller implements ActionListener{
         this.model = model;
         this.view = view;
         
+        taulaEguneratuMember();
+        taulaEguneratuAccount();
+                
         addActionListener(this);
     }
     
@@ -41,7 +45,7 @@ public class Controller implements ActionListener{
                     view.jDialog1.setVisible(true);
                 }else{
                     System.out.println("Venga chaval, buen intento!");
-                }            
+                }     
                 
                 
                 break;
@@ -50,6 +54,10 @@ public class Controller implements ActionListener{
     
     public void taulaEguneratuAccount(){
         this.view.jTableAccount.setModel(new AccountTableModel());
+    }
+    
+    public void taulaEguneratuMember(){
+        this.view.jTableMember.setModel(new MembersTableModel());
     }
     
     public boolean Login(){

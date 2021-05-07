@@ -30,6 +30,8 @@ public class View extends javax.swing.JFrame {
         jDialog1 = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelMembers = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableMember = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -57,15 +59,34 @@ public class View extends javax.swing.JFrame {
         jPanelMembers.setToolTipText("");
         jPanelMembers.setName(""); // NOI18N
 
+        jTableMember.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTableMember);
+
         javax.swing.GroupLayout jPanelMembersLayout = new javax.swing.GroupLayout(jPanelMembers);
         jPanelMembers.setLayout(jPanelMembersLayout);
         jPanelMembersLayout.setHorizontalGroup(
             jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 496, Short.MAX_VALUE)
+            .addGroup(jPanelMembersLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanelMembersLayout.setVerticalGroup(
             jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 335, Short.MAX_VALUE)
+            .addGroup(jPanelMembersLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Members", jPanelMembers);
@@ -334,9 +355,11 @@ public class View extends javax.swing.JFrame {
     javax.swing.JPasswordField jPasswordFieldPasswordLogin;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     javax.swing.JTable jTableAccount;
+    javax.swing.JTable jTableMember;
     javax.swing.JTextField jTextFieldEmailLogin;
     // End of variables declaration//GEN-END:variables
 }

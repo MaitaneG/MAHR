@@ -23,7 +23,7 @@ public class Main {
         View view = View.viewaSortuBistaratu();
         Model model = new Model();
         Controller controller = new Controller(model, view);
-        controller.taulaEguneratuAccount();
+        
     }
     
 }

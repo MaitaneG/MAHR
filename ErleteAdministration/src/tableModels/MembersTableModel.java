@@ -6,6 +6,7 @@
 package tableModels;
 
 import Classes.Accounts;
+import Classes.User;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;
@@ -14,21 +15,20 @@ import mvc.Model;
  *
  * @author gallastegui.maitane 
  */
-public class AccountTableModel extends AbstractTableModel {
+public class MembersTableModel extends AbstractTableModel {
 
     private Model model = new Model();
-    private ArrayList<Accounts> datuak = new ArrayList<>();
-    private final String[] ZUTABEAKIZENAK = {"ID", "PAYER", "COLLECTOR", "DATE", "AMOUNT", "TOTAL"};
+    private ArrayList<User> datuak = new ArrayList<>();
+    private final String[] ZUTABEAKIZENAK = {"DNI", "NAME", "SURNAME", "EMAIL", "PASSWORD", "ACCOUNT","ADMIN"};
     
-    public AccountTableModel() {
-       //datuak.add(new Accounts(1,"","","2013-3-2",2,2));
+    public MembersTableModel() {
+      datuak = model.showUsers();
     }
     
     @Override
     public Class getColumnClass(int c) {
         return getValueAt(0, c).getClass();
     }
-
     
     @Override
     public int getColumnCount() {
@@ -52,17 +52,19 @@ public class AccountTableModel extends AbstractTableModel {
     public Object getValueAt(int row, int col) {
         switch (col) {
             case 0:
-                return datuak.get(row).getId();
+                return datuak.get(row).getDni();
             case 1:
-                return datuak.get(row).getPayer();
+                return datuak.get(row).getName();
             case 2:
-                return datuak.get(row).getCollector();
+                return datuak.get(row).getSurname();
             case 3:
-                return datuak.get(row).getDate();
+                return datuak.get(row).getEmail();
             case 4:
-                return datuak.get(row).getAmount();
+                return datuak.get(row).getPassword();
             case 5:
-                return datuak.get(row).getTotal();
+                return datuak.get(row).getAccount();
+            case 6:
+                return datuak.get(row).isType();
             default:
                 return null;
         }

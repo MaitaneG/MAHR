@@ -5,6 +5,7 @@
  */
 package mvc;
 
+import Classes.Accounts;
 import Classes.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -47,6 +48,24 @@ public class Model {
         }
         return use;
     }
+    
+    /*public ArrayList<Accounts> showAccounts(){
+        
+        ArrayList<Accounts> use = new ArrayList<>();
+        String sql = "SELECT * FROM Account";
+
+        try (Connection conn = connect();
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Accounts u1 = new Accounts(rs.getInt("ID_Move"),rs.getString("Payer"),rs.getString("Collector"),rs.getString);
+                use.add(u1);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return use;
+    }*/
     
     
     
