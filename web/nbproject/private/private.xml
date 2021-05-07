@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Erlete/web/index.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/CansUse.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/Productions.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/Fees.php</file>
-            <file>file:/C:/xampp/htdocs/Erlete/web/monasterio%20barato.txt</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/Members.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/Bookings.php</file>
+            <file>file:/C:/xampp/htdocs/Erlete/web/models/TestConexion.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/current_date.php</file>
         </group>
     </open-files>
