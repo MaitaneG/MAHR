@@ -42,7 +42,7 @@ public class Controller implements ActionListener{
         switch (actionCommand) {
             case "SUBMIT":
                 if(Login()){
-                    view.jDialog1.setVisible(true);
+                    view.jDialogMenu.setVisible(true);
                 }else{
                     System.out.println("Venga chaval, buen intento!");
                 }     
@@ -60,6 +60,10 @@ public class Controller implements ActionListener{
         this.view.jTableMember.setModel(new MembersTableModel());
     }
     
+//    public void taulaEguneratuBooking(){
+//        this.view.jTableMember.setModel(new BookingTableModel());
+//    }
+    
     public boolean Login(){
         String u = view.jTextFieldEmailLogin.getText();
         String p = new String(view.jPasswordFieldPasswordLogin.getPassword());
@@ -76,7 +80,6 @@ public class Controller implements ActionListener{
                 log = false;
             }
         }
-        
         return log; 
         
     }

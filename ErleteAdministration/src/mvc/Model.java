@@ -24,7 +24,7 @@ public class Model {
     public static Connection connect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mariadb://172.16.0.160:3306/erlete", "erlete1","");
+            conn = DriverManager.getConnection("jdbc:mariadb://localhost/erlete", "root","");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -49,7 +49,7 @@ public class Model {
         return use;
     }
     
-    /*public ArrayList<Accounts> showAccounts(){
+    public ArrayList<Accounts> showAccounts(){
         
         ArrayList<Accounts> use = new ArrayList<>();
         String sql = "SELECT * FROM Account";
@@ -58,14 +58,14 @@ public class Model {
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                Accounts u1 = new Accounts(rs.getInt("ID_Move"),rs.getString("Payer"),rs.getString("Collector"),rs.getString);
+                Accounts u1 = new Accounts(rs.getInt("ID_Move"),rs.getString("Payer"),rs.getString("Collector"),rs.getString("Date"),rs.getInt("Amount"),rs.getInt("Total"));
                 use.add(u1);
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         return use;
-    }*/
+    }
     
     
     

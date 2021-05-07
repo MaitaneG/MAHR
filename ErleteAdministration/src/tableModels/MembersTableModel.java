@@ -22,7 +22,7 @@ public class MembersTableModel extends AbstractTableModel {
     private final String[] ZUTABEAKIZENAK = {"DNI", "NAME", "SURNAME", "EMAIL", "PASSWORD", "ACCOUNT","ADMIN"};
     
     public MembersTableModel() {
-      datuak = model.showUsers();
+        datuak = model.showUsers();
     }
     
     @Override
