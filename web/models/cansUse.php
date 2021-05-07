@@ -27,30 +27,31 @@ function selectCanUsed($canId, $date) {
 }
 
 function addCanUse($mail, $id_can, $date) {
-    //Insert a new member
+    //Insert a new use day
     //return string
     include("connect.php");
     $conexion = ConnectDataBase();
 
     $query = "INSERT INTO using_cans(mail, id_can, date) VALUES('$mail',$id_can','$date')";
     $result = mysqli_query($conexion, $query);
+      mysqli_close($conexion);
     if (!$result) {
         return "SERVER ERROR";
     }
     return "successfull";
 }
 
-function updateMember($dni, $name, $surname, $mail, $password, $account) {
-    //Update member
+function deleteCanUse($mail, $id_can, $date) {
+    //Delete can use day
     //return string
     include("connect.php");
     $conexion = ConnectDataBase();
 
-
-    $query = "UPDATE members SET dni=$dni, name=$name, surname=$surname, password=$password, account=$account, WHERE mail=$mail";
+    $query = "DELETE FROM using_cans where date=$date and mail=$mail";
     $result = mysqli_query($conexion, $query);
+      mysqli_close($conexion);
     if (!$result) {
         return "NO MATCH";
     }
-    echo "member edited successfully";
+    echo "registry deleted successfully";
 }

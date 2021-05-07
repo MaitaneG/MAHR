@@ -1,3 +1,3 @@
 <?php
 
-echo date("m/d/Y", time());
+echo date("Y/m/d", time());
