@@ -5,6 +5,10 @@
  */
 package runnable;
 
+import mvc.Controller;
+import mvc.Model;
+import mvc.View;
+
 /**
  *
  * @author USAURIO
@@ -16,6 +20,10 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        View view = View.viewaSortuBistaratu();
+        Model model = new Model();
+        Controller controller = new Controller(model, view);
+        controller.taulaEguneratuAccount();
     }
     
 }
