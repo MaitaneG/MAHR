@@ -78,7 +78,6 @@ public class View extends javax.swing.JFrame {
 
         jDialogMenu.setBackground(new java.awt.Color(219, 139, 34));
         jDialogMenu.setMinimumSize(new java.awt.Dimension(1000, 700));
-        jDialogMenu.setPreferredSize(new java.awt.Dimension(1000, 500));
         jDialogMenu.setResizable(false);
 
         jTabbedPaneMenu.setBackground(new java.awt.Color(244, 188, 44));
@@ -507,30 +506,31 @@ public class View extends javax.swing.JFrame {
         jPanelOrange.setLayout(jPanelOrangeLayout);
         jPanelOrangeLayout.setHorizontalGroup(
             jPanelOrangeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelOrangeLayout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addComponent(jLabelLoginTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOrangeLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addGroup(jPanelOrangeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOrangeLayout.createSequentialGroup()
-                        .addComponent(jPanelWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOrangeLayout.createSequentialGroup()
-                        .addComponent(jLabelErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                .addGap(0, 88, Short.MAX_VALUE)
+                .addComponent(jPanelWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOrangeLayout.createSequentialGroup()
+                .addGroup(jPanelOrangeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelOrangeLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelOrangeLayout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(jLabelLoginTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(17, 17, 17))
         );
         jPanelOrangeLayout.setVerticalGroup(
             jPanelOrangeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelOrangeLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabelLoginTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(jPanelWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabelErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(jLabelErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelBlackLayout = new javax.swing.GroupLayout(jPanelBlack);
@@ -547,7 +547,7 @@ public class View extends javax.swing.JFrame {
             .addGroup(jPanelBlackLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jPanelOrange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelOrange.getAccessibleContext().setAccessibleName("");
@@ -611,7 +611,7 @@ public class View extends javax.swing.JFrame {
         return v;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    javax.swing.JButton jButtonSubmitLogin;
+    private javax.swing.JButton jButtonSubmitLogin;
     javax.swing.JDialog jDialogMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -622,7 +622,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDni;
     private javax.swing.JLabel jLabelDni1;
     private javax.swing.JLabel jLabelEmail;
-    javax.swing.JLabel jLabelErrorMessage;
+    private javax.swing.JLabel jLabelErrorMessage;
     private javax.swing.JLabel jLabelLoginTitle;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelName1;
@@ -639,7 +639,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelOrange;
     private javax.swing.JPanel jPanelWhite;
     javax.swing.JPasswordField jPasswordFieldPassword;
-    javax.swing.JPasswordField jPasswordFieldPasswordLogin;
+    private javax.swing.JPasswordField jPasswordFieldPasswordLogin;
     javax.swing.JRadioButton jRadioButtonAdministrator;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -654,7 +654,7 @@ public class View extends javax.swing.JFrame {
     javax.swing.JTextField jTextFieldDni;
     javax.swing.JTextField jTextFieldDni1;
     javax.swing.JTextField jTextFieldEmail;
-    javax.swing.JTextField jTextFieldEmailLogin;
+    private javax.swing.JTextField jTextFieldEmailLogin;
     javax.swing.JTextField jTextFieldName;
     javax.swing.JTextField jTextFieldName1;
     javax.swing.JTextField jTextFieldSurname;
