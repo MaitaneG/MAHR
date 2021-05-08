@@ -48,7 +48,7 @@ public class View extends javax.swing.JFrame {
         jTableMember = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanelBookings = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelBookingTitle = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jTextFieldSurname1 = new javax.swing.JTextField();
         jLabelSurname1 = new javax.swing.JLabel();
@@ -64,6 +64,7 @@ public class View extends javax.swing.JFrame {
         jPanelAccounts = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAccount = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
         jPanelBlack = new javax.swing.JPanel();
         jPanelOrange = new javax.swing.JPanel();
         jLabelLoginTitle = new javax.swing.JLabel();
@@ -73,13 +74,14 @@ public class View extends javax.swing.JFrame {
         jButtonSubmitLogin = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabelErrorMessage = new javax.swing.JLabel();
 
         jDialogMenu.setBackground(new java.awt.Color(219, 139, 34));
         jDialogMenu.setMinimumSize(new java.awt.Dimension(1000, 700));
         jDialogMenu.setPreferredSize(new java.awt.Dimension(1000, 500));
         jDialogMenu.setResizable(false);
 
-        jTabbedPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPaneMenu.setBackground(new java.awt.Color(244, 188, 44));
         jTabbedPaneMenu.setForeground(new java.awt.Color(51, 51, 51));
         jTabbedPaneMenu.setMinimumSize(new java.awt.Dimension(35, 74));
         jTabbedPaneMenu.setPreferredSize(new java.awt.Dimension(1000, 500));
@@ -234,10 +236,10 @@ public class View extends javax.swing.JFrame {
         jPanelBookings.setBackground(new java.awt.Color(219, 139, 34));
         jPanelBookings.setPreferredSize(new java.awt.Dimension(1000, 500));
 
-        jLabel4.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("MEMBERS");
+        jLabelBookingTitle.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        jLabelBookingTitle.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelBookingTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelBookingTitle.setText("BOOKINGS");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -308,7 +310,7 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap(106, Short.MAX_VALUE)
                 .addGroup(jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBookingsLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelBookingTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(354, 354, 354))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBookingsLayout.createSequentialGroup()
                         .addGroup(jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -320,7 +322,7 @@ public class View extends javax.swing.JFrame {
             jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBookingsLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel4)
+                .addComponent(jLabelBookingTitle)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
@@ -381,21 +383,33 @@ public class View extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTableAccount);
 
+        jLabel4.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("ACCOUNTS");
+
         javax.swing.GroupLayout jPanelAccountsLayout = new javax.swing.GroupLayout(jPanelAccounts);
         jPanelAccounts.setLayout(jPanelAccountsLayout);
         jPanelAccountsLayout.setHorizontalGroup(
             jPanelAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAccountsLayout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addGroup(jPanelAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAccountsLayout.createSequentialGroup()
+                        .addGap(389, 389, 389)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelAccountsLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         jPanelAccountsLayout.setVerticalGroup(
             jPanelAccountsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAccountsLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAccountsLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel4)
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Accounts", jPanelAccounts);
@@ -474,7 +488,7 @@ public class View extends javax.swing.JFrame {
         jPanelWhiteLayout.setVerticalGroup(
             jPanelWhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelWhiteLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(30, 30, 30)
                 .addGroup(jPanelWhiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextFieldEmailLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -487,6 +501,8 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
+        jLabelErrorMessage.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanelOrangeLayout = new javax.swing.GroupLayout(jPanelOrange);
         jPanelOrange.setLayout(jPanelOrangeLayout);
         jPanelOrangeLayout.setHorizontalGroup(
@@ -496,18 +512,25 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jLabelLoginTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOrangeLayout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addComponent(jPanelWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addGroup(jPanelOrangeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOrangeLayout.createSequentialGroup()
+                        .addComponent(jPanelWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOrangeLayout.createSequentialGroup()
+                        .addComponent(jLabelErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
         );
         jPanelOrangeLayout.setVerticalGroup(
             jPanelOrangeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelOrangeLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabelLoginTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
                 .addComponent(jPanelWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelBlackLayout = new javax.swing.GroupLayout(jPanelBlack);
@@ -524,7 +547,7 @@ public class View extends javax.swing.JFrame {
             .addGroup(jPanelBlackLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jPanelOrange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jPanelOrange.getAccessibleContext().setAccessibleName("");
@@ -595,9 +618,11 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     javax.swing.JLabel jLabelAccount;
+    private javax.swing.JLabel jLabelBookingTitle;
     private javax.swing.JLabel jLabelDni;
     private javax.swing.JLabel jLabelDni1;
     private javax.swing.JLabel jLabelEmail;
+    javax.swing.JLabel jLabelErrorMessage;
     private javax.swing.JLabel jLabelLoginTitle;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelName1;

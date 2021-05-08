@@ -43,10 +43,13 @@ public class Controller implements ActionListener{
             case "SUBMIT":
                 if(Login()){
                     view.jDialogMenu.setVisible(true);
+                    view.jLabelErrorMessage.setText("");
                 }else{
                     System.out.println("Venga chaval, buen intento!");
+                    view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
                 }     
-                
+                view.jTextFieldEmailLogin.setText("");
+                view.jPasswordFieldPasswordLogin.setText("");
                 
                 break;
         }
