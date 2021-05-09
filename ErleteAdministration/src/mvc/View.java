@@ -80,12 +80,12 @@ public class View extends javax.swing.JFrame {
         jDialogMenu.setMinimumSize(new java.awt.Dimension(1000, 700));
         jDialogMenu.setResizable(false);
 
-        jTabbedPaneMenu.setBackground(new java.awt.Color(244, 188, 44));
+        jTabbedPaneMenu.setBackground(new java.awt.Color(219, 139, 34));
         jTabbedPaneMenu.setForeground(new java.awt.Color(51, 51, 51));
         jTabbedPaneMenu.setMinimumSize(new java.awt.Dimension(35, 74));
         jTabbedPaneMenu.setPreferredSize(new java.awt.Dimension(1000, 500));
 
-        jPanelMembers.setBackground(new java.awt.Color(219, 139, 34));
+        jPanelMembers.setBackground(new java.awt.Color(244, 164, 12));
         jPanelMembers.setToolTipText("");
         jPanelMembers.setMinimumSize(new java.awt.Dimension(496, 335));
         jPanelMembers.setName(""); // NOI18N
@@ -232,7 +232,7 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPaneMenu.addTab("Members", jPanelMembers);
 
-        jPanelBookings.setBackground(new java.awt.Color(219, 139, 34));
+        jPanelBookings.setBackground(new java.awt.Color(244, 164, 12));
         jPanelBookings.setPreferredSize(new java.awt.Dimension(1000, 500));
 
         jLabelBookingTitle.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
@@ -331,7 +331,7 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPaneMenu.addTab("Bookings", jPanelBookings);
 
-        jPanelBins.setBackground(new java.awt.Color(219, 139, 34));
+        jPanelBins.setBackground(new java.awt.Color(244, 164, 12));
         jPanelBins.setPreferredSize(new java.awt.Dimension(1000, 500));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -366,7 +366,7 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPaneMenu.addTab("Metal Bins", jPanelBins);
 
-        jPanelAccounts.setBackground(new java.awt.Color(219, 139, 34));
+        jPanelAccounts.setBackground(new java.awt.Color(244, 164, 12));
         jPanelAccounts.setPreferredSize(new java.awt.Dimension(1000, 500));
 
         jTableAccount.setModel(new javax.swing.table.DefaultTableModel(
@@ -434,7 +434,7 @@ public class View extends javax.swing.JFrame {
 
         jPanelBlack.setBackground(new java.awt.Color(51, 51, 51));
 
-        jPanelOrange.setBackground(new java.awt.Color(236, 148, 52));
+        jPanelOrange.setBackground(new java.awt.Color(244, 164, 12));
 
         jLabelLoginTitle.setBackground(new java.awt.Color(255, 255, 255));
         jLabelLoginTitle.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
@@ -448,7 +448,7 @@ public class View extends javax.swing.JFrame {
 
         jTextFieldEmailLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jButtonSubmitLogin.setBackground(new java.awt.Color(196, 100, 4));
+        jButtonSubmitLogin.setBackground(new java.awt.Color(219, 139, 34));
         jButtonSubmitLogin.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
         jButtonSubmitLogin.setForeground(new java.awt.Color(51, 51, 51));
         jButtonSubmitLogin.setText("SUBMIT");
@@ -529,8 +529,8 @@ public class View extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jPanelWhite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabelErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(jLabelErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelBlackLayout = new javax.swing.GroupLayout(jPanelBlack);
@@ -547,7 +547,7 @@ public class View extends javax.swing.JFrame {
             .addGroup(jPanelBlackLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jPanelOrange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         jPanelOrange.getAccessibleContext().setAccessibleName("");
@@ -560,7 +560,9 @@ public class View extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBlack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelBlack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -611,7 +613,7 @@ public class View extends javax.swing.JFrame {
         return v;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonSubmitLogin;
+    javax.swing.JButton jButtonSubmitLogin;
     javax.swing.JDialog jDialogMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -622,7 +624,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDni;
     private javax.swing.JLabel jLabelDni1;
     private javax.swing.JLabel jLabelEmail;
-    private javax.swing.JLabel jLabelErrorMessage;
+    javax.swing.JLabel jLabelErrorMessage;
     private javax.swing.JLabel jLabelLoginTitle;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelName1;
@@ -639,7 +641,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelOrange;
     private javax.swing.JPanel jPanelWhite;
     javax.swing.JPasswordField jPasswordFieldPassword;
-    private javax.swing.JPasswordField jPasswordFieldPasswordLogin;
+    javax.swing.JPasswordField jPasswordFieldPasswordLogin;
     javax.swing.JRadioButton jRadioButtonAdministrator;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -654,7 +656,7 @@ public class View extends javax.swing.JFrame {
     javax.swing.JTextField jTextFieldDni;
     javax.swing.JTextField jTextFieldDni1;
     javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldEmailLogin;
+    javax.swing.JTextField jTextFieldEmailLogin;
     javax.swing.JTextField jTextFieldName;
     javax.swing.JTextField jTextFieldName1;
     javax.swing.JTextField jTextFieldSurname;
