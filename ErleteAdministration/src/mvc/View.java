@@ -201,6 +201,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableMember.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTableMember);
 
         jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
@@ -341,6 +342,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableBooking.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(jTableBooking);
 
         javax.swing.GroupLayout jPanelBookingsLayout = new javax.swing.GroupLayout(jPanelBookings);
@@ -387,6 +389,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableBin.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableBin);
 
         jLabel5.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
@@ -405,6 +408,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableBin_Use.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(jTableBin_Use);
 
         javax.swing.GroupLayout jPanelBinsLayout = new javax.swing.GroupLayout(jPanelBins);
@@ -451,6 +455,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableAccount.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTableAccount);
 
         jLabel4.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
