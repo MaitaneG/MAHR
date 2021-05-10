@@ -1,13 +1,20 @@
 <?php
 error_reporting(0);
 session_start();
-$member="meber";
+$member="menber";
+//$logged = $_SESSION["submitted"];
 //if ($_SESSION["member"]) {
 //    $member = $_SESSION["member"];
-////    $mail = $member["mail"];
-////    $admin = $meber["admin"];
+//    $mail=$member[0]["mail"];
+//    $admin = $member[0]["admin"];
 //}
-
+//            if ($logged == "logged") {
+//                echo"<script>alert('You are logged');</script>";
+//                echo"<script>console.log('$member');</script>";
+//                
+//            } else if ($logged == "not logged") {
+//                echo"<script>alert('You are not logged');</script>";
+//            }
 ?>
 
 <!doctype html>
@@ -34,6 +41,7 @@ $member="meber";
 
         <div class="jumbotron bg-yellow">
             <h1>Erlete Beekepers' Association</h1>
+            
         </div>
 
 
@@ -62,17 +70,22 @@ $member="meber";
 
                     <?php
                     if (!$member) {
-                        echo '<form class="form-inline">
+                       
+                        
+                        echo '<form action="../controller/LoginValidation.php" class="form-inline" method="POST">
 
-                            <input type="email" class="form-control mb-2 mr-sm-2"  id="email"
-                                   pattern=".+@globex.com" size="30" required placeholder="Email">
+                            <input name="email" type="email" class="form-control mb-2 mr-sm-2" 
+                                   size="30" required placeholder="Email">
 
-                            <input type="password" class="form-control mb-2 mr-sm-2" id="inlineFormInputGroupUsername2" placeholder="Password">
+                            <input name="password" type="password" class="form-control mb-2 mr-sm-2" placeholder="Password" required/>
 
                             <button type="submit" class="btn bg-yellow mb-2">Login</button>
                         </form>';
                     } else {
-                        echo '<input class="btn btn-danger" type="submit" action="controller/Logout.php" value="Log Out"/>';
+                        echo "<h6 class='p-3'>$mail</h6>";
+                        echo '<form action="../controller/logout.php">'    
+                                . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
+                           . '</form>';
                     }
                     ?>
 
@@ -153,5 +166,6 @@ $member="meber";
 
 
             </div>
+
     </body>
 </html>
