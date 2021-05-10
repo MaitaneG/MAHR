@@ -120,7 +120,7 @@ public class Model {
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Container_Merge u1 = new Container_Merge(rs.getInt("Id_can"),rs.getInt("capacity"),rs.getString("mail"),rs.getString("date"));
+                Container_Merge u1 = new Container_Merge(rs.getInt("cans.Id_can"),rs.getInt("capacity"),rs.getString("mail"),rs.getString("date"));
                 co.add(u1);
             }
         } catch (Exception ex) {
