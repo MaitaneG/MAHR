@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
+import tableModels.CansTableModel;
 import tableModels.MembersTableModel;
 
 /**
@@ -67,6 +68,10 @@ public class Controller implements ActionListener{
     
     public void taulaEguneratuMember(){
         this.view.jTableMember.setModel(new MembersTableModel());
+    }
+    
+    public void taulaEguneratuContainer(){
+        this.view.jTableMember.setModel(new CansTableModel());
     }
     
     public boolean Login(){
