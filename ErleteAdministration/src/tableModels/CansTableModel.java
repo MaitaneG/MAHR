@@ -22,7 +22,7 @@ public class CansTableModel extends AbstractTableModel{
 
 
     public CansTableModel() {
-        //datuak = model.showCans();
+        datuak = model.showContainer_Merge();
     }
     
     @Override
