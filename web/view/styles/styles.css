@@ -18,5 +18,11 @@ background-size: 100% 2px;
 
 .url{cursor:url(C:/Users/monasterio.hodei/Desktop/project/MAHR/web/view/images/puntero1.gif), auto;}
 
-
+.active{
+background-image: linear-gradient(currentColor,currentColor);
+background-position: 0% 100%;
+background-repeat: no-repeat;
+background-size: 100% 4px;
+font-weight: bold; 
+}
 
