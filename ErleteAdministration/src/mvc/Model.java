@@ -7,7 +7,6 @@ package mvc;
 
 import Classes.Accounts;
 import Classes.Container;
-import Classes.Container_Merge;
 import Classes.Container_Use;
 import Classes.Extractor;
 import Classes.User;
@@ -110,22 +109,40 @@ public class Model {
         }
         return boo;
     }
-    
-     public ArrayList<Container_Merge> showContainer_Merge() {
 
-        ArrayList<Container_Merge> co = new ArrayList<>();
-        String sql = "SELECT cans.Id_can, cans.capacity, using_cans.mail, using_cans.date FROM Cans LEFT JOIN using_cans ON cans.id_can = using_cans.id_can";
+    public ArrayList<Container> showContainer() {
+
+        ArrayList<Container> boo = new ArrayList<>();
+        String sql = "SELECT * FROM cans";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Container_Merge u1 = new Container_Merge(rs.getInt("cans.Id_can"),rs.getInt("capacity"),rs.getString("mail"),rs.getString("date"));
-                co.add(u1);
+                Container u1 = new Container(rs.getInt("ID_CAN"), rs.getInt("CAPACITY"));
+                boo.add(u1);
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        return co;
+        return boo;
+    }
+    
+    public ArrayList<Container_Use> showContainer_Use() {
+
+        ArrayList<Container_Use> boo = new ArrayList<>();
+        String sql = "SELECT * FROM Using_cans";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Container_Use u1 = new Container_Use(rs.getString("mail"), rs.getInt("id_can"), rs.getString("date"));
+                boo.add(u1);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return boo;
     }
 }

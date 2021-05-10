@@ -5,23 +5,23 @@
  */
 package tableModels;
 
-import Classes.User;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;
-   
+import Classes.Container_Use;
+
 /**
  *
- * @author gallastegui.maitane 
+ * @author gallastegui.maitane
  */
-public class MembersTableModel extends AbstractTableModel {
-
+public class Cans_UseTableModel extends AbstractTableModel{
     private Model model = new Model();
-    private ArrayList<User> datuak = new ArrayList<>();
-    private final String[] ZUTABEAKIZENAK = {"DNI", "NAME", "SURNAME", "EMAIL", "PASSWORD", "ACCOUNT","ADMIN"};
-    
-    public MembersTableModel() {
-        datuak = model.showUsers();
+    private ArrayList<Container_Use> datuak = new ArrayList<>();
+    private final String[] ZUTABEAKIZENAK = {"MAIL", "CAN'S ID", "START DATE", "END DATE"};
+
+
+    public Cans_UseTableModel() {
+        datuak = model.showContainer_Use();
     }
     
     @Override
@@ -51,19 +51,13 @@ public class MembersTableModel extends AbstractTableModel {
     public Object getValueAt(int row, int col) {
         switch (col) {
             case 0:
-                return datuak.get(row).getDni();
-            case 1:
-                return datuak.get(row).getName();
-            case 2:
-                return datuak.get(row).getSurname();
-            case 3:
                 return datuak.get(row).getEmail();
-            case 4:
-                return datuak.get(row).getPassword();
-            case 5:
-                return datuak.get(row).getAccount();
-            case 6:
-                return datuak.get(row).isType();
+            case 1:
+                return datuak.get(row).getContainer();
+            case 2:
+                return datuak.get(row).getDate();
+            case 3:
+                return datuak.get(row).getDate().plusDays(20);
             default:
                 return null;
         }

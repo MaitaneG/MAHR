@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
 import tableModels.CansTableModel;
+import tableModels.Cans_UseTableModel;
 import tableModels.MembersTableModel;
 
 /**
@@ -31,6 +32,7 @@ public class Controller implements ActionListener{
         taulaEguneratuAccount();
         taulaEguneratuBooking();
         taulaEguneratuContainer();
+        taulaEguneratuContainer_Use();
                 
         addActionListener(this);
     }
@@ -73,6 +75,10 @@ public class Controller implements ActionListener{
     
     public void taulaEguneratuContainer(){
         this.view.jTableBin.setModel(new CansTableModel());
+    }
+    
+    public void taulaEguneratuContainer_Use(){
+        this.view.jTableBin_Use.setModel(new Cans_UseTableModel());
     }
     
     public boolean Login(){

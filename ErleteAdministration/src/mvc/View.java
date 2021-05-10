@@ -62,6 +62,8 @@ public class View extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBin = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTableBin_Use = new javax.swing.JTable();
         jPanelAccounts = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAccount = new javax.swing.JTable();
@@ -359,6 +361,19 @@ public class View extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("BINS");
 
+        jTableBin_Use.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTableBin_Use);
+
         javax.swing.GroupLayout jPanelBinsLayout = new javax.swing.GroupLayout(jPanelBins);
         jPanelBins.setLayout(jPanelBinsLayout);
         jPanelBinsLayout.setHorizontalGroup(
@@ -366,21 +381,25 @@ public class View extends javax.swing.JFrame {
             .addGroup(jPanelBinsLayout.createSequentialGroup()
                 .addGroup(jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBinsLayout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(349, 349, 349)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelBinsLayout.createSequentialGroup()
-                        .addGap(366, 366, 366)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(174, Short.MAX_VALUE))
+                        .addGap(43, 43, 43)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanelBinsLayout.setVerticalGroup(
             jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBinsLayout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel5)
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addGap(55, 55, 55)
+                .addGroup(jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Metal Bins", jPanelBins);
@@ -671,9 +690,11 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPaneMenu;
     javax.swing.JTable jTableAccount;
     javax.swing.JTable jTableBin;
+    javax.swing.JTable jTableBin_Use;
     javax.swing.JTable jTableBooking;
     javax.swing.JTable jTableMember;
     private javax.swing.JTextField jTextField4;
