@@ -114,7 +114,7 @@ public class Model {
      public ArrayList<Container_Merge> showContainer_Merge() {
 
         ArrayList<Container_Merge> co = new ArrayList<>();
-        String sql = "SELECT cans.Id_can, cans.capacity, using_cans.mail, using_cans.date FROM Cans LEFT JOIN using_cans cans.id_can = using_cans.id_can";
+        String sql = "SELECT cans.Id_can, cans.capacity, using_cans.mail, using_cans.date FROM Cans LEFT JOIN using_cans ON cans.id_can = using_cans.id_can";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);

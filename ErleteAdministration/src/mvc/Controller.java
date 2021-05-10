@@ -30,6 +30,7 @@ public class Controller implements ActionListener{
         taulaEguneratuMember();
         taulaEguneratuAccount();
         taulaEguneratuBooking();
+        taulaEguneratuContainer();
                 
         addActionListener(this);
     }
@@ -71,7 +72,7 @@ public class Controller implements ActionListener{
     }
     
     public void taulaEguneratuContainer(){
-        this.view.jTableMember.setModel(new CansTableModel());
+        this.view.jTableBin.setModel(new CansTableModel());
     }
     
     public boolean Login(){

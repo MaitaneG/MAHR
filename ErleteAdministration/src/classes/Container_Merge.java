@@ -27,7 +27,15 @@ public class Container_Merge {
     public int getCapacity() {
         return capacity;
     }
-
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public LocalDate getDate() {
+        return date;
+    }
+    
     public void setId(int id) {
         this.id = id;
     }
@@ -35,20 +43,12 @@ public class Container_Merge {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-    
-    public LocalDate getDate() {
-        return date;
-    }
 
-    public String getEmail() {
-        return email;
+    public void setEmail(String email) {
+        this.email = email;
     }
     
     public void setDate(String date) {
         this.date = LocalDate.parse(date);
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }
