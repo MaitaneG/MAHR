@@ -9,6 +9,9 @@ import java.time.LocalDate;
 
 public class Accounts {
 
+    /**
+     * All the attributes of Accounts
+     */
     private int id;
     private String payer;
     private String collector;
@@ -16,6 +19,16 @@ public class Accounts {
     private float amount;
     private float total;
 
+    /**
+     * The constructor of Accounts
+     *
+     * @param id
+     * @param payer
+     * @param collector
+     * @param date
+     * @param amount
+     * @param total
+     */
     public Accounts(int id, String payer, String collector, String date, float amount, float total) {
         this.id = id;
         this.payer = payer;
@@ -25,26 +38,50 @@ public class Accounts {
         this.total = total;
     }
 
+    /**
+     * 
+     * @return the id of the Accounts
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * 
+     * @return the payer of money of the Accounts
+     */
     public String getPayer() {
         return payer;
     }
 
+    /**
+     * 
+     * @return the collector of money of the Accounts
+     */
     public String getCollector() {
         return collector;
     }
-
+    
+    /**
+     * 
+     * @return the Date where the Accounts have been done
+     */
     public LocalDate getDate() {
         return date;
     }
 
+    /**
+     * 
+     * @return the amount of money of the Accounts
+     */
     public float getAmount() {
         return amount;
     }
 
+    /**
+     * 
+     * @return the total money of the association money
+     */
     public float getTotal() {
         return total;
     }

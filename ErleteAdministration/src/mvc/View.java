@@ -61,6 +61,7 @@ public class View extends javax.swing.JFrame {
         jPanelBins = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
         jPanelAccounts = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAccount = new javax.swing.JTable();
@@ -347,21 +348,33 @@ public class View extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel5.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("BINS");
+
         javax.swing.GroupLayout jPanelBinsLayout = new javax.swing.GroupLayout(jPanelBins);
         jPanelBins.setLayout(jPanelBinsLayout);
         jPanelBinsLayout.setHorizontalGroup(
             jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBinsLayout.createSequentialGroup()
-                .addGap(254, 254, 254)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addGroup(jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBinsLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelBinsLayout.createSequentialGroup()
+                        .addGap(366, 366, 366)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         jPanelBinsLayout.setVerticalGroup(
             jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBinsLayout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(48, 48, 48)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86))
+                .addGap(47, 47, 47))
         );
 
         jTabbedPaneMenu.addTab("Metal Bins", jPanelBins);
@@ -619,6 +632,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     javax.swing.JLabel jLabelAccount;
     private javax.swing.JLabel jLabelBookingTitle;
     private javax.swing.JLabel jLabelDni;
