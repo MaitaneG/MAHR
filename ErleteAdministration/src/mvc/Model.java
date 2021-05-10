@@ -7,6 +7,7 @@ package mvc;
 
 import Classes.Accounts;
 import Classes.Container;
+import Classes.Container_Merge;
 import Classes.Container_Use;
 import Classes.Extractor;
 import Classes.User;
@@ -110,40 +111,21 @@ public class Model {
         return boo;
     }
     
-     public ArrayList<Container> showContainer() {
+     public ArrayList<Container_Merge> showContainer_Merge() {
 
-        ArrayList<Container> co = new ArrayList<>();
-        String sql = "SELECT * FROM Cans";
+        ArrayList<Container_Merge> co = new ArrayList<>();
+        String sql = "SELECT cans.Id_can, cans.capacity, using_cans.mail, using_cans.date FROM Cans LEFT JOIN using_cans cans.id_can = using_cans.id_can";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Container u1 = new Container(rs.getInt("ID_CAN"), rs.getInt("CAPACITY"));
+                Container_Merge u1 = new Container_Merge(rs.getInt("Id_can"),rs.getInt("capacity"),rs.getString("mail"),rs.getString("date"));
                 co.add(u1);
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         return co;
-    }
-     
-     
-     public ArrayList<Container_Use> showContainer_Use() {
-
-        ArrayList<Container_Use> cou = new ArrayList<>();
-        String sql = "SELECT * FROM Using_Cans";
-
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery(sql)) {
-            while (rs.next()) {
-                Container_Use u1 = new Container_Use(rs.getString("MEMBER"),rs.getString("DATE"),rs.getInt("ID_CAN"));
-                cou.add(u1);
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return cou;
     }
 }
