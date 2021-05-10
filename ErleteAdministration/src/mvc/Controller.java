@@ -47,7 +47,7 @@ public class Controller implements ActionListener{
         
         switch (actionCommand) {
             case "SUBMIT":
-                if(Login()){
+                if(login()){
                     view.jDialogMenu.setVisible(true);
                     view.jLabelErrorMessage.setText("");
                 }else{
@@ -81,7 +81,7 @@ public class Controller implements ActionListener{
         this.view.jTableBin_Use.setModel(new Cans_UseTableModel());
     }
     
-    public boolean Login(){
+    public boolean login(){
         String u = view.jTextFieldEmailLogin.getText();
         String p = new String(view.jPasswordFieldPasswordLogin.getPassword());
         
@@ -98,6 +98,29 @@ public class Controller implements ActionListener{
             }
         }
         return log; 
-        
+    }
+    
+    public boolean enterUser(){
+        return false;
+    }
+    
+    public boolean updateUser(){
+        return false;
+    }
+    
+    public boolean changeUser(){
+        return false;
+    }
+    
+    public boolean deleteUser(){
+        return false;
+    }
+    
+    public boolean enterBooking(){
+        return false;
+    }
+    
+    public boolean deleteBooking(){
+        return false;
     }
 }
