@@ -69,7 +69,6 @@ public class Controller implements ActionListener{
         this.view.jTableMember.setModel(new MembersTableModel());
     }
     
-    
     public boolean Login(){
         String u = view.jTextFieldEmailLogin.getText();
         String p = new String(view.jPasswordFieldPasswordLogin.getPassword());

@@ -6,6 +6,8 @@
 package mvc;
 
 import Classes.Accounts;
+import Classes.Container;
+import Classes.Container_Use;
 import Classes.Extractor;
 import Classes.User;
 import java.sql.Connection;
@@ -106,5 +108,42 @@ public class Model {
             System.out.println(ex.getMessage());
         }
         return boo;
+    }
+    
+     public ArrayList<Container> showContainer() {
+
+        ArrayList<Container> co = new ArrayList<>();
+        String sql = "SELECT * FROM Cans";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Container u1 = new Container(rs.getInt("ID_CAN"), rs.getInt("CAPACITY"));
+                co.add(u1);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return co;
+    }
+     
+     
+     public ArrayList<Container_Use> showContainer_Use() {
+
+        ArrayList<Container_Use> cou = new ArrayList<>();
+        String sql = "SELECT * FROM Using_Cans";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Container_Use u1 = new Container_Use(rs.getString("MEMBER"),rs.getString("DATE"),rs.getInt("ID_CAN"));
+                cou.add(u1);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return cou;
     }
 }
