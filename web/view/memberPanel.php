@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 session_start();
-$member="member";
+$member="menber";
 //$logged = $_SESSION["submitted"];
 //if ($_SESSION["member"]) {
 //    $member = $_SESSION["member"];
@@ -52,13 +52,13 @@ $member="member";
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav" >
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link active p-3 disabled" href="#">Home<span class="sr-only">(current)</span></a>
+                        <li class="nav-item">
+                            <a class="nav-link p-3" href="index.php">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <?php
                         if ($member) {
-                            echo '<li class="nav-item">
-                                        <a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
+                            echo '<li class="nav-item active">
+                                        <a class="nav-link p-3 active disabled" href="#">Member Panel</a>
                                     </li>';
                         }
                         ?>
@@ -93,8 +93,10 @@ $member="member";
             </nav>
         </div>
 
+<!-- CONTENIDO-->
 
-<!--        CONTENIDO-->
+
+
         <div class="container">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
