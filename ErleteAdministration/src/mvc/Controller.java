@@ -59,6 +59,10 @@ public class Controller implements ActionListener{
         this.view.jTableAccount.setModel(new AccountTableModel());
     }
     
+    public void taulaEguneratuBooking(){
+        this.view.jTableMember.setModel(new BookingTableModel());
+    }
+    
     public void taulaEguneratuMember(){
         this.view.jTableMember.setModel(new MembersTableModel());
     }
