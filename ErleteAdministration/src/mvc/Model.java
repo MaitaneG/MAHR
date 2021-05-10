@@ -93,7 +93,7 @@ public class Model {
     public ArrayList<Extractor> showBookings() {
 
         ArrayList<Extractor> boo = new ArrayList<>();
-        String sql = "SELECT * FROM Extractor";
+        String sql = "SELECT * FROM Bookings";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
