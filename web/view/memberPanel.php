@@ -64,7 +64,7 @@ $member="menber";
                         ?>
 
                         <li class="nav-item">
-                            <a class="nav-link p-3" href="contact.html">Contact</a>
+                            <a class="nav-link p-3" href="contact.php">Contact</a>
                         </li>
                     </ul>
 

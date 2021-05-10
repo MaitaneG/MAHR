@@ -57,14 +57,14 @@ $member="menber";
                         </li>
                         <?php
                         if ($member) {
-                            echo '<li class="nav-item active">
-                                        <a class="nav-link p-3 active disabled" href="#">Member Panel</a>
+                            echo '<li class="nav-item">
+                                        <a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
                                     </li>';
                         }
                         ?>
 
-                        <li class="nav-item">
-                            <a class="nav-link p-3" href="contact.html">Contact</a>
+                        <li class="nav-item active">
+                            <a class="nav-link p-3 active disabled" href="#">Contact</a>
                         </li>
                     </ul>
 
