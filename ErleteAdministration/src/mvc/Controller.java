@@ -27,6 +27,7 @@ public class Controller implements ActionListener{
         
         taulaEguneratuMember();
         taulaEguneratuAccount();
+        taulaEguneratuBooking();
                 
         addActionListener(this);
     }
@@ -60,16 +61,13 @@ public class Controller implements ActionListener{
     }
     
     public void taulaEguneratuBooking(){
-        this.view.jTableMember.setModel(new BookingTableModel());
+        this.view.jTableBooking.setModel(new BookingTableModel());
     }
     
     public void taulaEguneratuMember(){
         this.view.jTableMember.setModel(new MembersTableModel());
     }
     
-//    public void taulaEguneratuBooking(){
-//        this.view.jTableMember.setModel(new BookingTableModel());
-//    }
     
     public boolean Login(){
         String u = view.jTextFieldEmailLogin.getText();

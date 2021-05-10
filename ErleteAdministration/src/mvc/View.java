@@ -57,10 +57,10 @@ public class View extends javax.swing.JFrame {
         jTextFieldName1 = new javax.swing.JTextField();
         jLabelDni1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTableMember1 = new javax.swing.JTable();
+        jTableBooking = new javax.swing.JTable();
         jPanelBins = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableBin = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jPanelAccounts = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -243,6 +243,12 @@ public class View extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldSurname1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSurname1ActionPerformed(evt);
+            }
+        });
+
         jLabelSurname1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelSurname1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelSurname1.setText("MAIL");
@@ -288,8 +294,8 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
-        jTableMember1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jTableMember1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableBooking.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jTableBooking.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -300,7 +306,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTableMember1);
+        jScrollPane4.setViewportView(jTableBooking);
 
         javax.swing.GroupLayout jPanelBookingsLayout = new javax.swing.GroupLayout(jPanelBookings);
         jPanelBookings.setLayout(jPanelBookingsLayout);
@@ -335,7 +341,7 @@ public class View extends javax.swing.JFrame {
         jPanelBins.setBackground(new java.awt.Color(244, 164, 12));
         jPanelBins.setPreferredSize(new java.awt.Dimension(1000, 500));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableBin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -346,7 +352,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableBin);
 
         jLabel5.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
@@ -581,6 +587,10 @@ public class View extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextFieldSurname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSurname1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSurname1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -662,10 +672,10 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPaneMenu;
-    private javax.swing.JTable jTable1;
     javax.swing.JTable jTableAccount;
+    javax.swing.JTable jTableBin;
+    javax.swing.JTable jTableBooking;
     javax.swing.JTable jTableMember;
-    javax.swing.JTable jTableMember1;
     private javax.swing.JTextField jTextField4;
     javax.swing.JTextField jTextFieldDni;
     javax.swing.JTextField jTextFieldDni1;
