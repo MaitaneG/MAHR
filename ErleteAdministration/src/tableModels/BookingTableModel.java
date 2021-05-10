@@ -21,7 +21,7 @@ public class BookingTableModel extends AbstractTableModel{
 
 
     public BookingTableModel() {
-        //datuak = model.showUsers();
+        datuak = model.showBookings();
     }
     
     @Override
