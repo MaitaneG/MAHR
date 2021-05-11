@@ -62,6 +62,8 @@ public class View extends javax.swing.JFrame {
         jLabelDni1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableBooking = new javax.swing.JTable();
+        jButtonDeleteBooking = new javax.swing.JButton();
+        jLabelErrorBooking = new javax.swing.JLabel();
         jPanelBins = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableBin = new javax.swing.JTable();
@@ -83,13 +85,15 @@ public class View extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabelErrorMessage = new javax.swing.JLabel();
 
+        jDialogMenu.setTitle("ADMINISTRATION");
         jDialogMenu.setBackground(new java.awt.Color(219, 139, 34));
+        jDialogMenu.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jDialogMenu.setMinimumSize(new java.awt.Dimension(1000, 700));
         jDialogMenu.setResizable(false);
 
         jTabbedPaneMenu.setBackground(new java.awt.Color(219, 139, 34));
         jTabbedPaneMenu.setForeground(new java.awt.Color(51, 51, 51));
-        jTabbedPaneMenu.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTabbedPaneMenu.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jTabbedPaneMenu.setMinimumSize(new java.awt.Dimension(35, 74));
         jTabbedPaneMenu.setPreferredSize(new java.awt.Dimension(1000, 500));
 
@@ -358,7 +362,7 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldEmailBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSurname1))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jTableBooking.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
@@ -376,6 +380,15 @@ public class View extends javax.swing.JFrame {
         jTableBooking.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(jTableBooking);
 
+        jButtonDeleteBooking.setBackground(new java.awt.Color(219, 139, 34));
+        jButtonDeleteBooking.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jButtonDeleteBooking.setText("DELETE");
+        jButtonDeleteBooking.setActionCommand("DELETE_BOOKING");
+        jButtonDeleteBooking.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonDeleteBooking.setFocusable(false);
+
+        jLabelErrorBooking.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanelBookingsLayout = new javax.swing.GroupLayout(jPanelBookings);
         jPanelBookings.setLayout(jPanelBookingsLayout);
         jPanelBookingsLayout.setHorizontalGroup(
@@ -391,15 +404,25 @@ public class View extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(71, 71, 71))))
+            .addGroup(jPanelBookingsLayout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(jButtonDeleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152)
+                .addComponent(jLabelErrorBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelBookingsLayout.setVerticalGroup(
             jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBookingsLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jLabelBookingTitle)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonDeleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelErrorBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -470,7 +493,7 @@ public class View extends javax.swing.JFrame {
                 .addGroup(jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Metal Bins", jPanelBins);
@@ -520,7 +543,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Accounts", jPanelAccounts);
@@ -735,6 +758,7 @@ public class View extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton jButtonAddMember;
+    javax.swing.JButton jButtonDeleteBooking;
     javax.swing.JButton jButtonDeleteMember;
     javax.swing.JButton jButtonSubmitLogin;
     javax.swing.JButton jButtonUpdateMember;
@@ -749,6 +773,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDni;
     private javax.swing.JLabel jLabelDni1;
     private javax.swing.JLabel jLabelEmail;
+    javax.swing.JLabel jLabelErrorBooking;
     javax.swing.JLabel jLabelErrorMember;
     javax.swing.JLabel jLabelErrorMessage;
     private javax.swing.JLabel jLabelLoginTitle;

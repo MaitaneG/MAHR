@@ -44,11 +44,7 @@ public class Controller implements ActionListener {
         this.model = model;
         this.view = view;
 
-        taulaEguneratuMember();
-        taulaEguneratuAccount();
-        taulaEguneratuBooking();
-        taulaEguneratuContainer();
-        taulaEguneratuContainer_Use();
+        taulakEguneratu();
 
         addActionListener(this);
     }
@@ -63,6 +59,7 @@ public class Controller implements ActionListener {
         view.jButtonAddMember.addActionListener(listener);
         view.jButtonUpdateMember.addActionListener(listener);
         view.jButtonDeleteMember.addActionListener(listener);
+        view.jButtonDeleteBooking.addActionListener(listener);
     }
 
     /**
@@ -75,106 +72,99 @@ public class Controller implements ActionListener {
         String actionCommand = e.getActionCommand();
 
         switch (actionCommand) {
+            /* When you want to log in */
+            // When you click submit button
             case "SUBMIT":
-                if (login()) {
-                    view.jDialogMenu.setVisible(true);
-                    view.jLabelErrorMessage.setText("");
-                } else {
-                    System.out.println("Venga chaval, buen intento!");
-                    view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
-                }
-                view.jTextFieldEmailLogin.setText("");
-                view.jPasswordFieldPasswordLogin.setText("");
+                login();
                 break;
+            /* When you want to add a member */
+            // When you click ADD_MEMBER button
             case "ADD_MEMBER":
-                if (enterUser()) {
-
-                } else {
-                    view.jLabelErrorMember.setText("The member couldn't be added correctly");
-                }
+                enterUser();
                 break;
             case "UPDATE_MEMBER":
                 if (updateUser()) {
-
+                    taulakEguneratu();
                 } else {
                     view.jLabelErrorMember.setText("The member couldn't be updated correctly");
                 }
                 break;
             case "DELETE_MEMBER":
-                if (deleteUser()) {
-
-                } else {
-                    view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
-                }
+                deleteUser();
+                break;
+            case "DELETE_BOOKING":
+                deleteBooking();
                 break;
         }
     }
 
-    public void taulaEguneratuAccount() {
+    public void taulakEguneratu() {
         this.view.jTableAccount.setModel(new AccountTableModel());
-    }
-
-    public void taulaEguneratuBooking() {
         this.view.jTableBooking.setModel(new BookingTableModel());
-    }
-
-    public void taulaEguneratuMember() {
         this.view.jTableMember.setModel(new MembersTableModel());
-    }
-
-    public void taulaEguneratuContainer() {
         this.view.jTableBin.setModel(new CansTableModel());
-    }
-
-    public void taulaEguneratuContainer_Use() {
         this.view.jTableBin_Use.setModel(new Cans_UseTableModel());
     }
 
-    public boolean login() {
+    public void login() {
         String u = view.jTextFieldEmailLogin.getText();
         String p = new String(view.jPasswordFieldPasswordLogin.getPassword());
 
         ArrayList<User> us = model.showUsers();
-        boolean log = false;
 
         for (int i = 0; i < us.size(); i++) {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
-                log = true;
+                view.jDialogMenu.setVisible(true);
+                view.jLabelErrorMessage.setText("");
                 break;
             } else {
-                log = false;
+                System.out.println("Venga chaval, buen intento!");
+                view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
             }
         }
-        return log;
+
+        view.jTextFieldEmailLogin.setText("");
+        view.jPasswordFieldPasswordLogin.setText("");
     }
 
-    public boolean enterUser() {
-        User u = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldDni.getText().trim(), 
-                view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(), 
-                new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(), 
+    public void enterUser() {
+        User u = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
+                view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
+                new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
                 view.jRadioButtonAdministrator.isSelected());
-        
-        
-        return false;
+        if (model.addUser(u) == 1) {
+            taulakEguneratu();
+            view.jLabelErrorMember.setText("");
+        } else {
+            view.jLabelErrorMember.setText("The member couldn't be added correctly");
+        }
     }
 
     public boolean updateUser() {
         return false;
     }
 
-    public boolean changeUser() {
-        return false;
+    public void deleteUser() {
+        int lerroa = view.jTableMember.getSelectedRow();
+        String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
+        if (model.deleteMember(gakoa) == 1) {
+            view.jLabelErrorMember.setText("");
+            taulakEguneratu();
+        } else {
+            view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
+        }
     }
-
-    public boolean deleteUser() {
-        return false;
-    }
-
-    public boolean enterBooking() {
-        return false;
-    }
-
+    
     public boolean deleteBooking() {
+        int lerroa = view.jTableBooking.getSelectedRow();
+        int gakoa = (Integer) view.jTableBooking.getValueAt(lerroa, 0);
+        
+        if (model.deleteBooking(gakoa) == 1) {
+            view.jLabelErrorBooking.setText("");
+            taulakEguneratu();
+        } else {
+            view.jLabelErrorBooking.setText("The booking couldn't be deleted correctly");
+        }
         return false;
     }
 }
