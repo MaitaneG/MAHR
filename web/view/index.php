@@ -7,13 +7,7 @@ if ($_SESSION["member"]) {
     $mail=$member[0]["mail"];
     $admin = $member[0]["admin"];
 }
-            if ($logged == "logged") {
-                echo"<script>alert('You are logged');</script>";
-                echo"<script>console.log('$member');</script>";
-                
-            } else if ($logged == "not logged") {
-                echo"<script>alert('You are not logged');</script>";
-            }
+
 ?>
 
 <!doctype html>

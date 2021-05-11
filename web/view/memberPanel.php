@@ -7,6 +7,9 @@ if ($_SESSION["member"]) {
     $member = $_SESSION["member"];
     $mail = $member[0]["mail"];
     $admin = $member[0]["admin"];
+}else{
+    echo "RESTRICTED AREA";
+    die();
 }
 ?>
 
@@ -126,7 +129,7 @@ if ($_SESSION["member"]) {
                                         <table  class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>ID_Booking</th>
+                                                    
                                                     <th>Date</th>
                                                     <th colspan="2">Email</th>
                                                 </tr>

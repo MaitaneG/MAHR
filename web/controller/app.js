@@ -26,7 +26,6 @@ let date = $("#datepicker").val();
                         template += `
                                     
                                         <tr class="${reserve.id}">
-                                             <td>${reserve.id}</td>
                                              <td>${reserve.date}</td>
                                              <td>${reserve.mail}</td>`;
                                 if (currentMail === `${reserve.mail}`) {
@@ -226,7 +225,6 @@ fecthBooks();
                                         template += `
                                     
                                         <tr class="${reserve.id}">
-                                             <td>${reserve.id}</td>
                                              <td><a href"#" class="task-item">${reserve.date}</a></td>
                                              <td>${reserve.mail}</td>`;
                                                 if (currentMail === `${reserve.mail}`) {
