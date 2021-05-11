@@ -38,14 +38,15 @@ $member = "menber";
         <link rel="stylesheet" href="/resources/demos/style.css">
         <title>Erlete beekepers' association</title>
     </head>
-    <body class="url">
 
+    <body class="url">
+        <!-- One way to present a title and content in a very prominent way on a page-->
         <div class="jumbotron bg-yellow">
             <h1>Erlete Beekepers' Association</h1>
 
         </div>
 
-        <!--        NAVIGATION BAR-->
+        <!--NAVIGATION BAR-->
         <div class="container-fluid sticky-top">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,83 +94,13 @@ $member = "menber";
                 </div>
             </nav>
         </div>
+        <!-- END OF THE NAVIGATION BAR -->
 
-        <!-- CONTENIDO-->
-
-
-
+        <!-- CONTAINER-->
         <div class="container">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="images/img4.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img1.jpeg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img2.jpg" alt="Third slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img3.jpg" alt="Fourth slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-sm-12" align="center">
-                    <h2>What is Erlete Beekepers' Association?</h2>
-                    <p>Erlete Beekepers' Association is an association created to
-                        produce your own honey. For an annual fee of 30 euros it is possible to visit the honey extarction local, produce your own honey and take it home. Apart from the annual fee, the member will be required to pay 25 cents per kilo produced.</p>
-                    <p>To extract the honey you have to reserve the extractor. After you have used it, you will be authorised to use the honey extractor to store your honey for the next 20 days. </p>
-
-                    <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>
-                </div>
-
-                <div class="col-sm-12" align="center"><h2>Rules</h2></div>
-
-
-
-                <div class="col-sm-4">
-
-                    <h3>Rule 1</h3>
-                    <p>The first rule is that the member can only reserve the extractor once a day.</p>
-                    <p>And the member will have to specify the time he or she is going to go.</p>
-                </div>
-                <div class="col-sm-4">
-
-                    <h3>Rule 2</h3>
-                    <p>There will be a specific day to pay the membership fee, if it is not paid by that day, the member will receive a notice.</p>
-                </div>
-                <div class="col-sm-4">
-
-                    <h3>Rule 3</h3>        
-                    <p></p>
-                </div>
-
-                <br>
-                <div class="col-sm-12" align="center"><h2>Bees Information</h2></div>
-
-
-            </div>
-
+            
             <!-- ACCORDION-->
-
-            <div id="accordion">
+            <div id="accordion" class="mt-3">
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
@@ -178,12 +109,28 @@ $member = "menber";
                             </button>
                         </h5>
                     </div>
-
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-12">
+
+
+
+
+
+                                        <!--DATEPICKER using JQuery to show a calendar-->
+                                        <p>Date: <input type="text" id="datepicker" size="30"> <button class="btn bg-yellow ml-3" type="button">Reserve</button>
+                                        <button class="btn bg-yellow ml-3" type="button">Cancel</button></p>
+                                        
+
+
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <!-- Table for the bookings-->
                                         <h3>Bookings</h3>
                                         <table class="table">
                                             <thead>
@@ -202,25 +149,12 @@ $member = "menber";
 
                                             </tbody>
                                         </table>
+                                        
 
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-12">
-
-
-
-
-
-
-                                        <p>Date: <input type="text" id="datepicker" size="30"></p>
-
-
-
-
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -234,7 +168,31 @@ $member = "menber";
                         </h5>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body">
+                        <div class="card-body p-3">
+                            <h3>Production</h3> 
+<div class="row p-3">
+
+    <input type="text" name="Production" placeholder="Production Kg"> 
+    <button class="btn bg-yellow ml-3" type="button" >Register</button>
+     <label></label>
+</div>
+<!--CARD to divide the cans-->
+<div class="row justify-content-between">
+    <div class="col-12">
+        <div class="card" style="width: 18rem;">
+            <h5 class="card-title" align="center">Id can</h5>
+  
+  <div class="card-body">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <button class="btn bg-yellow">Use</button> 
+    <button class="btn bg-yellow">Cancel</button> 
+  </div>
+</div>
+    </div>
+    
+
+</div>
 
                         </div>
                     </div>
@@ -249,9 +207,94 @@ $member = "menber";
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
+                                <div class="row">
+                                    <!--Table to see the payments-->
+                                    <div class="col-12">
+                                        <h3>View</h3>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Amount</th>
+                                                    <th scope="col">Concept</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
 
-                        </div>
+                                            </tbody>
+                                        </table>
+
+                                        </div>
                     </div>
+
+
+                                        <div class="row">
+                                            <!--Table to see the fees and to pay them-->
+                                            <div class="col-6">
+                                                <h3>Fees</h3>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th scope="col">ID_Fee</th>
+                                                    <th scope="col">Year</th>
+                                                    <th scope="col">Payed</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <button class="btn bg-yellow" type="button">Pay</button>
+
+                                            </div>
+
+                                            <!--Table to see the fees and to pay them-->
+                                            <div class="col-6">
+                                                <h3>Tax</h3>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th scope="col">Production</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <button class="btn bg-yellow" type="button">Pay</button>
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+                        
                 </div>
             </div>
             <!--ACCORION END-->
@@ -259,8 +302,9 @@ $member = "menber";
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <!--The function to make uit work the datapicker-->
         <script>
             $(function () {
                 $("#datepicker").datepicker();
