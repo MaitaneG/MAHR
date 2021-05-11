@@ -31,7 +31,7 @@ $member="menber";
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -132,12 +132,12 @@ $member="menber";
  
   <div class="col-sm-12" align="center">
     <h2>Location</h2>
-    <p><b>Direction:</b> San Juan Plaza 1;
-       <b>Municipality:</b> Axpe;
-       <b>Province:</b> Bizkaia;
-       <b>Postcode:</b> 48291;
-       <u><b>GPS Address:</b></u>
-       <b>Latitude:</b> 43.1156673 ;
+    <p><b>Direction:</b> San Juan Plaza 1;<br>
+       <b>Municipality:</b> Axpe;<br>
+       <b>Province:</b> Bizkaia;<br>
+       <b>Postcode:</b> 48291;<br>
+       <u><b>GPS Address:</b></u><br>
+       <b>Latitude:</b> 43.1156673 ;<br>
        <b>Length:</b> -2.5982992</p>
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23302.940519782715!2d-2.603144!3d43.107298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fd2f2a4d7a841%3A0xdebc4249323c4949!2sSan%20Juan%20Plaza%2C%201%2C%2048291%20Axpe%2C%20Bizkaia%2C%20Spain!5e0!3m2!1sen!2sus!4v1620634544007!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
