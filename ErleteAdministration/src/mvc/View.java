@@ -88,11 +88,13 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPaneMenu.setBackground(new java.awt.Color(219, 139, 34));
         jTabbedPaneMenu.setForeground(new java.awt.Color(51, 51, 51));
+        jTabbedPaneMenu.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTabbedPaneMenu.setMinimumSize(new java.awt.Dimension(35, 74));
         jTabbedPaneMenu.setPreferredSize(new java.awt.Dimension(1000, 500));
 
         jPanelMembers.setBackground(new java.awt.Color(244, 164, 12));
         jPanelMembers.setToolTipText("");
+        jPanelMembers.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jPanelMembers.setMinimumSize(new java.awt.Dimension(496, 335));
         jPanelMembers.setName(""); // NOI18N
         jPanelMembers.setPreferredSize(new java.awt.Dimension(1000, 500));
@@ -103,13 +105,23 @@ public class View extends javax.swing.JFrame {
         jLabelAccount.setForeground(new java.awt.Color(0, 0, 0));
         jLabelAccount.setText("ACCOUNT");
 
+        jTextFieldSurname.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+
         jLabelSurname.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelSurname.setForeground(new java.awt.Color(0, 0, 0));
         jLabelSurname.setText("SURNAME");
 
+        jTextFieldEmail.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+
+        jTextFieldDni.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+
         jLabelName.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(0, 0, 0));
         jLabelName.setText("NAME");
+
+        jTextFieldName.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+
+        jTextField4.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         jLabelEmail.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(0, 0, 0));
@@ -127,6 +139,8 @@ public class View extends javax.swing.JFrame {
         jRadioButtonAdministrator.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jRadioButtonAdministrator.setForeground(new java.awt.Color(0, 0, 0));
         jRadioButtonAdministrator.setText("ADMINISTRADOR");
+
+        jPasswordFieldPassword.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,7 +203,7 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        jTableMember.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jTableMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jTableMember.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -210,18 +224,21 @@ public class View extends javax.swing.JFrame {
         jLabel1.setText("MEMBERS");
 
         jButtonAddMember.setBackground(new java.awt.Color(219, 139, 34));
+        jButtonAddMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jButtonAddMember.setText("ADD");
         jButtonAddMember.setActionCommand("ADD_MEMBER");
         jButtonAddMember.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonAddMember.setFocusable(false);
 
         jButtonUpdateMember.setBackground(new java.awt.Color(219, 139, 34));
+        jButtonUpdateMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jButtonUpdateMember.setText("UPDATE");
         jButtonUpdateMember.setActionCommand("UPDATE_MEMBER");
         jButtonUpdateMember.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonUpdateMember.setFocusable(false);
 
         jButtonDeleteMember.setBackground(new java.awt.Color(219, 139, 34));
+        jButtonDeleteMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jButtonDeleteMember.setText("DELETE");
         jButtonDeleteMember.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonDeleteMember.setFocusable(false);
@@ -264,12 +281,13 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jButtonDeleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Members", jPanelMembers);
 
         jPanelBookings.setBackground(new java.awt.Color(244, 164, 12));
+        jPanelBookings.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jPanelBookings.setPreferredSize(new java.awt.Dimension(1000, 500));
 
         jLabelBookingTitle.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
@@ -279,6 +297,7 @@ public class View extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextFieldSurname1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jTextFieldSurname1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldSurname1ActionPerformed(evt);
@@ -289,9 +308,13 @@ public class View extends javax.swing.JFrame {
         jLabelSurname1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelSurname1.setText("MAIL");
 
+        jTextFieldDni1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+
         jLabelName1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelName1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelName1.setText("DATE");
+
+        jTextFieldName1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         jLabelDni1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelDni1.setForeground(new java.awt.Color(0, 0, 0));
@@ -330,7 +353,7 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
-        jTableBooking.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jTableBooking.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jTableBooking.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -376,8 +399,10 @@ public class View extends javax.swing.JFrame {
         jTabbedPaneMenu.addTab("Bookings", jPanelBookings);
 
         jPanelBins.setBackground(new java.awt.Color(244, 164, 12));
+        jPanelBins.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jPanelBins.setPreferredSize(new java.awt.Dimension(1000, 500));
 
+        jTableBin.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jTableBin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -397,6 +422,7 @@ public class View extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("BINS");
 
+        jTableBin_Use.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jTableBin_Use.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -436,14 +462,16 @@ public class View extends javax.swing.JFrame {
                 .addGroup(jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Metal Bins", jPanelBins);
 
         jPanelAccounts.setBackground(new java.awt.Color(244, 164, 12));
+        jPanelAccounts.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jPanelAccounts.setPreferredSize(new java.awt.Dimension(1000, 500));
 
+        jTableAccount.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jTableAccount.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -484,7 +512,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Accounts", jPanelAccounts);
@@ -520,8 +548,10 @@ public class View extends javax.swing.JFrame {
 
         jPanelWhite.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPasswordFieldPasswordLogin.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jPasswordFieldPasswordLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        jTextFieldEmailLogin.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jTextFieldEmailLogin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jButtonSubmitLogin.setBackground(new java.awt.Color(219, 139, 34));
