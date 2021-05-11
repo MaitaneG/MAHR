@@ -60,6 +60,9 @@ public class Controller implements ActionListener {
      */
     private void addActionListener(ActionListener listener) {
         view.jButtonSubmitLogin.addActionListener(listener);
+        view.jButtonAddMember.addActionListener(listener);
+        view.jButtonUpdateMember.addActionListener(listener);
+        view.jButtonDeleteMember.addActionListener(listener);
     }
 
     /**
@@ -82,14 +85,31 @@ public class Controller implements ActionListener {
                 }
                 view.jTextFieldEmailLogin.setText("");
                 view.jPasswordFieldPasswordLogin.setText("");
-
+                break;
+            case "ADD_MEMBER":
+                if(enterUser()){
+                    
+                }else{
+                    view.jLabelErrorMember.setText("The member couldn't be added correctly");
+                }
+                break;
+            case "UPDATE_MEMBER":
+                if(updateUser()){
+                    
+                }else{
+                    view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+                }
+                break;
+            case "DELETE_MEMBER":
+                if(deleteUser()){
+                    
+                }else{
+                    view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
+                }
                 break;
         }
     }
 
-    /**
-     * 
-     */
     public void taulaEguneratuAccount() {
         this.view.jTableAccount.setModel(new AccountTableModel());
     }
@@ -110,6 +130,7 @@ public class Controller implements ActionListener {
         this.view.jTableBin_Use.setModel(new Cans_UseTableModel());
     }
 
+    
     public boolean login() {
         String u = view.jTextFieldEmailLogin.getText();
         String p = new String(view.jPasswordFieldPasswordLogin.getPassword());

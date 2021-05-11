@@ -50,6 +50,7 @@ public class View extends javax.swing.JFrame {
         jButtonAddMember = new javax.swing.JButton();
         jButtonUpdateMember = new javax.swing.JButton();
         jButtonDeleteMember = new javax.swing.JButton();
+        jLabelErrorMember = new javax.swing.JLabel();
         jPanelBookings = new javax.swing.JPanel();
         jLabelBookingTitle = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -240,8 +241,11 @@ public class View extends javax.swing.JFrame {
         jButtonDeleteMember.setBackground(new java.awt.Color(219, 139, 34));
         jButtonDeleteMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jButtonDeleteMember.setText("DELETE");
+        jButtonDeleteMember.setActionCommand("DELETE_MEMBER");
         jButtonDeleteMember.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonDeleteMember.setFocusable(false);
+
+        jLabelErrorMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanelMembersLayout = new javax.swing.GroupLayout(jPanelMembers);
         jPanelMembers.setLayout(jPanelMembersLayout);
@@ -265,6 +269,8 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(jButtonDeleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90)
+                .addComponent(jLabelErrorMember, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelMembersLayout.setVerticalGroup(
@@ -274,14 +280,16 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonDeleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonAddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonDeleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelErrorMember, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Members", jPanelMembers);
@@ -741,6 +749,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDni;
     private javax.swing.JLabel jLabelDni1;
     private javax.swing.JLabel jLabelEmail;
+    javax.swing.JLabel jLabelErrorMember;
     javax.swing.JLabel jLabelErrorMessage;
     private javax.swing.JLabel jLabelLoginTitle;
     private javax.swing.JLabel jLabelName;
