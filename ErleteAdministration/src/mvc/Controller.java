@@ -83,11 +83,7 @@ public class Controller implements ActionListener {
                 enterUser();
                 break;
             case "UPDATE_MEMBER":
-                if (updateUser()) {
-                    taulakEguneratu();
-                } else {
-                    view.jLabelErrorMember.setText("The member couldn't be updated correctly");
-                }
+                updateUser();
                 break;
             case "DELETE_MEMBER":
                 deleteUser();
@@ -140,8 +136,8 @@ public class Controller implements ActionListener {
         }
     }
 
-    public boolean updateUser() {
-        return false;
+    public void updateUser() {
+        
     }
 
     public void deleteUser() {
