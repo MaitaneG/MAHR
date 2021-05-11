@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 session_start();
-$member="menber";
+$member = "menber";
 //$logged = $_SESSION["submitted"];
 //if ($_SESSION["member"]) {
 //    $member = $_SESSION["member"];
@@ -31,20 +31,21 @@ $member="menber";
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
         <title>Erlete beekepers' association</title>
     </head>
     <body class="url">
 
         <div class="jumbotron bg-yellow">
             <h1>Erlete Beekepers' Association</h1>
-            
+
         </div>
 
-<!--        NAVIGATION BAR-->
+        <!--        NAVIGATION BAR-->
         <div class="container-fluid sticky-top">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,8 +71,8 @@ $member="menber";
 
                     <?php
                     if (!$member) {
-                       
-                        
+
+
                         echo '<form action="../controller/LoginValidation.php" class="form-inline" method="POST">
 
                             <input name="email" type="email" class="form-control mb-2 mr-sm-2" 
@@ -83,9 +84,9 @@ $member="menber";
                         </form>';
                     } else {
                         echo "<h6 class='p-3'>$mail</h6>";
-                        echo '<form action="../controller/logout.php">'    
-                                . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
-                           . '</form>';
+                        echo '<form action="../controller/logout.php">'
+                        . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
+                        . '</form>';
                     }
                     ?>
 
@@ -93,7 +94,7 @@ $member="menber";
             </nav>
         </div>
 
-<!-- CONTENIDO-->
+        <!-- CONTENIDO-->
 
 
 
@@ -168,93 +169,105 @@ $member="menber";
 
             <!-- ACCORDION-->
 
-<div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        1. Bookings
-        </button>
-      </h5>
-    </div>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                1. Bookings
+                            </button>
+                        </h5>
+                    </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h3>Bookings</h3>
-                        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID_Booking</th>
-      <th scope="col">Date</th>
-      <th scope="col">Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-    </tr>
-    
-  </tbody>
-</table>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3>Bookings</h3>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">ID_Booking</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
 
-</div>
-</div>
+                                            </tbody>
+                                        </table>
 
-<div class="row">
-    <div class="col-12">
-        <script>
-         $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
-  </script>
-</head>
-<body>
- 
-<p>Date: <input type="text" id="datepicker"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
 
 
-    </div>
-</div>
+
+
+
+
+                                        <p>Date: <input type="text" id="datepicker" size="30"></p>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                2. Cans
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                3. Payments
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
             </div>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        2. Cans
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          3. Payments
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-       
-      </div>
-    </div>
-  </div>
-</div>
-<!--ACCORION END-->
+            <!--ACCORION END-->
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(function () {
+                $("#datepicker").datepicker();
+                $("#anim").on("change", function () {
+                    $("#datepicker").datepicker("option", "showAnim", $(this).val());
+                });
+            });
+        </script>
     </body>
 </html>
