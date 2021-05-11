@@ -24,7 +24,7 @@ background-size: 100% 2px;
 }
 
 /*A class used to change the cursor*/
-.url{cursor:url(../images/puntero1.gif), auto;}
+/*.url{cursor:url(../images/puntero1.gif), auto;}*/
 
 /*Is a class used to mark the active item of the navbar*/
 .active{

@@ -4,11 +4,12 @@ include("testConexion.php");
 
 //BOOKINGS TABLE API
 function selectBookings() {
-    //Select full list of bookings
+    //Select full list of bookings for today and after today
     //return: 
     //0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
     $conexion = ConnectDataBase();
-    $query = "SELECT * FROM bookings";
+    $today=date("Y/m/d", time());
+    $query = "SELECT * FROM bookings where date>='$today' ORDER BY date ASC";
     $result = mysqli_query($conexion, $query);
     if (!$result) {
         die("Query error" . mysqli_error($conexion));
@@ -21,7 +22,7 @@ function selectBookings() {
             'mail' => $row[2]
         );
     }
-    mysqli_free_result($row);
+
     mysqli_close($conexion);
     return $results;
 }
@@ -30,9 +31,10 @@ function searchReserve($date) {
     //Select reserve of a selected day
     //return: 
     //0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
+     $today=date("Y/m/d", time());
     $conexion = ConnectDataBase();
-    $query = "SELECT * FROM bookings WHERE date='$date";
-    $stmt = $conexion->prepare($query);
+    $query = "SELECT * FROM bookings WHERE date='$date' and date>='$today' ORDER BY date ASC";
+   
 
     $result = mysqli_query($conexion, $query);
     if (!$result) {
@@ -46,7 +48,7 @@ function searchReserve($date) {
             'mail' => $row[2]
         );
     }
-    mysqli_free_result($row);
+
     mysqli_close($conexion);
     return $results;
 }
@@ -54,12 +56,11 @@ function searchReserve($date) {
 function addReserve($date, $mail) {
     //Add a new reserve
     //return String
-    include("connect.php");
+ 
     $conexion = ConnectDataBase();
 
-    $query = "INSERT INTO members(date, mail) VALUES('$date',$mail')";
+    $query = "INSERT INTO bookings(date, mail) VALUES('$date','$mail')";
     $result = mysqli_query($conexion, $query);
-    mysqli_free_result($row);
     mysqli_close($conexion);
     if (!$result) {
         return "SERVER ERROR";
@@ -67,15 +68,14 @@ function addReserve($date, $mail) {
     return "reserve done";
 }
 
-function deleteReserve($date, $mail) {
+function deleteReserve($id) {
     //Delete a reserve
     //return string
-    include("connect.php");
+   
     $conexion = ConnectDataBase();
 
-    $query = "DELETE FROM bookings where date=$date and mail=$mail";
+    $query = "DELETE FROM bookings where id_booking=$id";
     $result = mysqli_query($conexion, $query);
-    mysqli_free_result($row);
     mysqli_close($conexion);
     if (!$result) {
 

@@ -1,20 +1,14 @@
 <?php
 error_reporting(0);
 session_start();
-$member="menber";
-//$logged = $_SESSION["submitted"];
-//if ($_SESSION["member"]) {
-//    $member = $_SESSION["member"];
-//    $mail=$member[0]["mail"];
-//    $admin = $member[0]["admin"];
-//}
-//            if ($logged == "logged") {
-//                echo"<script>alert('You are logged');</script>";
-//                echo"<script>console.log('$member');</script>";
-//                
-//            } else if ($logged == "not logged") {
-//                echo"<script>alert('You are not logged');</script>";
-//            }
+
+$logged = $_SESSION["submitted"];
+if ($_SESSION["member"]) {
+    $member = $_SESSION["member"];
+    $mail=$member[0]["mail"];
+    $admin = $member[0]["admin"];
+}
+
 ?>
 
 <!doctype html>
@@ -40,13 +34,13 @@ $member="menber";
     </head>
     <body class="url">
 
-        <div class="jumbotron bg-yellow">
+        <div class="jumbotron bg-yellow mb-0">
             <h1>Erlete Beekepers' Association</h1>
             
         </div>
 
 <!--        NAVIGATION BAR-->
-        <div class="container-fluid sticky-top">
+        <div class="container-fluid sticky-top mt-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -117,7 +111,7 @@ $member="menber";
 </div>
 </div>
 
-<div class="row jumbotron" >
+<div class="row jumbotron " >
   <div class="col-sm-4" align="left">
     <a href="mailto:{email}?subject={subject}&body={content}">
       Send us an email <img src="images/logo gmail.png" width="100px" height="100px">
