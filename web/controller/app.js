@@ -9,7 +9,7 @@ if ($("#datepicker").val()) {
 let date = $("#datepicker").val();
         let datearray = date.split("/");
         date = datearray[2] + '-' + datearray[0] + '-' + datearray[1];
-        
+        let currentMail = document.getElementById("currentMail").textContent;
         document.querySelector("#datepicker").value = date;
         $.ajax({
         url: "../controller/BookingsC.php",
@@ -29,7 +29,7 @@ let date = $("#datepicker").val();
                                              <td>${reserve.id}</td>
                                              <td>${reserve.date}</td>
                                              <td>${reserve.mail}</td>`;
-                                if (currentMail == `${reserve.mail}`) {
+                                if (currentMail === `${reserve.mail}`) {
                         template += `<td><button class="reserve-delete btn btn-danger"><span class="material-icons-outlined">delete</span></button></td>`;
                         } else {
                         template += `<td></td>`;
@@ -229,7 +229,7 @@ fecthBooks();
                                              <td>${reserve.id}</td>
                                              <td><a href"#" class="task-item">${reserve.date}</a></td>
                                              <td>${reserve.mail}</td>`;
-                                                if (currentMail == `${reserve.mail}`) {
+                                                if (currentMail === `${reserve.mail}`) {
                                         template += `<td><button class="reserve-delete btn btn-danger"><span class="material-icons-outlined">delete</span></button></td>`;
                                         } else {
                                         template += `<td></td>`;
