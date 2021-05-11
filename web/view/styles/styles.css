@@ -16,7 +16,7 @@ a:hover,a:focus {
 background-size: 100% 2px;
 }
 
-.url{cursor:url(C:/Users/monasterio.hodei/Desktop/project/MAHR/web/view/images/puntero1.gif), auto;}
+.url{cursor:url(../images/puntero1.gif), auto;}
 
 .active{
 background-image: linear-gradient(currentColor,currentColor);
