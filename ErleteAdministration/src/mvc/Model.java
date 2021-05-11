@@ -64,6 +64,60 @@ public class Model {
         return use;
     }
 
+    public int addUser(User u) {
+        String sql = "INSERT INTO members VALUES (?,?,?,?,?,?,?)";
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, u.getDni());
+            pstmt.setString(2, u.getName());
+            pstmt.setString(3, u.getSurname());
+            pstmt.setString(4, u.getEmail());
+            pstmt.setString(5, u.getPassword());
+            pstmt.setString(6, u.getAccount());
+            pstmt.setBoolean(7, u.isType());
+            return pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+
+    public int updateMember(String uBilatu, User u) {
+        String sql = "UPDATE members "
+                + "SET dni = ?, name = ?, surname = ?, mail = ?, password = ?, account = ?, admin = ? "
+                + "WHERE mail = ? ";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, u.getDni());
+            pstmt.setString(2, u.getName());
+            pstmt.setString(3, u.getSurname());
+            pstmt.setString(4, u.getEmail());
+            pstmt.setString(5, u.getPassword());
+            pstmt.setString(6, u.getAccount());
+            pstmt.setBoolean(7, u.isType());
+            pstmt.setString(8, uBilatu);
+            return pstmt.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+    }
+
+    public int deleteMember(String u) {
+        String sql = "DELETE FROM members WHERE mail = ?";
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, u);
+            return pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+
     /**
      * Gets all the information of the accounts from the database
      *
@@ -110,6 +164,19 @@ public class Model {
         return boo;
     }
 
+    public int deleteBooking(int b) {
+        String sql = "DELETE FROM bookings WHERE id_booking = ?";
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, b);
+            return pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
+    }
+
     public ArrayList<Container> showContainer() {
 
         ArrayList<Container> boo = new ArrayList<>();
@@ -127,7 +194,7 @@ public class Model {
         }
         return boo;
     }
-    
+
     public ArrayList<Container_Use> showContainer_Use() {
 
         ArrayList<Container_Use> boo = new ArrayList<>();

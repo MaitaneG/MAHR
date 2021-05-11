@@ -34,11 +34,11 @@ public class View extends javax.swing.JFrame {
         jLabelAccount = new javax.swing.JLabel();
         jTextFieldSurname = new javax.swing.JTextField();
         jLabelSurname = new javax.swing.JLabel();
-        jTextFieldEmail = new javax.swing.JTextField();
+        jTextFieldEmailMember = new javax.swing.JTextField();
         jTextFieldDni = new javax.swing.JTextField();
         jLabelName = new javax.swing.JLabel();
         jTextFieldName = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jTextFieldAccount = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
         jLabelDni = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
@@ -54,11 +54,11 @@ public class View extends javax.swing.JFrame {
         jPanelBookings = new javax.swing.JPanel();
         jLabelBookingTitle = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jTextFieldSurname1 = new javax.swing.JTextField();
+        jTextFieldEmailBooking = new javax.swing.JTextField();
         jLabelSurname1 = new javax.swing.JLabel();
-        jTextFieldDni1 = new javax.swing.JTextField();
+        jTextFieldIbooking = new javax.swing.JTextField();
         jLabelName1 = new javax.swing.JLabel();
-        jTextFieldName1 = new javax.swing.JTextField();
+        jTextFieldDate = new javax.swing.JTextField();
         jLabelDni1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTableBooking = new javax.swing.JTable();
@@ -112,7 +112,7 @@ public class View extends javax.swing.JFrame {
         jLabelSurname.setForeground(new java.awt.Color(0, 0, 0));
         jLabelSurname.setText("SURNAME");
 
-        jTextFieldEmail.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jTextFieldEmailMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         jTextFieldDni.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
@@ -122,7 +122,7 @@ public class View extends javax.swing.JFrame {
 
         jTextFieldName.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
-        jTextField4.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jTextFieldAccount.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         jLabelEmail.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(0, 0, 0));
@@ -161,7 +161,7 @@ public class View extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelEmail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldEmailMember, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +178,7 @@ public class View extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jLabelAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34))
         );
         jPanel1Layout.setVerticalGroup(
@@ -195,8 +195,8 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jRadioButtonAdministrator))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEmailMember, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelEmail)
                     .addComponent(jLabelPassword)
                     .addComponent(jLabelAccount)
@@ -289,7 +289,7 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jLabelErrorMember, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Members", jPanelMembers);
@@ -305,24 +305,24 @@ public class View extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextFieldSurname1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jTextFieldSurname1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEmailBooking.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jTextFieldEmailBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSurname1ActionPerformed(evt);
+                jTextFieldEmailBookingActionPerformed(evt);
             }
         });
 
         jLabelSurname1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelSurname1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelSurname1.setText("MAIL");
+        jLabelSurname1.setText("EMAIL");
 
-        jTextFieldDni1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jTextFieldIbooking.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         jLabelName1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelName1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelName1.setText("DATE");
 
-        jTextFieldName1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jTextFieldDate.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         jLabelDni1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelDni1.setForeground(new java.awt.Color(0, 0, 0));
@@ -336,15 +336,15 @@ public class View extends javax.swing.JFrame {
                 .addGap(131, 131, 131)
                 .addComponent(jLabelDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jTextFieldIbooking, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelName1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextFieldName1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(jLabelSurname1)
                 .addGap(14, 14, 14)
-                .addComponent(jTextFieldSurname1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldEmailBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(150, 150, 150))
         );
         jPanel2Layout.setVerticalGroup(
@@ -353,10 +353,10 @@ public class View extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDni1)
-                    .addComponent(jTextFieldDni1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldIbooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelName1)
-                    .addComponent(jTextFieldName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSurname1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEmailBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSurname1))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
@@ -380,8 +380,8 @@ public class View extends javax.swing.JFrame {
         jPanelBookings.setLayout(jPanelBookingsLayout);
         jPanelBookingsLayout.setHorizontalGroup(
             jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBookingsLayout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
+            .addGroup(jPanelBookingsLayout.createSequentialGroup()
+                .addContainerGap(87, Short.MAX_VALUE)
                 .addGroup(jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBookingsLayout.createSequentialGroup()
                         .addComponent(jLabelBookingTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -389,8 +389,8 @@ public class View extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBookingsLayout.createSequentialGroup()
                         .addGroup(jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane4))
-                        .addGap(62, 62, 62))))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71))))
         );
         jPanelBookingsLayout.setVerticalGroup(
             jPanelBookingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -685,9 +685,9 @@ public class View extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldSurname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSurname1ActionPerformed
+    private void jTextFieldEmailBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailBookingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSurname1ActionPerformed
+    }//GEN-LAST:event_jTextFieldEmailBookingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -780,14 +780,14 @@ public class View extends javax.swing.JFrame {
     javax.swing.JTable jTableBin_Use;
     javax.swing.JTable jTableBooking;
     javax.swing.JTable jTableMember;
-    private javax.swing.JTextField jTextField4;
+    javax.swing.JTextField jTextFieldAccount;
+    javax.swing.JTextField jTextFieldDate;
     javax.swing.JTextField jTextFieldDni;
-    javax.swing.JTextField jTextFieldDni1;
-    javax.swing.JTextField jTextFieldEmail;
+    javax.swing.JTextField jTextFieldEmailBooking;
     javax.swing.JTextField jTextFieldEmailLogin;
+    javax.swing.JTextField jTextFieldEmailMember;
+    javax.swing.JTextField jTextFieldIbooking;
     javax.swing.JTextField jTextFieldName;
-    javax.swing.JTextField jTextFieldName1;
     javax.swing.JTextField jTextFieldSurname;
-    javax.swing.JTextField jTextFieldSurname1;
     // End of variables declaration//GEN-END:variables
 }

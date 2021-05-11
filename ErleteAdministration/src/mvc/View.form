@@ -131,7 +131,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace pref="28" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -162,7 +162,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextFieldEmail" min="-2" pref="90" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldEmailMember" min="-2" pref="90" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jLabelPassword" min="-2" pref="81" max="-2" attributes="0"/>
                                   </Group>
@@ -182,7 +182,7 @@
                                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                       <Component id="jLabelAccount" min="-2" pref="71" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextField4" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAccount" min="-2" pref="157" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -204,8 +204,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldEmailMember" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldAccount" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelAccount" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -252,7 +252,7 @@
                         <Property name="text" type="java.lang.String" value="SURNAME"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextFieldEmail">
+                    <Component class="javax.swing.JTextField" name="jTextFieldEmailMember">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Garamond" size="14" style="0"/>
@@ -293,12 +293,15 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField4">
+                    <Component class="javax.swing.JTextField" name="jTextFieldAccount">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Garamond" size="14" style="0"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelEmail">
                       <Properties>
@@ -505,8 +508,8 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="106" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace pref="87" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabelBookingTitle" min="-2" pref="217" max="-2" attributes="0"/>
@@ -515,9 +518,9 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jPanel2" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane4" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane4" min="-2" pref="840" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -564,15 +567,15 @@
                               <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                               <Component id="jLabelDni1" min="-2" pref="41" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextFieldDni1" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace pref="52" max="32767" attributes="0"/>
+                              <Component id="jTextFieldIbooking" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabelName1" min="-2" pref="42" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldName1" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="jTextFieldDate" min="-2" pref="102" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Component id="jLabelSurname1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Component id="jTextFieldSurname1" min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="jTextFieldEmailBooking" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -583,10 +586,10 @@
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabelDni1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldDni1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldIbooking" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelName1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldName1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldSurname1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldEmailBooking" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelSurname1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="68" max="32767" attributes="0"/>
@@ -595,14 +598,14 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="jTextFieldSurname1">
+                    <Component class="javax.swing.JTextField" name="jTextFieldEmailBooking">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Garamond" size="14" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSurname1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldEmailBookingActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
@@ -616,10 +619,10 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="0" green="0" red="0" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="MAIL"/>
+                        <Property name="text" type="java.lang.String" value="EMAIL"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextFieldDni1">
+                    <Component class="javax.swing.JTextField" name="jTextFieldIbooking">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Garamond" size="14" style="0"/>
@@ -640,7 +643,7 @@
                         <Property name="text" type="java.lang.String" value="DATE"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextFieldName1">
+                    <Component class="javax.swing.JTextField" name="jTextFieldDate">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Garamond" size="14" style="0"/>
