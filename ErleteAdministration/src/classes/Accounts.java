@@ -22,6 +22,10 @@ public class Accounts {
     /**
      * The constructor of Accounts
      *
+     * In this class we are going to save an id, who has payed, who has received
+     * the money, the date the payment has been done, how much money has been
+     * payed and the total money of the association's account.
+     *
      * @param id
      * @param payer
      * @param collector
@@ -33,13 +37,13 @@ public class Accounts {
         this.id = id;
         this.payer = payer;
         this.collector = collector;
-        this.date = LocalDate.parse(date);
+        this.date = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
         this.amount = amount;
         this.total = total;
     }
 
     /**
-     * 
+     *
      * @return the id of the Accounts
      */
     public int getId() {
@@ -47,7 +51,7 @@ public class Accounts {
     }
 
     /**
-     * 
+     *
      * @return the payer of money of the Accounts
      */
     public String getPayer() {
@@ -55,15 +59,15 @@ public class Accounts {
     }
 
     /**
-     * 
+     *
      * @return the collector of money of the Accounts
      */
     public String getCollector() {
         return collector;
     }
-    
+
     /**
-     * 
+     *
      * @return the Date where the Accounts have been done
      */
     public LocalDate getDate() {
@@ -71,7 +75,7 @@ public class Accounts {
     }
 
     /**
-     * 
+     *
      * @return the amount of money of the Accounts
      */
     public float getAmount() {
@@ -79,33 +83,63 @@ public class Accounts {
     }
 
     /**
-     * 
+     *
      * @return the total money of the association money
      */
     public float getTotal() {
         return total;
     }
 
+    /**
+     * Changes the id of the Accounts
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Changes the payer of the of money of the Accounts
+     *
+     * @param payer
+     */
     public void setPayer(String payer) {
         this.payer = payer;
     }
 
+    /**
+     * Changes the collector of the of money of the Accounts
+     *
+     * @param collector
+     */
     public void setCollector(String collector) {
         this.collector = collector;
     }
 
+    /**
+     * Changes the Date where the Accounts have been done
+     *
+     * @param date
+     */
     public void setDate(String date) {
-        this.date = LocalDate.parse(date);
+        this.date = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
     }
 
+    /**
+     * Changes the amount of money of the Accounts
+     *
+     * @param amount
+     */
     public void setAmount(float amount) {
         this.amount = amount;
     }
 
+    /**
+     * Changes the total money of the association money
+     *
+     * @param total
+     */
     public void setTotal(float total) {
         this.total = total;
     }
