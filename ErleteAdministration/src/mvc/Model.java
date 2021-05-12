@@ -114,6 +114,22 @@ public class Model {
             return 0;
         }
     }
+    
+    public int updateMemberSurname(String gakoa, String uSurname) {
+        String sql = "UPDATE members "
+                + "SET surname = ?"
+                + "WHERE mail = ? ";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, uSurname);
+            pstmt.setString(2, gakoa);
+            return pstmt.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+    }
 
     public int deleteMember(String u) {
         String sql = "DELETE FROM members WHERE mail = ?";

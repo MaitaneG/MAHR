@@ -69,6 +69,17 @@ public class Controller implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
+        int lerroa = view.jTableMember.getSelectedRow();
+
+        if (lerroa != -1) {
+            view.jTextFieldDni.setText((String) view.jTableMember.getValueAt(lerroa, 0));
+            view.jTextFieldName.setText((String) view.jTableMember.getValueAt(lerroa, 1));
+            view.jTextFieldSurname.setText((String) view.jTableMember.getValueAt(lerroa, 2));
+            view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
+            view.jPasswordFieldPassword.setText((String) view.jTableMember.getValueAt(lerroa, 4));
+            view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
+        }
+
         String actionCommand = e.getActionCommand();
 
         switch (actionCommand) {
@@ -82,18 +93,27 @@ public class Controller implements ActionListener {
             case "ADD_MEMBER":
                 enterUser();
                 break;
+            /* When you want to update a member */
+            // When you click UPDATE_MEMBER button
             case "UPDATE_MEMBER":
                 updateUser();
                 break;
+            /* When you want to delete a member */
+            // When you click DELETE_MEMBER button
             case "DELETE_MEMBER":
                 deleteUser();
                 break;
+            /* When you want to delete a member */
+            // When you click DELETE_BOOKING button
             case "DELETE_BOOKING":
                 deleteBooking();
                 break;
         }
     }
 
+    /**
+     * To update all the tables' information
+     */
     public void taulakEguneratu() {
         this.view.jTableAccount.setModel(new AccountTableModel());
         this.view.jTableBooking.setModel(new BookingTableModel());
@@ -102,12 +122,18 @@ public class Controller implements ActionListener {
         this.view.jTableBin_Use.setModel(new Cans_UseTableModel());
     }
 
+    /**
+     * Is to be used by the administrator in order to log in and prove that
+     * he/she is the administrator
+     */
     public void login() {
+        //Gets the information to log in
         String u = view.jTextFieldEmailLogin.getText();
         String p = new String(view.jPasswordFieldPasswordLogin.getPassword());
 
         ArrayList<User> us = model.showUsers();
 
+        //Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
                 view.jDialogMenu.setVisible(true);
@@ -118,29 +144,42 @@ public class Controller implements ActionListener {
                 view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
             }
         }
-
+        //Cleans the information of the labels
         view.jTextFieldEmailLogin.setText("");
         view.jPasswordFieldPasswordLogin.setText("");
     }
 
+    /**
+     * Gets all the information entered of the user and calls to a method in
+     * order to enter it in the database
+     */
     public void enterUser() {
+        //Create an object with the information
         User u = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
                 view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
                 new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
                 view.jRadioButtonAdministrator.isSelected());
+        //prove that all the gaps are filled
         if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
                 || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
                 || new String(view.jPasswordFieldPassword.getPassword()).equals("")
                 || view.jTextFieldAccount.getText().trim().equals("")) {
             view.jLabelErrorMember.setText("You have to fill all the information.");
+            //Prove that the user has been added
         } else if (model.addUser(u) == 1) {
             taulakEguneratu();
             view.jLabelErrorMember.setText("");
+            //If not added correctly
         } else {
             view.jLabelErrorMember.setText("The member couldn't be added correctly");
         }
     }
 
+    /**
+     * To update users' information
+     *
+     * You can change everything instead of email
+     */
     public void updateUser() {
         int lerroa = view.jTableMember.getSelectedRow();
         if (lerroa == -1) {
@@ -154,7 +193,7 @@ public class Controller implements ActionListener {
                 updateUserName(lerroa, gakoa);
             }
             if (!(view.jTextFieldSurname.getText().trim().equals(""))) {
-                String surname = view.jTextFieldSurname.getText().trim();
+                updateUserSurname(lerroa, gakoa);
             }
             if (!(view.jPasswordFieldPassword.getPassword().equals(""))) {
                 String password = new String(view.jPasswordFieldPassword.getPassword());
@@ -189,18 +228,19 @@ public class Controller implements ActionListener {
         }
     }
 
-    public void updateUserSurname(int lerroa) {
-        String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-        String name = view.jTextFieldName.getText().trim();
+    public void updateUserSurname(int lerroa, String gakoa) {
+        String surname = view.jTextFieldSurname.getText().trim();
 
-        if (model.updateMemberName(gakoa, name) == 1) {
+        if (model.updateMemberSurname(gakoa, surname) == 1) {
             view.jLabelErrorMember.setText("");
             taulakEguneratu();
         } else {
             view.jLabelErrorMember.setText("The member couldn't be updated correctly");
         }
     }
-
+    /**
+     * 
+     */
     public void deleteUser() {
         int lerroa = view.jTableMember.getSelectedRow();
         String gakoa = "";
