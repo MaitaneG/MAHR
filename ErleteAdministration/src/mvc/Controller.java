@@ -169,6 +169,7 @@ public class Controller implements ActionListener {
      * You can change everything instead of email
      */
     public void updateUser() {
+        boolean changed = false;
         int lerroa = view.jTableMember.getSelectedRow();
         if (lerroa == -1) {
             view.jLabelErrorMember.setText("You have to choose a row");
@@ -176,18 +177,26 @@ public class Controller implements ActionListener {
             String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
             if (!(view.jTextFieldDni.getText().trim().equals(""))) {
                 updateUserDni(lerroa, gakoa);
+                changed = true;
             }
             if (!(view.jTextFieldName.getText().trim().equals(""))) {
                 updateUserName(lerroa, gakoa);
+                changed = true;
             }
             if (!(view.jTextFieldSurname.getText().trim().equals(""))) {
                 updateUserSurname(lerroa, gakoa);
+                changed = true;
             }
-            if (!(view.jPasswordFieldPassword.getPassword().equals(""))) {
-                String password = new String(view.jPasswordFieldPassword.getPassword());
+            if (!(new String(view.jPasswordFieldPassword.getPassword()).equals(""))) {
+                updateUserPassword(lerroa, gakoa);
+                changed = true;
             }
             if (!(view.jTextFieldAccount.getText().trim().equals(""))) {
-                String account = view.jTextFieldAccount.getText().trim();
+                updateUserAccount(lerroa, gakoa);
+                changed = true;
+            }
+            if(!changed){
+                view.jLabelErrorMember.setText("Nothing has been changed");
             }
         }
 
@@ -229,7 +238,7 @@ public class Controller implements ActionListener {
         }
         view.jTextFieldSurname.setText("");
     }
-    
+
     public void updateUserPassword(int lerroa, String gakoa) {
         String password = new String(view.jPasswordFieldPassword.getPassword());
 
@@ -241,11 +250,11 @@ public class Controller implements ActionListener {
         }
         view.jPasswordFieldPassword.setText("");
     }
-    
+
     public void updateUserAccount(int lerroa, String gakoa) {
         String password = view.jTextFieldAccount.getText().trim();
 
-        if (model.updateMemberPassword(gakoa, password) == 1) {
+        if (model.updateMemberAccount(gakoa, password) == 1) {
             view.jLabelErrorMember.setText("");
             taulakEguneratu();
         } else {
@@ -256,52 +265,52 @@ public class Controller implements ActionListener {
 
     /**
      * To delete an user
-     * 
+     *
      * You have to select in the table which one do you want to delete
      */
     public void deleteUser() {
         //Gets the selected row
         int lerroa = view.jTableMember.getSelectedRow();
         String gakoa = "";
-        
+
         //If any row hasn't been selected
         if (view.jTableMember.getSelectedRow() == -1) {
             view.jLabelErrorMember.setText("You have to choose a row");
-        //If a row has been selected
+            //If a row has been selected
         } else {
             gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
             //If it has been deleted successfully
             if (model.deleteMember(gakoa) == 1) {
                 view.jLabelErrorMember.setText("");
                 taulakEguneratu();
-            //Not deleted successfully
+                //Not deleted successfully
             } else {
                 view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
             }
         }
     }
-    
+
     /**
      * To delete a booking
-     * 
+     *
      * You have to select in the table which one do yo want to delete.
      */
     public void deleteBooking() {
         //Gets the selected row
         int lerroa = view.jTableBooking.getSelectedRow();
         int gakoa = 0;
-        
+
         //If any row hasn't been selected
         if (view.jTableMember.getSelectedRow() == -1) {
             view.jLabelErrorMember.setText("You have to choose a row");
-        //If a row has been selected
+            //If a row has been selected
         } else {
             gakoa = (Integer) view.jTableBooking.getValueAt(lerroa, 0);
             //If it has been deleted successfully
             if (model.deleteBooking(gakoa) == 1) {
                 view.jLabelErrorBooking.setText("");
                 taulakEguneratu();
-            //Not deleted successfully
+                //Not deleted successfully
             } else {
                 view.jLabelErrorBooking.setText("The booking couldn't be deleted correctly");
             }
