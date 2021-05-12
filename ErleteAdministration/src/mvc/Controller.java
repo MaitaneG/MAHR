@@ -246,7 +246,11 @@ public class Controller implements ActionListener {
             }
         }
     }
-
+    /**
+     * To delete bookings 
+     * 
+     * You have to select in the table which one do yo want to delete.
+     */
     public void deleteBooking() {
         int lerroa = view.jTableBooking.getSelectedRow();
         int gakoa = 0;
