@@ -83,21 +83,31 @@ public class Model {
         }
     }
 
-    public int updateMember(String uBilatu, User u) {
+    public int updateMemberDni(String gakoa, String uDni) {
         String sql = "UPDATE members "
-                + "SET dni = ?, name = ?, surname = ?, mail = ?, password = ?, account = ?, admin = ? "
+                + "SET dni = ?"
                 + "WHERE mail = ? ";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, u.getDni());
-            pstmt.setString(2, u.getName());
-            pstmt.setString(3, u.getSurname());
-            pstmt.setString(4, u.getEmail());
-            pstmt.setString(5, u.getPassword());
-            pstmt.setString(6, u.getAccount());
-            pstmt.setBoolean(7, u.isType());
-            pstmt.setString(8, uBilatu);
+            pstmt.setString(1, uDni);
+            pstmt.setString(2, gakoa);
+            return pstmt.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+    }
+    
+    public int updateMemberName(String gakoa, String uName) {
+        String sql = "UPDATE members "
+                + "SET name = ?"
+                + "WHERE mail = ? ";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, uName);
+            pstmt.setString(2, gakoa);
             return pstmt.executeUpdate();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

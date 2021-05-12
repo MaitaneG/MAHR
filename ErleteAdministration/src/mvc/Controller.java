@@ -142,30 +142,96 @@ public class Controller implements ActionListener {
     }
 
     public void updateUser() {
-        
+        int lerroa = view.jTableMember.getSelectedRow();
+        if (lerroa == -1) {
+            view.jLabelErrorMember.setText("You have to choose a row");
+        } else {
+            String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
+            if (!(view.jTextFieldDni.getText().trim().equals(""))) {
+                updateUserDni(lerroa, gakoa);
+            }
+            if (!(view.jTextFieldName.getText().trim().equals(""))) {
+                updateUserName(lerroa, gakoa);
+            }
+            if (!(view.jTextFieldSurname.getText().trim().equals(""))) {
+                String surname = view.jTextFieldSurname.getText().trim();
+            }
+            if (!(view.jPasswordFieldPassword.getPassword().equals(""))) {
+                String password = new String(view.jPasswordFieldPassword.getPassword());
+            }
+            if (!(view.jTextFieldAccount.getText().trim().equals(""))) {
+                String account = view.jTextFieldAccount.getText().trim();
+            }
+        }
+
+    }
+
+    public void updateUserDni(int lerroa, String gakoa) {
+
+        String dni = view.jTextFieldDni.getText().trim();
+
+        if (model.updateMemberDni(gakoa, dni) == 1) {
+            view.jLabelErrorMember.setText("");
+            taulakEguneratu();
+        } else {
+            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+        }
+    }
+
+    public void updateUserName(int lerroa, String gakoa) {
+        String name = view.jTextFieldName.getText().trim();
+
+        if (model.updateMemberName(gakoa, name) == 1) {
+            view.jLabelErrorMember.setText("");
+            taulakEguneratu();
+        } else {
+            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+        }
+    }
+
+    public void updateUserSurname(int lerroa) {
+        String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
+        String name = view.jTextFieldName.getText().trim();
+
+        if (model.updateMemberName(gakoa, name) == 1) {
+            view.jLabelErrorMember.setText("");
+            taulakEguneratu();
+        } else {
+            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+        }
     }
 
     public void deleteUser() {
         int lerroa = view.jTableMember.getSelectedRow();
-        String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-        if (model.deleteMember(gakoa) == 1) {
-            view.jLabelErrorMember.setText("");
-            taulakEguneratu();
+        String gakoa = "";
+
+        if (view.jTableMember.getSelectedRow() == -1) {
+            view.jLabelErrorMember.setText("You have to choose a row");
         } else {
-            view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
+            gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
+            if (model.deleteMember(gakoa) == 1) {
+                view.jLabelErrorMember.setText("");
+                taulakEguneratu();
+            } else {
+                view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
+            }
         }
     }
 
-    public boolean deleteBooking() {
+    public void deleteBooking() {
         int lerroa = view.jTableBooking.getSelectedRow();
-        int gakoa = (Integer) view.jTableBooking.getValueAt(lerroa, 0);
+        int gakoa = 0;
 
-        if (model.deleteBooking(gakoa) == 1) {
-            view.jLabelErrorBooking.setText("");
-            taulakEguneratu();
+        if (view.jTableMember.getSelectedRow() == -1) {
+            view.jLabelErrorMember.setText("You have to choose a row");
         } else {
-            view.jLabelErrorBooking.setText("The booking couldn't be deleted correctly");
+            gakoa = (Integer) view.jTableBooking.getValueAt(lerroa, 0);
+            if (model.deleteBooking(gakoa) == 1) {
+                view.jLabelErrorBooking.setText("");
+                taulakEguneratu();
+            } else {
+                view.jLabelErrorBooking.setText("The booking couldn't be deleted correctly");
+            }
         }
-        return false;
     }
 }
