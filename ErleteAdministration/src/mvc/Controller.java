@@ -8,7 +8,10 @@ package mvc;
 import Classes.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
 import tableModels.Cans_MergeTableModel;
@@ -117,6 +120,18 @@ public class Controller implements ActionListener {
         this.view.jTableAccount.setModel(new AccountTableModel());
         this.view.jTableBooking.setModel(new BookingTableModel());
         this.view.jTableMember.setModel(new MembersTableModel());
+        this.view.jTableMember.addKeyListener(new KeyListener() {
+            public void keyTyped(KeyEvent e) {
+            }
+            public void keyPressed(KeyEvent e) {
+            }
+            public void keyReleased( KeyEvent e ) {
+                if( view.jTableMember.getSelectedRows().length > 0 ) {
+           JOptionPane.showMessageDialog( view.jTableMember ,"No son molestos los popups?");
+         }
+            }
+            
+        });
         this.view.jTableMerge.setModel(new Cans_MergeTableModel());
     }
 
