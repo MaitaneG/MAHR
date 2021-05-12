@@ -203,6 +203,7 @@ public class Controller implements ActionListener {
         } else {
             view.jLabelErrorMember.setText("The member couldn't be updated correctly");
         }
+        view.jTextFieldDni.setText("");
     }
 
     public void updateUserName(int lerroa, String gakoa) {
@@ -214,6 +215,7 @@ public class Controller implements ActionListener {
         } else {
             view.jLabelErrorMember.setText("The member couldn't be updated correctly");
         }
+        view.jTextFieldName.setText("");
     }
 
     public void updateUserSurname(int lerroa, String gakoa) {
@@ -225,6 +227,31 @@ public class Controller implements ActionListener {
         } else {
             view.jLabelErrorMember.setText("The member couldn't be updated correctly");
         }
+        view.jTextFieldSurname.setText("");
+    }
+    
+    public void updateUserPassword(int lerroa, String gakoa) {
+        String password = new String(view.jPasswordFieldPassword.getPassword());
+
+        if (model.updateMemberPassword(gakoa, password) == 1) {
+            view.jLabelErrorMember.setText("");
+            taulakEguneratu();
+        } else {
+            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+        }
+        view.jPasswordFieldPassword.setText("");
+    }
+    
+    public void updateUserAccount(int lerroa, String gakoa) {
+        String password = view.jTextFieldAccount.getText().trim();
+
+        if (model.updateMemberPassword(gakoa, password) == 1) {
+            view.jLabelErrorMember.setText("");
+            taulakEguneratu();
+        } else {
+            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+        }
+        view.jTextFieldAccount.setText("");
     }
 
     /**

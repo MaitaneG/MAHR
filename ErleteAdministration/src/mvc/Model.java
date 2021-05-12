@@ -6,8 +6,6 @@
 package mvc;
 
 import Classes.Accounts;
-import Classes.Container;
-import Classes.Container_Use;
 import Classes.Extractor;
 import Classes.User;
 import classes.Container_Merge;
@@ -16,7 +14,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -124,6 +121,38 @@ public class Model {
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, uSurname);
+            pstmt.setString(2, gakoa);
+            return pstmt.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+    }
+    
+    public int updateMemberPassword(String gakoa, String uPassword) {
+        String sql = "UPDATE members "
+                + "SET password = ?"
+                + "WHERE mail = ? ";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, uPassword);
+            pstmt.setString(2, gakoa);
+            return pstmt.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+    }
+    
+    public int updateMemberAccount(String gakoa, String uAccount) {
+        String sql = "UPDATE members "
+                + "SET account = ?"
+                + "WHERE mail = ? ";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, uAccount); 
             pstmt.setString(2, gakoa);
             return pstmt.executeUpdate();
         } catch (Exception ex) {
