@@ -128,7 +128,12 @@ public class Controller implements ActionListener {
                 view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
                 new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
                 view.jRadioButtonAdministrator.isSelected());
-        if (model.addUser(u) == 1) {
+        if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
+                || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
+                || new String(view.jPasswordFieldPassword.getPassword()).equals("")
+                || view.jTextFieldAccount.getText().trim().equals("")) {
+            view.jLabelErrorMember.setText("You have to fill all the information.");
+        } else if (model.addUser(u) == 1) {
             taulakEguneratu();
             view.jLabelErrorMember.setText("");
         } else {
@@ -150,11 +155,11 @@ public class Controller implements ActionListener {
             view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
         }
     }
-    
+
     public boolean deleteBooking() {
         int lerroa = view.jTableBooking.getSelectedRow();
         int gakoa = (Integer) view.jTableBooking.getValueAt(lerroa, 0);
-        
+
         if (model.deleteBooking(gakoa) == 1) {
             view.jLabelErrorBooking.setText("");
             taulakEguneratu();
