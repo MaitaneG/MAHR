@@ -547,6 +547,7 @@ public class View extends javax.swing.JFrame {
         setResizable(false);
 
         jPanelBlack.setBackground(new java.awt.Color(51, 51, 51));
+        jPanelBlack.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         jPanelOrange.setBackground(new java.awt.Color(244, 164, 12));
 

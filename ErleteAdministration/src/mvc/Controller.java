@@ -8,10 +8,7 @@ package mvc;
 import Classes.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
 import tableModels.Cans_MergeTableModel;
@@ -71,16 +68,6 @@ public class Controller implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        int lerroa = view.jTableMember.getSelectedRow();
-
-        if (lerroa != -1) {
-            view.jTextFieldDni.setText((String) view.jTableMember.getValueAt(lerroa, 0));
-            view.jTextFieldName.setText((String) view.jTableMember.getValueAt(lerroa, 1));
-            view.jTextFieldSurname.setText((String) view.jTableMember.getValueAt(lerroa, 2));
-            view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
-            view.jPasswordFieldPassword.setText((String) view.jTableMember.getValueAt(lerroa, 4));
-            view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
-        }
 
         String actionCommand = e.getActionCommand();
 
@@ -120,18 +107,6 @@ public class Controller implements ActionListener {
         this.view.jTableAccount.setModel(new AccountTableModel());
         this.view.jTableBooking.setModel(new BookingTableModel());
         this.view.jTableMember.setModel(new MembersTableModel());
-        this.view.jTableMember.addKeyListener(new KeyListener() {
-            public void keyTyped(KeyEvent e) {
-            }
-            public void keyPressed(KeyEvent e) {
-            }
-            public void keyReleased( KeyEvent e ) {
-                if( view.jTableMember.getSelectedRows().length > 0 ) {
-           JOptionPane.showMessageDialog( view.jTableMember ,"No son molestos los popups?");
-         }
-            }
-            
-        });
         this.view.jTableMerge.setModel(new Cans_MergeTableModel());
     }
 
@@ -251,8 +226,9 @@ public class Controller implements ActionListener {
             view.jLabelErrorMember.setText("The member couldn't be updated correctly");
         }
     }
+
     /**
-     * 
+     *
      */
     public void deleteUser() {
         int lerroa = view.jTableMember.getSelectedRow();
