@@ -228,40 +228,53 @@ public class Controller implements ActionListener {
     }
 
     /**
-     *
+     * To delete an user
+     * 
+     * You have to select in the table which one do you want to delete
      */
     public void deleteUser() {
+        //Gets the selected row
         int lerroa = view.jTableMember.getSelectedRow();
         String gakoa = "";
-
+        
+        //If any row hasn't been selected
         if (view.jTableMember.getSelectedRow() == -1) {
             view.jLabelErrorMember.setText("You have to choose a row");
+        //If a row has been selected
         } else {
             gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
+            //If it has been deleted successfully
             if (model.deleteMember(gakoa) == 1) {
                 view.jLabelErrorMember.setText("");
                 taulakEguneratu();
+            //Not deleted successfully
             } else {
                 view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
             }
         }
     }
+    
     /**
-     * To delete bookings 
+     * To delete a booking
      * 
      * You have to select in the table which one do yo want to delete.
      */
     public void deleteBooking() {
+        //Gets the selected row
         int lerroa = view.jTableBooking.getSelectedRow();
         int gakoa = 0;
-
+        
+        //If any row hasn't been selected
         if (view.jTableMember.getSelectedRow() == -1) {
             view.jLabelErrorMember.setText("You have to choose a row");
+        //If a row has been selected
         } else {
             gakoa = (Integer) view.jTableBooking.getValueAt(lerroa, 0);
+            //If it has been deleted successfully
             if (model.deleteBooking(gakoa) == 1) {
                 view.jLabelErrorBooking.setText("");
                 taulakEguneratu();
+            //Not deleted successfully
             } else {
                 view.jLabelErrorBooking.setText("The booking couldn't be deleted correctly");
             }
