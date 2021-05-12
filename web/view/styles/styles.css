@@ -9,7 +9,7 @@
 }
 
 
-
+/*When you put the cursor on the navbar item it will apear with this style*/
 a{
 text-decoration: none;
 background-image: linear-gradient(currentColor,currentColor);
@@ -19,6 +19,8 @@ background-size: 0% 2px;
 transition: background-size .3s;
 }
 
+
+/*When the item on the navbar is checked will apear this this style*/
 a:hover,a:focus {
 background-size: 100% 2px;
 }
@@ -35,3 +37,14 @@ background-size: 100% 4px;
 font-weight: bold; 
 }
 
+.img{
+
+object-fit: cover;
+
+
+
+}
+
+.cans-cards{
+max-height: 80%;
+}

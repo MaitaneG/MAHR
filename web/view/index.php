@@ -130,26 +130,31 @@ if ($_SESSION["member"]) {
 
                     <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>
                 </div>
-
-                <div class="col-sm-12" align="center"><h2>Rules</h2></div>
-
-
-
+                 
+                <div class="col-sm-12 mt-3" align="center"><h2>Rules</h2></div>
                 <div class="col-sm-4">
 
-                    <h3>Rule 1</h3>
-                    <p>The first rule is that the member can only reserve the extractor once a day.</p>
-                    <p>And the member will have to specify the time he or she is going to go.</p>
+                    <h3>1. When they bring honey: </h3>
+                    <p>- Don't bring a bee to the honey.<br>
+                       - The doors of the window and car were always locked.<br>
+                       - Once the car's gone, take the car to the parking lot.<br>
+                       - Leave no sign of honey on the porch, keep it clean.<br>
+                       - "The straws do not leave [them] on the ground, but on the foundations prepared.</p>
                 </div>
                 <div class="col-sm-4">
 
-                    <h3>Rule 2</h3>
-                    <p>There will be a specific day to pay the membership fee, if it is not paid by that day, the member will receive a notice.</p>
+                    <h3>2. Extracting honey: </h3>
+                    <p>- Don't bring a bee to the honey.<br>
+                       - After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.<br>
+                       - Fill out a file containing data from the honey campaign.<br>
+                       - Make your shop clean and clean for the next one.</p>
                 </div>
                 <div class="col-sm-4">
 
-                    <h3>Rule 3</h3>        
-                    <p></p>
+                    <h3>3. The ship of honey: </h3>        
+                    <p>- It will be made in less than 20 days after the honey is extracted.<br>
+                       - Three samples or muestra must be left for each jar of honey.<br>
+                       - Fill in the section corresponding to the launch of the honey chip in the honey campaign.</p>
                 </div>
 
                 <br>
