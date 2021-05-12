@@ -11,8 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
-import tableModels.CansTableModel;
-import tableModels.Cans_UseTableModel;
+import tableModels.Cans_MergeTableModel;
 import tableModels.MembersTableModel;
 
 /**
@@ -118,8 +117,7 @@ public class Controller implements ActionListener {
         this.view.jTableAccount.setModel(new AccountTableModel());
         this.view.jTableBooking.setModel(new BookingTableModel());
         this.view.jTableMember.setModel(new MembersTableModel());
-        this.view.jTableBin.setModel(new CansTableModel());
-        this.view.jTableBin_Use.setModel(new Cans_UseTableModel());
+        this.view.jTableMerge.setModel(new Cans_MergeTableModel());
     }
 
     /**

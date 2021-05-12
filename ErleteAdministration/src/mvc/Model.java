@@ -10,6 +10,7 @@ import Classes.Container;
 import Classes.Container_Use;
 import Classes.Extractor;
 import Classes.User;
+import classes.Container_Merge;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -203,35 +204,25 @@ public class Model {
         }
     }
 
-    public ArrayList<Container> showContainer() {
+    public ArrayList<Container_Merge> showContainer_Merge() {
 
-        ArrayList<Container> boo = new ArrayList<>();
-        String sql = "SELECT * FROM cans";
-
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery(sql)) {
-            while (rs.next()) {
-                Container u1 = new Container(rs.getInt("ID_CAN"), rs.getInt("CAPACITY"));
-                boo.add(u1);
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return boo;
-    }
-
-    public ArrayList<Container_Use> showContainer_Use() {
-
-        ArrayList<Container_Use> boo = new ArrayList<>();
-        String sql = "SELECT * FROM Using_cans";
+        ArrayList<Container_Merge> boo = new ArrayList<>();
+        String sql = "select cans.ID_CAN, capacity, mail, date, date2 from cans left join using_cans2 ON cans.ID_CAN = using_cans2.ID_CAN where date is null or curdate() BETWEEN date and date2 order by cans.ID_CAN";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Container_Use u1 = new Container_Use(rs.getString("mail"), rs.getInt("id_can"), rs.getString("date"));
-                boo.add(u1);
+                if (rs.getString("mail") == null){
+                    Container_Merge u1 = new Container_Merge(rs.getInt("cans.ID_CAN"), rs.getInt("capacity"));
+                    //System.out.println(u1);
+                    boo.add(u1);
+                }else {
+                    Container_Merge u1 = new Container_Merge(rs.getInt("cans.ID_CAN"), rs.getInt("capacity"), rs.getString("mail"), rs.getString("date"), rs.getString("date2"));
+                    //System.out.println(u1);
+                    boo.add(u1);
+                }
+
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

@@ -66,10 +66,8 @@ public class View extends javax.swing.JFrame {
         jLabelErrorBooking = new javax.swing.JLabel();
         jPanelBins = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableBin = new javax.swing.JTable();
+        jTableMerge = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTableBin_Use = new javax.swing.JTable();
         jPanelAccounts = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAccount = new javax.swing.JTable();
@@ -433,8 +431,8 @@ public class View extends javax.swing.JFrame {
         jPanelBins.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jPanelBins.setPreferredSize(new java.awt.Dimension(1000, 500));
 
-        jTableBin.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jTableBin.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMerge.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jTableMerge.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -445,28 +443,13 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTableBin.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTableBin);
+        jTableMerge.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTableMerge);
 
         jLabel5.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("BINS");
-
-        jTableBin_Use.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jTableBin_Use.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTableBin_Use.getTableHeader().setReorderingAllowed(false);
-        jScrollPane5.setViewportView(jTableBin_Use);
 
         javax.swing.GroupLayout jPanelBinsLayout = new javax.swing.GroupLayout(jPanelBins);
         jPanelBins.setLayout(jPanelBinsLayout);
@@ -478,11 +461,9 @@ public class View extends javax.swing.JFrame {
                         .addGap(349, 349, 349)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelBinsLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addGap(106, 106, 106)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanelBinsLayout.setVerticalGroup(
             jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,10 +471,8 @@ public class View extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(jLabel5)
                 .addGap(55, 55, 55)
-                .addGroup(jPanelBinsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Metal Bins", jPanelBins);
@@ -798,13 +777,11 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPaneMenu;
     javax.swing.JTable jTableAccount;
-    javax.swing.JTable jTableBin;
-    javax.swing.JTable jTableBin_Use;
     javax.swing.JTable jTableBooking;
     javax.swing.JTable jTableMember;
+    javax.swing.JTable jTableMerge;
     javax.swing.JTextField jTextFieldAccount;
     javax.swing.JTextField jTextFieldDate;
     javax.swing.JTextField jTextFieldDni;
