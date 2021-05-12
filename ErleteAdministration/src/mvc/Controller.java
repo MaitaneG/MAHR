@@ -14,10 +14,7 @@ import tableModels.BookingTableModel;
 import tableModels.Cans_MergeTableModel;
 import tableModels.MembersTableModel;
 
-/**
- *
- * @author USAURIO
- */
+
 public class Controller implements ActionListener {
 
     /**

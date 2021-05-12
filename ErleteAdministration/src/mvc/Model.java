@@ -62,6 +62,13 @@ public class Model {
         return use;
     }
 
+    /**
+     * Is going to add users to the database
+     *
+     * @param u
+     * @return 0 if it hadn't been added correctly and 1 if it had been added
+     * correctly
+     */
     public int addUser(User u) {
         String sql = "INSERT INTO members VALUES (?,?,?,?,?,?,?)";
         try (Connection conn = connect();
@@ -81,6 +88,14 @@ public class Model {
         }
     }
 
+    /**
+     * Is going to update a user' DNI depending on the email
+     *
+     * @param gakoa
+     * @param uDni
+     * @return 0 if it hadn't been updated correctly and 1 if it had been
+     * updated correctly
+     */
     public int updateMemberDni(String gakoa, String uDni) {
         String sql = "UPDATE members "
                 + "SET dni = ?"
@@ -96,7 +111,15 @@ public class Model {
             return 0;
         }
     }
-    
+
+    /**
+     * Is going to update a user' name depending on the email
+     *
+     * @param gakoa
+     * @param uName
+     * @return 0 if it hadn't been updated correctly and 1 if it had been
+     * updated correctly
+     */
     public int updateMemberName(String gakoa, String uName) {
         String sql = "UPDATE members "
                 + "SET name = ?"
@@ -112,7 +135,15 @@ public class Model {
             return 0;
         }
     }
-    
+
+    /**
+     * Is going to update a user' surname depending on the email
+     *
+     * @param gakoa
+     * @param uSurname
+     * @return 0 if it hadn't been updated correctly and 1 if it had been
+     * updated correctly
+     */
     public int updateMemberSurname(String gakoa, String uSurname) {
         String sql = "UPDATE members "
                 + "SET surname = ?"
@@ -128,7 +159,15 @@ public class Model {
             return 0;
         }
     }
-    
+
+    /**
+     * Is going to update a user' password depending on the email
+     *
+     * @param gakoa
+     * @param uPassword
+     * @return 0 if it hadn't been updated correctly and 1 if it had been
+     * updated correctly
+     */
     public int updateMemberPassword(String gakoa, String uPassword) {
         String sql = "UPDATE members "
                 + "SET password = ?"
@@ -144,7 +183,15 @@ public class Model {
             return 0;
         }
     }
-    
+
+    /**
+     * Is going to update a user' bank account number depending on the email
+     *
+     * @param gakoa
+     * @param uAccount
+     * @return 0 if it hadn't been updated correctly and 1 if it had been
+     * updated correctly
+     */
     public int updateMemberAccount(String gakoa, String uAccount) {
         String sql = "UPDATE members "
                 + "SET account = ?"
@@ -152,7 +199,7 @@ public class Model {
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, uAccount); 
+            pstmt.setString(1, uAccount);
             pstmt.setString(2, gakoa);
             return pstmt.executeUpdate();
         } catch (Exception ex) {
@@ -161,6 +208,13 @@ public class Model {
         }
     }
 
+    /**
+     * Is going to delete a user depending on the email
+     *
+     * @param u
+     * @return 0 if it hadn't been deleted correctly and 1 if it had been
+     * deleted correctly
+     */
     public int deleteMember(String u) {
         String sql = "DELETE FROM members WHERE mail = ?";
         try (Connection conn = connect();
@@ -220,6 +274,14 @@ public class Model {
         return boo;
     }
 
+    /**
+     * Is going to delete a user depending on the email
+     *
+     * @param b
+     * @return 0 if it hadn't been deleted correctly and 1 if it had been
+     * deleted correctly
+     *
+     */
     public int deleteBooking(int b) {
         String sql = "DELETE FROM bookings WHERE id_booking = ?";
         try (Connection conn = connect();
@@ -233,6 +295,12 @@ public class Model {
         }
     }
 
+    /**
+     * Gets all the information of the the containers and if they have been used
+     * or not, and if they have been used who has used it from the database
+     *
+     * @return an ArrayList of Container_Merge
+     */
     public ArrayList<Container_Merge> showContainer_Merge() {
 
         ArrayList<Container_Merge> boo = new ArrayList<>();
@@ -242,11 +310,11 @@ public class Model {
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                if (rs.getString("mail") == null){
+                if (rs.getString("mail") == null) {
                     Container_Merge u1 = new Container_Merge(rs.getInt("cans.ID_CAN"), rs.getInt("capacity"));
                     //System.out.println(u1);
                     boo.add(u1);
-                }else {
+                } else {
                     Container_Merge u1 = new Container_Merge(rs.getInt("cans.ID_CAN"), rs.getInt("capacity"), rs.getString("mail"), rs.getString("date"), rs.getString("date2"));
                     //System.out.println(u1);
                     boo.add(u1);

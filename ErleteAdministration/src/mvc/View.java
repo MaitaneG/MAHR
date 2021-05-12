@@ -5,10 +5,7 @@
  */
 package mvc;
 
-/**
- *
- * @author USAURIO
- */
+
 public class View extends javax.swing.JFrame {
 
     /**
@@ -308,11 +305,6 @@ public class View extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jTextFieldEmailBooking.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jTextFieldEmailBooking.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEmailBookingActionPerformed(evt);
-            }
-        });
 
         jLabelSurname1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelSurname1.setForeground(new java.awt.Color(0, 0, 0));
@@ -688,10 +680,6 @@ public class View extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldEmailBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailBookingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEmailBookingActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -727,6 +715,10 @@ public class View extends javax.swing.JFrame {
 //        });
 //  }
     
+    /**
+     * This method is going to run the JFrame
+     * @return 
+     */
     public static View viewaSortuBistaratu() {
         View v = new View();
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -736,6 +728,7 @@ public class View extends javax.swing.JFrame {
         });
         return v;
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton jButtonAddMember;
     javax.swing.JButton jButtonDeleteBooking;
