@@ -8,7 +8,7 @@ package mvc;
 import Classes.Accounts;
 import Classes.Extractor;
 import Classes.User;
-import classes.Container_Merge;
+import Classes.Container_Merge;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -32,7 +32,7 @@ public class Model {
     public static Connection connect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mariadb://172.16.0.160:3306/erlete", "erlete1", "");
+            conn = DriverManager.getConnection("jdbc:mariadb://localhost/erlete", "root", "");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

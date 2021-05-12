@@ -5,8 +5,7 @@
  */
 package tableModels;
 
-import Classes.Container_Use;
-import classes.Container_Merge;
+import Classes.Container_Merge;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
