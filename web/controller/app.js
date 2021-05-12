@@ -3,6 +3,7 @@ $(function () {
 console.log("jQuery esta funcionando");
         //VISUALIZE BOOKING TABLE ON LOAD
         fecthBooks();
+        
         //SEARCH RESERVES BY DATE
         $("#datepicker").change(function () {
 if ($("#datepicker").val()) {
@@ -51,7 +52,7 @@ fecthBooks();
                 if ($("#datepicker").val()) {
                     let date = $("#datepicker").val();
                    
-                    document.querySelector("#datepicker").value = date;
+//                    document.querySelector("#datepicker").value = date;
                     let currentMail = document.getElementById("currentMail").textContent;
                     let url= "../controller/BookingsC.php";
                      const postDate = {                                     
@@ -68,9 +69,7 @@ fecthBooks();
                             } else
                             {
                                 alert("Day Ocupied");
-                                
-                                
-                                
+  
                             }
                        document.querySelector("#datepicker").value = ""; });
                     }
@@ -83,9 +82,9 @@ fecthBooks();
         if (confirm("Are you sure that you want to delete it?")) {
             let element = $(this)[0].parentElement.parentElement;
             let id = $(element).attr("class");
-            console.log(id);
+       
             $.post("../controller/BookingsC.php", {id}, function (response) {
-                console.log(response);
+               
                 fecthBooks();
             });
         }

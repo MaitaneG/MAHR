@@ -4,10 +4,9 @@ session_start();
 $logged = $_SESSION["submitted"];
 if ($_SESSION["member"]) {
     $member = $_SESSION["member"];
-    $mail=$member[0]["mail"];
+    $mail = $member[0]["mail"];
     $admin = $member[0]["admin"];
 }
-
 ?>
 
 <!doctype html>
@@ -19,15 +18,16 @@ if ($_SESSION["member"]) {
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="styles/styles.css"> 
+
 
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+              rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css"> 
+
 
         <title>Erlete beekepers' association</title>
     </head>
@@ -35,10 +35,10 @@ if ($_SESSION["member"]) {
 
         <div class="jumbotron bg-yellow mb-0">
             <h1>Erlete Beekepers' Association</h1>
-            
+
         </div>
 
-<!--        NAVIGATION BAR-->
+        <!--        NAVIGATION BAR-->
         <div class="container-fluid sticky-top mt-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,8 +64,8 @@ if ($_SESSION["member"]) {
 
                     <?php
                     if (!$member) {
-                       
-                        
+
+
                         echo '<form action="../controller/LoginValidation.php" class="form-inline" method="POST">
 
                             <input name="email" type="email" class="form-control mb-2 mr-sm-2" 
@@ -77,9 +77,9 @@ if ($_SESSION["member"]) {
                         </form>';
                     } else {
                         echo "<h6 class='p-3'>$mail</h6>";
-                        echo '<form action="../controller/logout.php">'    
-                                . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
-                           . '</form>';
+                        echo '<form action="../controller/logout.php">'
+                        . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
+                        . '</form>';
                     }
                     ?>
 
@@ -88,7 +88,7 @@ if ($_SESSION["member"]) {
         </div>
 
 
-<!--        CONTENIDO-->
+        <!--        CONTENIDO-->
         <div class="container">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
