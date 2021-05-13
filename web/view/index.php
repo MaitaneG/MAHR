@@ -39,7 +39,7 @@ if ($_SESSION["member"]) {
         </div>
 
         <!--        NAVIGATION BAR-->
-        <div class="container-fluid sticky-top mt-0">
+        <div class="container-fluid sticky-top mt-0 mx-0  bg-light">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -89,9 +89,9 @@ if ($_SESSION["member"]) {
 <!-- END OF THE NAVIGATION BAR -->
 
         <!--CONTAINER-->
-        <div class="container">
+        <div class="container" style="background-color: #FAE75B">
             <!--CAROUSEL to make apear some images automatically-->
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide p-2" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -124,17 +124,22 @@ if ($_SESSION["member"]) {
             <!--END of the CAROUSEL -->
             <br>
             <div class="row">
-                <div class="col-sm-12" align="center">
+                <div class="col-sm-12  p-2" align="center">
                     <h2>What is Erlete Beekepers' Association?</h2>
                     <p>Erlete Beekepers' Association is an association created to
                         produce your own honey. For an annual fee of 30 euros it is possible to visit the honey extarction local, produce your own honey and take it home. Apart from the annual fee, the member will be required to pay 25 cents per kilo produced.</p>
                     <p>To extract the honey you have to reserve the extractor. After you have used it, you will be authorised to use the honey extractor to store your honey for the next 20 days. </p>
 
-                    <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>
+                    <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>   
                 </div>
+
+                </div>
+                <hr style="height:5px;background-color:#c46404 ">
                 <!--dive a row in 3 colums to put the rules of the association-->
-                <div class="col-sm-12 mt-3" align="center"><h2>Rules</h2></div>
-                <div class="col-sm-4">
+                <div class="row ">
+                <div class="col-sm-12 mt-3 p-2" align="center"><h2>Rules</h2></div>
+                
+                <div class="col-sm-4 p-2">
 
                     <h3 align="center">1. When they bring honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
@@ -143,7 +148,7 @@ if ($_SESSION["member"]) {
                        - Leave no sign of honey on the porch, keep it clean.<br>
                        - "The straws do not leave [them] on the ground, but on the foundations prepared.</p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 p-2">
 
                     <h3 align="center">2. Extracting honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
@@ -151,39 +156,43 @@ if ($_SESSION["member"]) {
                        - Fill out a file containing data from the honey campaign.<br>
                        - Make your shop clean and clean for the next one.</p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 p-2">
 
                     <h3 align="center">3. The ship of honey: </h3>        
                     <p>- It will be made in less than 20 days after the honey is extracted.<br>
                        - Three samples or muestra must be left for each jar of honey.<br>
                        - Fill in the section corresponding to the launch of the honey chip in the honey campaign.</p>
                 </div>
-
+</div>
                 <br>
-
+                <hr style="height:5px;background-color:#c46404 ">
                 <!--The same code of the previous cols-->
-                <div class="col-sm-12" align="center"><h2>Bees Information</h2>
-                            <p>
-                    <img src="images/gif1.gif" style="border-radius:30%"  alt="3 types of honeybees" align="right">
+                <div class="row ">
+                <div class="col-sm-12 p-2 m-2" align="center"><h2>Bees Information</h2>
+                    <p>
+                    <img src="images/gif1.gif" align="right" class="m-2 imagese">
                     
                         Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
 
                         Bees of all varieties live on nectar and pollen. Without bees, pollination would be difficult and time consuming - it is estimated that one-third of the human food supply depends on insect pollination. <br>Bees have a long, straw-like tongue called a probiscus that allows them to drink the nectar from deep within blossoms. Bees are also equipped with two wings, two antennae, and three segmented body parts (the head, the thorax, and the abdomen).&nbsp; Honeybees are social insects that live in colonies.&nbsp; The hive population consists of a single queen, a few hundred drones, and thousands of worker bees.
                        </p>
 </div>
-<div class="col-sm-4"><h5 align="center">Worker Bees</h5>
-<p>
-                    <img src="images/abejaobrera.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="right">
-                    
+</div>
+<div class="row justify-content-center ">
+<div class="col-sm-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
+
+                    <img src="images/abejaobrera.jpg" class="imagese" align="center">
+                    <p class="p-2">
                         Worker bees are the most familiar-looking member of the honeybee hive, as they make up about 99% of each colony's population.<br>
                         
         Worker bees are all female, and they do almost everything for the hive. From birth to her death 45 days later, the worker bee is given different tasks to do during different stages of her life. Worker bees are responsible for everything from feeding the larvae (the baby bees), to tending to the queen, to cleaning the hive, to collecting food, to guarding the colony, to building honeycomb.
                        </p>
 
 </div>
-<div class="col-sm-4"><h5 align="center">Drone Bees</h5>
-<p>
-                    <img src="images/Drone.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="right">
+<div class="col-sm-3 p-2 ml-4"><h5 align="center">Drone Bees</h5>
+
+                    <img src="images/Drone.jpg" class="imagese" align="center">
+                    <p>
                     Male bees are called drones. Their job is to mate with queens from other hives. If they do get the opportunity to mate, they die immediately afterwards. If they do not mate, they can live up to 90 days (that's twice as long as a worker bee!)<br>
 
         You can identify drones in the hive by their big round bodies and large eyes. Drones are incapable of stinging.
@@ -192,9 +201,10 @@ if ($_SESSION["member"]) {
                        </p>
 
 </div>
-<div class="col-sm-4"><h5 align="center">Queen Bees</h5>
-<p>
-                    <img src="images/queen.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="right">
+<div class="col-sm-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
+
+                    <img src="images/queen.jpg" class="imagese" align="center">
+                    <p>
                     There is one queen bee per hive - she is the mom of all the other bees. She is the only fertile member of the colony, and lays about 1,500 eggs a day during spring and summer.
                     <br>
                     
@@ -205,18 +215,7 @@ if ($_SESSION["member"]) {
                        </p>
 
 </div>
-
-
-
-
-
-                    
-
-
-
-                </div>
-
-
+</div>
             </div>
 
 

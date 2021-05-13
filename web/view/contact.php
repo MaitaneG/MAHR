@@ -37,8 +37,8 @@ if ($_SESSION["member"]) {
         </div>
 
         <!--        NAVIGATION BAR-->
-        <div class="container-fluid sticky-top mt-0">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container-fluid sticky-top mt-0 mx-0  bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -88,7 +88,7 @@ if ($_SESSION["member"]) {
 
         <!--    CONTENIDO-->
 
-        <div class="container">
+        <div class="container" style="background-color: #FAE75B">
 
             <br>
             <div class="row">
@@ -103,12 +103,13 @@ if ($_SESSION["member"]) {
                         <b>Latitude:</b> 43.1156673 ;<br>
                         <b>Length:</b> -2.5982992</p>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23302.940519782715!2d-2.603144!3d43.107298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fd2f2a4d7a841%3A0xdebc4249323c4949!2sSan%20Juan%20Plaza%2C%201%2C%2048291%20Axpe%2C%20Bizkaia%2C%20Spain!5e0!3m2!1sen!2sus!4v1620634544007!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
                 </div>
 
             </div>
-        </div>
-
-        <div class="row jumbotron " >
+        
+<br>
+        <div class="row jumbotron mb-0" >
             <div class="col-sm-4" align="left">
                 <a href="mailto:{email}?subject={subject}&body={content}">
                     Send us an email <img src="images/logo gmail.png" width="100px" height="100px">
@@ -127,6 +128,7 @@ if ($_SESSION["member"]) {
                     Send us a message <img src="images/icono mensaje.png" width="100px" height="100px">
                 </a> 
             </div>
+        </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
