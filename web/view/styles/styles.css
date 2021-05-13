@@ -52,3 +52,12 @@ background-repeat: no-repeat;
 background-attachment: fixed;
 background-size: cover;
 }
+
+.imagese{
+border-radius: 10%;
+width:100%;
+object-fit: cover;
+max-height: 180px;
+
+
+}

@@ -39,7 +39,7 @@ if ($_SESSION["member"]) {
         </div>
 
         <!--        NAVIGATION BAR-->
-        <div class="container-fluid sticky-top mt-0">
+        <div class="container-fluid sticky-top mt-0 mx-0  bg-light">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -170,7 +170,7 @@ if ($_SESSION["member"]) {
                 <div class="row ">
                 <div class="col-sm-12 p-2 m-2" align="center"><h2>Bees Information</h2>
                     <p>
-                    <img src="images/gif1.gif" style="border-radius: 10%" alt="3 types of honeybees" align="right" class="mr-2">
+                    <img src="images/gif1.gif" align="right" class="m-2 imagese">
                     
                         Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
 
@@ -181,7 +181,7 @@ if ($_SESSION["member"]) {
 <div class="row justify-content-center ">
 <div class="col-sm-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
 
-                    <img src="images/abejaobrera.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="center">
+                    <img src="images/abejaobrera.jpg" class="imagese" align="center">
                     <p class="p-2">
                         Worker bees are the most familiar-looking member of the honeybee hive, as they make up about 99% of each colony's population.<br>
                         
@@ -191,7 +191,7 @@ if ($_SESSION["member"]) {
 </div>
 <div class="col-sm-3 p-2 ml-4"><h5 align="center">Drone Bees</h5>
 
-                    <img src="images/Drone.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="center">
+                    <img src="images/Drone.jpg" class="imagese" align="center">
                     <p>
                     Male bees are called drones. Their job is to mate with queens from other hives. If they do get the opportunity to mate, they die immediately afterwards. If they do not mate, they can live up to 90 days (that's twice as long as a worker bee!)<br>
 
@@ -203,7 +203,7 @@ if ($_SESSION["member"]) {
 </div>
 <div class="col-sm-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
 
-                    <img src="images/queen.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="center">
+                    <img src="images/queen.jpg" class="imagese" align="center">
                     <p>
                     There is one queen bee per hive - she is the mom of all the other bees. She is the only fertile member of the colony, and lays about 1,500 eggs a day during spring and summer.
                     <br>
