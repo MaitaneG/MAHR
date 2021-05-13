@@ -59,7 +59,7 @@ if ($_SESSION["member"]) {
                             <a class="nav-link p-3" href="index.php">Home<span class="sr-only">(current)</span></a>
                         </li>
 
-
+                        <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
                         <?php
                         if ($member) {
                             echo '<li class="nav-item active">
@@ -72,7 +72,7 @@ if ($_SESSION["member"]) {
                             <a class="nav-link p-3" href="contact.php">Contact</a>
                         </li>
                     </ul>
-
+                    <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
                     <?php
                     if (!$member) {
 
@@ -283,7 +283,7 @@ if ($_SESSION["member"]) {
                     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
                     <script src="../controller/app.js"></script>
 
-                    <!--The function to make uit work the datapicker-->
+                    <!--The function to make it work the datapicker-->
                     <script>
                         $(function () {
 

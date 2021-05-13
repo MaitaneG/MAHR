@@ -38,7 +38,7 @@ if ($_SESSION["member"]) {
 
         </div>
 
-        <!--        NAVIGATION BAR-->
+        <!-- NAVIGATION BAR-->
         <div class="container-fluid sticky-top mt-0 mx-0  bg-light">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +49,7 @@ if ($_SESSION["member"]) {
                         <li class="nav-item active">
                             <a class="nav-link active p-3 disabled" href="#">Home<span class="sr-only">(current)</span></a>
                         </li>
+                        <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
                         <?php
                         if ($member) {
                             echo '<li class="nav-item">
@@ -61,7 +62,7 @@ if ($_SESSION["member"]) {
                             <a class="nav-link p-3" href="contact.php">Contact</a>
                         </li>
                     </ul>
-
+                    <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
                     <?php
                     if (!$member) {
 
@@ -75,7 +76,8 @@ if ($_SESSION["member"]) {
 
                             <button type="submit" class="btn bg-yellow mb-2">Login</button>
                         </form>';
-                    } else {
+                    }
+                    else {
                         echo "<h6 class='p-3'>$mail</h6>";
                         echo '<form action="../controller/logout.php">'
                         . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
@@ -135,7 +137,7 @@ if ($_SESSION["member"]) {
 
                 </div>
                 <hr style="height:5px;background-color:#c46404 ">
-                <!--dive a row in 3 colums to put the rules of the association-->
+                <!--divide a row in 3 colums to put the rules of the association-->
                 <div class="row ">
                 <div class="col-sm-12 mt-3 p-2" align="center"><h2>Rules</h2></div>
                 
