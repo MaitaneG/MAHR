@@ -3,12 +3,13 @@
 include("testConexion.php");
 
 //BOOKINGS TABLE API
-function selectCanUsed($canId, $date) {
+function selectCanUsed($canId) {
     //Select can using dates
     //return: 
     //0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
     $conexion = ConnectDataBase();
-    $query = "SELECT * FROM using_cans where ID_CANS=$canId AND DATE=$date ";
+     $today=date("Y/m/d", time());
+    $query = "SELECT * FROM using_cans where ID_CAN=$canId AND DATE_END>=$today ";
     $result = mysqli_query($conexion, $query);
     if (!$result) {
         die("Query error" . mysqli_error($conexion));
@@ -16,12 +17,12 @@ function selectCanUsed($canId, $date) {
     $results = array();
     while ($row = mysqli_fetch_array($result)) {
         $results[] = array(
-            'id' => $row[0],
-            'date' => $row[1],
-            'mail' => $row[2]
+            'id' => $row[1],
+            'date_end' => $row[3],
+            'mail' => $row[0]
         );
     }
-    mysqli_free_result($row);
+
     mysqli_close($conexion);
     return $results;
 }
