@@ -20,7 +20,7 @@ transition: background-size .3s;
 }
 
 
-/*When the item on the navbar is checked will apear this this style*/
+/*When the item on the navbar is checked will this this style*/
 a:hover,a:focus {
 background-size: 100% 2px;
 }
@@ -36,15 +36,12 @@ background-repeat: no-repeat;
 background-size: 100% 4px;
 font-weight: bold; 
 }
-
+/* If the apparent relation of the object does not correspond to the apparent relation of the box, the object will be cut off in order to be adjusted.
+*/
 .img{
-
 object-fit: cover;
-
-
-
 }
-
+/*To put an image as a background an to not be repeated*/
 body{
 background-image: url(../images/fondo.jpg) ;
 background-position: center center;
@@ -53,6 +50,7 @@ background-attachment: fixed;
 background-size: cover;
 }
 
+/*a class to define the style of the bees pictures*/
 .imagese{
 border-radius: 10%;
 width:100%;
