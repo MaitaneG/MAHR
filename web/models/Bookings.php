@@ -1,8 +1,6 @@
 <?php
 
-include("testConexion.php");
-
-//BOOKINGS TABLE API
+include("TestConexion.php");
 function selectBookings() {
     //Select full list of bookings for today and after today
     //return: 

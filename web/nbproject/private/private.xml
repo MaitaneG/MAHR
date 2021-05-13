@@ -5,10 +5,13 @@
         <group>
             <file>file:/C:/xampp/htdocs/Erlete/web/controller/BookingsC.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/Productions.php</file>
+            <file>file:/C:/xampp/htdocs/Erlete/web/controller/productionsC.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/view/contact.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/cans.php</file>
+            <file>file:/C:/xampp/htdocs/Erlete/web/controller/cansUseC.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/controller/app.js</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/cansUse.php</file>
+            <file>file:/C:/xampp/htdocs/Erlete/web/models/Members.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/Bookings.php</file>
             <file>file:/C:/xampp/htdocs/Erlete/web/models/current_date.php</file>
         </group>

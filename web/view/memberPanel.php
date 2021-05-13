@@ -161,7 +161,7 @@ if ($_SESSION["member"]) {
 
                         <div class="container">
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-5 m-3">
                                     <input type="number" name="Production" placeholder="Production Kg" id="production-kg">
                                     <button id="registerProduction" class="btn bg-yellow ml-3" type="button">Register</button>
                                 </div>

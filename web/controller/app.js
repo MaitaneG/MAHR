@@ -1,342 +1,246 @@
 $(function () {
 
 
-    //VISUALIZE BOOKING TABLE ON LOAD
-    fecthBooks();
+//VISUALIZE BOOKING TABLE ON LOAD
+fecthBooks();
+        //REGISTER PRODUCTION and SELECT CANS
+        console.log("jQuery esta funcionando 2");
+        $("#registerProduction").click(function () {
+if ($("#production-kg").val()) {
 
-    //REGISTER PRODUCTION and SELECT CANS
-    console.log("jQuery esta funcionando 2");
-    $("#registerProduction").click(function () {
-        if ($("#production-kg").val()) {
-
-            let kg = $("#production-kg").val();
-            let litros = kg / 1.39;
-            litros = litros.toFixed(2);
-            let taxKg = 0.25;
-            let tax = kg * taxKg;
-
-            let currentMail = document.getElementById("currentMail").textContent;
-            templateProduction = "";
-            templateProduction += `<tr>
-                                        <th>Production Litres</th><td>${litros}L </td><th>Tax in Euros</th><td>${tax}€</td>
+let kg = $("#production-kg").val();
+        let litros = kg / 1.39;
+        litros = litros.toFixed(2);
+        let taxKg = 0.25;
+        let tax = kg * taxKg;
+        let currentMail = document.getElementById("currentMail").textContent;
+        templateProduction = "";
+        templateProduction += `<tr>
+                                        <th>Production Litres</th><td>${litros}L </td><th>Tax in Euros</th><td>${tax}€</td><th>liters left</th><td id="litres-left">${litros}</td>
                                      </tr>`;
-            $("#production-litros").html(templateProduction);
-            //REGISTER PRODUCTION
-            let url = "../controller/productionsC.php";
-            const postDate = {
-                mail: currentMail,
+        $("#production-litros").html(templateProduction);
+        //REGISTER PRODUCTION
+        if (confirm(`Are you sure to register ${kg}Kg of product?`)){
+let url = "../controller/productionsC.php";
+        const postDate = {
+        mail: currentMail,
                 kilos: kg,
                 taxes: tax
-            };
-            $.post(url, postDate, function (response) {
-                console.log(response);
-                fecthBooks();
-           
+        };
+        $.post(url, postDate, function (response) {
+        alert(response);
+                fecthCans();
+        });
+}}
 
+});
+        //MARK CANS WILL BE USED
+        
+       $(document).on("click", ".reserveCanToUse", function (){
+        
+            
+        let Id = $(this).attr("data-id");
+        Id=parseInt(Id);
+        let litresleftText =($("#litres-left").text());
+        let litresleft=parseInt(litresleftText);
+        console.log(litresleft+300);
+        let url = "../controller/cansUseC.php";
+        let currentMail = document.getElementById("currentMail").textContent;
+        if (litresleft > 0){
+       
+             const postDate = {
+                mail: currentMail,
+                elementId: Id
+             };
+             
+        var capacity=0;
+        $.post(url, postDate, function (response) {
+            
+        let cans = JSON.parse(response);
+        
+                capacity = cans[0]["capacity"];
+                console.log(capacity);
+                 $("#litres-left").html(litresleft - capacity);
+                
             });
-
+                
+                
+               
+                fecthCans();
         }
-    });
-
-
-    //SEARCH RESERVES BY DATE
-    $("#datepicker").change(function () {
-        if ($("#datepicker").val()) {
-            let date = $("#datepicker").val();
-            let datearray = date.split("/");
-            date = datearray[2] + '-' + datearray[0] + '-' + datearray[1];
-            let currentMail = document.getElementById("currentMail").textContent;
-            document.querySelector("#datepicker").value = date;
-
-            const postDate = {
-                dateReserve: date,
+        else{
+        alert("you have saved all the production");
+        }
+        
+        });
+        
+        //SEARCH RESERVES BY DATE
+        $("#datepicker").change(function () {
+if ($("#datepicker").val()) {
+let date = $("#datepicker").val();
+        let datearray = date.split("/");
+        date = datearray[2] + '-' + datearray[0] + '-' + datearray[1];
+        let currentMail = document.getElementById("currentMail").textContent;
+        document.querySelector("#datepicker").value = date;
+        const postDate = {
+        dateReserve: date,
                 mail: currentMail
-            };
-            $.ajax({
-                url: "../controller/BookingsC.php",
+        };
+        $.ajax({
+        url: "../controller/BookingsC.php",
                 type: "POST",
                 data: {date},
                 success: function (response) {
 
 
-                    let reserves = JSON.parse(response);
-
-                    template = "";
-                    reserves.forEach(reserve => {
+                let reserves = JSON.parse(response);
+                        template = "";
+                        reserves.forEach(reserve => {
 
                         template += `
                                     
                                         <tr class="${reserve.id}">
                                              <td>${reserve.date}</td>
                                              <td>${reserve.mail}</td>`;
-                        if (currentMail === `${reserve.mail}`) {
-                            template += `<td><button class="reserve-delete btn btn-danger"><span class="material-icons-outlined">delete</span></button></td>`;
+                                if (currentMail === `${reserve.mail}`) {
+                        template += `<td><button class="reserve-delete btn btn-danger"><span class="material-icons-outlined">delete</span></button></td>`;
                         } else {
-                            template += `<td></td>`;
+                        template += `<td></td>`;
                         }
 
                         template += `</tr>`;
-                    });
-                    $("#table-booking").html(template);
-                    $("#table-booking").show();
+                        });
+                        $("#table-booking").html(template);
+                        $("#table-booking").show();
                 }
-            });
+        });
         } else {
-            fecthBooks();
+fecthBooks();
         }
-    });
+});
 ////INSERT NEW RESERVE
 //
-    $("#button-reserve").click(
-            function () {
-                if ($("#datepicker").val()) {
-                    let date = $("#datepicker").val();
-
+        $("#button-reserve").click(
+        function () {
+        if ($("#datepicker").val()) {
+        let date = $("#datepicker").val();
 //                    document.querySelector("#datepicker").value = date;
-                    let currentMail = document.getElementById("currentMail").textContent;
-                    let url = "../controller/BookingsC.php";
-                    const postDate = {
-                        dateReserve: date,
+                let currentMail = document.getElementById("currentMail").textContent;
+                let url = "../controller/BookingsC.php";
+                const postDate = {
+                dateReserve: date,
                         mail: currentMail
-                    };
-                    $.post(url, postDate, function (response) {
+                };
+                $.post(url, postDate, function (response) {
 
 
-                        let confirmed = response;
+                let confirmed = response;
                         if (confirmed == 1) {
-                            alert("Day Reserved");
-                            fecthBooks();
-                        } else
-                        {
-                            alert("Day Ocupied");
-
-                        }
-                        document.querySelector("#datepicker").value = "";
-                    });
+                alert("Day Reserved");
+                        fecthBooks();
+                } else
+                {
+                alert("Day Ocupied");
                 }
-            }
-
-    );
-
-    //CANCEL BOOKING
-    $(document).on("click", ".reserve-delete", function () {
-        if (confirm("Are you sure that you want to delete it?")) {
-            let element = $(this)[0].parentElement.parentElement;
-            let id = $(element).attr("class");
-
-            $.post("../controller/BookingsC.php", {id}, function (response) {
-
-                fecthBooks();
-            });
+                document.querySelector("#datepicker").value = "";
+                });
         }
-    });
+        }
+
+);
+        //CANCEL BOOKING
+        $(document).on("click", ".reserve-delete", function () {
+if (confirm("Are you sure that you want to delete it?")) {
+let element = $(this)[0].parentElement.parentElement;
+        let id = $(element).attr("class");
+        $.post("../controller/BookingsC.php", {id}, function (response) {
+
+        fecthBooks();
+        });
+        }
+});
 
 
-////BUSCAR ELEMENTOS EN LA TABLA
-//    $("#search").keyup(function () {
-//        if ($("#search").val()) {
-//            let search = $("#search").val();
-//            $.ajax({
-//                url: "task-search.php",
-//                type: "POST",
-//                data: {search},
-//                success: function (response) {
-//                    let tareas = JSON.parse(response);
-//                    template = "";
-//
-//                    tareas.forEach(tarea => {
-//                        template += `<tr class="${tarea.id}">
-//                                        <td>${tarea.id}</td>
-//                                        <td><a href"#" class="task-item">${tarea.name}</a></td>
-//                                        <td>${tarea.description}</td>
-//                                        <td><button class="task-delete btn btn-danger"><span class="material-icons-outlined">delete</span></button></td>
-//                                    </tr>`;
-//                    });
-//                    $("#tasks").html(template);
-//                    $("#tasks").show();
-//                }
-//            });
-//
-//        } else {
-//            fecthTasks();
-//        }
-//    });
-////INSERTAR NUEVO REGISTRO
-//    $("#task-form").submit(function (e) {
-//        const postData = {
-//            name: $("#name").val(),
-//            description: $("#description").val(),
-//            id: $("#taskId").val()
-//
-//        };
-//        url = "";
-//        if (edit === false) {
-//            url = "task-add.php";
-//        } else {
-//            url = "task-edit.php";
-//        }
-//        $.post(url, postData, function (response) {
-//
-//            console.log(response);
-//            fecthTasks();
-//            edit = false;
-//
-//            $("#task-form").trigger("reset");
-//        });
-//        e.preventDefault();
-//    });
-//    //CARGAR TODOS LOS ELEMENTOS DE LA TABLA
-//    function fecthTasks() {
-//        $.ajax({
-//            url: "task-list.php",
-//            type: "GET",
-//            success: function (response) {
-//                let tareas = JSON.parse(response);
-//                template = "";
-//
-//                tareas.forEach(tarea => {
-//                    template += `<tr class="${tarea.id}">
-//                                    <td>${tarea.id}</td>
-//                                    <td><a href"#" class="task-item">${tarea.name}</a></td>
-//                                    <td>${tarea.description}</td>
-//                                    <td><button class="task-delete btn btn-danger"><span class="material-icons-outlined">delete</span></button></td>
-//                                </tr>`;
-//                });
-//                $("#tasks").html(template);
-//                $("#tasks").show();
-//            }
-//        });
-//    }
-//
-//
-//    //BORRAR OBJETOS DE LA TABLA
-//    $(document).on("click", ".task-delete", function () {
-//        if (confirm("Are you sure that you want to delete it?")) {
-//            let element = $(this)[0].parentElement.parentElement;
-//            let id = $(element).attr("class");
-//            $.post("task-delete.php", {id}, function (response) {
-//                console.log(response);
-//                fecthTasks();
-//            });
-//        }
-//
-//
-//    });
-//    //EDITAR OBJETOS DE LA TABLA
-//    $(document).on("click", ".task-item", function () {
-//        console.log("editando");
-//        idEdit = 0;
-//        let element = $(this)[0].parentElement.parentElement;
-//        let id = $(element).attr("class");
-//        $.post("task-single.php", {id}, function (response) {
-//            const tarea = JSON.parse(response);
-//            $("#name").val(tarea.name);
-//            $("#description").val(tarea.description);
-//            $("#taskId").val(tarea.id);
-//            edit = true;
-//            fecthTasks();
-//        });
-//
-//
-//    });
+        /**
+         * FUNCTION VISUALIZE BOOKING TABLE 
+         */
+
+                function fecthBooks() {
+                let currentMail = document.getElementById("currentMail").textContent;
+                        let bookList = 1;
+                        $.ajax({
+                        url: "../controller/BookingsC.php",
+                                type: "POST",
+                                data: {bookList},
+                                success: function (response) {
 
 
-
-
-
-
-    /**
-     * FUNCTION VISUALIZE BOOKING TABLE 
-     */
-
-    function fecthBooks() {
-        let currentMail = document.getElementById("currentMail").textContent;
-        let bookList = 1;
-        $.ajax({
-            url: "../controller/BookingsC.php",
-            type: "POST",
-            data: {bookList},
-            success: function (response) {
-
-
-                let reserves = JSON.parse(response);
-                template = "";
-                reserves.forEach(reserve => {
-                    template += `
+                                let reserves = JSON.parse(response);
+                                        template = "";
+                                        reserves.forEach(reserve => {
+                                        template += `
                                         
                                         <tr class="${reserve.id}">
                                              <td><a href"#" class="task-item">${reserve.date}</a></td>
                                              <td>${reserve.mail}</td>`;
-                    if (currentMail === `${reserve.mail}`) {
-                        template += `<td><button class="reserve-delete btn btn-danger"><span class="material-icons-outlined">delete</span></button></td>`;
-                    } else {
-                        template += `<td></td>`;
-                    }
+                                                if (currentMail === `${reserve.mail}`) {
+                                        template += `<td><button class="reserve-delete btn btn-danger"><span class="material-icons-outlined">delete</span></button></td>`;
+                                        } else {
+                                        template += `<td></td>`;
+                                        }
 
-                    template += `</tr>`;
-                });
-                $("#table-booking").html(template);
-                $("#table-booking").show();
-            }
-        });
-    }
-    ;
+                                        template += `</tr>`;
+                                        });
+                                        $("#table-booking").html(template);
+                                        $("#table-booking").show();
+                                }
+                        });
+                }
+        ;
+                /**
+                 * FUNCTION VISUALIZE CANS TABLE 
+                 */
 
-    /**
-     * FUNCTION VISUALIZE CANS TABLE 
-     */
+                        function fecthCans() {
 
-    function fecthCans() {
-
-        let cansList = 1;
-        $.ajax({
-            url: "../controller/cansC.php",
-            type: "POST",
-            data: {cansList},
-            success: function (response) {
-                console.log(response);
-
-                let cans = JSON.parse(response);
-
-                template = "<div class='col-12'><h2 class='d-block'>SELECT CANS</h2></div>";
-                cans.forEach(can => {
-                    template += ` <div class="col-6 col-md-4 col-lg-3 my-3 cans-cards">
+                        let cansList = 1;
+                                $.ajax({
+                                url: "../controller/cansC.php",
+                                        type: "POST",
+                                        data: {cansList},
+                                        success: function (response) {
+                                        
+                                                let cans = JSON.parse(response);
+                                                template = "<div class='col-12'><h2 class='d-block'>SELECT CANS</h2></div>";
+                                                cans.forEach(can => {
+                                                template += ` <div class="col-6 col-md-4 col-lg-3 m-3 cans-cards">
                                                          <div class="card cardrepeat"> 
                                                             <h5 class="card-title" align="center">Can ${can.id} ${can.capacity} L</h5>
 
                                                              <div class="card-body">`;
-
-                    if (can.using === 1) {
-                        template += `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
+                                                        if (can.using === 1) {
+                                                template += `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
 
                                                                     <h6 class="text-center text-danger m-0">ENDS ${can.end_date}</h6>
                                                                     <h6 class="text-center m-0 py-2">${can.mail}</h6>                                                       `;
-                    } else {
-                        template += ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">                         
-                                           <button class="btn bg-yellow pl-5 pr-5 d-block m-auto">
+                                                } else {
+                                                template += ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">                         
+                                           <button class="reserveCanToUse btn bg-yellow pl-5 pr-5 d-block m-auto" data-id="${can.id}">
                                                 <span class="material-icons-outlined">
                                                     done_outline
                                                 </span>
                                             </button>`;
-                    }
+                                                }
 
 
 
-                    template += ` </div></div></div>`;
-
-                });
-                $("#cans-container").html(template);
-                $("#cans-container").show();
-            }
-        });
-    }
-    ;
-
-
-
-
-
-
-
-}
-);                 
+                                                template += ` </div></div></div>`;
+                                                });
+                                                $("#cans-container").html(template);
+                                                $("#cans-container").show();
+                                        }
+                                });
+                        }
+                ;
+                }
+        );                 

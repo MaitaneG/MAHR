@@ -1,9 +1,9 @@
 <?php
 
-include("testConexion.php");
+include("TestConexion.php");
 
 //BOOKINGS TABLE API
-function selectCanUsed($canId) {
+function viewCanUsed($canId) {
     //Select can using dates
     //return: 
     //0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
@@ -27,13 +27,13 @@ function selectCanUsed($canId) {
     return $results;
 }
 
-function addCanUse($mail, $id_can, $date) {
+function addCanUse($mail, $id_can, $today, $date2) {
     //Insert a new use day
     //return string
-    include("connect.php");
+  
     $conexion = ConnectDataBase();
 
-    $query = "INSERT INTO using_cans(mail, id_can, date) VALUES('$mail',$id_can','$date')";
+    $query = "INSERT INTO using_cans(mail, id_can, date, date2) VALUES('$mail','$id_can','$today','$date2')";
     $result = mysqli_query($conexion, $query);
       mysqli_close($conexion);
     if (!$result) {
@@ -42,17 +42,4 @@ function addCanUse($mail, $id_can, $date) {
     return "successfull";
 }
 
-function deleteCanUse($mail, $id_can, $date) {
-    //Delete can use day
-    //return string
-    include("connect.php");
-    $conexion = ConnectDataBase();
 
-    $query = "DELETE FROM using_cans where date=$date and mail=$mail";
-    $result = mysqli_query($conexion, $query);
-      mysqli_close($conexion);
-    if (!$result) {
-        return "NO MATCH";
-    }
-    echo "registry deleted successfully";
-}

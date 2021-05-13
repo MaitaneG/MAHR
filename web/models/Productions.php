@@ -1,6 +1,6 @@
 <?php
 
-include("testConexion.php");
+include("TestConexion.php");
 
 //PRODUCTIONS TABLE API
 function selectProductionsMail($mail) {
@@ -58,7 +58,7 @@ function selectProductionDate($date) {
 function insertProduction($mail, $kg, $tax) {
     //Add a new reserve
     //return String
-    include("connect.php");
+    
     $conexion = ConnectDataBase();
      $today=date("Y/m/d", time());
     $query = "INSERT INTO productions(mail,date, kilos, tax) VALUES('$mail','$today','$kg','$tax')";
@@ -68,6 +68,6 @@ function insertProduction($mail, $kg, $tax) {
     if (!$result) {
         return "0";
     }
-    return "1";
+    return "Registered";
 }
 
