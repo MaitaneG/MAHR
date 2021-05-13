@@ -81,6 +81,9 @@ public class Controller implements ActionListener {
             case "ADD_MEMBER":
                 enterUser();
                 break;
+            case "TAKE":
+                takeAllTableInformation();
+                break;
             /* When you want to update a member */
             // When you click UPDATE_MEMBER button
             case "UPDATE_MEMBER":
@@ -173,6 +176,22 @@ public class Controller implements ActionListener {
         view.jRadioButtonAdministrator.setSelected(false);
     }
 
+    public void takeAllTableInformation() {
+        int lerroa = view.jTableMember.getSelectedRow();
+
+        if (lerroa != -1) {
+            view.jTextFieldDni.setText((String) view.jTableMember.getValueAt(lerroa, 0));
+            view.jTextFieldName.setText((String) view.jTableMember.getValueAt(lerroa, 1));
+            view.jTextFieldSurname.setText((String) view.jTableMember.getValueAt(lerroa, 2));
+            view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
+            view.jPasswordFieldPassword.setText((String) view.jTableMember.getValueAt(lerroa, 4));
+            view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
+            view.jButtonUpdateMember.setActionCommand("UPDATE_MEMBER");
+        } else {
+            view.jLabelErrorMember.setText("You have to choose a row");
+        }
+    }
+
     /**
      * To update users' information
      *
@@ -185,94 +204,32 @@ public class Controller implements ActionListener {
             view.jLabelErrorMember.setText("You have to choose a row");
         } else {
             String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-            if (!(view.jTextFieldDni.getText().trim().equals(""))) {
-                updateUserDni(lerroa, gakoa);
-                changed = true;
+            String dni = view.jTextFieldDni.getText().trim();
+            String name = view.jTextFieldName.getText().trim();
+            String surname = view.jTextFieldSurname.getText().trim();
+            String password = new String(view.jPasswordFieldPassword.getPassword());
+            String account = view.jTextFieldAccount.getText().trim();
+
+            User use = new User(dni, name, surname, view.jTextFieldEmailMember.getText().trim(),
+                    password, account, view.jRadioButtonAdministrator.isSelected());
+
+            if (model.updateMember(gakoa, use) == 1) {
+                view.jButtonUpdateMember.setActionCommand("TAKE");
+                taulakEguneratu();
+            } else {
+                view.jLabelErrorMember.setText("The member couldn't be updated correctly");
             }
-            if (!(view.jTextFieldName.getText().trim().equals(""))) {
-                updateUserName(lerroa, gakoa);
-                changed = true;
-            }
-            if (!(view.jTextFieldSurname.getText().trim().equals(""))) {
-                updateUserSurname(lerroa, gakoa);
-                changed = true;
-            }
-            if (!(new String(view.jPasswordFieldPassword.getPassword()).equals(""))) {
-                updateUserPassword(lerroa, gakoa);
-                changed = true;
-            }
-            if (!(view.jTextFieldAccount.getText().trim().equals(""))) {
-                updateUserAccount(lerroa, gakoa);
-                changed = true;
-            }
-            if (!changed) {
-                view.jLabelErrorMember.setText("Nothing has been changed");
-            }
+            view.jTextFieldDni.setText("");
+            view.jTextFieldName.setText("");
+            view.jTextFieldSurname.setText("");
+            view.jPasswordFieldPassword.setText("");
+            view.jTextFieldEmailMember.setText("");
+            view.jTextFieldAccount.setText("");
+            view.jRadioButtonAdministrator.setSelected(false);
         }
 
     }
-
-    public void updateUserDni(int lerroa, String gakoa) {
-
-        String dni = view.jTextFieldDni.getText().trim();
-
-        if (model.updateMemberDni(gakoa, dni) == 1) {
-            view.jLabelErrorMember.setText("");
-            taulakEguneratu();
-        } else {
-            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
-        }
-        view.jTextFieldDni.setText("");
-    }
-
-    public void updateUserName(int lerroa, String gakoa) {
-        String name = view.jTextFieldName.getText().trim();
-
-        if (model.updateMemberName(gakoa, name) == 1) {
-            view.jLabelErrorMember.setText("");
-            taulakEguneratu();
-        } else {
-            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
-        }
-        view.jTextFieldName.setText("");
-    }
-
-    public void updateUserSurname(int lerroa, String gakoa) {
-        String surname = view.jTextFieldSurname.getText().trim();
-
-        if (model.updateMemberSurname(gakoa, surname) == 1) {
-            view.jLabelErrorMember.setText("");
-            taulakEguneratu();
-        } else {
-            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
-        }
-        view.jTextFieldSurname.setText("");
-    }
-
-    public void updateUserPassword(int lerroa, String gakoa) {
-        String password = new String(view.jPasswordFieldPassword.getPassword());
-
-        if (model.updateMemberPassword(gakoa, password) == 1) {
-            view.jLabelErrorMember.setText("");
-            taulakEguneratu();
-        } else {
-            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
-        }
-        view.jPasswordFieldPassword.setText("");
-    }
-
-    public void updateUserAccount(int lerroa, String gakoa) {
-        String password = view.jTextFieldAccount.getText().trim();
-
-        if (model.updateMemberAccount(gakoa, password) == 1) {
-            view.jLabelErrorMember.setText("");
-            taulakEguneratu();
-        } else {
-            view.jLabelErrorMember.setText("The member couldn't be updated correctly");
-        }
-        view.jTextFieldAccount.setText("");
-    }
-
+    
     /**
      * To delete an user
      *

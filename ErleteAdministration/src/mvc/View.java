@@ -242,7 +242,7 @@ public class View extends javax.swing.JFrame {
         jButtonUpdateMember.setBackground(new java.awt.Color(219, 139, 34));
         jButtonUpdateMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jButtonUpdateMember.setText("UPDATE");
-        jButtonUpdateMember.setActionCommand("UPDATE_MEMBER");
+        jButtonUpdateMember.setActionCommand("TAKE");
         jButtonUpdateMember.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonUpdateMember.setFocusable(false);
 
