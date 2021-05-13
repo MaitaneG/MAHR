@@ -99,16 +99,16 @@ if ($_SESSION["member"]) {
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="images/img4.jpg" alt="First slide">
+                        <img  loading="lazy"  class="d-block w-100" src="images/img4.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img1.jpeg" alt="Second slide">
+                        <img loading="lazy"  class="d-block w-100" src="images/img1.jpeg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img2.jpg" alt="Third slide">
+                        <img loading="lazy"  class="d-block w-100" src="images/img2.jpg" alt="Third slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img3.jpg" alt="Fourth slide">
+                        <img loading="lazy"  class="d-block w-100" src="images/img3.jpg" alt="Fourth slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
