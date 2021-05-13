@@ -32,7 +32,7 @@ if ($_SESSION["member"]) {
         <title>Erlete beekepers' association</title>
     </head>
     <body class="url">
-
+<!-- One way to present a title and content in a very prominent way on a page-->
         <div class="jumbotron bg-yellow mb-0">
             <h1>Erlete Beekepers' Association</h1>
 
@@ -86,10 +86,11 @@ if ($_SESSION["member"]) {
                 </div>
             </nav>
         </div>
+<!-- END OF THE NAVIGATION BAR -->
 
-
-        <!--        CONTENIDO-->
+        <!--CONTAINER-->
         <div class="container">
+            <!--CAROUSEL to make apear some images automatically-->
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -120,6 +121,7 @@ if ($_SESSION["member"]) {
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            <!--END of the CAROUSEL -->
             <br>
             <div class="row">
                 <div class="col-sm-12" align="center">
@@ -130,11 +132,11 @@ if ($_SESSION["member"]) {
 
                     <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>
                 </div>
-                 
+                <!--dive a row in 3 colums to put the rules of the association-->
                 <div class="col-sm-12 mt-3" align="center"><h2>Rules</h2></div>
                 <div class="col-sm-4">
 
-                    <h3>1. When they bring honey: </h3>
+                    <h3 align="center">1. When they bring honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
                        - The doors of the window and car were always locked.<br>
                        - Once the car's gone, take the car to the parking lot.<br>
@@ -143,7 +145,7 @@ if ($_SESSION["member"]) {
                 </div>
                 <div class="col-sm-4">
 
-                    <h3>2. Extracting honey: </h3>
+                    <h3 align="center">2. Extracting honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
                        - After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.<br>
                        - Fill out a file containing data from the honey campaign.<br>
@@ -151,19 +153,58 @@ if ($_SESSION["member"]) {
                 </div>
                 <div class="col-sm-4">
 
-                    <h3>3. The ship of honey: </h3>        
+                    <h3 align="center">3. The ship of honey: </h3>        
                     <p>- It will be made in less than 20 days after the honey is extracted.<br>
                        - Three samples or muestra must be left for each jar of honey.<br>
                        - Fill in the section corresponding to the launch of the honey chip in the honey campaign.</p>
                 </div>
 
                 <br>
+
+                <!--The same code of the previous cols-->
                 <div class="col-sm-12" align="center"><h2>Bees Information</h2>
-                        <img src="images/gif1.gif" style="border: 1px solid #bfbfbf;" class="picture-right-top" alt="3 types of honeybees">
-                        
+                            <p>
+                    <img src="images/gif1.gif" style="border-radius:30%"  alt="3 types of honeybees" align="right">
+                    
                         Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
 
-                        Bees of all varieties live on nectar and pollen. Without bees, pollination would be difficult and time consuming - it is estimated that one-third of the human food supply depends on insect pollination. Bees have a long, straw-like tongue called a probiscus that allows them to drink the nectar from deep within blossoms. Bees are also equipped with two wings, two antennae, and three segmented body parts (the head, the thorax, and the abdomen).&nbsp; Honeybees are social insects that live in colonies.&nbsp; The hive population consists of a single queen, a few hundred drones, and thousands of worker bees.
+                        Bees of all varieties live on nectar and pollen. Without bees, pollination would be difficult and time consuming - it is estimated that one-third of the human food supply depends on insect pollination. <br>Bees have a long, straw-like tongue called a probiscus that allows them to drink the nectar from deep within blossoms. Bees are also equipped with two wings, two antennae, and three segmented body parts (the head, the thorax, and the abdomen).&nbsp; Honeybees are social insects that live in colonies.&nbsp; The hive population consists of a single queen, a few hundred drones, and thousands of worker bees.
+                       </p>
+</div>
+<div class="col-sm-4"><h5 align="center">Worker Bees</h5>
+<p>
+                    <img src="images/abejaobrera.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="right">
+                    
+                        Worker bees are the most familiar-looking member of the honeybee hive, as they make up about 99% of each colony's population.<br>
+                        
+        Worker bees are all female, and they do almost everything for the hive. From birth to her death 45 days later, the worker bee is given different tasks to do during different stages of her life. Worker bees are responsible for everything from feeding the larvae (the baby bees), to tending to the queen, to cleaning the hive, to collecting food, to guarding the colony, to building honeycomb.
+                       </p>
+
+</div>
+<div class="col-sm-4"><h5 align="center">Drone Bees</h5>
+<p>
+                    <img src="images/Drone.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="right">
+                    Male bees are called drones. Their job is to mate with queens from other hives. If they do get the opportunity to mate, they die immediately afterwards. If they do not mate, they can live up to 90 days (that's twice as long as a worker bee!)<br>
+
+        You can identify drones in the hive by their big round bodies and large eyes. Drones are incapable of stinging.
+        
+                
+                       </p>
+
+</div>
+<div class="col-sm-4"><h5 align="center">Queen Bees</h5>
+<p>
+                    <img src="images/queen.jpg" height="140px" style="border-radius: 10%"  alt="3 types of honeybees" align="right">
+                    There is one queen bee per hive - she is the mom of all the other bees. She is the only fertile member of the colony, and lays about 1,500 eggs a day during spring and summer.
+                    <br>
+                    
+        Queen bees are distinguished from the other members of the hive by their long abdomens and small wings. Soon after birth, queen bees will go out and have a wild weeked, where they mate with 15 or more drones over a three day period before retiring to the hive to lay eggs. The queen will not leave the hive again unless the colony swarms (looking for a new home).
+        
+        
+                
+                       </p>
+
+</div>
 
 
 
@@ -183,6 +224,7 @@ if ($_SESSION["member"]) {
 
 
         </div>
+        <!--The necesary scripts to make it work the bootsatrap classes-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
