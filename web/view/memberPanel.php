@@ -119,14 +119,9 @@ if ($_SESSION["member"]) {
                                     <div class="col-12">
 
                                         <!--DATEPICKER using JQuery to show a calendar-->
-                                        <p>Date: <input type="text" id="datepicker" size="30"></p>
+                                        Date: <input type="text" id="datepicker" size="30"><button id="button-reserve" class="btn bg-yellow ml-3" type="button">Reserve</button>
+                                        
 
-
-                                        </p><button id="button-reserve" class="btn bg-yellow ml-3" type="button">Reserve</button>
-
-
-
-                                        </p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -160,143 +155,154 @@ if ($_SESSION["member"]) {
                         </h5>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body p-3">
-                            <h3>Production</h3> 
-                            <div class="row p-3">
 
-                                <input type="text" name="Production" placeholder="Production Kg"> 
-                                <button class="btn bg-yellow ml-3" type="button" >Register</button>
-                                <label></label>
-                            </div>
-                            <!--CARD to divide the cans-->
-                            <div class="row justify-content-center" id="cans-container">
+                        <h3>Production</h3> 
 
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-5">
+                                    <input type="number" name="Production" placeholder="Production Kg" id="production-kg">
+                                    <button id="registerProduction" class="btn bg-yellow ml-3" type="button">Register</button>
+                                </div>
+                                <div class="col-5"><table class="table mx-1 table-bordered" id="production-litros"></table>
+                                </div>
                             </div>
+
                         </div>
+
+
+
+
+                        <!--CARD to divide the cans-->
+                        <div class="row justify-content-center" id="cans-container">
+                            
+                        </div>
+
                     </div>
                 </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    3. Payments
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="row">
-                                    <!--Table to see the payments-->
-                                    <div class="col-12">
-                                        <h3>View</h3>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Amount</th>
-                                                    <th scope="col">Concept</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row"></th>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <!--Table to see the fees and to pay them-->
-                                    <div class="col-6">
-                                        <h3>Fees</h3>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-
-                                                    <th scope="col">ID_Fee</th>
-                                                    <th scope="col">Year</th>
-                                                    <th scope="col">Payed</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row"></th>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                        <button class="btn bg-yellow" type="button">Pay</button>
-
-                                    </div>
-
-                                    <!--Table to see the fees and to pay them-->
-                                    <div class="col-6">
-                                        <h3>Tax</h3>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-
-                                                    <th scope="col">Production</th>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Amount</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row"></th>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                        <button class="btn bg-yellow" type="button">Pay</button>
-
-                                    </div>
-                                </div>
-
-
-
-
-
-
-                            </div>
-                        </div>
-                        <!--ACCORION END-->
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                3. Payments
+                            </button>
+                        </h5>
                     </div>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-                    <script src="../controller/app.js"></script>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <!--Table to see the payments-->
+                                <div class="col-12">
+                                    <h3>View</h3>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
 
-                    <!--The function to make uit work the datapicker-->
-                    <script>
-                        $(function () {
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Concept</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
 
 
-                            $("#datepicker").datepicker();
-                            $("#format").on("change",
-                                    function () {
-                                        $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+                            <div class="row">
+                                <!--Table to see the fees and to pay them-->
+                                <div class="col-6">
+                                    <h3>Fees</h3>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
 
-                                    });
+                                                <th scope="col">ID_Fee</th>
+                                                <th scope="col">Year</th>
+                                                <th scope="col">Payed</th>
 
-                        });
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
 
-                    </script>
-                    </body>
-                    </html>
+                                        </tbody>
+                                    </table>
+                                    <button class="btn bg-yellow" type="button">Pay</button>
+
+                                </div>
+
+                                <!--Table to see the fees and to pay them-->
+                                <div class="col-6">
+                                    <h3>Tax</h3>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col">Production</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <button class="btn bg-yellow" type="button">Pay</button>
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!--ACCORION END-->
+                </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                <script src="../controller/app.js"></script>
+
+                <!--The function to make uit work the datapicker-->
+                <script>
+                    $(function () {
+
+
+                        $("#datepicker").datepicker();
+                        $("#format").on("change",
+                                function () {
+                                    $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+
+                                });
+
+                    });
+
+                </script>
+                </body>
+                </html>

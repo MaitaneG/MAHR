@@ -1,10 +1,43 @@
 $(function () {
 
-    console.log("jQuery esta funcionando");
+
     //VISUALIZE BOOKING TABLE ON LOAD
     fecthBooks();
-    //VISUALIZE CANS TABLE ON LOAD
-    fecthCans();
+
+    //REGISTER PRODUCTION and SELECT CANS
+    console.log("jQuery esta funcionando 2");
+    $("#registerProduction").click(function () {
+        if ($("#production-kg").val()) {
+
+            let kg = $("#production-kg").val();
+            let litros = kg / 1.39;
+            litros = litros.toFixed(2);
+            let taxKg = 0.25;
+            let tax = kg * taxKg;
+
+            let currentMail = document.getElementById("currentMail").textContent;
+            templateProduction = "";
+            templateProduction += `<tr>
+                                        <th>Production Litres</th><td>${litros}L </td><th>Tax in Euros</th><td>${tax}€</td>
+                                     </tr>`;
+            $("#production-litros").html(templateProduction);
+            //REGISTER PRODUCTION
+            let url = "../controller/productionsC.php";
+            const postDate = {
+                mail: currentMail,
+                kilos: kg,
+                taxes: tax
+            };
+            $.post(url, postDate, function (response) {
+                console.log(response);
+                fecthBooks();
+           
+
+            });
+
+        }
+    });
+
 
     //SEARCH RESERVES BY DATE
     $("#datepicker").change(function () {
@@ -14,6 +47,11 @@ $(function () {
             date = datearray[2] + '-' + datearray[0] + '-' + datearray[1];
             let currentMail = document.getElementById("currentMail").textContent;
             document.querySelector("#datepicker").value = date;
+
+            const postDate = {
+                dateReserve: date,
+                mail: currentMail
+            };
             $.ajax({
                 url: "../controller/BookingsC.php",
                 type: "POST",
@@ -225,7 +263,7 @@ $(function () {
                 template = "";
                 reserves.forEach(reserve => {
                     template += `
-                                    
+                                        
                                         <tr class="${reserve.id}">
                                              <td><a href"#" class="task-item">${reserve.date}</a></td>
                                              <td>${reserve.mail}</td>`;
@@ -259,32 +297,32 @@ $(function () {
                 console.log(response);
 
                 let cans = JSON.parse(response);
-                
-                template = "";
+
+                template = "<div class='col-12'><h2 class='d-block'>SELECT CANS</h2></div>";
                 cans.forEach(can => {
                     template += ` <div class="col-6 col-md-4 col-lg-3 my-3 cans-cards">
                                                          <div class="card cardrepeat"> 
                                                             <h5 class="card-title" align="center">Can ${can.id} ${can.capacity} L</h5>
 
                                                              <div class="card-body">`;
-                    
-                       if (can.using===1) {
-                            template+= `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
+
+                    if (can.using === 1) {
+                        template += `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
 
                                                                     <h6 class="text-center text-danger m-0">ENDS ${can.end_date}</h6>
-                                                                    <h6 class="text-center m-0 py-2">${can.mail}</h6>                                                       `;                          
-                                 }else{
-                              template+= ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">                         
+                                                                    <h6 class="text-center m-0 py-2">${can.mail}</h6>                                                       `;
+                    } else {
+                        template += ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">                         
                                            <button class="btn bg-yellow pl-5 pr-5 d-block m-auto">
                                                 <span class="material-icons-outlined">
                                                     done_outline
                                                 </span>
                                             </button>`;
-                                 }
-                                                            
+                    }
 
-                                 
-                           template+=` </div></div></div>`;
+
+
+                    template += ` </div></div></div>`;
 
                 });
                 $("#cans-container").html(template);

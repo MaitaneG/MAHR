@@ -24,7 +24,7 @@ function selectProductionsMail($mail) {
             'payed' => $row[2]
         );
     }
-    mysqli_free_result($row);
+
     mysqli_close($conexion);
     return $results;
 }
@@ -50,24 +50,24 @@ function selectProductionDate($date) {
             'payed' => $row[2]
         );
     }
-    mysqli_free_result($row);
+
     mysqli_close($conexion);
     return $results;
 }
 
-function insertProduction($date, $mail) {
+function insertProduction($mail, $kg, $tax) {
     //Add a new reserve
     //return String
     include("connect.php");
     $conexion = ConnectDataBase();
-
-    $query = "INSERT INTO members(date, mail) VALUES('$date',$mail')";
+     $today=date("Y/m/d", time());
+    $query = "INSERT INTO productions(mail,date, kilos, tax) VALUES('$mail','$today','$kg','$tax')";
     $result = mysqli_query($conexion, $query);
-    mysqli_free_result($row);
+  
     mysqli_close($conexion);
     if (!$result) {
-        return "SERVER ERROR";
+        return "0";
     }
-    return "reserve done";
+    return "1";
 }
 
