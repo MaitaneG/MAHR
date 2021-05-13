@@ -159,7 +159,6 @@ if ($_SESSION["member"]) {
 
                 <br>
                 <div class="col-sm-12" align="center"><h2>Bees Information</h2>
-                    <div class="col-sm-6">
                         <img src="images/gif1.gif" style="border: 1px solid #bfbfbf;" class="picture-right-top" alt="3 types of honeybees">
                         
                         Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
@@ -170,7 +169,7 @@ if ($_SESSION["member"]) {
 
 
 
-                    </div>
+                    
 
 
 
