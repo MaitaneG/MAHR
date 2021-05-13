@@ -198,7 +198,6 @@ public class Controller implements ActionListener {
      * You can change everything instead of email
      */
     public void updateUser() {
-        boolean changed = false;
         int lerroa = view.jTableMember.getSelectedRow();
         if (lerroa == -1) {
             view.jLabelErrorMember.setText("You have to choose a row");
@@ -215,6 +214,7 @@ public class Controller implements ActionListener {
 
             if (model.updateMember(gakoa, use) == 1) {
                 view.jButtonUpdateMember.setActionCommand("TAKE");
+                view.jLabelErrorMember.setText("");
                 taulakEguneratu();
             } else {
                 view.jLabelErrorMember.setText("The member couldn't be updated correctly");
@@ -227,7 +227,6 @@ public class Controller implements ActionListener {
             view.jTextFieldAccount.setText("");
             view.jRadioButtonAdministrator.setSelected(false);
         }
-
     }
     
     /**
