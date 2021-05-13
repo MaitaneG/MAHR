@@ -74,6 +74,7 @@ public class AccountTableModel extends AbstractTableModel {
      */
     @Override
     public Object getValueAt(int row, int col) {
+        //For each column
         switch (col) {
             case 0:
                 return datuak.get(row).getId();
