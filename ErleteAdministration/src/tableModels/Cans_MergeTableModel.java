@@ -88,12 +88,14 @@ public class Cans_MergeTableModel extends AbstractTableModel {
             case 2:
                 return datuak.get(row).getEmail();
             case 3:
+                //If the date is 2001-01-10 (means that is going to appear null)
                 if (datuak.get(row).getDate().equals(LocalDate.parse("2001-01-10"))) {
                     return datuak.get(row).getEmail();
                 } else {
                     return datuak.get(row).getDate();
                 }
             case 4:
+                //If the date is 2001-01-10 (means that is going to appear null)
                 if (datuak.get(row).getDate().equals(LocalDate.parse("2001-01-10"))) {
                     return datuak.get(row).getEmail();
                 } else {
