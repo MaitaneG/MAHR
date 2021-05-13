@@ -6,6 +6,7 @@
 package mvc;
 
 import Classes.Accounts;
+import Classes.Container;
 import Classes.Extractor;
 import Classes.User;
 import Classes.Container_Merge;
@@ -32,7 +33,7 @@ public class Model {
     public static Connection connect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mariadb://localhost/erlete", "root", "");
+            conn = DriverManager.getConnection("jdbc:mariadb://172.16.0.160:3306/erlete", "erlete1", "");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -325,5 +326,49 @@ public class Model {
             System.out.println(ex.getMessage());
         }
         return boo;
+    }
+    
+    /**
+     * Gets all the information of the the containers from the database
+     * 
+     * @return an ArrayList of Container
+     */
+    public ArrayList<Container> showContainer() {
+
+        ArrayList<Container> boo = new ArrayList<>();
+        String sql = "select ID_CAN, capacity from cans";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Container u1 = new Container(rs.getInt("ID_CAN"), rs.getInt("capacity"));
+                boo.add(u1);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return boo;
+    }
+    
+    /**
+     * Is going to add users to the database
+     * 
+     * @param c
+     * @return 0 if it hadn't been added correctly and 1 if it had been added
+     * correctly
+     */
+    public int addContainer(Container c) {
+        String sql = "INSERT INTO cans VALUES (?,?)";
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, c.getId());
+            pstmt.setInt(2, c.getCapacity());
+            return pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 }

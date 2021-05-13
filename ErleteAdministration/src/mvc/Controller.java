@@ -5,15 +5,16 @@
  */
 package mvc;
 
+import Classes.Container;
 import Classes.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
+import tableModels.CansTableModel;
 import tableModels.Cans_MergeTableModel;
 import tableModels.MembersTableModel;
-
 
 public class Controller implements ActionListener {
 
@@ -56,6 +57,7 @@ public class Controller implements ActionListener {
         view.jButtonUpdateMember.addActionListener(listener);
         view.jButtonDeleteMember.addActionListener(listener);
         view.jButtonDeleteBooking.addActionListener(listener);
+        view.jButtonAddBin.addActionListener(listener);
     }
 
     /**
@@ -89,10 +91,15 @@ public class Controller implements ActionListener {
             case "DELETE_MEMBER":
                 deleteUser();
                 break;
-            /* When you want to delete a member */
+            /* When you want to delete a booking */
             // When you click DELETE_BOOKING button
             case "DELETE_BOOKING":
                 deleteBooking();
+                break;
+            /* When you want to add a bin */
+            // When you click ADD_BIN button
+            case "ADD_BIN":
+                enterBin();
                 break;
         }
     }
@@ -105,6 +112,7 @@ public class Controller implements ActionListener {
         this.view.jTableBooking.setModel(new BookingTableModel());
         this.view.jTableMember.setModel(new MembersTableModel());
         this.view.jTableMerge.setModel(new Cans_MergeTableModel());
+        this.view.jTableBin.setModel(new CansTableModel());
     }
 
     /**
@@ -158,6 +166,11 @@ public class Controller implements ActionListener {
         } else {
             view.jLabelErrorMember.setText("The member couldn't be added correctly");
         }
+        view.jTextFieldDni.setText("");
+        view.jTextFieldName.setText("");
+        view.jPasswordFieldPassword.setText("");
+        view.jTextFieldAccount.setText("");
+        view.jRadioButtonAdministrator.setSelected(false);
     }
 
     /**
@@ -192,7 +205,7 @@ public class Controller implements ActionListener {
                 updateUserAccount(lerroa, gakoa);
                 changed = true;
             }
-            if(!changed){
+            if (!changed) {
                 view.jLabelErrorMember.setText("Nothing has been changed");
             }
         }
@@ -299,7 +312,7 @@ public class Controller implements ActionListener {
 
         //If any row hasn't been selected
         if (view.jTableMember.getSelectedRow() == -1) {
-            view.jLabelErrorMember.setText("You have to choose a row");
+            view.jLabelErrorBooking.setText("You have to choose a row");
             //If a row has been selected
         } else {
             gakoa = (Integer) view.jTableBooking.getValueAt(lerroa, 0);
@@ -311,6 +324,30 @@ public class Controller implements ActionListener {
             } else {
                 view.jLabelErrorBooking.setText("The booking couldn't be deleted correctly");
             }
+        }
+    }
+
+    /**
+     * Gets all the information entered of the bin and calls to a method in
+     * order to enter it in the database
+     */
+    public void enterBin() {
+
+        //prove that all the gaps are filled
+        if (view.jTextFieldIdBin.getText().trim().equals("") || view.jTextFieldCapacity.getText().trim().equals("")) {
+            view.jLabelErrorBin.setText("You have to fill all the information.");
+            //Prove that the bin has been added
+        } else {
+            Container u = new Container(Integer.parseInt(view.jTextFieldIdBin.getText().trim()), Integer.parseInt(view.jTextFieldCapacity.getText().trim()));
+            if (model.addContainer(u) == 1) {
+                taulakEguneratu();
+                view.jLabelErrorBin.setText("");
+                //If not added correctly
+            } else {
+                view.jLabelErrorBin.setText("The can couldn't be added correctly");
+            }
+            view.jTextFieldIdBin.setText("");
+            view.jTextFieldCapacity.setText("");
         }
     }
 }
