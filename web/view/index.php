@@ -158,7 +158,23 @@ if ($_SESSION["member"]) {
                 </div>
 
                 <br>
-                <div class="col-sm-12" align="center"><h2>Bees Information</h2></div>
+                <div class="col-sm-12" align="center"><h2>Bees Information</h2>
+                    <div class="col-sm-6">
+                        <img src="images/gif1.gif" style="border: 1px solid #bfbfbf;" class="picture-right-top" alt="3 types of honeybees">
+                        
+                        Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
+
+                        Bees of all varieties live on nectar and pollen. Without bees, pollination would be difficult and time consuming - it is estimated that one-third of the human food supply depends on insect pollination. Bees have a long, straw-like tongue called a probiscus that allows them to drink the nectar from deep within blossoms. Bees are also equipped with two wings, two antennae, and three segmented body parts (the head, the thorax, and the abdomen).&nbsp; Honeybees are social insects that live in colonies.&nbsp; The hive population consists of a single queen, a few hundred drones, and thousands of worker bees.
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
 
 
             </div>
