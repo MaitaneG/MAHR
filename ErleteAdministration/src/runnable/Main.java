@@ -17,7 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // Create a view object
-        View view = View.viewaSortuBistaratu();
+        View view = View.showView();
         // Create a model object
         Model model = new Model();
         // Create a controller object

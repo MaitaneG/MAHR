@@ -749,7 +749,7 @@ public class View extends javax.swing.JFrame {
      * This method is going to run the JFrame
      * @return 
      */
-    public static View viewaSortuBistaratu() {
+    public static View showView() {
         View v = new View();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

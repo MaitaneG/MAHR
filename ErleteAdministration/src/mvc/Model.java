@@ -92,12 +92,12 @@ public class Model {
     /**
      * Is going to update a user' DNI depending on the email
      *
-     * @param gakoa
+     * @param key
      * @param uDni
      * @return 0 if it hadn't been updated correctly and 1 if it had been
      * updated correctly
      */
-    public int updateMember(String gakoa, User u) {
+    public int updateMember(String key, User u) {
         String sql = "UPDATE members "
                 + "SET dni = ?, name = ?, surname = ?, password = ?, account = ?"
                 + "WHERE mail = ? ";
@@ -109,7 +109,7 @@ public class Model {
             pstmt.setString(3, u.getSurname());
             pstmt.setString(4, u.getPassword());
             pstmt.setString(5, u.getAccount());
-            pstmt.setString(6, gakoa);
+            pstmt.setString(6, key);
             return pstmt.executeUpdate();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
