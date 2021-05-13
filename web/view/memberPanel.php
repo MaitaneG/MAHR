@@ -119,7 +119,7 @@ if ($_SESSION["member"]) {
                                     <div class="col-12">
 
                                         <!--DATEPICKER using JQuery to show a calendar-->
-                                        Date: <input type="text" id="datepicker" size="30"><button id="button-reserve" class="btn bg-yellow ml-3" type="button">Reserve</button>
+                                        Date: <input class="mb-2" type="text" id="datepicker" size="30"><button id="button-reserve" class="btn bg-yellow ml-3" type="button">Reserve</button>
                                         
 
                                     </div>
@@ -154,18 +154,18 @@ if ($_SESSION["member"]) {
                             </button>
                         </h5>
                     </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div id="collapseTwo" class="collapse p-3" aria-labelledby="headingTwo" data-parent="#accordion">
 
                         <h3>Production</h3> 
 
 
                         <div class="container">
                             <div class="row">
-                                <div class="col-5 m-3">
-                                    <input type="number" name="Production" placeholder="Production Kg" id="production-kg">
+                                <div class="col-11 col-md-4 m-3">
+                                    <input class="mt-2 mb-2" type="number" name="Production" placeholder="Production Kg" id="production-kg">
                                     <button id="registerProduction" class="btn bg-yellow ml-3" type="button">Register</button>
                                 </div>
-                                <div class="col-5"><table class="table mx-1 table-bordered" id="production-litros"></table>
+                                <div class="mt-3 col-11 col-md-4"><table class="table mx-1 table-bordered" id="production-litros"></table>
                                 </div>
                             </div>
 

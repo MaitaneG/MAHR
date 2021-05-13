@@ -3,6 +3,8 @@ $(function () {
 
 //VISUALIZE BOOKING TABLE ON LOAD
 fecthBooks();
+//VISUALIZE CANS CARDS WITHOUT BUTTON
+fecthCansLessButtons();
         //REGISTER PRODUCTION and SELECT CANS
         console.log("jQuery esta funcionando 2");
         $("#registerProduction").click(function () {
@@ -16,7 +18,7 @@ let kg = $("#production-kg").val();
         let currentMail = document.getElementById("currentMail").textContent;
         templateProduction = "";
         templateProduction += `<tr>
-                                        <th>Production Litres</th><td>${litros}L </td><th>Tax in Euros</th><td>${tax}€</td><th>liters left</th><td id="litres-left">${litros}</td>
+                                        <th>Litres</th><td>${litros}L </td><th>Tax</th><td>${tax}€</td><th>Left</th><td id="litres-left">${litros}</td>
                                      </tr>`;
         $("#production-litros").html(templateProduction);
         //REGISTER PRODUCTION
@@ -213,8 +215,8 @@ let element = $(this)[0].parentElement.parentElement;
                                                 let cans = JSON.parse(response);
                                                 template = "<div class='col-12'><h2 class='d-block'>SELECT CANS</h2></div>";
                                                 cans.forEach(can => {
-                                                template += ` <div class="col-6 col-md-4 col-lg-3 m-3 cans-cards">
-                                                         <div class="card cardrepeat"> 
+                                                template += ` <div class="col-10 col-md-4 col-lg-3 m-1 cans-cards">
+                                                         <div style="height:400px;" class="card cardrepeat"> 
                                                             <h5 class="card-title" align="center">Can ${can.id} ${can.capacity} L</h5>
 
                                                              <div class="card-body">`;
@@ -230,6 +232,43 @@ let element = $(this)[0].parentElement.parentElement;
                                                     done_outline
                                                 </span>
                                             </button>`;
+                                                }
+
+
+
+                                                template += ` </div></div></div>`;
+                                                });
+                                                $("#cans-container").html(template);
+                                                $("#cans-container").show();
+                                        }
+                                });
+                        }
+                ;
+                
+                                        function fecthCansLessButtons() {
+
+                        let cansList = 1;
+                                $.ajax({
+                                url: "../controller/cansC.php",
+                                        type: "POST",
+                                        data: {cansList},
+                                        success: function (response) {
+                                        
+                                                let cans = JSON.parse(response);
+                                                template = "<div class='col-12'><h2 class='d-block'>VIEW CANS</h2></div>";
+                                                cans.forEach(can => {
+                                                template += ` <div class="col-10 col-md-4 col-lg-3 m-1 cans-cards">
+                                                         <div style="height:400px;" class="card cardrepeat"> 
+                                                            <h5 class="card-title" align="center">Can ${can.id} ${can.capacity} L</h5>
+
+                                                             <div class="card-body">`;
+                                                        if (can.using === 1) {
+                                                template += `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
+
+                                                                    <h6 class="text-center text-danger m-0">ENDS ${can.end_date}</h6>
+                                                                    <h6 class="text-center m-0 py-2">${can.mail}</h6>                                                       `;
+                                                } else {
+                                                template += ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">`;
                                                 }
 
 
