@@ -88,7 +88,7 @@ if ($_SESSION["member"]) {
 
         <!--    CONTENIDO-->
 
-        <div class="container">
+        <div class="container" style="background-color: #FAE75B">
 
             <br>
             <div class="row">
