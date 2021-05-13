@@ -9,7 +9,7 @@ function selectCanUsed($canId) {
     //0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
     $conexion = ConnectDataBase();
      $today=date("Y/m/d", time());
-    $query = "SELECT * FROM using_cans where ID_CAN=$canId AND DATE_END>=$today ";
+    $query = "SELECT * FROM using_cans where ID_CAN=$canId AND DATE2>=$today ";
     $result = mysqli_query($conexion, $query);
     if (!$result) {
         die("Query error" . mysqli_error($conexion));
