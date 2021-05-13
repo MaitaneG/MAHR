@@ -33,7 +33,7 @@ public class Model {
     public static Connection connect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mariadb://172.16.0.160:3306/erlete", "erlete1", "");
+            conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -48,7 +48,7 @@ public class Model {
     public ArrayList<User> showUsers() {
 
         ArrayList<User> use = new ArrayList<>();
-        String sql = "SELECT * FROM Members";
+        String sql = "SELECT * FROM members";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -145,7 +145,7 @@ public class Model {
     public ArrayList<Accounts> showAccounts() {
 
         ArrayList<Accounts> acc = new ArrayList<>();
-        String sql = "SELECT * FROM Account";
+        String sql = "SELECT * FROM account";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -168,7 +168,7 @@ public class Model {
     public ArrayList<Extractor> showBookings() {
 
         ArrayList<Extractor> boo = new ArrayList<>();
-        String sql = "SELECT * FROM Bookings";
+        String sql = "SELECT * FROM bookings";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -213,7 +213,7 @@ public class Model {
     public ArrayList<Container_Merge> showContainer_Merge() {
 
         ArrayList<Container_Merge> boo = new ArrayList<>();
-        String sql = "select cans.ID_CAN, capacity, mail, date, date2 from cans left join using_cans2 ON cans.ID_CAN = using_cans2.ID_CAN where date is null or curdate() BETWEEN date and date2 order by cans.ID_CAN";
+        String sql = "select cans.ID_CAN, capacity, mail, date, date2 from cans left join using_cans ON cans.ID_CAN = using_cans.ID_CAN where date is null or curdate() BETWEEN date and date2 order by cans.ID_CAN";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);

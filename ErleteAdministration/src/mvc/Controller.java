@@ -171,6 +171,8 @@ public class Controller implements ActionListener {
         }
         view.jTextFieldDni.setText("");
         view.jTextFieldName.setText("");
+        view.jTextFieldSurname.setText("");
+        view.jTextFieldEmailMember.setText("");
         view.jPasswordFieldPassword.setText("");
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
