@@ -176,6 +176,9 @@ public class Controller implements ActionListener {
         view.jRadioButtonAdministrator.setSelected(false);
     }
 
+    /**
+     * Takes all the information and it puts in the labels
+     */
     public void takeAllTableInformation() {
         int lerroa = view.jTableMember.getSelectedRow();
 
@@ -186,6 +189,9 @@ public class Controller implements ActionListener {
             view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
             view.jPasswordFieldPassword.setText((String) view.jTableMember.getValueAt(lerroa, 4));
             view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
+            if (view.jTableMember.getValueAt(lerroa, 6).toString().equals("true")) {
+                view.jRadioButtonAdministrator.setSelected(true);
+            }
             view.jButtonUpdateMember.setActionCommand("UPDATE_MEMBER");
         } else {
             view.jLabelErrorMember.setText("You have to choose a row");
@@ -195,7 +201,7 @@ public class Controller implements ActionListener {
     /**
      * To update users' information
      *
-     * You can change everything instead of email
+     * You can change everything instead of email and admin
      */
     public void updateUser() {
         int lerroa = view.jTableMember.getSelectedRow();
@@ -228,7 +234,7 @@ public class Controller implements ActionListener {
             view.jRadioButtonAdministrator.setSelected(false);
         }
     }
-    
+
     /**
      * To delete an user
      *
