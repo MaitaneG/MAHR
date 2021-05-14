@@ -63,6 +63,7 @@ public class Controller implements ActionListener {
         view.jButtonLogout2.addActionListener(listener);
         view.jButtonLogout3.addActionListener(listener);
         view.jButtonLogout4.addActionListener(listener);
+        view.jButtonEraser.addActionListener(listener);
     }
     
     /**
@@ -154,6 +155,7 @@ public class Controller implements ActionListener {
             // When you click ERASER button
             case "ERASER":
                 eraser();
+                break;
             /* When you want to logout */
             // When you click LOGOUT button
             case "LOGOUT":
@@ -385,5 +387,6 @@ public class Controller implements ActionListener {
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
+        view.jButtonUpdateMember.setActionCommand("TAKE");
     }
 }
