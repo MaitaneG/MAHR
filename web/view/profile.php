@@ -51,8 +51,8 @@ if ($_SESSION["member"]) {
                         <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
                         <?php
                         if ($member) {
-                            echo '<li class="nav-item">
-                                        <a class="nav-link p-3" href="profile.php">Profile</a>
+                            echo '<li class="nav-item active">
+                                        <a class="nav-link p-3 active disabled" href="#">Profile</a>
                                     </li>';
                             echo '<li class="nav-item">
                                         <a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
@@ -60,8 +60,8 @@ if ($_SESSION["member"]) {
                         }
                         ?>
 
-                        <li class="nav-item active">
-                            <a class="nav-link p-3 active disabled" href="#">Contact</a>
+                        <li class="nav-item ">
+                            <a class="nav-link p-3" href="contact.php">Contact</a>
                         </li>
                     </ul>
                     <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
@@ -79,6 +79,7 @@ if ($_SESSION["member"]) {
                             <button type="submit" class="btn bg-yellow mb-2">Login</button>
                         </form>';
                     } else {
+
                         echo "<h6 class='p-3'>$mail</h6>";
                         echo '<form action="../controller/logout.php">'
                         . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
@@ -91,62 +92,20 @@ if ($_SESSION["member"]) {
         </div>
 
 
-        <!--    CONTENIDO-->
+        <!--CONTENIDO-->
 
         <div class="container bg-texture">
-
-            <br>
             <div class="row">
+                div
 
-                <div class="col-sm-12" align="center">
-                    <h2>Location</h2>
-                    <p><b>Direction:</b> San Juan Plaza 1;<br>
-                        <b>Municipality:</b> Axpe;<br>
-                        <b>Province:</b> Bizkaia;<br>
-                        <b>Postcode:</b> 48291;<br>
-                        <u><b>GPS Address:</b></u><br>
-                        <b>Latitude:</b> 43.1156673 ;<br>
-                        <b>Length:</b> -2.5982992</p>
-                    <!--The code to put Erlete Beekepers' Association location taking it from google maps-->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23302.940519782715!2d-2.603144!3d43.107298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fd2f2a4d7a841%3A0xdebc4249323c4949!2sSan%20Juan%20Plaza%2C%201%2C%2048291%20Axpe%2C%20Bizkaia%2C%20Spain!5e0!3m2!1sen!2sus!4v1620634544007!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-                </div>
 
             </div>
+
+            
+                            
+
         
-<br>
-<!--Email,call and sms link inside a jumbotron-->
-        <div class="row jumbotron mb-0" >
-            <div class="col-sm-4" align="left">
-                <a href="mailto:{email}?subject={subject}&body={content}">
-                    Send us an email 
-                </a>
-                <span class="material-icons-outlined text-light">
-mail
-</span>
-
-            </div>
-
-            <div class="col-sm-4" align="center">
-                <a href="tel:{phone}">
-                    Call us 
-                </a>
-                <span class="material-icons-outlined text-light">
-                phone
-                </span>
-
-            </div>
-
-            <div class="col-sm-4" align="right">
-                <a href="sms:{phone}?body={content}">
-                    Send us a message 
-                </a> 
-                <span class="material-icons-outlined text-light">
-                sms
-                </span>
-
-            </div>
-        </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

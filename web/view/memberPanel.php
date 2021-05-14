@@ -62,6 +62,9 @@ if ($_SESSION["member"]) {
                         <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
                         <?php
                         if ($member) {
+                            echo '<li class="nav-item">
+                                        <a class="nav-link p-3" href="profile.php">Profile</a>
+                                    </li>';
                             echo '<li class="nav-item active">
                         <a class="nav-link p-3 active disabled" href="#">Member Panel</a>
                         </li>';

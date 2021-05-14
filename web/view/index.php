@@ -53,6 +53,9 @@ if ($_SESSION["member"]) {
                         <?php
                         if ($member) {
                             echo '<li class="nav-item">
+                                        <a class="nav-link p-3" href="profile.php">Profile</a>
+                                    </li>';
+                            echo '<li class="nav-item">
                                         <a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
                                     </li>';
                         }
@@ -143,26 +146,33 @@ if ($_SESSION["member"]) {
                 <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">1. When they bring honey: </h3>
-                    <p>- Don't bring a bee to the honey.<br>
-                        - The doors of the window and car were always locked.<br>
-                        - Once the car's gone, take the car to the parking lot.<br>
-                        - Leave no sign of honey on the porch, keep it clean.<br>
-                        - "The straws do not leave [them] on the ground, but on the foundations prepared.</p>
+                    <ul>
+                        <li>Don't bring a bee to the honey.</li>
+                        <li>The doors of the window and car were always locked.</li>
+                        <li>Once the car's gone, take the car to the parking lot.</li>
+                        <li>Leave no sign of honey on the porch, keep it clean.</li>
+                        <li>"The straws do not leave [them] on the ground, but on the foundations prepared.</li>
+                    </ul>
+                    
                 </div>
                 <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">2. Extracting honey: </h3>
-                    <p>- Don't bring a bee to the honey.<br>
-                        - After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.<br>
-                        - Fill out a file containing data from the honey campaign.<br>
-                        - Make your shop clean and clean for the next one.</p>
+                    <ul>
+                        <li>Don't bring a bee to the honey.</li>
+                        <li>After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.</li>
+                        <li>Fill out a file containing data from the honey campaign.</li>
+                        <li>Make your shop clean and clean for the next one.</li>
+                    </ul>
                 </div>
                 <div class="col-11 col-lg-4 px-4">
 
-                    <h3 align="center">3. The ship of honey: </h3>        
-                    <p>- It will be made in less than 20 days after the honey is extracted.<br>
-                        - Three samples or muestra must be left for each jar of honey.<br>
-                        - Fill in the section corresponding to the launch of the honey chip in the honey campaign.</p>
+                    <h3 align="center">3. The ship of honey: </h3>  
+                    <ul>
+                        <li>It will be made in less than 20 days after the honey is extracted.</li>
+                        <li>Three samples or muestra must be left for each jar of honey.</li>
+                        <li>Fill in the section corresponding to the launch of the honey chip in the honey campaign.</li>
+                    </ul>      
                 </div>
             </div>
             <br>
