@@ -86,6 +86,7 @@ public class View extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabelErrorMessage = new javax.swing.JLabel();
 
+        jDialogMenu.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialogMenu.setTitle("ADMINISTRATION");
         jDialogMenu.setBackground(new java.awt.Color(219, 139, 34));
         jDialogMenu.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N

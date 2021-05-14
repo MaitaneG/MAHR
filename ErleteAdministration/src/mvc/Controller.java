@@ -115,6 +115,7 @@ public class Controller implements ActionListener {
             /* When you want to logout */
             // When you click LOGOUT button
             case "LOGOUT":
+                view.jDialogMenu.setVisible(false);
                 view.setVisible(true);
                 break;
         }
