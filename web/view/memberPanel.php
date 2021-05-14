@@ -104,7 +104,7 @@ if ($_SESSION["member"]) {
 
             <!-- ACCORDION-->
             <div id="accordion" class="mt-3">
-                <div class="card">
+                <div class="card bg-texture">
                     <div class="card-header gradient" id="headingOne">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -148,7 +148,7 @@ if ($_SESSION["member"]) {
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card bg-texture">
                     <div class="card-header gradient" id="headingTwo">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -183,7 +183,7 @@ if ($_SESSION["member"]) {
 
                     </div>
                 </div>
-                <div class="card">
+                <div class="card bg-texture">
                     <div class="card-header gradient" id="headingThree">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

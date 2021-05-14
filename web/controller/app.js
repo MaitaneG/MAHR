@@ -258,8 +258,8 @@ $(function () {
                 let cans = JSON.parse(response);
                 template = "<div class='col-12'><h2 class='d-block'>SELECT CANS</h2></div>";
                 cans.forEach(can => {
-                    template += ` <div class="col-10 col-md-4 col-lg-3 m-1 mt-2 cans-cards">
-                                                         <div style="height:100%;" class="card cardrepeat mt-2"> 
+                    template += ` <div class="col-10 col-md-4 col-lg-3 m-1 mt-2 cans-cards animate">
+                                                         <div style="height:100%;" class="bg-opaci card cardrepeat mt-2"> 
                                                             <h5 class="card-title" align="center">Can ${can.id} || ${can.capacity} L</h5>
 
                                                              <div class="card-body">`;
@@ -301,10 +301,10 @@ $(function () {
             success: function (response) {
 
                 let cans = JSON.parse(response);
-                template = "<div class='col-12'><h2 class='d-block'>VIEW CANS</h2></div>";
+                template = "<div class='col-12 '><h2 class='d-block'>VIEW CANS</h2></div>";
                 cans.forEach(can => {
-                    template += ` <div class="col-10 col-md-4 col-lg-3 m-1  cans-cards">
-                                                         <div style="height:100%;" class="card cardrepeat mt-2"> 
+                    template += ` <div class="col-10 col-md-4 col-lg-3 m-1 cans-cards">
+                                                         <div style="height:100%;" class="card cardrepeat mt-2 bg-opaci"> 
                                                             <h5 class="card-title" align="center">Can ${can.id} || ${can.capacity} L</h5>
 
                                                              <div class="card-body">`;

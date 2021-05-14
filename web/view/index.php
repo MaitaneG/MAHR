@@ -32,7 +32,7 @@ if ($_SESSION["member"]) {
         <title>Erlete beekepers' association</title>
     </head>
     <body class="url">
-<!-- One way to present a title and content in a very prominent way on a page-->
+        <!-- One way to present a title and content in a very prominent way on a page-->
         <div class="jumbotron bg-yellow mb-0">
             <h1>Erlete Beekepers' Association</h1>
 
@@ -76,8 +76,7 @@ if ($_SESSION["member"]) {
 
                             <button type="submit" class="btn bg-yellow mb-2">Login</button>
                         </form>';
-                    }
-                    else {
+                    } else {
                         echo "<h6 class='p-3'>$mail</h6>";
                         echo '<form action="../controller/logout.php">'
                         . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
@@ -88,10 +87,10 @@ if ($_SESSION["member"]) {
                 </div>
             </nav>
         </div>
-<!-- END OF THE NAVIGATION BAR -->
+        <!-- END OF THE NAVIGATION BAR -->
 
         <!--CONTAINER-->
-        <div class="container" style="background-color: #FAE75B">
+        <div class="container bg-texture">
             <!--CAROUSEL to make apear some images automatically-->
             <div id="carouselExampleIndicators" class="carousel slide p-2" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -135,96 +134,96 @@ if ($_SESSION["member"]) {
                     <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>   
                 </div>
 
-                </div>
-                <hr style="height:5px;background-color:#c46404 ">
-                <!--divide a row in 3 colums to put the rules of the association-->
-                <div class="row ">
+            </div>
+            <hr style="height:5px;background-color:#c46404 ">
+            <!--divide a row in 3 colums to put the rules of the association-->
+            <div class="row ">
                 <div class="col-sm-12 mt-3 p-2" align="center"><h2>Rules</h2></div>
-                
+
                 <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">1. When they bring honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
-                       - The doors of the window and car were always locked.<br>
-                       - Once the car's gone, take the car to the parking lot.<br>
-                       - Leave no sign of honey on the porch, keep it clean.<br>
-                       - "The straws do not leave [them] on the ground, but on the foundations prepared.</p>
+                        - The doors of the window and car were always locked.<br>
+                        - Once the car's gone, take the car to the parking lot.<br>
+                        - Leave no sign of honey on the porch, keep it clean.<br>
+                        - "The straws do not leave [them] on the ground, but on the foundations prepared.</p>
                 </div>
                 <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">2. Extracting honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
-                       - After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.<br>
-                       - Fill out a file containing data from the honey campaign.<br>
-                       - Make your shop clean and clean for the next one.</p>
+                        - After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.<br>
+                        - Fill out a file containing data from the honey campaign.<br>
+                        - Make your shop clean and clean for the next one.</p>
                 </div>
                 <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">3. The ship of honey: </h3>        
                     <p>- It will be made in less than 20 days after the honey is extracted.<br>
-                       - Three samples or muestra must be left for each jar of honey.<br>
-                       - Fill in the section corresponding to the launch of the honey chip in the honey campaign.</p>
+                        - Three samples or muestra must be left for each jar of honey.<br>
+                        - Fill in the section corresponding to the launch of the honey chip in the honey campaign.</p>
                 </div>
-</div>
-                <br>
-                <hr style="height:5px;background-color:#c46404 ">
-                <!--The same code of the previous cols-->
-                <div class="row ">
+            </div>
+            <br>
+            <hr style="height:5px;background-color:#c46404 ">
+            <!--The same code of the previous cols-->
+            <div class="row ">
                 <div class="col-sm-12 p-2 m-2" align="center"><h2>Bees Information</h2>
-                    
+
                     <img src="images/gif1.gif" align="right" class="m-2 imagese">
                     <p class="p-4">
                         Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
 
                         Bees of all varieties live on nectar and pollen. Without bees, pollination would be difficult and time consuming - it is estimated that one-third of the human food supply depends on insect pollination. <br>Bees have a long, straw-like tongue called a probiscus that allows them to drink the nectar from deep within blossoms. Bees are also equipped with two wings, two antennae, and three segmented body parts (the head, the thorax, and the abdomen).&nbsp; Honeybees are social insects that live in colonies.&nbsp; The hive population consists of a single queen, a few hundred drones, and thousands of worker bees.
-                       </p>
-</div>
-</div>
-<div class="row justify-content-center ">
-<div class="col-11 col-lg-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-content-center ">
+                <div class="col-11 col-lg-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
 
                     <img src="images/abejaobrera.jpg" class="imagese" align="center">
                     <p class="p-2">
                         Worker bees are the most familiar-looking member of the honeybee hive, as they make up about 99% of each colony's population.<br>
-                        
-        Worker bees are all female, and they do almost everything for the hive. From birth to her death 45 days later, the worker bee is given different tasks to do during different stages of her life. Worker bees are responsible for everything from feeding the larvae (the baby bees), to tending to the queen, to cleaning the hive, to collecting food, to guarding the colony, to building honeycomb.
-                       </p>
 
-</div>
-<div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Drone Bees</h5>
+                        Worker bees are all female, and they do almost everything for the hive. From birth to her death 45 days later, the worker bee is given different tasks to do during different stages of her life. Worker bees are responsible for everything from feeding the larvae (the baby bees), to tending to the queen, to cleaning the hive, to collecting food, to guarding the colony, to building honeycomb.
+                    </p>
+
+                </div>
+                <div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Drone Bees</h5>
 
                     <img src="images/Drone.jpg" class="imagese" align="center">
                     <p>
-                    Male bees are called drones. Their job is to mate with queens from other hives. If they do get the opportunity to mate, they die immediately afterwards. If they do not mate, they can live up to 90 days (that's twice as long as a worker bee!)<br>
+                        Male bees are called drones. Their job is to mate with queens from other hives. If they do get the opportunity to mate, they die immediately afterwards. If they do not mate, they can live up to 90 days (that's twice as long as a worker bee!)<br>
 
-        You can identify drones in the hive by their big round bodies and large eyes. Drones are incapable of stinging.
-        
-                
-                       </p>
+                        You can identify drones in the hive by their big round bodies and large eyes. Drones are incapable of stinging.
 
-</div>
-<div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
+
+                    </p>
+
+                </div>
+                <div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
 
                     <img src="images/queen.jpg" class="imagese" align="center">
                     <p>
-                    There is one queen bee per hive - she is the mom of all the other bees. She is the only fertile member of the colony, and lays about 1,500 eggs a day during spring and summer.
-                    <br>
-                    
-        Queen bees are distinguished from the other members of the hive by their long abdomens and small wings. Soon after birth, queen bees will go out and have a wild weeked, where they mate with 15 or more drones over a three day period before retiring to the hive to lay eggs. The queen will not leave the hive again unless the colony swarms (looking for a new home).
-        
-        
-                
-                       </p>
+                        There is one queen bee per hive - she is the mom of all the other bees. She is the only fertile member of the colony, and lays about 1,500 eggs a day during spring and summer.
+                        <br>
 
-</div>
-</div>
+                        Queen bees are distinguished from the other members of the hive by their long abdomens and small wings. Soon after birth, queen bees will go out and have a wild weeked, where they mate with 15 or more drones over a three day period before retiring to the hive to lay eggs. The queen will not leave the hive again unless the colony swarms (looking for a new home).
+
+
+
+                    </p>
+
+                </div>
             </div>
-
-
-
-
-
         </div>
+
+
+
+
+
+
         <!--The necesary scripts to make it work the bootsatrap classes-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -72,13 +72,17 @@ height: 420px;
 /*Class for the jumbotron*/
 .jumbotron{
     height: 120px;
-
+background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, 
+	rgba(0,0,0,0.8687850140056023) 35%, rgba(28,57,62,1) 100%);
+	text-align: center;
 }
 
 /*Change the size of h1*/
 h1{
 	
 	font-size: 32px;
+        color:white;
 }
 
 /*A class wich change the the tiles of the acordion*/
@@ -107,4 +111,25 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%,
 /*To change the size of h3*/
 h3{
 	font-size: 18px;
+}
+
+.bg-texture{
+    background-image: url("../images/texture.jpg");
+    background-repeat: repeat;
+}
+
+.table{
+    background: white;
+}
+
+.bg-opaci{
+    background-color: rgba(255, 255, 255, 0.15); 
+    filter: blur(.4px);
+    border: solid white 3px;
+    box-shadow: 4px 2px 2px grey;
+}
+
+.animate:hover{
+    transform: scale(1.05);
+    transition: 0.4s;
 }
