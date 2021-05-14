@@ -96,10 +96,12 @@ if ($_SESSION["member"]) {
 
         <div class="container bg-texture">
             <div class="row">
-                div
-
-
-
+                <div class="col-sm-6">   
+                <img src="images/user.png" class="userimag">
+                </div>
+                <div class="col-sm-6">   
+                
+                </div>
             </div>
 
             
