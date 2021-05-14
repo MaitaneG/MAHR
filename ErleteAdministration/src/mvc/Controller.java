@@ -58,6 +58,7 @@ public class Controller implements ActionListener {
         view.jButtonDeleteMember.addActionListener(listener);
         view.jButtonDeleteBooking.addActionListener(listener);
         view.jButtonAddBin.addActionListener(listener);
+        //view.jButtonEraser.addActionListener(listener);
     }
 
     /**
@@ -104,6 +105,11 @@ public class Controller implements ActionListener {
             case "ADD_BIN":
                 enterBin();
                 break;
+            /* When you want to clear all the information of members labels */
+            // When you click ERASER button
+            case "ERASER":
+                eraser();
+                break;
         }
     }
 
@@ -132,10 +138,17 @@ public class Controller implements ActionListener {
         //Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
+<<<<<<< HEAD
                 taulakEguneratu();
                 view.jDialogMenu.setVisible(true);
                 view.jLabelErrorMessage.setText("");
                 
+=======
+                view.setVisible(false);
+                view.jDialogMenu.setVisible(true);
+                view.jLabelErrorMessage.setText("");
+
+>>>>>>> origin/Maitane
                 break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
@@ -315,5 +328,15 @@ public class Controller implements ActionListener {
             view.jTextFieldIdBin.setText("");
             view.jTextFieldCapacity.setText("");
         }
+    }
+
+    public void eraser() {
+        view.jTextFieldDni.setText("");
+        view.jTextFieldName.setText("");
+        view.jTextFieldSurname.setText("");
+        view.jPasswordFieldPassword.setText("");
+        view.jTextFieldEmailMember.setText("");
+        view.jTextFieldAccount.setText("");
+        view.jRadioButtonAdministrator.setSelected(false);
     }
 }
