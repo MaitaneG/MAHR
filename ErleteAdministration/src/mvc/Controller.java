@@ -58,6 +58,10 @@ public class Controller implements ActionListener {
         view.jButtonDeleteMember.addActionListener(listener);
         view.jButtonDeleteBooking.addActionListener(listener);
         view.jButtonAddBin.addActionListener(listener);
+        view.jButtonLogout1.addActionListener(listener);
+        view.jButtonLogout2.addActionListener(listener);
+        view.jButtonLogout3.addActionListener(listener);
+        view.jButtonLogout4.addActionListener(listener);
     }
 
     /**
@@ -103,6 +107,11 @@ public class Controller implements ActionListener {
             // When you click ADD_BIN button
             case "ADD_BIN":
                 enterBin();
+                break;
+            /* When you want to logout */
+            // When you click LOGOUT button
+            case "LOGOUT":
+                view.setVisible(true);
                 break;
         }
     }
