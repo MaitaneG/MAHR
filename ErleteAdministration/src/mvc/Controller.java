@@ -132,9 +132,10 @@ public class Controller implements ActionListener {
         //Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
+                taulakEguneratu();
                 view.jDialogMenu.setVisible(true);
                 view.jLabelErrorMessage.setText("");
-                taulakEguneratu();
+                
                 break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
@@ -276,7 +277,7 @@ public class Controller implements ActionListener {
         int gakoa = 0;
 
         //If any row hasn't been selected
-        if (view.jTableMember.getSelectedRow() == -1) {
+        if (view.jTableBooking.getSelectedRow() == -1) {
             view.jLabelErrorBooking.setText("You have to choose a row");
             //If a row has been selected
         } else {
