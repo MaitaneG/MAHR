@@ -41,7 +41,7 @@ public class Controller implements ActionListener {
         this.model = model;
         this.view = view;
 
-        taulakEguneratu();
+        
 
         addActionListener(this);
     }
@@ -134,6 +134,7 @@ public class Controller implements ActionListener {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
                 view.jDialogMenu.setVisible(true);
                 view.jLabelErrorMessage.setText("");
+                taulakEguneratu();
                 break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
