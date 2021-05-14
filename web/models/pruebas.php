@@ -5,21 +5,28 @@
 include("TestConexion.php");
 
 
-
-function addCanUse($mail, $id_can, $date2) {
-    //Insert a new use day
-    //return string
-  
+function selectPendentTaxes($mail) {
+    //Select reserve of a selected day
+    //return: String
     $conexion = ConnectDataBase();
-    $today=date("Y/m/d", time());
-    $query = "INSERT INTO using_cans(mail, id_can, date, date2) VALUES('$mail','$id_can','$today','$date2')";
-    $result = mysqli_query($conexion, $query);
-      mysqli_close($conexion);
-    if (!$result) {
-        return "SERVER ERROR";
-    }
-    return "successfull";
-}
+    $query = "SELECT * FROM productions WHERE mail='$mail' AND PAYED=0";
 
-$today=date("Y/m/d", time());
-echo date("d-m-Y",strtotime($today."+ 20 days"));
+    $result = mysqli_query($conexion, $query);
+    if (!$result) {
+        die("Query error" . mysqli_error($conexion));
+    }
+    $results = array();
+    while ($row = mysqli_fetch_array($result)) {
+        $results[] = array(
+            'date' => $row[2],
+            'tax' => $row[4],
+            'payed' => $row[5],
+            'id'=>$row[1]
+  
+        );
+    }
+
+    mysqli_close($conexion);
+    return $results;
+}
+echo json_encode(selectPendentTaxes("member@mail.com"));

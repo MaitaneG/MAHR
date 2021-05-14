@@ -100,18 +100,18 @@ if ($_SESSION["member"]) {
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                 </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img  loading="lazy"  class="d-block w-100" src="images/img4.jpg" alt="First slide">
+                <div class="carousel-inner rounded">
+                    <div class="carousel-item active rounded">
+                        <img  loading="lazy"  class="d-block w-100 .imag" src="images/img4.jpg" alt="First slide">
                     </div>
-                    <div class="carousel-item">
-                        <img loading="lazy"  class="d-block w-100" src="images/img1.jpeg" alt="Second slide">
+                    <div class="carousel-item rounded">
+                        <img loading="lazy"  class="d-block w-100 .imag" src="images/img1.jpeg" alt="Second slide">
                     </div>
-                    <div class="carousel-item">
-                        <img loading="lazy"  class="d-block w-100" src="images/img2.jpg" alt="Third slide">
+                    <div class="carousel-item rounded">
+                        <img loading="lazy"  class="d-block w-100 .imag" src="images/img2.jpg" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
-                        <img loading="lazy"  class="d-block w-100" src="images/img3.jpg" alt="Fourth slide">
+                    <div class="carousel-item rounded">
+                        <img loading="lazy"  class="d-block w-100 .imag" src="images/img3.jpg" alt="Fourth slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -126,9 +126,9 @@ if ($_SESSION["member"]) {
             <!--END of the CAROUSEL -->
             <br>
             <div class="row">
-                <div class="col-sm-12  p-2" align="center">
+                <div class="col-12  p-5" align="center">
                     <h2>What is Erlete Beekepers' Association?</h2>
-                    <p>Erlete Beekepers' Association is an association created to
+                    <p class="">Erlete Beekepers' Association is an association created to
                         produce your own honey. For an annual fee of 30 euros it is possible to visit the honey extarction local, produce your own honey and take it home. Apart from the annual fee, the member will be required to pay 25 cents per kilo produced.</p>
                     <p>To extract the honey you have to reserve the extractor. After you have used it, you will be authorised to use the honey extractor to store your honey for the next 20 days. </p>
 
@@ -141,7 +141,7 @@ if ($_SESSION["member"]) {
                 <div class="row ">
                 <div class="col-sm-12 mt-3 p-2" align="center"><h2>Rules</h2></div>
                 
-                <div class="col-sm-4 p-2">
+                <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">1. When they bring honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
@@ -150,7 +150,7 @@ if ($_SESSION["member"]) {
                        - Leave no sign of honey on the porch, keep it clean.<br>
                        - "The straws do not leave [them] on the ground, but on the foundations prepared.</p>
                 </div>
-                <div class="col-sm-4 p-2">
+                <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">2. Extracting honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
@@ -158,7 +158,7 @@ if ($_SESSION["member"]) {
                        - Fill out a file containing data from the honey campaign.<br>
                        - Make your shop clean and clean for the next one.</p>
                 </div>
-                <div class="col-sm-4 p-2">
+                <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">3. The ship of honey: </h3>        
                     <p>- It will be made in less than 20 days after the honey is extracted.<br>
@@ -171,9 +171,9 @@ if ($_SESSION["member"]) {
                 <!--The same code of the previous cols-->
                 <div class="row ">
                 <div class="col-sm-12 p-2 m-2" align="center"><h2>Bees Information</h2>
-                    <p>
-                    <img src="images/gif1.gif" align="right" class="m-2 imagese">
                     
+                    <img src="images/gif1.gif" align="right" class="m-2 imagese">
+                    <p class="p-4">
                         Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
 
                         Bees of all varieties live on nectar and pollen. Without bees, pollination would be difficult and time consuming - it is estimated that one-third of the human food supply depends on insect pollination. <br>Bees have a long, straw-like tongue called a probiscus that allows them to drink the nectar from deep within blossoms. Bees are also equipped with two wings, two antennae, and three segmented body parts (the head, the thorax, and the abdomen).&nbsp; Honeybees are social insects that live in colonies.&nbsp; The hive population consists of a single queen, a few hundred drones, and thousands of worker bees.
@@ -181,7 +181,7 @@ if ($_SESSION["member"]) {
 </div>
 </div>
 <div class="row justify-content-center ">
-<div class="col-sm-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
+<div class="col-11 col-lg-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
 
                     <img src="images/abejaobrera.jpg" class="imagese" align="center">
                     <p class="p-2">
@@ -191,7 +191,7 @@ if ($_SESSION["member"]) {
                        </p>
 
 </div>
-<div class="col-sm-3 p-2 ml-4"><h5 align="center">Drone Bees</h5>
+<div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Drone Bees</h5>
 
                     <img src="images/Drone.jpg" class="imagese" align="center">
                     <p>
@@ -203,7 +203,7 @@ if ($_SESSION["member"]) {
                        </p>
 
 </div>
-<div class="col-sm-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
+<div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
 
                     <img src="images/queen.jpg" class="imagese" align="center">
                     <p>

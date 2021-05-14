@@ -120,7 +120,7 @@ if ($_SESSION["member"]) {
 
                                         <!--DATEPICKER using JQuery to show a calendar-->
                                         Date: <input class="mb-2" type="text" id="datepicker" size="30"><button id="button-reserve" class="btn bg-yellow ml-3" type="button">Reserve</button>
-                                        
+
 
                                     </div>
                                 </div>
@@ -128,18 +128,20 @@ if ($_SESSION["member"]) {
                                     <div class="col-12">
                                         <!-- Table for the bookings-->
                                         <h3>Bookings</h3>
-                                        <table  class="table">
-                                            <thead>
-                                                <tr>
+                                        <div class="col-12">
+                                            <table  class="table table-bordered ">
+                                                <thead>
+                                                    <tr>
 
-                                                    <th>Date</th>
-                                                    <th colspan="2">Email</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="table-booking">
+                                                        <th>Date</th>
+                                                        <th colspan="2">Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="table-booking">
 
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +178,7 @@ if ($_SESSION["member"]) {
 
                         <!--CARD to divide the cans-->
                         <div class="row justify-content-center" id="cans-container">
-                            
+
                         </div>
 
                     </div>
@@ -193,9 +195,9 @@ if ($_SESSION["member"]) {
                         <div class="card-body">
                             <div class="row">
                                 <!--Table to see the payments-->
-                                <div class="col-12">
+                                <div class="col-12 mt-2"> 
                                     <h3>View</h3>
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                         <thead>
                                             <tr>
 
@@ -206,7 +208,7 @@ if ($_SESSION["member"]) {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row"></th>
+
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
@@ -221,13 +223,13 @@ if ($_SESSION["member"]) {
 
                             <div class="row">
                                 <!--Table to see the fees and to pay them-->
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6 mt-4 pb-4">
                                     <h3>Fees</h3>
-                                    <table class="table">
+                                    <table id="view-payments" class="table table-bordered">
                                         <thead>
                                             <tr>
 
-                                                <th scope="col">ID_Fee</th>
+
                                                 <th scope="col">Year</th>
                                                 <th scope="col">Payed</th>
 
@@ -235,42 +237,21 @@ if ($_SESSION["member"]) {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row"></th>
+
                                                 <td></td>
                                                 <td></td>
-                                                <td></td>
+
                                             </tr>
 
                                         </tbody>
                                     </table>
-                                    <button class="btn bg-yellow" type="button">Pay</button>
+                                    <button id="view-fees" class="btn bg-yellow" type="button">Pay</button>
 
                                 </div>
 
                                 <!--Table to see the fees and to pay them-->
-                                <div class="col-6">
-                                    <h3>Tax</h3>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-
-                                                <th scope="col">Production</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row"></th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                    <button class="btn bg-yellow" type="button">Pay</button>
-
+                                <div id="pendent-tax-table" class="col-12 col-lg-6 mt-4">
+                                    <!--   js contain-->
                                 </div>
                             </div>
 
@@ -289,15 +270,12 @@ if ($_SESSION["member"]) {
                 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
                 <script src="../controller/app.js"></script>
 
-<<<<<<< HEAD
-                <!--The function to make uit work the datapicker-->
+
+
+                <!--The function to make it work the datapicker-->
                 <script>
                     $(function () {
-=======
-                    <!--The function to make it work the datapicker-->
-                    <script>
-                        $(function () {
->>>>>>> origin/Hodei
+
 
 
                         $("#datepicker").datepicker();

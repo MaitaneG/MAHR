@@ -2,6 +2,7 @@
 
 include("../models/Productions.php");
 
+
 if (isset($_POST["kilos"])) {
     $mail = $_POST["mail"];
     $kilos = $_POST["kilos"];
@@ -17,4 +18,16 @@ if (isset($_POST["pendent"])) {
         $jsonstring = json_encode($json);
         echo $jsonstring;
     }
+}
+
+if (isset($_POST["confirm"])) {
+    $mail = $_POST["mail"];
+        $payed=editProduction($mail);
+        if ($payed>0) {
+            echo "payed";            
+        }else{
+            echo 'error';
+        }
+ 
+    
 }

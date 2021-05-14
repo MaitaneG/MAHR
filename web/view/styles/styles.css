@@ -52,10 +52,23 @@ background-size: cover;
 
 /*a class to define the style of the bees pictures*/
 .imagese{
-border-radius: 10%;
+border-radius: 6px;
 width:100%;
 object-fit: cover;
-max-height: 180px;
+height: 180px;
+margin-bottom: 15px;
 
 
+}
+
+.imag{
+border-radius: 6px;
+width:100%;
+object-fit: cover;
+height: 180px;
+
+
+}
+.jumbotron{
+    height: 120px;
 }

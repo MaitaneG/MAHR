@@ -71,3 +71,41 @@ function insertProduction($mail, $kg, $tax) {
     return "Registered";
 }
 
+function selectPendentTaxes($mail) {
+    //Select reserve of a selected day
+    //return: String
+    $conexion = ConnectDataBase();
+    $query = "SELECT * FROM productions WHERE mail='$mail' AND PAYED=0";
+
+    $result = mysqli_query($conexion, $query);
+    if (!$result) {
+        die("Query error" . mysqli_error($conexion));
+    }
+    $results = array();
+    while ($row = mysqli_fetch_array($result)) {
+        $results[] = array(
+            'date' => $row[2],
+            'tax' => $row[4],
+            'payed' => $row[5]
+  
+        );
+    }
+
+    mysqli_close($conexion);
+    return $results;
+}
+
+function editProduction($mail) {
+    //edit payed state
+    //return String
+    
+    $conexion = ConnectDataBase();
+    $query = "UPDATE productions set payed=1 WHERE mail='$mail'";
+    $result = mysqli_query($conexion, $query);
+  
+    mysqli_close($conexion);
+    if (!$result) {
+        return "0";
+    }
+    return "Registered";
+}
