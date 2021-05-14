@@ -58,7 +58,10 @@ public class Controller implements ActionListener {
         view.jButtonDeleteMember.addActionListener(listener);
         view.jButtonDeleteBooking.addActionListener(listener);
         view.jButtonAddBin.addActionListener(listener);
-        //view.jButtonEraser.addActionListener(listener);
+        view.jButtonLogout1.addActionListener(listener);
+        view.jButtonLogout2.addActionListener(listener);
+        view.jButtonLogout3.addActionListener(listener);
+        view.jButtonLogout4.addActionListener(listener);
     }
 
     /**
@@ -109,6 +112,11 @@ public class Controller implements ActionListener {
             // When you click ERASER button
             case "ERASER":
                 eraser();
+            /* When you want to logout */
+            // When you click LOGOUT button
+            case "LOGOUT":
+                view.jDialogMenu.setVisible(false);
+                view.setVisible(true);
                 break;
         }
     }
@@ -142,7 +150,8 @@ public class Controller implements ActionListener {
                 view.jDialogMenu.setVisible(true);
                 view.setVisible(false);
                 view.jLabelErrorMessage.setText("");
-                 
+                
+
                 break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
