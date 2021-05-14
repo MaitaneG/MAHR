@@ -58,7 +58,10 @@ public class Controller implements ActionListener {
         view.jButtonDeleteMember.addActionListener(listener);
         view.jButtonDeleteBooking.addActionListener(listener);
         view.jButtonAddBin.addActionListener(listener);
-        //view.jButtonEraser.addActionListener(listener);
+        view.jButtonLogout1.addActionListener(listener);
+        view.jButtonLogout2.addActionListener(listener);
+        view.jButtonLogout3.addActionListener(listener);
+        view.jButtonLogout4.addActionListener(listener);
     }
 
     /**
@@ -109,6 +112,10 @@ public class Controller implements ActionListener {
             // When you click ERASER button
             case "ERASER":
                 eraser();
+            /* When you want to logout */
+            // When you click LOGOUT button
+            case "LOGOUT":
+                view.setVisible(true);
                 break;
         }
     }
@@ -138,17 +145,11 @@ public class Controller implements ActionListener {
         //Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
-<<<<<<< HEAD
                 taulakEguneratu();
                 view.jDialogMenu.setVisible(true);
+                view.setVisible(false);
                 view.jLabelErrorMessage.setText("");
                 
-=======
-                view.setVisible(false);
-                view.jDialogMenu.setVisible(true);
-                view.jLabelErrorMessage.setText("");
-
->>>>>>> origin/Maitane
                 break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
