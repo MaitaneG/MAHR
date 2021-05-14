@@ -7,8 +7,11 @@ package mvc;
 
 import Classes.Container;
 import Classes.User;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
@@ -16,7 +19,7 @@ import tableModels.CansTableModel;
 import tableModels.Cans_MergeTableModel;
 import tableModels.MembersTableModel;
 
-public class Controller implements ActionListener {
+public class Controller implements ActionListener, KeyListener {
 
     /**
      * The attributes of Controller
@@ -41,9 +44,25 @@ public class Controller implements ActionListener {
         this.model = model;
         this.view = view;
 
-        
-
+        addKeyListener(this);
         addActionListener(this);
+    }
+
+    @Override
+    public void keyPressed(KeyEvent evt) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER ) {
+            login();
+        }
+    }
+    
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
     }
 
     /**
@@ -150,7 +169,6 @@ public class Controller implements ActionListener {
                 view.jDialogMenu.setVisible(true);
                 view.setVisible(false);
                 view.jLabelErrorMessage.setText("");
-                
 
                 break;
             } else {
@@ -342,4 +360,5 @@ public class Controller implements ActionListener {
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
     }
+
 }
