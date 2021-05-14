@@ -19,7 +19,7 @@ import tableModels.CansTableModel;
 import tableModels.Cans_MergeTableModel;
 import tableModels.MembersTableModel;
 
-public class Controller implements ActionListener, KeyListener {
+public class Controller implements ActionListener {
 
     /**
      * The attributes of Controller
@@ -44,25 +44,8 @@ public class Controller implements ActionListener, KeyListener {
         this.model = model;
         this.view = view;
 
-        addKeyListener(this);
+        addKeyListener();
         addActionListener(this);
-    }
-
-    @Override
-    public void keyPressed(KeyEvent evt) {
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER ) {
-            login();
-        }
-    }
-    
-    @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        
     }
 
     /**
@@ -81,6 +64,27 @@ public class Controller implements ActionListener, KeyListener {
         view.jButtonLogout2.addActionListener(listener);
         view.jButtonLogout3.addActionListener(listener);
         view.jButtonLogout4.addActionListener(listener);
+    }
+    
+    private void addKeyListener(){
+        view.jPasswordFieldPasswordLogin.addKeyListener(new KeyListener() {
+            @Override
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    login();
+                }
+            }
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 
     /**
@@ -360,5 +364,4 @@ public class Controller implements ActionListener, KeyListener {
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
     }
-
 }
