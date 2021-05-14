@@ -58,12 +58,12 @@ function selectProductionDate($date) {
 function insertProduction($mail, $kg, $tax) {
     //Add a new reserve
     //return String
-    
+
     $conexion = ConnectDataBase();
-     $today=date("Y/m/d", time());
+    $today = date("Y/m/d", time());
     $query = "INSERT INTO productions(mail,date, kilos, tax) VALUES('$mail','$today','$kg','$tax')";
     $result = mysqli_query($conexion, $query);
-  
+
     mysqli_close($conexion);
     if (!$result) {
         return "0";
@@ -87,7 +87,6 @@ function selectPendentTaxes($mail) {
             'date' => $row[2],
             'tax' => $row[4],
             'payed' => $row[5]
-  
         );
     }
 
@@ -98,11 +97,11 @@ function selectPendentTaxes($mail) {
 function editProduction($mail) {
     //edit payed state
     //return String
-    
+
     $conexion = ConnectDataBase();
     $query = "UPDATE productions set payed=1 WHERE mail='$mail'";
     $result = mysqli_query($conexion, $query);
-  
+
     mysqli_close($conexion);
     if (!$result) {
         return "0";
