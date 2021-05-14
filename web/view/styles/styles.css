@@ -20,7 +20,7 @@ transition: background-size .3s;
 }
 
 
-/*When the item on the navbar is checked will apear this this style*/
+/*When the item on the navbar is checked will this this style*/
 a:hover,a:focus {
 background-size: 100% 2px;
 }
@@ -36,15 +36,100 @@ background-repeat: no-repeat;
 background-size: 100% 4px;
 font-weight: bold; 
 }
-
+/* If the apparent relation of the object does not correspond to the apparent relation of the box, the object will be cut off in order to be adjusted.
+*/
 .img{
-
 object-fit: cover;
+}
+/*To put an image as a background an to not be repeated*/
+body{
+background-image: url(../images/fondo.jpg) ;
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
 
+/*a class to define the style of the bees pictures*/
+.imagese{
+border-radius: 6px;
+width:100%;
+object-fit: cover;
+height: 180px;
+margin-bottom: 15px;
 
 
 }
 
-.cans-cards{
-max-height: 80%;
+.imag{
+border-radius: 6px;
+width:100%;
+object-fit: cover;
+height: 420px;
+
+
+}
+/*Class for the jumbotron*/
+.jumbotron{
+    height: 120px;
+background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, 
+	rgba(0,0,0,0.8687850140056023) 35%, rgba(28,57,62,1) 100%);
+	text-align: center;
+}
+
+/*Change the size of h1*/
+h1{
+	
+	font-size: 32px;
+        color:white;
+}
+
+/*A class wich change the the tiles of the acordion*/
+.acordeon-titulo{
+	text-decoration: none;
+	color: white;
+background-image: linear-gradient(currentColor,currentColor);
+background-position: 0% 100%;
+background-repeat: no-repeat;
+background-size: 0% 2px;
+transition: background-size .3s;
+}
+
+.acordeon-titulo:hover{
+	background-size: 100% 2px;
+}
+
+/*To change the background of acordion headers*/
+.gradient{
+background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, 
+	rgba(0,0,0,0.8687850140056023) 35%, rgba(28,57,62,1) 100%);
+	text-align: center;
+
+}
+/*To change the size of h3*/
+h3{
+	font-size: 18px;
+}
+
+.bg-texture{
+    background-image: url("../images/texture.jpg");
+    background-repeat: repeat;
+}
+
+.table{
+    background: white;
+}
+
+.bg-opaci{
+    background-color: rgba(255, 255, 255, 0.15); 
+    filter: blur(.4px);
+    border: solid white 3px;
+    box-shadow: 4px 2px 2px grey;
+}
+
+.animate:hover{
+    transform: scale(1.05);
+    transition: 0.4s;
 }

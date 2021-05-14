@@ -7,8 +7,11 @@ package mvc;
 
 import Classes.Container;
 import Classes.User;
+import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
@@ -41,8 +44,7 @@ public class Controller implements ActionListener {
         this.model = model;
         this.view = view;
 
-        taulakEguneratu();
-
+        addKeyListener();
         addActionListener(this);
     }
 
@@ -58,6 +60,31 @@ public class Controller implements ActionListener {
         view.jButtonDeleteMember.addActionListener(listener);
         view.jButtonDeleteBooking.addActionListener(listener);
         view.jButtonAddBin.addActionListener(listener);
+        view.jButtonLogout1.addActionListener(listener);
+        view.jButtonLogout2.addActionListener(listener);
+        view.jButtonLogout3.addActionListener(listener);
+        view.jButtonLogout4.addActionListener(listener);
+    }
+    
+    private void addKeyListener(){
+        view.jPasswordFieldPasswordLogin.addKeyListener(new KeyListener() {
+            @Override
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    login();
+                }
+            }
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 
     /**
@@ -104,6 +131,16 @@ public class Controller implements ActionListener {
             case "ADD_BIN":
                 enterBin();
                 break;
+            /* When you want to clear all the information of members labels */
+            // When you click ERASER button
+            case "ERASER":
+                eraser();
+            /* When you want to logout */
+            // When you click LOGOUT button
+            case "LOGOUT":
+                view.jDialogMenu.setVisible(false);
+                view.setVisible(true);
+                break;
         }
     }
 
@@ -132,8 +169,11 @@ public class Controller implements ActionListener {
         //Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
+                taulakEguneratu();
                 view.jDialogMenu.setVisible(true);
+                view.setVisible(false);
                 view.jLabelErrorMessage.setText("");
+
                 break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
@@ -275,7 +315,7 @@ public class Controller implements ActionListener {
         int gakoa = 0;
 
         //If any row hasn't been selected
-        if (view.jTableMember.getSelectedRow() == -1) {
+        if (view.jTableBooking.getSelectedRow() == -1) {
             view.jLabelErrorBooking.setText("You have to choose a row");
             //If a row has been selected
         } else {
@@ -313,5 +353,15 @@ public class Controller implements ActionListener {
             view.jTextFieldIdBin.setText("");
             view.jTextFieldCapacity.setText("");
         }
+    }
+
+    public void eraser() {
+        view.jTextFieldDni.setText("");
+        view.jTextFieldName.setText("");
+        view.jTextFieldSurname.setText("");
+        view.jPasswordFieldPassword.setText("");
+        view.jTextFieldEmailMember.setText("");
+        view.jTextFieldAccount.setText("");
+        view.jRadioButtonAdministrator.setSelected(false);
     }
 }
