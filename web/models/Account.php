@@ -1,14 +1,14 @@
 <?php
 
 include("TestConexion.php");
-function selectBookings() {
-    //Select full list of bookings for today and after today
+function selectAccountMoves($mail) {
+    //Select full list of moves of an account for $mail
     //return: 
-    //0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
+    //0-ID_MOVE	1-PAYER	2-COLLECTOR 3-DATE 4-AMOUNT 5-CONCEPT 6-TOTAL
     $conexion = ConnectDataBase();
-    $today=date("Y/m/d", time());
-    $query = "SELECT * FROM bookings where date>='$today' ORDER BY date ASC";
-    $result = mysqli_query($conexion, $query);
+   
+    $query = "SELECT * FROM account where mail='$mail' ORDER BY date ASC";
+    $result = mysqli_query($conexion, $query);//Pendiente de terminar
     if (!$result) {
         die("Query error" . mysqli_error($conexion));
     }
