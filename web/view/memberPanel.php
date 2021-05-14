@@ -105,10 +105,10 @@ if ($_SESSION["member"]) {
             <!-- ACCORDION-->
             <div id="accordion" class="mt-3">
                 <div class="card">
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header gradient" id="headingOne">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                1. Bookings
+                                <h3 class="acordeon-titulo">1. Bookings</h3>
                             </button>
                         </h5>
                     </div>
@@ -149,10 +149,10 @@ if ($_SESSION["member"]) {
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingTwo">
+                    <div class="card-header gradient" id="headingTwo">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                2. Cans
+                               <h3 class="acordeon-titulo "> 2. Cans</h3>
                             </button>
                         </h5>
                     </div>
@@ -184,10 +184,10 @@ if ($_SESSION["member"]) {
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="headingThree">
+                    <div class="card-header gradient" id="headingThree">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                3. Payments
+                                <h3 class="acordeon-titulo ">3. Payments</h3>
                             </button>
                         </h5>
                     </div>
