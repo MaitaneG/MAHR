@@ -32,14 +32,14 @@ if ($_SESSION["member"]) {
         <title>Erlete beekepers' association</title>
     </head>
     <body class="url">
-
+<!-- One way to present a title and content in a very prominent way on a page-->
         <div class="jumbotron bg-yellow mb-0">
             <h1>Erlete Beekepers' Association</h1>
 
         </div>
 
-        <!--        NAVIGATION BAR-->
-        <div class="container-fluid sticky-top mt-0">
+        <!-- NAVIGATION BAR--> 
+        <div class="container-fluid sticky-top mt-0 mx-0  bg-light">
             <nav class="navbar navbar-expand-lg navbar-light bg-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -49,6 +49,7 @@ if ($_SESSION["member"]) {
                         <li class="nav-item active">
                             <a class="nav-link active p-3 disabled" href="#">Home<span class="sr-only">(current)</span></a>
                         </li>
+                        <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
                         <?php
                         if ($member) {
                             echo '<li class="nav-item">
@@ -61,7 +62,7 @@ if ($_SESSION["member"]) {
                             <a class="nav-link p-3" href="contact.php">Contact</a>
                         </li>
                     </ul>
-
+                    <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
                     <?php
                     if (!$member) {
 
@@ -75,7 +76,8 @@ if ($_SESSION["member"]) {
 
                             <button type="submit" class="btn bg-yellow mb-2">Login</button>
                         </form>';
-                    } else {
+                    }
+                    else {
                         echo "<h6 class='p-3'>$mail</h6>";
                         echo '<form action="../controller/logout.php">'
                         . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
@@ -86,29 +88,30 @@ if ($_SESSION["member"]) {
                 </div>
             </nav>
         </div>
+<!-- END OF THE NAVIGATION BAR -->
 
-
-        <!--        CONTENIDO-->
-        <div class="container">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <!--CONTAINER-->
+        <div class="container" style="background-color: #FAE75B">
+            <!--CAROUSEL to make apear some images automatically-->
+            <div id="carouselExampleIndicators" class="carousel slide p-2" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                 </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="images/img4.jpg" alt="First slide">
+                <div class="carousel-inner rounded">
+                    <div class="carousel-item active rounded">
+                        <img  loading="lazy"  class="d-block w-100 .imag" src="images/img4.jpg" alt="First slide">
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img1.jpeg" alt="Second slide">
+                    <div class="carousel-item rounded">
+                        <img loading="lazy"  class="d-block w-100 .imag" src="images/img1.jpeg" alt="Second slide">
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img2.jpg" alt="Third slide">
+                    <div class="carousel-item rounded">
+                        <img loading="lazy"  class="d-block w-100 .imag" src="images/img2.jpg" alt="Third slide">
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="images/img3.jpg" alt="Fourth slide">
+                    <div class="carousel-item rounded">
+                        <img loading="lazy"  class="d-block w-100 .imag" src="images/img3.jpg" alt="Fourth slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -120,47 +123,101 @@ if ($_SESSION["member"]) {
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            <!--END of the CAROUSEL -->
             <br>
             <div class="row">
-                <div class="col-sm-12" align="center">
+                <div class="col-12  p-5" align="center">
                     <h2>What is Erlete Beekepers' Association?</h2>
-                    <p>Erlete Beekepers' Association is an association created to
+                    <p class="">Erlete Beekepers' Association is an association created to
                         produce your own honey. For an annual fee of 30 euros it is possible to visit the honey extarction local, produce your own honey and take it home. Apart from the annual fee, the member will be required to pay 25 cents per kilo produced.</p>
                     <p>To extract the honey you have to reserve the extractor. After you have used it, you will be authorised to use the honey extractor to store your honey for the next 20 days. </p>
 
-                    <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>
+                    <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>   
                 </div>
-                 
-                <div class="col-sm-12 mt-3" align="center"><h2>Rules</h2></div>
-                <div class="col-sm-4">
 
-                    <h3>1. When they bring honey: </h3>
+                </div>
+                <hr style="height:5px;background-color:#c46404 ">
+                <!--divide a row in 3 colums to put the rules of the association-->
+                <div class="row ">
+                <div class="col-sm-12 mt-3 p-2" align="center"><h2>Rules</h2></div>
+                
+                <div class="col-11 col-lg-4 px-4">
+
+                    <h3 align="center">1. When they bring honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
                        - The doors of the window and car were always locked.<br>
                        - Once the car's gone, take the car to the parking lot.<br>
                        - Leave no sign of honey on the porch, keep it clean.<br>
                        - "The straws do not leave [them] on the ground, but on the foundations prepared.</p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-11 col-lg-4 px-4">
 
-                    <h3>2. Extracting honey: </h3>
+                    <h3 align="center">2. Extracting honey: </h3>
                     <p>- Don't bring a bee to the honey.<br>
                        - After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.<br>
                        - Fill out a file containing data from the honey campaign.<br>
                        - Make your shop clean and clean for the next one.</p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-11 col-lg-4 px-4">
 
-                    <h3>3. The ship of honey: </h3>        
+                    <h3 align="center">3. The ship of honey: </h3>        
                     <p>- It will be made in less than 20 days after the honey is extracted.<br>
                        - Three samples or muestra must be left for each jar of honey.<br>
                        - Fill in the section corresponding to the launch of the honey chip in the honey campaign.</p>
                 </div>
-
+</div>
                 <br>
-                <div class="col-sm-12" align="center"><h2>Bees Information</h2></div>
+                <hr style="height:5px;background-color:#c46404 ">
+                <!--The same code of the previous cols-->
+                <div class="row ">
+                <div class="col-sm-12 p-2 m-2" align="center"><h2>Bees Information</h2>
+                    
+                    <img src="images/gif1.gif" align="right" class="m-2 imagese">
+                    <p class="p-4">
+                        Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
 
+                        Bees of all varieties live on nectar and pollen. Without bees, pollination would be difficult and time consuming - it is estimated that one-third of the human food supply depends on insect pollination. <br>Bees have a long, straw-like tongue called a probiscus that allows them to drink the nectar from deep within blossoms. Bees are also equipped with two wings, two antennae, and three segmented body parts (the head, the thorax, and the abdomen).&nbsp; Honeybees are social insects that live in colonies.&nbsp; The hive population consists of a single queen, a few hundred drones, and thousands of worker bees.
+                       </p>
+</div>
+</div>
+<div class="row justify-content-center ">
+<div class="col-11 col-lg-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
 
+                    <img src="images/abejaobrera.jpg" class="imagese" align="center">
+                    <p class="p-2">
+                        Worker bees are the most familiar-looking member of the honeybee hive, as they make up about 99% of each colony's population.<br>
+                        
+        Worker bees are all female, and they do almost everything for the hive. From birth to her death 45 days later, the worker bee is given different tasks to do during different stages of her life. Worker bees are responsible for everything from feeding the larvae (the baby bees), to tending to the queen, to cleaning the hive, to collecting food, to guarding the colony, to building honeycomb.
+                       </p>
+
+</div>
+<div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Drone Bees</h5>
+
+                    <img src="images/Drone.jpg" class="imagese" align="center">
+                    <p>
+                    Male bees are called drones. Their job is to mate with queens from other hives. If they do get the opportunity to mate, they die immediately afterwards. If they do not mate, they can live up to 90 days (that's twice as long as a worker bee!)<br>
+
+        You can identify drones in the hive by their big round bodies and large eyes. Drones are incapable of stinging.
+        
+                
+                       </p>
+
+</div>
+<div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
+
+                    <img src="images/queen.jpg" class="imagese" align="center">
+                    <p>
+                    There is one queen bee per hive - she is the mom of all the other bees. She is the only fertile member of the colony, and lays about 1,500 eggs a day during spring and summer.
+                    <br>
+                    
+        Queen bees are distinguished from the other members of the hive by their long abdomens and small wings. Soon after birth, queen bees will go out and have a wild weeked, where they mate with 15 or more drones over a three day period before retiring to the hive to lay eggs. The queen will not leave the hive again unless the colony swarms (looking for a new home).
+        
+        
+                
+                       </p>
+
+</div>
+</div>
             </div>
 
 
@@ -168,6 +225,7 @@ if ($_SESSION["member"]) {
 
 
         </div>
+        <!--The necesary scripts to make it work the bootsatrap classes-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

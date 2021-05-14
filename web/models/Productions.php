@@ -1,6 +1,6 @@
 <?php
 
-include("testConexion.php");
+include("TestConexion.php");
 
 //PRODUCTIONS TABLE API
 function selectProductionsMail($mail) {
@@ -24,7 +24,7 @@ function selectProductionsMail($mail) {
             'payed' => $row[2]
         );
     }
-    mysqli_free_result($row);
+
     mysqli_close($conexion);
     return $results;
 }
@@ -50,24 +50,62 @@ function selectProductionDate($date) {
             'payed' => $row[2]
         );
     }
-    mysqli_free_result($row);
+
     mysqli_close($conexion);
     return $results;
 }
 
-function insertProduction($date, $mail) {
+function insertProduction($mail, $kg, $tax) {
     //Add a new reserve
     //return String
-    include("connect.php");
+    
     $conexion = ConnectDataBase();
-
-    $query = "INSERT INTO members(date, mail) VALUES('$date',$mail')";
+     $today=date("Y/m/d", time());
+    $query = "INSERT INTO productions(mail,date, kilos, tax) VALUES('$mail','$today','$kg','$tax')";
     $result = mysqli_query($conexion, $query);
-    mysqli_free_result($row);
+  
     mysqli_close($conexion);
     if (!$result) {
-        return "SERVER ERROR";
+        return "0";
     }
-    return "reserve done";
+    return "Registered";
 }
 
+function selectPendentTaxes($mail) {
+    //Select reserve of a selected day
+    //return: String
+    $conexion = ConnectDataBase();
+    $query = "SELECT * FROM productions WHERE mail='$mail' AND PAYED=0";
+
+    $result = mysqli_query($conexion, $query);
+    if (!$result) {
+        die("Query error" . mysqli_error($conexion));
+    }
+    $results = array();
+    while ($row = mysqli_fetch_array($result)) {
+        $results[] = array(
+            'date' => $row[2],
+            'tax' => $row[4],
+            'payed' => $row[5]
+  
+        );
+    }
+
+    mysqli_close($conexion);
+    return $results;
+}
+
+function editProduction($mail) {
+    //edit payed state
+    //return String
+    
+    $conexion = ConnectDataBase();
+    $query = "UPDATE productions set payed=1 WHERE mail='$mail'";
+    $result = mysqli_query($conexion, $query);
+  
+    mysqli_close($conexion);
+    if (!$result) {
+        return "0";
+    }
+    return "Registered";
+}

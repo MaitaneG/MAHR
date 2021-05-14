@@ -9,9 +9,9 @@ $conexion = ConnectDataBase();
 
 
 if (isset($_POST["bookList"])) {
-    $json = selectBookings();
+    $existingCans = selectBookings();
 
-    $jsonstring = json_encode($json);
+    $jsonstring = json_encode($existingCans);
     echo $jsonstring;
 }
 
@@ -20,9 +20,9 @@ if (isset($_POST["date"])) {
     $date = ($_POST["date"]);
 
 
-    $json = searchReserve($date);
+    $existingCans = searchReserve($date);
     
-    $jsonstring = json_encode($json);
+    $jsonstring = json_encode($existingCans);
     echo $jsonstring;
 }
 
@@ -30,10 +30,10 @@ if (isset($_POST["dateReserve"])) {
 
     $date = ($_POST["dateReserve"]);
     $mail = ($_POST["mail"]);
-      $json = searchReserve($date);
+      $existingCans = searchReserve($date);
       
      
-     if ($json==null) {
+     if ($existingCans==null) {
          addReserve($date, $mail);
          echo 1;
      }
@@ -50,7 +50,6 @@ if (isset($_POST["id"])) {
       
 }
   
-
 
 
 
