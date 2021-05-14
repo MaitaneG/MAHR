@@ -182,28 +182,28 @@ $(function () {
             });
         }
     });
-    
-     /*
+
+    /*
      * PAY TAXES
      */
     $(document).on("click", "#pay-taxes", function () {
         if (confirm("Are you sure that you want to pay it?")) {
-            let confirm=1;
-             let currentMail = document.getElementById("currentMail").textContent;
-                   
-                    const postData = {
-                        confirm: confirm,
-                        mail: currentMail
-                    };
+            let confirm = 1;
+            let currentMail = document.getElementById("currentMail").textContent;
+
+            const postData = {
+                confirm: confirm,
+                mail: currentMail
+            };
             $.post("../controller/pendentTaxesPay.php", postData, function (response) {
                 console.log(response);
                 fecthPendentTaxes();
-                
-                
+
+
             });
-            
+
         }
-        
+
     });
 
 
@@ -378,7 +378,7 @@ $(function () {
                 $("#pendent-tax-table").show();
 
 
-            }else{
+            } else {
                 $("#pendent-tax-table").html("");
                 $("#pendent-tax-table").show();
             }
