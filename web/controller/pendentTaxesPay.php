@@ -22,12 +22,10 @@ if (isset($_POST["pendent"])) {
 
 if (isset($_POST["confirm"])) {
     $mail = $_POST["mail"];
-        $payed=editProduction($mail);
-        if ($payed>0) {
-            echo "payed";            
-        }else{
-            echo 'error';
-        }
- 
-    
+    $payed = editProduction($mail);
+    if ($payed > 0) {
+        echo "payed";
+    } else {
+        echo 'error';
+    }
 }

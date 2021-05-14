@@ -4,7 +4,6 @@
 
 include("TestConexion.php");
 
-
 function selectPendentTaxes($mail) {
     //Select reserve of a selected day
     //return: String
@@ -21,12 +20,12 @@ function selectPendentTaxes($mail) {
             'date' => $row[2],
             'tax' => $row[4],
             'payed' => $row[5],
-            'id'=>$row[1]
-  
+            'id' => $row[1]
         );
     }
 
     mysqli_close($conexion);
     return $results;
 }
+
 echo json_encode(selectPendentTaxes("member@mail.com"));
