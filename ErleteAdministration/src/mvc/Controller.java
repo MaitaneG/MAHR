@@ -138,17 +138,11 @@ public class Controller implements ActionListener {
         //Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
-<<<<<<< HEAD
                 taulakEguneratu();
                 view.jDialogMenu.setVisible(true);
-                view.jLabelErrorMessage.setText("");
-                
-=======
                 view.setVisible(false);
-                view.jDialogMenu.setVisible(true);
                 view.jLabelErrorMessage.setText("");
-
->>>>>>> origin/Maitane
+                 
                 break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
