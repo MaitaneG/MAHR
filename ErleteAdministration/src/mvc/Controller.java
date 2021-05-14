@@ -7,7 +7,6 @@ package mvc;
 
 import Classes.Container;
 import Classes.User;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -43,7 +42,7 @@ public class Controller implements ActionListener {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-
+        
         addKeyListener();
         addActionListener(this);
     }
@@ -66,8 +65,18 @@ public class Controller implements ActionListener {
         view.jButtonLogout4.addActionListener(listener);
     }
     
-    private void addKeyListener(){
+    /**
+     * To give action to the board keys
+     */
+    private void addKeyListener() {
+        /**
+         * Create a key listener to jPasswordFieldPasswordLogin
+         */
         view.jPasswordFieldPasswordLogin.addKeyListener(new KeyListener() {
+            
+            /**
+             * When the key is pressed
+             */
             @Override
             public void keyPressed(KeyEvent evt) {
                 if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -75,11 +84,21 @@ public class Controller implements ActionListener {
                 }
             }
 
+            /**
+             * When the key is typed
+             * 
+             * Compulsory method (Because it is an interface)
+             */
             @Override
             public void keyTyped(KeyEvent e) {
 
             }
-
+            
+            /**
+             * When the key has been released
+             * 
+             * Compulsory method (Because it is an interface)
+             */
             @Override
             public void keyReleased(KeyEvent e) {
 
@@ -355,6 +374,9 @@ public class Controller implements ActionListener {
         }
     }
 
+    /**
+     * Clear all the jTextFields of members
+     */
     public void eraser() {
         view.jTextFieldDni.setText("");
         view.jTextFieldName.setText("");
