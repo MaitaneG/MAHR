@@ -58,7 +58,7 @@ public class Cans_MergeTableModel extends AbstractTableModel {
     public String getColumnName(int col) {
         return ZUTABEAKIZENAK[col];
     }
-
+     
     /**
      * 
      * @return how many rows the table has
