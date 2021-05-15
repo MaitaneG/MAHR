@@ -7,7 +7,6 @@ package mvc;
 
 import Classes.Container;
 import Classes.User;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -19,7 +18,7 @@ import tableModels.CansTableModel;
 import tableModels.Cans_MergeTableModel;
 import tableModels.MembersTableModel;
 
-public class Controller implements ActionListener, KeyListener {
+public class Controller implements ActionListener {
 
     /**
      * The attributes of Controller
@@ -43,26 +42,9 @@ public class Controller implements ActionListener, KeyListener {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-
-        addKeyListener(this);
+        
+        addKeyListener();
         addActionListener(this);
-    }
-
-    @Override
-    public void keyPressed(KeyEvent evt) {
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER ) {
-            login();
-        }
-    }
-    
-    @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        
     }
 
     /**
@@ -81,6 +63,48 @@ public class Controller implements ActionListener, KeyListener {
         view.jButtonLogout2.addActionListener(listener);
         view.jButtonLogout3.addActionListener(listener);
         view.jButtonLogout4.addActionListener(listener);
+        view.jButtonEraser.addActionListener(listener);
+    }
+    
+    /**
+     * To give action to the board keys
+     */
+    private void addKeyListener() {
+        /**
+         * Create a key listener to jPasswordFieldPasswordLogin
+         */
+        view.jPasswordFieldPasswordLogin.addKeyListener(new KeyListener() {
+            
+            /**
+             * When the key is pressed
+             */
+            @Override
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    login();
+                }
+            }
+
+            /**
+             * When the key is typed
+             * 
+             * Compulsory method (Because it is an interface)
+             */
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+            
+            /**
+             * When the key has been released
+             * 
+             * Compulsory method (Because it is an interface)
+             */
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 
     /**
@@ -131,6 +155,7 @@ public class Controller implements ActionListener, KeyListener {
             // When you click ERASER button
             case "ERASER":
                 eraser();
+                break;
             /* When you want to logout */
             // When you click LOGOUT button
             case "LOGOUT":
@@ -351,6 +376,9 @@ public class Controller implements ActionListener, KeyListener {
         }
     }
 
+    /**
+     * Clear all the jTextFields of members
+     */
     public void eraser() {
         view.jTextFieldDni.setText("");
         view.jTextFieldName.setText("");
@@ -359,6 +387,6 @@ public class Controller implements ActionListener, KeyListener {
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
+        view.jButtonUpdateMember.setActionCommand("TAKE");
     }
-
 }
