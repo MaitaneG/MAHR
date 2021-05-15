@@ -5,8 +5,6 @@
  */
 package Classes;
 
-import java.util.Objects;
-
 public class User {
 
     /**
@@ -156,12 +154,5 @@ public class User {
      */
     public void setType(boolean type) {
         this.type = type;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.password);
-        return hash;
     }
 }
