@@ -31,8 +31,8 @@ public class TestUser extends TestCase {
      */
     @Override
     public void setUp() {
-        user1 = new User("11111A", "Pepito", "Palotes", "pepipalos@gmail.com", "1234", "12345", false);
-        user2 = new User("11111A", "Manu", "Gonzalez", "manugonza@gmail.com", "4321", "54321", false);
+        user1 = new User("11111A", "Pepito", "Palotes", "pepipalos@gmail.com", "1234", "12345", false,true);
+        user2 = new User("11111A", "Manu", "Gonzalez", "manugonza@gmail.com", "4321", "54321", false,true);
     }
 
     /**

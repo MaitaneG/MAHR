@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="HP-PROBOOK-16" name="TestUser" skipped="0" tests="1" time="0.066" timestamp="2021-05-17T07:33:50">
+<testsuite errors="0" failures="0" hostname="HP-PROBOOK-16" name="TestUser" skipped="0" tests="1" time="0.068" timestamp="2021-05-17T11:17:49">
   <properties>
     <property name="" value="======" />
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans-12.0\netbeans\platform\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-aop-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-aspects-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-beans-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-context-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-context-support-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-core-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-expression-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-instrument-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-jms-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-orm-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-oxm-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-struts-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-test-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-tx-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-web-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.18.RELEASE.jar" />
@@ -19,7 +19,7 @@
     <property name="libs.eclipselink.javadoc" value="C:\Program Files\NetBeans-12.0\netbeans\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15\bin" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner TestUser skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\gallastegui.maitane\Desktop\1. PROGRAMAZIOA\MAHR\ErleteAdministration\build\test\results\TEST-TestUser.xml crashfile=C:\Users\gallastegui.maitane\Desktop\1. PROGRAMAZIOA\MAHR\ErleteAdministration\build\junitvmwatcher800063148543001464.properties propsfile=C:\Users\gallastegui.maitane\Desktop\1. PROGRAMAZIOA\MAHR\ErleteAdministration\build\junit16621530673145483030.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner TestUser skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\gallastegui.maitane\Desktop\1. PROGRAMAZIOA\MAHR\ErleteAdministration\build\test\results\TEST-TestUser.xml crashfile=C:\Users\gallastegui.maitane\Desktop\1. PROGRAMAZIOA\MAHR\ErleteAdministration\build\junitvmwatcher3117164169938190229.properties propsfile=C:\Users\gallastegui.maitane\Desktop\1. PROGRAMAZIOA\MAHR\ErleteAdministration\build\junit17571115212891083691.properties" />
     <property name="jdk.debug" value="release" />
     <property name="libs.spring-framework300.src" value="" />
     <property name="javadoc.use" value="true" />
@@ -43,7 +43,7 @@
     <property name="sun.java2d.noddraw" value="true" />
     <property name="sun.zip.disableMemoryMapping" value="true" />
     <property name="libs.maven-dependencies.maven-pom" value="" />
-    <property name="jnidispatch.path" value="C:\Users\GALLAS~1.MAI\AppData\Local\Temp\jna-1156098281\jna3628243357066604798.dll" />
+    <property name="jnidispatch.path" value="C:\Users\GALLAS~1.MAI\AppData\Local\Temp\jna-1156098281\jna6747320003034658714.dll" />
     <property name="libs.jsf12.src" value="" />
     <property name="libs.jsp-compilation.javadoc" value="" />
     <property name="libs.primefaces.javadoc" value="" />
@@ -204,7 +204,7 @@
     <property name="libs.jsp-compilation.classpath" value="C:\Program Files\NetBeans-12.0\netbeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans-12.0\netbeans\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans-12.0\netbeans\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans-12.0\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Program Files\NetBeans-12.0\netbeans\enterprise\modules\ext\jstl-api.jar;C:\Program Files\NetBeans-12.0\netbeans\extide\ant\lib\ant-launcher.jar" />
     <property name="ant.file.type.ErleteAdministration-impl" value="file" />
     <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\NetBeans-12.0\netbeans\enterprise\modules\ext\javaee-api-6.0.jar" />
-    <property name="javac.includesfile.binary" value="C:\Users\gallastegui.maitane\Desktop\1. PROGRAMAZIOA\MAHR\ErleteAdministration\null1472103263" />
+    <property name="javac.includesfile.binary" value="C:\Users\gallastegui.maitane\Desktop\1. PROGRAMAZIOA\MAHR\ErleteAdministration\null2076202670" />
     <property name="libs.javaee-api-7.0.classpath" value="C:\Program Files\NetBeans-12.0\netbeans\enterprise\modules\ext\javaee-api-7.0.jar" />
     <property name="sun.cpu.isalist" value="amd64" />
     <property name="libs.restapi.maven-pom" value="" />
