@@ -54,7 +54,7 @@ public class Model {
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
-                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Acive"));
+                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
                 use.add(u1);
             }
         } catch (Exception ex) {
@@ -71,7 +71,7 @@ public class Model {
      * correctly
      */
     public int addUser(User u) {
-        String sql = "INSERT INTO members VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO members VALUES (?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -82,6 +82,7 @@ public class Model {
             pstmt.setString(5, u.getPassword());
             pstmt.setString(6, u.getAccount());
             pstmt.setBoolean(7, u.isAdmin());
+            pstmt.setBoolean(8, u.isActive());
             return pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -90,17 +91,16 @@ public class Model {
     }
 
     /**
-     * Is going to update a user' DNI depending on the email
+     * Is going to update a user's DNI depending on the email
      *
      * @param key
-     * @param uDni
+     * @param u
      * @return 0 if it hadn't been updated correctly and 1 if it had been
      * updated correctly
      */
     public int updateMember(String key, User u) {
         String sql = "UPDATE members "
-                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ?"
-                + "WHERE mail = ? ";
+                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ?, admin = ?, active = ? WHERE mail = ?";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -109,7 +109,9 @@ public class Model {
             pstmt.setString(3, u.getSurname());
             pstmt.setString(4, u.getPassword());
             pstmt.setString(5, u.getAccount());
-            pstmt.setString(6, key);
+            pstmt.setBoolean(6, u.isAdmin());
+            pstmt.setBoolean(7, u.isActive());
+            pstmt.setString(8, key);
             return pstmt.executeUpdate();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
