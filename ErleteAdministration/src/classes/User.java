@@ -104,7 +104,7 @@ public class User {
         return type;
     }
     
-    public boolean isEmail(String mail) {
+    public boolean isCorrectEmail(String mail) {
         Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");        
         Matcher mather = pat.matcher(mail);
