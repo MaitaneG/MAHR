@@ -143,12 +143,29 @@ h3{
     transform: scale(1.05);
     transition: 0.4s;
 }
+/*Class for the list to put the letter bold*/
 .user-ul{
 font-weight: bolder;
 }
 
+/*A class to declare the width and height of the iframe*/
 .iframe{
 width:50%;
 height:50%;
 
+}
+.p {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 150%;
+  }
 }

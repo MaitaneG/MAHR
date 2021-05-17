@@ -98,7 +98,7 @@ if ($_SESSION["member"]) {
             <br>
             <div class="row">
 
-                <div class="col-sm-12" align="center">
+                <div class="col-sm-12 p" align="center">
                     <h2>Location</h2>
                     <p><b>Direction:</b> San Juan Plaza 1;<br>
                         <b>Municipality:</b> Axpe;<br>
@@ -152,7 +152,7 @@ if ($_SESSION["member"]) {
 <footer class="bg-dark text-center text-white ml-0 mr-0">
     <!-- Section: Text -->
     <section class="mb-4">
-      <p>
+      <p class="p">
         If you want to contact with us here you have our links to send an email, call us, or to send us a message.
       </p>
     </section>
