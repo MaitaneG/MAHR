@@ -257,7 +257,7 @@ public class View extends javax.swing.JFrame {
 
         jButtonEraser.setBackground(new java.awt.Color(219, 139, 34));
         jButtonEraser.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jButtonEraser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Borragoma.PNG"))); // NOI18N
+        jButtonEraser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photos/Borragoma.PNG"))); // NOI18N
         jButtonEraser.setActionCommand("ERASER");
         jButtonEraser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonEraser.setFocusable(false);
