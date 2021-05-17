@@ -185,7 +185,7 @@ public class Controller implements ActionListener {
 
         //Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
-            if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isAdmin()) {
+            if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword())) {
                 if (us.get(i).isAdmin()) {
                     if (us.get(i).isActive()) {
                         taulakEguneratu();
