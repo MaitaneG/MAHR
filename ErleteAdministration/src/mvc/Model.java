@@ -54,7 +54,7 @@ public class Model {
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
-                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"));
+                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Acive"));
                 use.add(u1);
             }
         } catch (Exception ex) {
@@ -81,7 +81,7 @@ public class Model {
             pstmt.setString(4, u.getEmail());
             pstmt.setString(5, u.getPassword());
             pstmt.setString(6, u.getAccount());
-            pstmt.setBoolean(7, u.isType());
+            pstmt.setBoolean(7, u.isAdmin());
             return pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

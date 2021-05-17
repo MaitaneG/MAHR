@@ -89,7 +89,7 @@ public class MembersTableModel extends AbstractTableModel {
             case 5:
                 return datuak.get(row).getAccount();
             case 6:
-                return datuak.get(row).isType();
+                return datuak.get(row).isAdmin();
             default:
                 return null;
         }
