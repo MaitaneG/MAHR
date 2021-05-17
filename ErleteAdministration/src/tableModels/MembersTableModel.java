@@ -9,16 +9,16 @@ import Classes.User;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;
-   
 
 public class MembersTableModel extends AbstractTableModel {
+
     /**
      * The attributes of the class
      */
     private Model model = new Model();
     private ArrayList<User> datuak = new ArrayList<>();
-    private final String[] ZUTABEAKIZENAK = {"DNI", "NAME", "SURNAME", "EMAIL", "PASSWORD", "ACCOUNT","ADMIN"};
-    
+    private final String[] ZUTABEAKIZENAK = {"DNI", "NAME", "SURNAME", "EMAIL", "PASSWORD", "ACCOUNT", "ADMIN", "ACTIVE"};
+
     /**
      * The constractor of the class
      *
@@ -27,9 +27,9 @@ public class MembersTableModel extends AbstractTableModel {
     public MembersTableModel() {
         datuak = model.showUsers();
     }
-    
+
     /**
-     * 
+     *
      * @param c
      * @return which class the object of that column has
      */
@@ -37,9 +37,9 @@ public class MembersTableModel extends AbstractTableModel {
     public Class getColumnClass(int c) {
         return getValueAt(0, c).getClass();
     }
-    
+
     /**
-     * 
+     *
      * @return how many column the table has
      */
     @Override
@@ -48,7 +48,7 @@ public class MembersTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @param col
      * @return a default name for the column
      */
@@ -58,16 +58,16 @@ public class MembersTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @return how many rows the table has
      */
     @Override
     public int getRowCount() {
         return datuak.size();
     }
- 
+
     /**
-     * 
+     *
      * @param row
      * @param col
      * @return the value of which is in the table in certain row and column
@@ -90,6 +90,8 @@ public class MembersTableModel extends AbstractTableModel {
                 return datuak.get(row).getAccount();
             case 6:
                 return datuak.get(row).isAdmin();
+            case 7:
+                return datuak.get(row).isActive();
             default:
                 return null;
         }

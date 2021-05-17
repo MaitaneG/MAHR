@@ -186,15 +186,25 @@ public class Controller implements ActionListener {
         //Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isAdmin()) {
-                taulakEguneratu();
-                view.jDialogMenu.setVisible(true);
-                view.setVisible(false);
-                view.jLabelErrorMessage.setText("");
+                if (us.get(i).isAdmin()) {
+                    if (us.get(i).isActive()) {
+                        taulakEguneratu();
+                        view.jDialogMenu.setVisible(true);
+                        view.setVisible(false);
+                        view.jLabelErrorMessage.setText("");
+                        break;
+                    } else {
+                        view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because your account has been disabled");
+                        break;
+                    }
+                } else {
+                    view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
+                    break;
+                }
 
-                break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
-                view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
+                view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not part of Erlete.");
             }
         }
         //Cleans the information of the labels
@@ -250,6 +260,9 @@ public class Controller implements ActionListener {
             if (view.jTableMember.getValueAt(lerroa, 6).toString().equals("true")) {
                 view.jRadioButtonAdministrator.setSelected(true);
             }
+            if (view.jTableMember.getValueAt(lerroa, 7).toString().equals("true")) {
+                view.jRadioButtonEnabled.setSelected(true);
+            }
             view.jButtonUpdateMember.setActionCommand("UPDATE_MEMBER");
         } else {
             view.jLabelErrorMember.setText("You have to choose a row");
@@ -268,9 +281,9 @@ public class Controller implements ActionListener {
         } else {
             String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
 
-            User use = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(), 
-                   view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
-                   new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(), 
+            User use = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
+                    view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
+                    new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
                     view.jRadioButtonAdministrator.isSelected(), view.jRadioButtonEnabled.isSelected());
 
             if (model.updateMember(gakoa, use) == 1) {
