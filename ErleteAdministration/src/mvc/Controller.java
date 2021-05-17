@@ -9,6 +9,8 @@ import Classes.Container;
 import Classes.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
@@ -40,9 +42,8 @@ public class Controller implements ActionListener {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-
         
-
+        addKeyListener();
         addActionListener(this);
     }
 
@@ -62,6 +63,48 @@ public class Controller implements ActionListener {
         view.jButtonLogout2.addActionListener(listener);
         view.jButtonLogout3.addActionListener(listener);
         view.jButtonLogout4.addActionListener(listener);
+        view.jButtonEraser.addActionListener(listener);
+    }
+    
+    /**
+     * To give action to the board keys
+     */
+    private void addKeyListener() {
+        /**
+         * Create a key listener to jPasswordFieldPasswordLogin
+         */
+        view.jPasswordFieldPasswordLogin.addKeyListener(new KeyListener() {
+            
+            /**
+             * When the key is pressed
+             */
+            @Override
+            public void keyPressed(KeyEvent evt) {
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                    login();
+                }
+            }
+
+            /**
+             * When the key is typed
+             * 
+             * Compulsory method (Because it is an interface)
+             */
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+            
+            /**
+             * When the key has been released
+             * 
+             * Compulsory method (Because it is an interface)
+             */
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 
     /**
@@ -112,6 +155,7 @@ public class Controller implements ActionListener {
             // When you click ERASER button
             case "ERASER":
                 eraser();
+                break;
             /* When you want to logout */
             // When you click LOGOUT button
             case "LOGOUT":
@@ -150,7 +194,7 @@ public class Controller implements ActionListener {
                 view.jDialogMenu.setVisible(true);
                 view.setVisible(false);
                 view.jLabelErrorMessage.setText("");
-                
+
                 break;
             } else {
                 System.out.println("Venga chaval, buen intento!");
@@ -332,6 +376,9 @@ public class Controller implements ActionListener {
         }
     }
 
+    /**
+     * Clear all the jTextFields of members
+     */
     public void eraser() {
         view.jTextFieldDni.setText("");
         view.jTextFieldName.setText("");
@@ -340,5 +387,6 @@ public class Controller implements ActionListener {
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
+        view.jButtonUpdateMember.setActionCommand("TAKE");
     }
 }
