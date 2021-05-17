@@ -114,15 +114,18 @@ if ($_SESSION["member"]) {
                 </div>
 
             </div>
-            <hr style="height:5px;background-color:#c46404 ">
-            <div class="row">
+             <?php
+                        if ($member) {
+                            echo '<hr style="height:5px;background-color:#c46404 ">
+                    <div class="row">
+
                  
-<div class="col-sm-12 mt-3 p-2" align="center"><h2>Members List</h2></div>
-                  <div class="col-6 col-lg-6 px-4 " align="right">
-                  <img src="images/user.png" class="userimag">
-              </div>
-                  <div class="col-6 col-lg-6 px-4 " align="left">
-                    <ul >
+                    <div class="col-sm-12 mt-3 p-2" align="center"><h2>Members List</h2></div>
+                        <div class="col-6 col-lg-6 px-4 " align="right">
+                        <img src="images/user.png" class="userimag">
+                </div>
+                <div class="col-6 col-lg-6 px-4 " align="left">
+                    <ul>
 
                         <li>Aitor Unzueta</li>
                         <li>Urdaspal Alberdi</li>
@@ -137,43 +140,65 @@ if ($_SESSION["member"]) {
                     </ul>
                     
                 </div>
-            </div>
+                </div>';
+                        }
+                        ?>
+            
+            
         
 <br>
 <!--Email,call and sms link inside a jumbotron-->
-        <div class="row jumbotron mb-0" >
-            <div class="col-sm-4" align="left">
-                <a href="mailto:{email}?subject={subject}&body={content}">
+<!-- Footer -->
+<footer class="bg-dark text-center text-white ml-0 mr-0">
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        If you want to contact with us here you have our links to send an email, call us, or to send us a message.
+      </p>
+    </section>
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 " align="left">
+  <!-- Copyright -->
+  <a href="mailto:{email}?subject={subject}&body={content}">
                     Send us an email 
                 </a>
                 <span class="material-icons-outlined text-light">
 mail
 </span>
+</div>
 
-            </div>
-
-            <div class="col-sm-4" align="center">
-                <a href="tel:{phone}">
+<div class="col-lg-4 col-md-6 " align="center">
+  <!-- Copyright -->
+   <a href="tel:{phone}">
                     Call us 
                 </a>
                 <span class="material-icons-outlined text-light">
                 phone
-                </span>
+                </span> 
+</div>
 
-            </div>
-
-            <div class="col-sm-4" align="right">
-                <a href="sms:{phone}?body={content}">
+<div class="col-lg-4 col-md-6 " align="right">
+  <!-- Copyright -->
+   <a href="sms:{phone}?body={content}">
                     Send us a message 
                 </a> 
                 <span class="material-icons-outlined text-light">
                 sms
-                </span>
+                </span>   
+</div>
 
-            </div>
-        </div>
-        </div>
+</div>
 
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="index.php">ErleteBeekepersAssociation.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+        
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
