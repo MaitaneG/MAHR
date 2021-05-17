@@ -8,12 +8,14 @@ package Classes;
 public class Container {
 
     /**
+     * 
      * Attributes of Container
      */
     private int id;
     private int capacity;
 
     /**
+     * 
      * The constructor of Container
      *
      * This class is going to save an id and the capacity of each container
@@ -27,6 +29,7 @@ public class Container {
     }
 
     /**
+     * 
      * @return the id of the Container
      */
     public int getId() {
@@ -42,6 +45,7 @@ public class Container {
     }
 
     /**
+     * 
      * Changes the id of the Container
      *
      * @param id
@@ -51,6 +55,7 @@ public class Container {
     }
 
     /**
+     * 
      * Changes the capacity of the Container
      *
      * @param capacity

@@ -17,16 +17,26 @@ import org.junit.Test;
  * @author USAURIO
  */
 public class TestEmail extends TestCase {
-
+    /**
+     * 
+     * The attributes of the class
+     */
     User user1;
     Extractor extractor1;
     Accounts account1;
     Container_Merge conMerge1;
 
+    /**
+     * 
+     * The constructor of the class
+     */
     public TestEmail() {
         setUp();
     }
 
+    /**
+     * Initialize all the objects
+     */
     @Override
     public void setUp() {
         user1 = new User("11111A", "Pepito", "Palotes", "pepipalos@gmail.com", "1234", "12345", false, true);
@@ -35,6 +45,10 @@ public class TestEmail extends TestCase {
         conMerge1 = new Container_Merge(1, 150, "2021-02-02", "2021-02-22", "admin@erlete.eus");
     }
 
+    /**
+     * 
+     * Test if the email has a correct format
+     */
     @Test
     public void testCorrectEmail() {
         boolean correct1 = user1.isCorrectEmail(user1.getEmail());

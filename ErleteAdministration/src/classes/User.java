@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 public class User {
 
     /**
+     * 
      * The attributes of the User
      */
     private String dni;
@@ -23,12 +24,13 @@ public class User {
     private boolean active;
 
     /**
+     * 
      * The constructor of User
      *
      * In this class we are going to use the DNI, the name, the surname, the
      * email (the user is going to use to log in ), the password (the user is
-     * going to use to log in), the bank account and if it is administrator or
-     * not
+     * going to use to log in), the bank account, if it is administrator or
+     * not and if the user is active or not
      *
      * @param dni
      * @param name
@@ -115,6 +117,7 @@ public class User {
     }
 
     /**
+     * 
      * Changes the DNI of the User
      *
      * @param dni
@@ -124,6 +127,7 @@ public class User {
     }
 
     /**
+     * 
      * Changes the name of the User
      *
      * @param name
@@ -133,6 +137,7 @@ public class User {
     }
 
     /**
+     * 
      * Changes the surname of the User
      *
      * @param surname
@@ -142,6 +147,7 @@ public class User {
     }
 
     /**
+     * 
      * Changes the email of the User
      *
      * @param email
@@ -151,6 +157,7 @@ public class User {
     }
 
     /**
+     * 
      * Changes the password of the User
      *
      * @param password
@@ -160,6 +167,7 @@ public class User {
     }
 
     /**
+     * 
      * Changes the bank account of the User
      *
      * @param account
@@ -169,6 +177,7 @@ public class User {
     }
 
     /**
+     * 
      * Changes if the User is administrator or not
      *
      * @param admin
@@ -178,6 +187,7 @@ public class User {
     }
 
     /**
+     * 
      * Changes if the User is enabled or not
      * @param active 
      */
@@ -186,6 +196,7 @@ public class User {
     }
 
     /**
+     * 
      * Proves if the email has an at sign
      * @param mail
      * @return 1 if the email has a correct format and 0 if not

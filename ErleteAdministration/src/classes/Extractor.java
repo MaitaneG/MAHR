@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 public class Extractor {
 
     /**
+     * 
      * The attributes of Extractor
      */
     private int id;
@@ -60,6 +61,7 @@ public class Extractor {
     }
 
     /**
+     * 
      * Changes the id of the booking
      * @param id 
      */
@@ -68,6 +70,7 @@ public class Extractor {
     }
 
     /**
+     * 
      * Changes the date of the booking
      * @param date 
      */
@@ -76,6 +79,7 @@ public class Extractor {
     }
 
     /**
+     * 
      * Changes the email of the person who is going to use the Extractor
      * @param email 
      */
@@ -84,6 +88,7 @@ public class Extractor {
     }
     
     /**
+     * 
      * Proves if the email has an at sign
      * @param mail
      * @return 1 if the email has a correct format and 0 if not

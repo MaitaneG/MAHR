@@ -22,6 +22,7 @@ public class Container_Merge {
     private String email = "";
 
     /**
+     * 
      * The constructor of Container_Merge
      *
      * This class is going to save the id and the capacity of each container,
@@ -42,6 +43,7 @@ public class Container_Merge {
     }
 
     /**
+     * 
      * Other constructor of Container_Merge
      * 
      * This class is going to save the id and the capacity of each container
@@ -145,6 +147,7 @@ public class Container_Merge {
     }
     
     /**
+     * 
      * Proves if the email has an at sign
      * @param mail
      * @return 1 if the email has a correct format and 0 if not
