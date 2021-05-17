@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
 import tableModels.CansTableModel;
@@ -211,6 +213,7 @@ public class Controller implements ActionListener {
      * order to enter it in the database
      */
     public void enterUser() {
+        
         //Create an object with the information
         User u = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
                 view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
@@ -223,12 +226,16 @@ public class Controller implements ActionListener {
                 || view.jTextFieldAccount.getText().trim().equals("")) {
             view.jLabelErrorMember.setText("You have to fill all the information.");
             //Prove that the user has been added
-        } else if (model.addUser(u) == 1) {
-            taulakEguneratu();
-            view.jLabelErrorMember.setText("");
+        }else if(mather.find()){
+                if (model.addUser(u) == 1) {
+                    taulakEguneratu();
+                    view.jLabelErrorMember.setText("");
+                } else {
+                    view.jLabelErrorMember.setText("The member couldn't be added correctly");
+                }
             //If not added correctly
         } else {
-            view.jLabelErrorMember.setText("The member couldn't be added correctly");
+            view.jLabelErrorMember.setText("The member couldn't be added correctly, Invalid Email");
         }
         view.jTextFieldDni.setText("");
         view.jTextFieldName.setText("");
@@ -238,7 +245,6 @@ public class Controller implements ActionListener {
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
     }
-
     /**
      * Takes all the information and it puts in the labels
      */
