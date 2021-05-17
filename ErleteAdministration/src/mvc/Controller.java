@@ -226,7 +226,7 @@ public class Controller implements ActionListener {
                 || view.jTextFieldAccount.getText().trim().equals("")) {
             view.jLabelErrorMember.setText("You have to fill all the information.");
             //Prove that the user has been added
-        }else if(mather.find()){
+        }else if(u.isEmail(view.jTextFieldEmailMember.getText().trim())){
                 if (model.addUser(u) == 1) {
                     taulakEguneratu();
                     view.jLabelErrorMember.setText("");

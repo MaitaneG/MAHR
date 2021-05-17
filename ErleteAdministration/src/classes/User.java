@@ -6,6 +6,8 @@
 package Classes;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class User {
 
@@ -100,6 +102,13 @@ public class User {
      */
     public boolean isType() {
         return type;
+    }
+    
+    public boolean isEmail(String mail) {
+        Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");        
+        Matcher mather = pat.matcher(mail);
+        return mather.find();
     }
 
     /**
