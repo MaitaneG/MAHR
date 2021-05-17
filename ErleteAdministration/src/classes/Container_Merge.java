@@ -6,10 +6,13 @@
 package Classes;
 
 import java.time.LocalDate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Container_Merge {
 
     /**
+     * 
      * The attributes of Container_Merge
      */
     private int id;
@@ -53,48 +56,110 @@ public class Container_Merge {
 
     /**
      * 
-     * @return 
+     * @return the id of the Container
      */
     public int getId() {
         return id;
     }
 
+    /**
+     * 
+     * @return the capacity of the Container
+     */
     public int getCapacity() {
         return capacity;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-
+    /**
+     * 
+     * @return the email of the User who is using the can
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * 
+     * @return the start date when the can has being used
+     */
     public LocalDate getDate() {
         return date;
     }
+    
+    /**
+     * 
+     * @return the end date when the can has being used
+     */
+    public LocalDate getDate2() {
+        return date2;
+    }
+    
+    /**
+     * 
+     * Changes the id of the Container
+     * 
+     * @param id 
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    /**
+     * 
+     * Changes the capacity of the Container
+     * 
+     * @param capacity 
+     */
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+    
+    /**
+     * 
+     * Changes the email of the User who is using the can
+     * 
+     * @param email 
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * 
+     * Changes the start date when the can has being used
+     * 
+     * @param date 
+     */
     public void setDate(String date) {
         this.date = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
     }
 
+    /**
+     * 
+     * Changes the end date when the can has being used
+     * 
+     * @param date 
+     */
     public void setDate2(String date) {
         this.date2 = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
     }
-
-    public LocalDate getDate2() {
-        return date2;
+    
+    /**
+     * Proves if the email has an at sign
+     * @param mail
+     * @return 1 if the email has a correct format and 0 if not
+     */
+    public boolean isCorrectEmail(String mail) {
+        Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pat.matcher(mail);
+        return mather.find();
     }
-
+    
+    /**
+     * 
+     * @return a String with all the attributes
+     */
     @Override
     public String toString() {
         return "Container_Merge{" + "id=" + id + ", capacity=" + capacity + ", date=" + date + ", email=" + email + '}';

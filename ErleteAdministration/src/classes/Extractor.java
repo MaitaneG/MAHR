@@ -6,6 +6,8 @@
 package Classes;
 
 import java.time.LocalDate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Extractor {
 
@@ -79,5 +81,17 @@ public class Extractor {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    /**
+     * Proves if the email has an at sign
+     * @param mail
+     * @return 1 if the email has a correct format and 0 if not
+     */
+    public boolean isCorrectEmail(String mail) {
+        Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pat.matcher(mail);
+        return mather.find();
     }
 }

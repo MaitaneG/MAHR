@@ -5,7 +5,6 @@
  */
 package Classes;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,6 +37,7 @@ public class User {
      * @param password
      * @param account
      * @param type
+     * @param active
      */
     public User(String dni, String name, String surname, String email, String password, String account, boolean type, boolean active) {
         this.dni = dni;
@@ -185,70 +185,15 @@ public class User {
         this.active = active;
     }
 
+    /**
+     * Proves if the email has an at sign
+     * @param mail
+     * @return 1 if the email has a correct format and 0 if not
+     */
     public boolean isCorrectEmail(String mail) {
         Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
         Matcher mather = pat.matcher(mail);
         return mather.find();
     }
-
-    /**
-     *
-     * @return the hashcode
-     */
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.dni);
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + Objects.hashCode(this.surname);
-        hash = 59 * hash + Objects.hashCode(this.email);
-        hash = 59 * hash + Objects.hashCode(this.password);
-        hash = 59 * hash + Objects.hashCode(this.account);
-        hash = 59 * hash + (this.admin ? 1 : 0);
-        return hash;
-    }
-
-    /**
-     * To prove two objects are the same
-     *
-     * @param obj
-     * @return if it is equals or not
-     */
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final User other = (User) obj;
-        if (this.admin != other.admin) {
-            return false;
-        }
-        if (!Objects.equals(this.dni, other.dni)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.surname, other.surname)) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.password, other.password)) {
-            return false;
-        }
-        if (!Objects.equals(this.account, other.account)) {
-            return false;
-        }
-        return true;
-    }
-
 }
