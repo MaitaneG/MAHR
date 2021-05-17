@@ -93,14 +93,19 @@ if ($_SESSION["member"]) {
 
 
         <!--CONTENIDO-->
-
         <div class="container bg-texture">
             <div class="row">
-                <div class="col-sm-6">   
+                <div class="col-sm-6" align="right">   
                 <img src="images/user.png" class="userimag">
                 </div>
-                <div class="col-sm-6">   
-                
+                <div class="col-sm-6 p-4 user-ul" align="left"> 
+                <ul>
+                    <li>DNI:</li>
+                    <li>Name:</li>
+                    <li>Surname:</li>
+                    <li>Email:</li>
+                </ul>
+
                 </div>
             </div>
 

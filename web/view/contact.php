@@ -106,12 +106,37 @@ if ($_SESSION["member"]) {
                         <b>Postcode:</b> 48291;<br>
                         <u><b>GPS Address:</b></u><br>
                         <b>Latitude:</b> 43.1156673 ;<br>
-                        <b>Length:</b> -2.5982992</p>
+                        <b>Length:</b> -2.5982992;</p>
                     <!--The code to put Erlete Beekepers' Association location taking it from google maps-->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23302.940519782715!2d-2.603144!3d43.107298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fd2f2a4d7a841%3A0xdebc4249323c4949!2sSan%20Juan%20Plaza%2C%201%2C%2048291%20Axpe%2C%20Bizkaia%2C%20Spain!5e0!3m2!1sen!2sus!4v1620634544007!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23302.940519782715!2d-2.603144!3d43.107298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fd2f2a4d7a841%3A0xdebc4249323c4949!2sSan%20Juan%20Plaza%2C%201%2C%2048291%20Axpe%2C%20Bizkaia%2C%20Spain!5e0!3m2!1sen!2sus!4v1620634544007!5m2!1sen!2sus" class="iframe mb-5" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
                 </div>
 
+            </div>
+            <hr style="height:5px;background-color:#c46404 ">
+            <div class="row">
+                 
+<div class="col-sm-12 mt-3 p-2" align="center"><h2>Members List</h2></div>
+                  <div class="col-6 col-lg-6 px-4 " align="right">
+                  <img src="images/user.png" class="userimag">
+              </div>
+                  <div class="col-6 col-lg-6 px-4 " align="left">
+                    <ul >
+
+                        <li>Aitor Unzueta</li>
+                        <li>Urdaspal Alberdi</li>
+                        <li>Felix Zabarte</li>
+                        <li>Iñigo Mendibil</li>
+                        <li>Hegoi Escudero</li>
+                        <li>Inazio Uruburu</li>
+                        <li>Roberto Ardanza</li>
+
+
+
+                    </ul>
+                    
+                </div>
             </div>
         
 <br>
