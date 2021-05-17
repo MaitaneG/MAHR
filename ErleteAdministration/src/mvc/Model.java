@@ -118,26 +118,6 @@ public class Model {
     }
 
     /**
-     * Is going to delete a user depending on the email
-     *
-     * @param u
-     * @return 0 if it hadn't been deleted correctly and 1 if it had been
-     * deleted correctly
-     */
-    public int deleteMember(String u) {
-        String sql = "DELETE FROM members WHERE mail = ?";
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, u);
-            return pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return 0;
-        }
-    }
-
-    /**
      * Gets all the information of the accounts from the database
      *
      * @return an ArrayList of Accounts

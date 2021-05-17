@@ -12,8 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import tableModels.AccountTableModel;
 import tableModels.BookingTableModel;
 import tableModels.CansTableModel;
@@ -58,7 +56,6 @@ public class Controller implements ActionListener {
         view.jButtonSubmitLogin.addActionListener(listener);
         view.jButtonAddMember.addActionListener(listener);
         view.jButtonUpdateMember.addActionListener(listener);
-        view.jButtonDeleteMember.addActionListener(listener);
         view.jButtonDeleteBooking.addActionListener(listener);
         view.jButtonAddBin.addActionListener(listener);
         view.jButtonLogout1.addActionListener(listener);
@@ -130,6 +127,8 @@ public class Controller implements ActionListener {
             case "ADD_MEMBER":
                 enterUser();
                 break;
+            /* When you want to take all the information of members and put it in the labels */
+            // When you click ADD_MEMBER button
             case "TAKE":
                 takeAllTableInformation();
                 break;
@@ -137,11 +136,6 @@ public class Controller implements ActionListener {
             // When you click UPDATE_MEMBER button
             case "UPDATE_MEMBER":
                 updateUser();
-                break;
-            /* When you want to delete a member */
-            // When you click DELETE_MEMBER button
-            case "DELETE_MEMBER":
-                deleteUser();
                 break;
             /* When you want to delete a booking */
             // When you click DELETE_BOOKING button
@@ -294,33 +288,6 @@ public class Controller implements ActionListener {
             view.jTextFieldAccount.setText("");
             view.jRadioButtonAdministrator.setSelected(false);
             view.jRadioButtonEnabled.setSelected(false);
-        }
-    }
-
-    /**
-     * To delete an user
-     *
-     * You have to select in the table which one do you want to delete
-     */
-    public void deleteUser() {
-        //Gets the selected row
-        int lerroa = view.jTableMember.getSelectedRow();
-        String gakoa = "";
-
-        //If any row hasn't been selected
-        if (view.jTableMember.getSelectedRow() == -1) {
-            view.jLabelErrorMember.setText("You have to choose a row");
-            //If a row has been selected
-        } else {
-            gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-            //If it has been deleted successfully
-            if (model.deleteMember(gakoa) == 1) {
-                view.jLabelErrorMember.setText("");
-                taulakEguneratu();
-                //Not deleted successfully
-            } else {
-                view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
-            }
         }
     }
 

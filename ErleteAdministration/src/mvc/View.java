@@ -47,7 +47,6 @@ public class View extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButtonAddMember = new javax.swing.JButton();
         jButtonUpdateMember = new javax.swing.JButton();
-        jButtonDeleteMember = new javax.swing.JButton();
         jLabelErrorMember = new javax.swing.JLabel();
         jButtonLogout1 = new javax.swing.JButton();
         jButtonEraser = new javax.swing.JButton();
@@ -246,13 +245,6 @@ public class View extends javax.swing.JFrame {
         jButtonUpdateMember.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonUpdateMember.setFocusable(false);
 
-        jButtonDeleteMember.setBackground(new java.awt.Color(219, 139, 34));
-        jButtonDeleteMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jButtonDeleteMember.setText("DELETE");
-        jButtonDeleteMember.setActionCommand("DELETE_MEMBER");
-        jButtonDeleteMember.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButtonDeleteMember.setFocusable(false);
-
         jLabelErrorMember.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
 
         jButtonLogout1.setBackground(new java.awt.Color(219, 139, 34));
@@ -288,13 +280,11 @@ public class View extends javax.swing.JFrame {
                         .addComponent(jButtonAddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jButtonDeleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
+                        .addGap(198, 198, 198)
                         .addComponent(jButtonEraser)
                         .addGap(52, 52, 52)
                         .addComponent(jLabelErrorMember, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 71, Short.MAX_VALUE))
+                .addGap(0, 133, Short.MAX_VALUE))
         );
         jPanelMembersLayout.setVerticalGroup(
             jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,8 +300,7 @@ public class View extends javax.swing.JFrame {
                             .addComponent(jButtonEraser)
                             .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButtonAddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonDeleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -819,7 +808,6 @@ public class View extends javax.swing.JFrame {
     javax.swing.JButton jButtonAddBin;
     javax.swing.JButton jButtonAddMember;
     javax.swing.JButton jButtonDeleteBooking;
-    javax.swing.JButton jButtonDeleteMember;
     javax.swing.JButton jButtonEraser;
     javax.swing.JButton jButtonLogout1;
     javax.swing.JButton jButtonLogout2;
