@@ -54,7 +54,7 @@ public class Model {
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
-                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"));
+                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Acive"));
                 use.add(u1);
             }
         } catch (Exception ex) {
@@ -81,7 +81,7 @@ public class Model {
             pstmt.setString(4, u.getEmail());
             pstmt.setString(5, u.getPassword());
             pstmt.setString(6, u.getAccount());
-            pstmt.setBoolean(7, u.isType());
+            pstmt.setBoolean(7, u.isAdmin());
             return pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -113,26 +113,6 @@ public class Model {
             return pstmt.executeUpdate();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            return 0;
-        }
-    }
-
-    /**
-     * Is going to delete a user depending on the email
-     *
-     * @param u
-     * @return 0 if it hadn't been deleted correctly and 1 if it had been
-     * deleted correctly
-     */
-    public int deleteMember(String u) {
-        String sql = "DELETE FROM members WHERE mail = ?";
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, u);
-            return pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
             return 0;
         }
     }
