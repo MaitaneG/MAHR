@@ -352,6 +352,7 @@
                         </Property>
                       </Properties>
                       <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="View_jPasswordFieldPassword"/>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
                       </AuxValues>
                     </Component>
