@@ -158,6 +158,10 @@ public class User {
         this.type = type;
     }
 
+    /**
+     * 
+     * @return the hashcode
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -171,6 +175,11 @@ public class User {
         return hash;
     }
 
+    /**
+     * To prove two objects are the same
+     * @param obj
+     * @return if it is equals or not
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
