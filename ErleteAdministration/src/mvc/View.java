@@ -245,6 +245,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableMember.setShowGrid(false);
         jTableMember.getTableHeader().setResizingAllowed(false);
         jTableMember.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTableMember);
@@ -357,6 +358,8 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableBooking.setShowHorizontalLines(false);
+        jTableBooking.setShowVerticalLines(false);
         jTableBooking.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(jTableBooking);
 
@@ -430,6 +433,8 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableMerge.setShowHorizontalLines(false);
+        jTableMerge.setShowVerticalLines(false);
         jTableMerge.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableMerge);
 
@@ -450,6 +455,8 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableBin.setShowHorizontalLines(false);
+        jTableBin.setShowVerticalLines(false);
         jTableBin.getTableHeader().setReorderingAllowed(false);
         jScrollPane5.setViewportView(jTableBin);
 
@@ -621,6 +628,8 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableAccount.setShowHorizontalLines(false);
+        jTableAccount.setShowVerticalLines(false);
         jTableAccount.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTableAccount);
 
@@ -692,6 +701,8 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableAccount1.setShowHorizontalLines(false);
+        jTableAccount1.setShowVerticalLines(false);
         jTableAccount1.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(jTableAccount1);
 
