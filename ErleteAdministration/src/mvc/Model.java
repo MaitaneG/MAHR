@@ -75,7 +75,7 @@ public class Model {
     public int addUser(User u) {
         // Enters into the members table the DNI, name, surname, email, password, 
         // account, if it is administrator or not and if it is active or not
-        String sql = "INSERT INTO members VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO members (dni, name, surname, mail, password, account, admin, active) VALUES (?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -85,8 +85,8 @@ public class Model {
             pstmt.setString(4, u.getEmail());
             pstmt.setString(5, u.getPassword());
             pstmt.setString(6, u.getAccount());
-            pstmt.setBoolean(7, u.isAdmin());
-            pstmt.setBoolean(8, u.isActive());
+            pstmt.setString(7, u.getPassword());
+            pstmt.setString(8, u.getAccount());
             return pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -108,7 +108,7 @@ public class Model {
         // admin, if it is administrator or not and if it is active or not, when 
         // the mail is in the table
         String sql = "UPDATE members "
-                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ?, admin = ?, active = ? WHERE mail = ?";
+                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ? WHERE mail = ?";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -117,9 +117,7 @@ public class Model {
             pstmt.setString(3, u.getSurname());
             pstmt.setString(4, u.getPassword());
             pstmt.setString(5, u.getAccount());
-            pstmt.setBoolean(6, u.isAdmin());
-            pstmt.setBoolean(7, u.isActive());
-            pstmt.setString(8, key);
+            pstmt.setString(6, key);
             return pstmt.executeUpdate();
 
         } catch (Exception ex) {

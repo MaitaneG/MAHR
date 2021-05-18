@@ -74,6 +74,8 @@ public class Controller implements ActionListener {
         view.jButtonEraser.addActionListener(listener);
         // To clear the labels of bins' information
         view.jButtonEraser2.addActionListener(listener);
+        // To enable user
+        view.jButtonMemberEnable.addActionListener(listener);
     }
 
     /**
@@ -243,7 +245,7 @@ public class Controller implements ActionListener {
         User u = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
                 view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
                 new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
-                view.jRadioButtonAdministrator.isSelected(), view.jRadioButtonEnabled.isSelected());
+                false, true);
         // Prove that all the gaps are filled
         if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
                 || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
@@ -270,8 +272,6 @@ public class Controller implements ActionListener {
         view.jPasswordFieldPassword.setText("");
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
-        view.jRadioButtonAdministrator.setSelected(false);
-        view.jRadioButtonEnabled.setSelected(false);
     }
 
     /**
@@ -289,14 +289,7 @@ public class Controller implements ActionListener {
             view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
             view.jPasswordFieldPassword.setText((String) view.jTableMember.getValueAt(lerroa, 4));
             view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
-            // If the user is admin
-            if (view.jTableMember.getValueAt(lerroa, 6).toString().equals("true")) {
-                view.jRadioButtonAdministrator.setSelected(true);
-            }
-            // If the user is active
-            if (view.jTableMember.getValueAt(lerroa, 7).toString().equals("true")) {
-                view.jRadioButtonEnabled.setSelected(true);
-            }
+            
             // Change the action command to UPDATE_MEMBER
             view.jButtonUpdateMember.setActionCommand("UPDATE_MEMBER");
             // If any row hasn't been selected
@@ -324,8 +317,8 @@ public class Controller implements ActionListener {
             User use = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
                     view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
                     new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
-                    view.jRadioButtonAdministrator.isSelected(), view.jRadioButtonEnabled.isSelected());
-
+                    false, true);
+                    
             // If the update has been done correctly
             if (model.updateMember(gakoa, use) == 1) {
                 // Change the action command to TAKE
@@ -343,8 +336,6 @@ public class Controller implements ActionListener {
             view.jPasswordFieldPassword.setText("");
             view.jTextFieldEmailMember.setText("");
             view.jTextFieldAccount.setText("");
-            view.jRadioButtonAdministrator.setSelected(false);
-            view.jRadioButtonEnabled.setSelected(false);
         }
     }
 
@@ -412,8 +403,6 @@ public class Controller implements ActionListener {
         view.jPasswordFieldPassword.setText("");
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
-        view.jRadioButtonAdministrator.setSelected(false);
-        view.jRadioButtonEnabled.setSelected(false);
         view.jButtonUpdateMember.setActionCommand("TAKE");
         view.jLabelErrorMember.setText("");
 
