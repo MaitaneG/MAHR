@@ -260,17 +260,19 @@ public class Model {
      * Is going to add users to the database
      *
      * @param c
+     * @param price
      * @return 0 if it hadn't been added correctly and 1 if it had been added
      * correctly
      */
-    public int addContainer(Container c) {
+    public int addContainer(Container c, float price) {
         // Insert into cans the id and the capacity
-        String sql = "INSERT INTO cans VALUES (?,?)";
+        String sql = "INSERT INTO cans VALUES (?,?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, c.getId());
             pstmt.setInt(2, c.getCapacity());
+            pstmt.setFloat(3, price);
             return pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

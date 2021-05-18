@@ -382,13 +382,13 @@ public class Controller implements ActionListener {
     public void enterBin() {
 
         // Not all information filled
-        if (view.jTextFieldIdBin.getText().trim().equals("") || view.jTextFieldCapacity.getText().trim().equals("")) {
+        if (view.jTextFieldIdBin.getText().trim().equals("") || view.jTextFieldCapacity.getText().trim().equals("") || view.jTextFieldPrice.getText().trim().equals("")) {
             view.jLabelErrorBin.setText("You have to fill all the information.");
             // All information filled
         } else {
             Container u = new Container(Integer.parseInt(view.jTextFieldIdBin.getText().trim()), Integer.parseInt(view.jTextFieldCapacity.getText().trim()));
             // Prove that the bin has been added
-            if (model.addContainer(u) == 1) {
+            if (model.addContainer(u, Float.parseFloat(view.jTextFieldPrice.getText().trim())) == 1) {
                 taulakEguneratu();
                 view.jLabelErrorBin.setText("");
                 // If not added correctly
