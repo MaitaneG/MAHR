@@ -48,13 +48,14 @@ public class Model {
     public ArrayList<User> showUsers() {
 
         ArrayList<User> use = new ArrayList<>();
+        // Selects all the attributes of members
         String sql = "SELECT * FROM members";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
-                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"));
+                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
                 use.add(u1);
             }
         } catch (Exception ex) {
@@ -71,7 +72,9 @@ public class Model {
      * correctly
      */
     public int addUser(User u) {
-        String sql = "INSERT INTO members VALUES (?,?,?,?,?,?,?)";
+        // Enters into the members table the DNI, name, surname, email, password, 
+        // account, if it is administrator or not and if it is active or not
+        String sql = "INSERT INTO members VALUES (?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -81,8 +84,10 @@ public class Model {
             pstmt.setString(4, u.getEmail());
             pstmt.setString(5, u.getPassword());
             pstmt.setString(6, u.getAccount());
-            pstmt.setBoolean(7, u.isType());
+            pstmt.setBoolean(7, u.isAdmin());
+            pstmt.setBoolean(8, u.isActive());
             return pstmt.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return 0;
@@ -90,17 +95,19 @@ public class Model {
     }
 
     /**
-     * Is going to update a user' DNI depending on the email
+     * Is going to update a user's DNI depending on the email
      *
      * @param key
-     * @param uDni
+     * @param u
      * @return 0 if it hadn't been updated correctly and 1 if it had been
      * updated correctly
      */
     public int updateMember(String key, User u) {
+        // Changes from members table the DNI, name, surname, password, account, 
+        // admin, if it is administrator or not and if it is active or not, when 
+        // the mail is in the table
         String sql = "UPDATE members "
-                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ?"
-                + "WHERE mail = ? ";
+                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ?, admin = ?, active = ? WHERE mail = ?";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -109,30 +116,13 @@ public class Model {
             pstmt.setString(3, u.getSurname());
             pstmt.setString(4, u.getPassword());
             pstmt.setString(5, u.getAccount());
-            pstmt.setString(6, key);
+            pstmt.setBoolean(6, u.isAdmin());
+            pstmt.setBoolean(7, u.isActive());
+            pstmt.setString(8, key);
             return pstmt.executeUpdate();
+
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            return 0;
-        }
-    }
-
-    /**
-     * Is going to delete a user depending on the email
-     *
-     * @param u
-     * @return 0 if it hadn't been deleted correctly and 1 if it had been
-     * deleted correctly
-     */
-    public int deleteMember(String u) {
-        String sql = "DELETE FROM members WHERE mail = ?";
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, u);
-            return pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
             return 0;
         }
     }
@@ -145,6 +135,7 @@ public class Model {
     public ArrayList<Accounts> showAccounts() {
 
         ArrayList<Accounts> acc = new ArrayList<>();
+        // Selects all the attributes of Accounts
         String sql = "SELECT * FROM account";
 
         try (Connection conn = connect();
@@ -168,6 +159,7 @@ public class Model {
     public ArrayList<Extractor> showBookings() {
 
         ArrayList<Extractor> boo = new ArrayList<>();
+        // Selects all the attributes of Bookings
         String sql = "SELECT * FROM bookings";
 
         try (Connection conn = connect();
@@ -192,6 +184,7 @@ public class Model {
      *
      */
     public int deleteBooking(int b) {
+        // Delete recordings from Bookings when the id_booking is in the table
         String sql = "DELETE FROM bookings WHERE id_booking = ?";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -213,37 +206,40 @@ public class Model {
     public ArrayList<Container_Merge> showContainer_Merge() {
 
         ArrayList<Container_Merge> boo = new ArrayList<>();
+        // Select from cans and using_cans the id_can, mail, date, date2 where 
+        // date is null and the current date is between date and date2 and order 
+        // all the information by id_can
         String sql = "select cans.ID_CAN, capacity, mail, date, date2 from cans left join using_cans ON cans.ID_CAN = using_cans.ID_CAN where date is null or curdate() BETWEEN date and date2 order by cans.ID_CAN";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
+                // If mail is null
                 if (rs.getString("mail") == null) {
                     Container_Merge u1 = new Container_Merge(rs.getInt("cans.ID_CAN"), rs.getInt("capacity"));
-                    //System.out.println(u1);
                     boo.add(u1);
+                    // If mail is not null
                 } else {
                     Container_Merge u1 = new Container_Merge(rs.getInt("cans.ID_CAN"), rs.getInt("capacity"), rs.getString("mail"), rs.getString("date"), rs.getString("date2"));
-                    //System.out.println(u1);
                     boo.add(u1);
                 }
-
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         return boo;
     }
-    
+
     /**
      * Gets all the information of the the containers from the database
-     * 
+     *
      * @return an ArrayList of Container
      */
     public ArrayList<Container> showContainer() {
 
         ArrayList<Container> boo = new ArrayList<>();
+        // Selects the id_can and capacity from cans
         String sql = "select ID_CAN, capacity from cans";
 
         try (Connection conn = connect();
@@ -258,15 +254,16 @@ public class Model {
         }
         return boo;
     }
-    
+
     /**
      * Is going to add users to the database
-     * 
+     *
      * @param c
      * @return 0 if it hadn't been added correctly and 1 if it had been added
      * correctly
      */
     public int addContainer(Container c) {
+        // Insert into cans the id and the capacity
         String sql = "INSERT INTO cans VALUES (?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {

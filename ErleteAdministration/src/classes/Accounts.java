@@ -6,10 +6,13 @@
 package Classes;
 
 import java.time.LocalDate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Accounts {
  
     /**
+     * 
      * All the attributes of Accounts
      */
     private int id;
@@ -20,6 +23,7 @@ public class Accounts {
     private float total;
 
     /**
+     * 
      * The constructor of Accounts
      *
      * In this class we are going to save an id, who has payed, who has received
@@ -91,6 +95,7 @@ public class Accounts {
     }
 
     /**
+     * 
      * Changes the id of the Accounts
      *
      * @param id
@@ -100,6 +105,7 @@ public class Accounts {
     }
 
     /**
+     * 
      * Changes the payer of the of money of the Accounts
      *
      * @param payer
@@ -109,6 +115,7 @@ public class Accounts {
     }
 
     /**
+     * 
      * Changes the collector of the of money of the Accounts
      *
      * @param collector
@@ -118,6 +125,7 @@ public class Accounts {
     }
 
     /**
+     * 
      * Changes the Date where the Accounts have been done
      *
      * @param date
@@ -127,6 +135,7 @@ public class Accounts {
     }
 
     /**
+     * 
      * Changes the amount of money of the Accounts
      *
      * @param amount
@@ -136,11 +145,25 @@ public class Accounts {
     }
 
     /**
+     * 
      * Changes the total money of the association money
      *
      * @param total
      */
     public void setTotal(float total) {
         this.total = total;
+    }
+    
+    /**
+     * 
+     * Proves if the email has an at sign
+     * @param mail
+     * @return 1 if the email has a correct format and 0 if not
+     */
+    public boolean isCorrectEmail(String mail) {
+        Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pat.matcher(mail);
+        return mather.find();
     }
 }

@@ -5,13 +5,13 @@
  */
 package Classes;
 
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class User {
 
     /**
+     * 
      * The attributes of the User
      */
     private String dni;
@@ -20,15 +20,17 @@ public class User {
     private String email;
     private String password;
     private String account;
-    private boolean type;
+    private boolean admin;
+    private boolean active;
 
     /**
+     * 
      * The constructor of User
      *
      * In this class we are going to use the DNI, the name, the surname, the
      * email (the user is going to use to log in ), the password (the user is
-     * going to use to log in), the bank account and if it is administrator or
-     * not
+     * going to use to log in), the bank account, if it is administrator or
+     * not and if the user is active or not
      *
      * @param dni
      * @param name
@@ -37,15 +39,17 @@ public class User {
      * @param password
      * @param account
      * @param type
+     * @param active
      */
-    public User(String dni, String name, String surname, String email, String password, String account, boolean type) {
+    public User(String dni, String name, String surname, String email, String password, String account, boolean type, boolean active) {
         this.dni = dni;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
         this.account = account;
-        this.type = type;
+        this.admin = type;
+        this.active = active;
     }
 
     /**
@@ -81,7 +85,7 @@ public class User {
     }
 
     /**
-     * 
+     *
      * @return the password of the User
      */
     public String getPassword() {
@@ -89,7 +93,7 @@ public class User {
     }
 
     /**
-     * 
+     *
      * @return the bank account of the User
      */
     public String getAccount() {
@@ -97,132 +101,110 @@ public class User {
     }
 
     /**
-     * 
-     * @return if the user is administrator or not
+     *
+     * @return if the User is administrator or not
      */
-    public boolean isType() {
-        return type;
-    }
-    
-    public boolean isCorrectEmail(String mail) {
-        Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");        
-        Matcher mather = pat.matcher(mail);
-        return mather.find();
+    public boolean isAdmin() {
+        return admin;
     }
 
     /**
+     * 
+     * @return if the User is enabled or not
+     */
+    public boolean isActive() {
+        return active;
+    }
+
+    /**
+     * 
      * Changes the DNI of the User
-     * @param dni 
+     *
+     * @param dni
      */
     public void setDni(String dni) {
         this.dni = dni;
     }
 
     /**
+     * 
      * Changes the name of the User
-     * @param name 
+     *
+     * @param name
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
+     * 
      * Changes the surname of the User
-     * @param surname 
+     *
+     * @param surname
      */
     public void setSurname(String surname) {
         this.surname = surname;
     }
 
     /**
+     * 
      * Changes the email of the User
-     * @param email 
+     *
+     * @param email
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
+     * 
      * Changes the password of the User
-     * @param password 
+     *
+     * @param password
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
+     * 
      * Changes the bank account of the User
-     * @param account 
+     *
+     * @param account
      */
     public void setAccount(String account) {
         this.account = account;
     }
 
     /**
+     * 
      * Changes if the User is administrator or not
-     * @param type 
+     *
+     * @param admin
      */
-    public void setType(boolean type) {
-        this.type = type;
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     /**
      * 
-     * @return the hashcode
+     * Changes if the User is enabled or not
+     * @param active 
      */
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.dni);
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + Objects.hashCode(this.surname);
-        hash = 59 * hash + Objects.hashCode(this.email);
-        hash = 59 * hash + Objects.hashCode(this.password);
-        hash = 59 * hash + Objects.hashCode(this.account);
-        hash = 59 * hash + (this.type ? 1 : 0);
-        return hash;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     /**
-     * To prove two objects are the same
-     * @param obj
-     * @return if it is equals or not
+     * 
+     * Proves if the email has an at sign
+     * @param mail
+     * @return 1 if the email has a correct format and 0 if not
      */
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final User other = (User) obj;
-        if (this.type != other.type) {
-            return false;
-        }
-        if (!Objects.equals(this.dni, other.dni)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.surname, other.surname)) {
-            return false;
-        }
-        if (!Objects.equals(this.email, other.email)) {
-            return false;
-        }
-        if (!Objects.equals(this.password, other.password)) {
-            return false;
-        }
-        if (!Objects.equals(this.account, other.account)) {
-            return false;
-        }
-        return true;
+    public boolean isCorrectEmail(String mail) {
+        Pattern pat = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher mather = pat.matcher(mail);
+        return mather.find();
     }
-    
 }

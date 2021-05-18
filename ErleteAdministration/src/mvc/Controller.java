@@ -12,10 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import tableModels.AccountTableModel;
-import tableModels.BookingTableModel;
+import tableModels.BookingTableModel; 
 import tableModels.CansTableModel;
 import tableModels.Cans_MergeTableModel;
 import tableModels.MembersTableModel;
@@ -44,7 +42,7 @@ public class Controller implements ActionListener {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-        
+
         addKeyListener();
         addActionListener(this);
     }
@@ -55,19 +53,27 @@ public class Controller implements ActionListener {
      * @param listener
      */
     private void addActionListener(ActionListener listener) {
+        // For login
         view.jButtonSubmitLogin.addActionListener(listener);
+        // To add member
         view.jButtonAddMember.addActionListener(listener);
+        // To update member
         view.jButtonUpdateMember.addActionListener(listener);
-        view.jButtonDeleteMember.addActionListener(listener);
+        // To delete booking
         view.jButtonDeleteBooking.addActionListener(listener);
+        // To add bin
         view.jButtonAddBin.addActionListener(listener);
+        // To log out
         view.jButtonLogout1.addActionListener(listener);
         view.jButtonLogout2.addActionListener(listener);
         view.jButtonLogout3.addActionListener(listener);
         view.jButtonLogout4.addActionListener(listener);
+        // To clear the labels of Members' information
         view.jButtonEraser.addActionListener(listener);
+        // To clear the labels of bins' information
+        view.jButtonEraser2.addActionListener(listener);
     }
-    
+
     /**
      * To give action to the board keys
      */
@@ -76,7 +82,7 @@ public class Controller implements ActionListener {
          * Create a key listener to jPasswordFieldPasswordLogin
          */
         view.jPasswordFieldPasswordLogin.addKeyListener(new KeyListener() {
-            
+
             /**
              * When the key is pressed
              */
@@ -89,17 +95,17 @@ public class Controller implements ActionListener {
 
             /**
              * When the key is typed
-             * 
+             *
              * Compulsory method (Because it is an interface)
              */
             @Override
             public void keyTyped(KeyEvent e) {
 
             }
-            
+
             /**
              * When the key has been released
-             * 
+             *
              * Compulsory method (Because it is an interface)
              */
             @Override
@@ -130,6 +136,8 @@ public class Controller implements ActionListener {
             case "ADD_MEMBER":
                 enterUser();
                 break;
+            /* When you want to take all the information of members and put it in the labels */
+            // When you click ADD_MEMBER button
             case "TAKE":
                 takeAllTableInformation();
                 break;
@@ -137,11 +145,6 @@ public class Controller implements ActionListener {
             // When you click UPDATE_MEMBER button
             case "UPDATE_MEMBER":
                 updateUser();
-                break;
-            /* When you want to delete a member */
-            // When you click DELETE_MEMBER button
-            case "DELETE_MEMBER":
-                deleteUser();
                 break;
             /* When you want to delete a booking */
             // When you click DELETE_BOOKING button
@@ -156,6 +159,9 @@ public class Controller implements ActionListener {
             /* When you want to clear all the information of members labels */
             // When you click ERASER button
             case "ERASER":
+                eraser();
+                break;
+            case "ERASER2":
                 eraser();
                 break;
             /* When you want to logout */
@@ -183,27 +189,43 @@ public class Controller implements ActionListener {
      * he/she is the administrator
      */
     public void login() {
-        //Gets the information to log in
+        // Gets the information to log in
         String u = view.jTextFieldEmailLogin.getText();
         String p = new String(view.jPasswordFieldPasswordLogin.getPassword());
 
+        // Save in an ArrayList all users' information
         ArrayList<User> us = model.showUsers();
 
-        //Proves if the email and password exists and if this person is administrator
+        // Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
-            if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword()) && us.get(i).isType()) {
-                taulakEguneratu();
-                view.jDialogMenu.setVisible(true);
-                view.setVisible(false);
-                view.jLabelErrorMessage.setText("");
-
-                break;
+            // If the user exists
+            if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword())) {
+                // If the user is administrator
+                if (us.get(i).isAdmin()) {
+                    // If the user is active
+                    if (us.get(i).isActive()) {
+                        taulakEguneratu();
+                        view.jDialogMenu.setVisible(true);
+                        view.setVisible(false);
+                        view.jLabelErrorMessage.setText("");
+                        break;
+                        // Not active
+                    } else {
+                        view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because your account has been disabled");
+                        break;
+                    }
+                    // Not administrator
+                } else {
+                    view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
+                    break;
+                }
+                // Not exists
             } else {
                 System.out.println("Venga chaval, buen intento!");
-                view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
+                view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not part of Erlete.");
             }
         }
-        //Cleans the information of the labels
+        // Clears the information of the labels
         view.jTextFieldEmailLogin.setText("");
         view.jPasswordFieldPasswordLogin.setText("");
     }
@@ -213,44 +235,50 @@ public class Controller implements ActionListener {
      * order to enter it in the database
      */
     public void enterUser() {
-        
-        //Create an object with the information
+
+        // Create an object with the information
         User u = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
                 view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
                 new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
-                view.jRadioButtonAdministrator.isSelected());
-        //prove that all the gaps are filled
+                view.jRadioButtonAdministrator.isSelected(), view.jRadioButtonEnabled.isSelected());
+        // Prove that all the gaps are filled
         if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
                 || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
                 || new String(view.jPasswordFieldPassword.getPassword()).equals("")
                 || view.jTextFieldAccount.getText().trim().equals("")) {
             view.jLabelErrorMember.setText("You have to fill all the information.");
-            //Prove that the user has been added
-        }else if(u.isCorrectEmail(view.jTextFieldEmailMember.getText().trim())){
-                if (model.addUser(u) == 1) {
-                    taulakEguneratu();
-                    view.jLabelErrorMember.setText("");
-                } else {
-                    view.jLabelErrorMember.setText("The member couldn't be added correctly");
-                }
-            //If not added correctly
+            // Prove that the user has been added
+        } else if (u.isCorrectEmail(view.jTextFieldEmailMember.getText().trim())) {
+            // If added correctly
+            if (model.addUser(u) == 1) {
+                taulakEguneratu();
+                view.jLabelErrorMember.setText("");
+                // If not added correctly
+            } else {
+                view.jLabelErrorMember.setText("The member couldn't be added correctly");
+            }
+            // Incorrect email
         } else {
             view.jLabelErrorMember.setText("The member couldn't be added correctly, Invalid Email");
         }
         view.jTextFieldDni.setText("");
         view.jTextFieldName.setText("");
         view.jTextFieldSurname.setText("");
-        view.jTextFieldEmailMember.setText("");
         view.jPasswordFieldPassword.setText("");
+        view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
+        view.jRadioButtonEnabled.setSelected(false);
     }
+
     /**
      * Takes all the information and it puts in the labels
      */
     public void takeAllTableInformation() {
+        // Takes the selected row
         int lerroa = view.jTableMember.getSelectedRow();
 
+        // If a row has been selected
         if (lerroa != -1) {
             view.jTextFieldDni.setText((String) view.jTableMember.getValueAt(lerroa, 0));
             view.jTextFieldName.setText((String) view.jTableMember.getValueAt(lerroa, 1));
@@ -258,10 +286,17 @@ public class Controller implements ActionListener {
             view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
             view.jPasswordFieldPassword.setText((String) view.jTableMember.getValueAt(lerroa, 4));
             view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
+            // If the user is admin
             if (view.jTableMember.getValueAt(lerroa, 6).toString().equals("true")) {
                 view.jRadioButtonAdministrator.setSelected(true);
             }
+            // If the user is active
+            if (view.jTableMember.getValueAt(lerroa, 7).toString().equals("true")) {
+                view.jRadioButtonEnabled.setSelected(true);
+            }
+            // Change the action command to UPDATE_MEMBER
             view.jButtonUpdateMember.setActionCommand("UPDATE_MEMBER");
+            // If any row hasn't been selected
         } else {
             view.jLabelErrorMember.setText("You have to choose a row");
         }
@@ -273,27 +308,32 @@ public class Controller implements ActionListener {
      * You can change everything instead of email and admin
      */
     public void updateUser() {
+        // Takes the selected row
         int lerroa = view.jTableMember.getSelectedRow();
+
+        // If any row hasn't been selected
         if (lerroa == -1) {
             view.jLabelErrorMember.setText("You have to choose a row");
+            // If a row has been selected
         } else {
             String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-            String dni = view.jTextFieldDni.getText().trim();
-            String name = view.jTextFieldName.getText().trim();
-            String surname = view.jTextFieldSurname.getText().trim();
-            String password = new String(view.jPasswordFieldPassword.getPassword());
-            String account = view.jTextFieldAccount.getText().trim();
 
-            User use = new User(dni, name, surname, view.jTextFieldEmailMember.getText().trim(),
-                    password, account, view.jRadioButtonAdministrator.isSelected());
+            User use = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
+                    view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
+                    new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
+                    view.jRadioButtonAdministrator.isSelected(), view.jRadioButtonEnabled.isSelected());
 
+            // If the update has been done correctly
             if (model.updateMember(gakoa, use) == 1) {
+                // Change the action command to TAKE
                 view.jButtonUpdateMember.setActionCommand("TAKE");
                 view.jLabelErrorMember.setText("");
                 taulakEguneratu();
+                // If the update hasn't been done correctly
             } else {
                 view.jLabelErrorMember.setText("The member couldn't be updated correctly");
             }
+
             view.jTextFieldDni.setText("");
             view.jTextFieldName.setText("");
             view.jTextFieldSurname.setText("");
@@ -301,33 +341,7 @@ public class Controller implements ActionListener {
             view.jTextFieldEmailMember.setText("");
             view.jTextFieldAccount.setText("");
             view.jRadioButtonAdministrator.setSelected(false);
-        }
-    }
-
-    /**
-     * To delete an user
-     *
-     * You have to select in the table which one do you want to delete
-     */
-    public void deleteUser() {
-        //Gets the selected row
-        int lerroa = view.jTableMember.getSelectedRow();
-        String gakoa = "";
-
-        //If any row hasn't been selected
-        if (view.jTableMember.getSelectedRow() == -1) {
-            view.jLabelErrorMember.setText("You have to choose a row");
-            //If a row has been selected
-        } else {
-            gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-            //If it has been deleted successfully
-            if (model.deleteMember(gakoa) == 1) {
-                view.jLabelErrorMember.setText("");
-                taulakEguneratu();
-                //Not deleted successfully
-            } else {
-                view.jLabelErrorMember.setText("The member couldn't be deleted correctly");
-            }
+            view.jRadioButtonEnabled.setSelected(false);
         }
     }
 
@@ -337,21 +351,21 @@ public class Controller implements ActionListener {
      * You have to select in the table which one do yo want to delete.
      */
     public void deleteBooking() {
-        //Gets the selected row
+        // Gets the selected row
         int lerroa = view.jTableBooking.getSelectedRow();
-        int gakoa = 0;
+        int gakoa;
 
-        //If any row hasn't been selected
+        // If any row hasn't been selected
         if (view.jTableBooking.getSelectedRow() == -1) {
             view.jLabelErrorBooking.setText("You have to choose a row");
-            //If a row has been selected
+            // If a row has been selected
         } else {
             gakoa = (Integer) view.jTableBooking.getValueAt(lerroa, 0);
-            //If it has been deleted successfully
+            // If it has been deleted successfully
             if (model.deleteBooking(gakoa) == 1) {
                 view.jLabelErrorBooking.setText("");
                 taulakEguneratu();
-                //Not deleted successfully
+                // Not deleted successfully
             } else {
                 view.jLabelErrorBooking.setText("The booking couldn't be deleted correctly");
             }
@@ -364,16 +378,17 @@ public class Controller implements ActionListener {
      */
     public void enterBin() {
 
-        //prove that all the gaps are filled
+        // Not all information filled
         if (view.jTextFieldIdBin.getText().trim().equals("") || view.jTextFieldCapacity.getText().trim().equals("")) {
             view.jLabelErrorBin.setText("You have to fill all the information.");
-            //Prove that the bin has been added
+            // All information filled
         } else {
             Container u = new Container(Integer.parseInt(view.jTextFieldIdBin.getText().trim()), Integer.parseInt(view.jTextFieldCapacity.getText().trim()));
+            // Prove that the bin has been added
             if (model.addContainer(u) == 1) {
                 taulakEguneratu();
                 view.jLabelErrorBin.setText("");
-                //If not added correctly
+                // If not added correctly
             } else {
                 view.jLabelErrorBin.setText("The can couldn't be added correctly");
             }
@@ -383,9 +398,11 @@ public class Controller implements ActionListener {
     }
 
     /**
-     * Clear all the jTextFields of members
+     * Clear all the jTextFields of members and bins, error fields and
+     * actionCommand
      */
     public void eraser() {
+        // Clears members information
         view.jTextFieldDni.setText("");
         view.jTextFieldName.setText("");
         view.jTextFieldSurname.setText("");
@@ -393,6 +410,13 @@ public class Controller implements ActionListener {
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
         view.jRadioButtonAdministrator.setSelected(false);
+        view.jRadioButtonEnabled.setSelected(false);
         view.jButtonUpdateMember.setActionCommand("TAKE");
+        view.jLabelErrorMember.setText("");
+
+        // Clears cans information
+        view.jTextFieldIdBin.setText("");
+        view.jTextFieldCapacity.setText("");
+        view.jLabelErrorBin.setText("");
     }
 }
