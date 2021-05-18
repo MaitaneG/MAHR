@@ -94,6 +94,7 @@ public class View extends javax.swing.JFrame {
         jDialogMenu.setTitle("ADMINISTRATION");
         jDialogMenu.setBackground(new java.awt.Color(219, 139, 34));
         jDialogMenu.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jDialogMenu.setLocation(new java.awt.Point(200, 20));
         jDialogMenu.setMinimumSize(new java.awt.Dimension(1000, 700));
         jDialogMenu.setResizable(false);
 
@@ -593,7 +594,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jButtonAddBin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonLogout3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Metal Bins", jPanelBins);
