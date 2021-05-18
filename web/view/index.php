@@ -141,7 +141,7 @@ if ($_SESSION["member"]) {
 
             </div>
             <hr style="height:5px;background-color:#c46404 ">
-            <!--divide a row in 3 colums to put the rules of the association-->
+            <!--Divide a row in 3 colums to put the rules of the association-->
             <div class="row ">
                 <div class="col-sm-12 mt-3 p-2" align="center"><h2>Rules</h2></div>
 

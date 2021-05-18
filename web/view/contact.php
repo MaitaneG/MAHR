@@ -114,6 +114,8 @@ if ($_SESSION["member"]) {
                 </div>
 
             </div>
+
+            <!--Php code to see the member list if the person is loged, if not, he or she won't be able to see it. -->
              <?php
                         if ($member) {
                             echo '<hr style="height:5px;background-color:#c46404 ">
@@ -147,7 +149,7 @@ if ($_SESSION["member"]) {
             
         
 <br>
-<!--Email,call and sms link inside a jumbotron-->
+
 <!-- Footer -->
 <footer class="bg-dark text-center text-white ml-0 mr-0">
     <!-- Section: Text -->
@@ -156,6 +158,7 @@ if ($_SESSION["member"]) {
         If you want to contact with us here you have our links to send an email, call us, or to send us a message.
       </p>
     </section>
+    <!--Email, Call and Sms inside a footer.-->
     <div class="row">
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 " align="left">

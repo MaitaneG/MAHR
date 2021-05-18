@@ -95,10 +95,11 @@ if ($_SESSION["member"]) {
         <!--CONTENIDO-->
         <div class="container bg-texture">
             <div class="row">
-                <div class="col-sm-6" align="right">   
+                <div class="col-sm-12 mt-3 p-2" align="center"><h2>Profile</h2></div>
+                <div class="col-6 col-lg-6 px-4" align="right">   
                 <img src="images/user.png" class="userimag">
                 </div>
-                <div class="col-sm-6 p-4 user-ul" align="left"> 
+                <div class="col-6 p-4 col-lg-6 px-4 user-ul" align="left"> 
                 <ul>
                     <li>DNI:</li>
                     <li>Name:</li>
@@ -108,9 +109,6 @@ if ($_SESSION["member"]) {
 
                 </div>
             </div>
-
-            
-                            
 
         
         </div>

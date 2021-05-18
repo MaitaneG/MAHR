@@ -154,6 +154,7 @@ width:50%;
 height:50%;
 
 }
+/*Animation wich make slide the text*/
 .p {
   animation-duration: 3s;
   animation-name: slidein;
