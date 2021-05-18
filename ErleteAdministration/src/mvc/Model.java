@@ -10,6 +10,7 @@ import Classes.Container;
 import Classes.Extractor;
 import Classes.User;
 import Classes.Container_Merge;
+import Classes.Fee;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -275,5 +276,29 @@ public class Model {
             System.out.println(e.getMessage());
             return 0;
         }
+    }
+    
+    /**
+     * Gets all the information of the the Fees from the database
+     *
+     * @return an ArrayList of Container
+     */
+    public ArrayList<Fee> showFee() {
+
+        ArrayList<Fee> fe = new ArrayList<>();
+        // Selects the id_fee,year, payed and email from fees
+        String sql = "select ID_FEE, year, payed, mail from fees";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery(sql)) {
+            while (rs.next()) {
+                Fee u1 = new Fee(rs.getInt("ID_FEE"), rs.getInt("year"), rs.getBoolean("payed"), rs.getString("mail"));
+                fe.add(u1);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return fe;
     }
 }

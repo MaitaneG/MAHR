@@ -16,6 +16,7 @@ import tableModels.AccountTableModel;
 import tableModels.BookingTableModel; 
 import tableModels.CansTableModel;
 import tableModels.Cans_MergeTableModel;
+import tableModels.FeeTableModel;
 import tableModels.MembersTableModel;
 
 public class Controller implements ActionListener {
@@ -68,6 +69,7 @@ public class Controller implements ActionListener {
         view.jButtonLogout2.addActionListener(listener);
         view.jButtonLogout3.addActionListener(listener);
         view.jButtonLogout4.addActionListener(listener);
+        view.jButtonLogout5.addActionListener(listener);
         // To clear the labels of Members' information
         view.jButtonEraser.addActionListener(listener);
         // To clear the labels of bins' information
@@ -182,6 +184,7 @@ public class Controller implements ActionListener {
         this.view.jTableMember.setModel(new MembersTableModel());
         this.view.jTableMerge.setModel(new Cans_MergeTableModel());
         this.view.jTableBin.setModel(new CansTableModel());
+        this.view.jTableAccount1.setModel(new FeeTableModel());
     }
 
     /**

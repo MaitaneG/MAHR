@@ -20,7 +20,7 @@ public class CansTableModel extends AbstractTableModel{
     private final String[] ZUTABEAKIZENAK = {"ID", "CAPACITY"};
 
     /**
-     * The constractor of the class 
+     * The constructor of the class 
      * 
      * It is going to save in an ArrayList all the information of the Containers
      */

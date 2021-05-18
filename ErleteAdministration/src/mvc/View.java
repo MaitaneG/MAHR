@@ -79,6 +79,11 @@ public class View extends javax.swing.JFrame {
         jTableAccount = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jButtonLogout4 = new javax.swing.JButton();
+        jPanelFees = new javax.swing.JPanel();
+        jButtonLogout5 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTableAccount1 = new javax.swing.JTable();
         jPanelBlack = new javax.swing.JPanel();
         jPanelOrange = new javax.swing.JPanel();
         jLabelLoginTitle = new javax.swing.JLabel();
@@ -98,7 +103,7 @@ public class View extends javax.swing.JFrame {
         jDialogMenu.setMinimumSize(new java.awt.Dimension(1000, 700));
         jDialogMenu.setResizable(false);
 
-        jTabbedPaneMenu.setBackground(new java.awt.Color(219, 139, 34));
+        jTabbedPaneMenu.setBackground(new java.awt.Color(244, 164, 12));
         jTabbedPaneMenu.setForeground(new java.awt.Color(51, 51, 51));
         jTabbedPaneMenu.setFocusable(false);
         jTabbedPaneMenu.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
@@ -240,6 +245,7 @@ public class View extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableMember.getTableHeader().setResizingAllowed(false);
         jTableMember.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTableMember);
 
@@ -660,6 +666,66 @@ public class View extends javax.swing.JFrame {
 
         jTabbedPaneMenu.addTab("Accounts", jPanelAccounts);
 
+        jPanelFees.setBackground(new java.awt.Color(244, 164, 12));
+
+        jButtonLogout5.setBackground(new java.awt.Color(219, 139, 34));
+        jButtonLogout5.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jButtonLogout5.setText("LOG OUT");
+        jButtonLogout5.setActionCommand("LOGOUT");
+        jButtonLogout5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonLogout5.setFocusable(false);
+
+        jLabel8.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("FEES");
+
+        jTableAccount1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jTableAccount1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableAccount1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane6.setViewportView(jTableAccount1);
+
+        javax.swing.GroupLayout jPanelFeesLayout = new javax.swing.GroupLayout(jPanelFees);
+        jPanelFees.setLayout(jPanelFeesLayout);
+        jPanelFeesLayout.setHorizontalGroup(
+            jPanelFeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFeesLayout.createSequentialGroup()
+                .addGroup(jPanelFeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelFeesLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(jButtonLogout5, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelFeesLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelFeesLayout.createSequentialGroup()
+                        .addGap(411, 411, 411)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+        jPanelFeesLayout.setVerticalGroup(
+            jPanelFeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFeesLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jButtonLogout5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+
+        jTabbedPaneMenu.addTab("Fees", jPanelFees);
+
         javax.swing.GroupLayout jDialogMenuLayout = new javax.swing.GroupLayout(jDialogMenu.getContentPane());
         jDialogMenu.getContentPane().setLayout(jDialogMenuLayout);
         jDialogMenuLayout.setHorizontalGroup(
@@ -878,6 +944,7 @@ public class View extends javax.swing.JFrame {
     javax.swing.JButton jButtonLogout2;
     javax.swing.JButton jButtonLogout3;
     javax.swing.JButton jButtonLogout4;
+    javax.swing.JButton jButtonLogout5;
     javax.swing.JButton jButtonSubmitLogin;
     javax.swing.JButton jButtonUpdateMember;
     javax.swing.JDialog jDialogMenu;
@@ -888,6 +955,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     javax.swing.JLabel jLabelAccount;
     private javax.swing.JLabel jLabelBookingTitle;
     private javax.swing.JLabel jLabelDni;
@@ -908,6 +976,7 @@ public class View extends javax.swing.JFrame {
     javax.swing.JPanel jPanelBins;
     private javax.swing.JPanel jPanelBlack;
     javax.swing.JPanel jPanelBookings;
+    javax.swing.JPanel jPanelFees;
     javax.swing.JPanel jPanelMembers;
     private javax.swing.JPanel jPanelOrange;
     private javax.swing.JPanel jPanelWhite;
@@ -920,8 +989,10 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPaneMenu;
     javax.swing.JTable jTableAccount;
+    javax.swing.JTable jTableAccount1;
     javax.swing.JTable jTableBin;
     javax.swing.JTable jTableBooking;
     javax.swing.JTable jTableMember;

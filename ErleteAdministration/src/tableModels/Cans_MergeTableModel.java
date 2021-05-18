@@ -14,6 +14,7 @@ import mvc.Model;
 public class Cans_MergeTableModel extends AbstractTableModel {
 
     /**
+     * 
      * The attributes of the class
      */
     private Model model = new Model();
@@ -21,7 +22,8 @@ public class Cans_MergeTableModel extends AbstractTableModel {
     private final String[] ZUTABEAKIZENAK = {"ID CAN", "CAPACITY", "MEMBER", "START DATE", "END DATE"};
 
     /**
-     * The constractor of the class
+     * 
+     * The constructor of the class
      *
      * It is going to save in an ArrayList all the information of the Containers
      * and who and when they have been used
