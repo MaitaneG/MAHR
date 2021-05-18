@@ -74,8 +74,10 @@ public class Controller implements ActionListener {
         view.jButtonEraser.addActionListener(listener);
         // To clear the labels of bins' information
         view.jButtonEraser2.addActionListener(listener);
-        // To enable user
+        // To enable/ disable user
         view.jButtonMemberEnable.addActionListener(listener);
+        // To manage administrator
+        view.jButtonMemberAdministator.addActionListener(listener);
     }
 
     /**
@@ -165,8 +167,16 @@ public class Controller implements ActionListener {
             case "ERASER":
                 eraser();
                 break;
+            /* When you want to clear all the information of cans labels */
+            // When you click ERASER2 button
             case "ERASER2":
                 eraser();
+                break;
+            case "ENABLE":
+                enable();
+                break;
+            case "ADMINISTRATOR":
+                administrator();
                 break;
             /* When you want to logout */
             // When you click LOGOUT button
@@ -299,9 +309,9 @@ public class Controller implements ActionListener {
     }
 
     /**
-     * To update users' information
+     * To update users' information 
      *
-     * You can change everything instead of email and admin
+     * You can change everything instead of email and admin, and active
      */
     public void updateUser() {
         // Takes the selected row
@@ -336,6 +346,30 @@ public class Controller implements ActionListener {
             view.jPasswordFieldPassword.setText("");
             view.jTextFieldEmailMember.setText("");
             view.jTextFieldAccount.setText("");
+        }
+    }
+    
+    public void enable(){
+        
+    }
+    
+    public void administrator(){
+        // Takes the selected row
+        int lerroa = view.jTableMember.getSelectedRow();
+        // If any row hasn't been selected
+        if (lerroa == -1) {
+            view.jLabelErrorMember.setText("You have to choose a row");
+            // If a row has been selected
+        } else {
+            String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
+            
+             // If the update has been done correctly
+            if (model.updateAdministrator(gakoa) == 1) {
+                view.jLabelErrorMember.setText("");
+                taulakEguneratu();
+            } else {
+                view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+            }
         }
     }
 

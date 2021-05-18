@@ -49,7 +49,7 @@ public class View extends javax.swing.JFrame {
         jButtonLogout1 = new javax.swing.JButton();
         jButtonEraser = new javax.swing.JButton();
         jButtonMemberEnable = new javax.swing.JButton();
-        jButtonMemberEnable1 = new javax.swing.JButton();
+        jButtonMemberAdministator = new javax.swing.JButton();
         jPanelBookings = new javax.swing.JPanel();
         jLabelBookingTitle = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -275,29 +275,26 @@ public class View extends javax.swing.JFrame {
         jButtonMemberEnable.setBackground(new java.awt.Color(219, 139, 34));
         jButtonMemberEnable.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jButtonMemberEnable.setText("ENABLE");
-        jButtonMemberEnable.setActionCommand("ADD_MEMBER");
         jButtonMemberEnable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonMemberEnable.setFocusable(false);
 
-        jButtonMemberEnable1.setBackground(new java.awt.Color(219, 139, 34));
-        jButtonMemberEnable1.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jButtonMemberEnable1.setText("ADMINISTRATOR");
-        jButtonMemberEnable1.setActionCommand("ADD_MEMBER");
-        jButtonMemberEnable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButtonMemberEnable1.setFocusable(false);
+        jButtonMemberAdministator.setBackground(new java.awt.Color(219, 139, 34));
+        jButtonMemberAdministator.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
+        jButtonMemberAdministator.setText("ADMINISTRATOR");
+        jButtonMemberAdministator.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonMemberAdministator.setFocusable(false);
 
         javax.swing.GroupLayout jPanelMembersLayout = new javax.swing.GroupLayout(jPanelMembers);
         jPanelMembers.setLayout(jPanelMembersLayout);
         jPanelMembersLayout.setHorizontalGroup(
             jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMembersLayout.createSequentialGroup()
-                .addContainerGap(989, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelMembersLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelMembersLayout.createSequentialGroup()
+                        .addComponent(jButtonLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabelErrorMember, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelMembersLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jButtonAddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,24 +305,27 @@ public class View extends javax.swing.JFrame {
                         .addGap(99, 99, 99)
                         .addComponent(jButtonMemberEnable, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
-                        .addComponent(jButtonMemberEnable1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelErrorMember, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonMemberAdministator, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelMembersLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 172, Short.MAX_VALUE))
             .addGroup(jPanelMembersLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 918, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMembersLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 918, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelMembersLayout.createSequentialGroup()
+                        .addGap(372, 372, 372)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelMembersLayout.setVerticalGroup(
             jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMembersLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,13 +335,13 @@ public class View extends javax.swing.JFrame {
                         .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonMemberEnable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonMemberEnable1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelErrorMember, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonMemberAdministator, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jButtonLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonLogout1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jLabelErrorMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         jTabbedPaneMenu.addTab("Members", jPanelMembers);
@@ -420,7 +420,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLogout2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Bookings", jPanelBookings);
@@ -750,7 +750,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addComponent(jButtonLogout5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -765,7 +765,7 @@ public class View extends javax.swing.JFrame {
         );
         jDialogMenuLayout.setVerticalGroup(
             jDialogMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+            .addComponent(jTabbedPaneMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
         );
 
         jTabbedPaneMenu.getAccessibleContext().setAccessibleName("");
@@ -976,8 +976,8 @@ public class View extends javax.swing.JFrame {
     javax.swing.JButton jButtonLogout3;
     javax.swing.JButton jButtonLogout4;
     javax.swing.JButton jButtonLogout5;
+    javax.swing.JButton jButtonMemberAdministator;
     javax.swing.JButton jButtonMemberEnable;
-    javax.swing.JButton jButtonMemberEnable1;
     javax.swing.JButton jButtonSubmitLogin;
     javax.swing.JButton jButtonUpdateMember;
     javax.swing.JDialog jDialogMenu;

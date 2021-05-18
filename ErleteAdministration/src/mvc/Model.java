@@ -126,6 +126,46 @@ public class Model {
         }
     }
 
+    public int updateAdministrator(String gakoa) {
+        String sqlSelect = "SELET admin"
+                + "FROM members WHERE mail = ?";
+        User u = new User("", "", "", "", "", "", false, true);
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
+                ResultSet rs = pstmt.executeQuery()) {
+            pstmt.setString(1, gakoa);
+            while (rs.next()) {
+                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
+                // Changes from members table the DNI, name, surname, password, account, 
+                // admin, if it is administrator or not and if it is active or not, when 
+                // the mail is in the table
+                String sql = "UPDATE members "
+                        + "SET admin = ? WHERE mail = ?";
+
+                try (Connection connS = connect();
+                        PreparedStatement pstmtS = connS.prepareStatement(sql)) {
+
+                    if (u1.isAdmin()) {
+                        pstmtS.setBoolean(1, false);
+                    } else {
+                        pstmtS.setBoolean(1, true);
+                    }
+                    pstmtS.setString(2, gakoa);
+                    return pstmtS.executeUpdate();
+
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                    return 0;
+                }
+
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return 0;
+
+    }
+
     /**
      * Gets all the information of the accounts from the database
      *
@@ -277,7 +317,7 @@ public class Model {
             return 0;
         }
     }
-    
+
     /**
      * Gets all the information of the the Fees from the database
      *
