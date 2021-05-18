@@ -172,9 +172,13 @@ public class Controller implements ActionListener {
             case "ERASER2":
                 eraser();
                 break;
+            /* When you want to enable a user */
+            // When you click ENABLE button
             case "ENABLE":
                 enable();
                 break;
+            /* When you want a user to become or not become administrator*/
+            // When you click ENABLE button
             case "ADMINISTRATOR":
                 administrator();
                 break;
