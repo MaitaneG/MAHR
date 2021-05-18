@@ -14,10 +14,16 @@ $(function () {
      *VISUALIZE PENDENT TAXES ON LOAD
      */
     fecthPendentTaxes();
+    
+    /*
+     *VISUALIZE ACCOUNT MOVES ON LOAD
+     */
+    fecthAccountMoves();
 
     /*
      * REGISTER PRODUCTION, VIEW CANS, INSERT TAX
      */
+   
     console.log("jQuery esta funcionando 2");
     $("#registerProduction").click(function () {
         if ($("#production-kg").val()) {
@@ -196,8 +202,9 @@ $(function () {
                 mail: currentMail
             };
             $.post("../controller/pendentTaxesPay.php", postData, function (response) {
-                console.log(response);
+                
                 fecthPendentTaxes();
+                fecthAccountMoves();
 
 
             });
@@ -366,6 +373,100 @@ $(function () {
                 });
                 template += `</tbody>
                                     </table>`;
+              
+                    template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
+                                        <h5>Pay Now</h5></button>
+                                    <h5 align="right">TOTAL ${counter}€</h5>`;
+
+                
+
+
+                $("#pendent-tax-table").html(template);
+                $("#pendent-tax-table").show();
+
+
+            } else {
+                $("#pendent-tax-table").html("");
+                $("#pendent-tax-table").hide();
+            }
+        });
+    }
+    ;
+
+   /*
+     * VISUALIZE ACCOUNT MOVES FUNCTION
+     */
+    function fecthAccountMoves() {
+        
+        let currentMail = document.getElementById("currentMail").textContent;
+        let url = "../controller/accountC.php";
+
+        $.post(url, {currentMail}, function (response) {
+            
+            if (response) {
+                console.log(response);
+                let movements = JSON.parse(response);
+                template = "";
+                 movements.forEach(movement => {
+                     template+=`            <tr>
+                                                <td>${movement.date}</td>
+                                                <td>${movement.amount}</td>
+                                                <td>${movement.concept}</td>
+                                            </tr>  `;
+                 });
+                                    
+
+                 
+                $("#account-movements-table").html(template);
+                $("#account-movements-table").show();
+
+
+            } else {
+                $("#account-movements-table").html("");
+                
+            }
+        });
+    }
+    ;
+ /*
+     * INSERT PAYMENTS ON ACCOUNT
+     */
+    function fecthPendentTaxes() {
+        let pendentTaxes = 1;
+        let currentMail = document.getElementById("currentMail").textContent;
+        let url = "../controller/ProductionsC.php";
+        const postDate = {
+            mail: currentMail,
+            pendent: pendentTaxes
+        };
+
+        $.post(url, postDate, function (response) {
+
+            if (response) {
+                let counter = 0;
+                let pendentTaxes = JSON.parse(response);
+                template = `<h3>Taxes</h3>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+
+                                                
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>`;
+
+                pendentTaxes.forEach(pendentTax => {
+                    counter += parseFloat(pendentTax.tax);
+                    template += `<tr>
+                                    <td>${pendentTax.date}</td>
+                                    <td>${pendentTax.tax}</td>          
+                                            </tr>`;
+
+                });
+                template += `</tbody>
+                                    </table>`;
                 if (counter > 0) {
                     template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
                                         <h5>Pay Now</h5></button>
@@ -380,13 +481,11 @@ $(function () {
 
             } else {
                 $("#pendent-tax-table").html("");
-                $("#pendent-tax-table").show();
+                
             }
         });
     }
     ;
-
-
 
 }
 );                 

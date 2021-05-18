@@ -152,7 +152,7 @@ if ($_SESSION["member"]) {
                     <div class="card-header gradient" id="headingTwo">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                               <h3 class="acordeon-titulo "> 2. Cans</h3>
+                                <h3 class="acordeon-titulo "> 2. Cans</h3>
                             </button>
                         </h5>
                     </div>
@@ -199,6 +199,7 @@ if ($_SESSION["member"]) {
                                     <h3>View</h3>
                                     <table class="table table-bordered">
                                         <thead>
+
                                             <tr>
 
                                                 <th scope="col">Date</th>
@@ -206,26 +207,19 @@ if ($_SESSION["member"]) {
                                                 <th scope="col">Concept</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-
+                                        <tbody id="account-movements-table">
+                                            <!--javascript content-->
                                         </tbody>
                                     </table>
-
                                 </div>
                             </div>
 
 
                             <div class="row">
                                 <!--Table to see the fees and to pay them-->
-                                <div class="col-12 col-lg-6 mt-4 pb-4">
+                                <div id="pendent-fees-table" class="col-12 col-lg-6 mt-4 pb-4">
                                     <h3>Fees</h3>
-                                    <table id="view-payments" class="table table-bordered">
+                                    <table class="table table-bordered">
                                         <thead>
                                             <tr>
 
@@ -246,7 +240,7 @@ if ($_SESSION["member"]) {
                                         </tbody>
                                     </table>
                                     <button id="view-fees" class="btn bg-yellow" type="button">Pay</button>
-
+                                    <!--Javascript contain -->
                                 </div>
 
                                 <!--Table to see the fees and to pay them-->
