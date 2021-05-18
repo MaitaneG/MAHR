@@ -2,14 +2,14 @@
 
 <?php
 
+
+
+function selectAccountMoves($mail) {
+
 include("TestConexion.php");
-
-function selectPendentTaxes($mail) {
-    //Select reserve of a selected day
-    //return: String
     $conexion = ConnectDataBase();
-    $query = "SELECT * FROM productions WHERE mail='$mail' AND PAYED=0";
-
+   
+    $query = "SELECT * FROM account where payer='$mail' ORDER BY date ASC";
     $result = mysqli_query($conexion, $query);
     if (!$result) {
         die("Query error" . mysqli_error($conexion));
@@ -17,10 +17,11 @@ function selectPendentTaxes($mail) {
     $results = array();
     while ($row = mysqli_fetch_array($result)) {
         $results[] = array(
-            'date' => $row[2],
-            'tax' => $row[4],
-            'payed' => $row[5],
-            'id' => $row[1]
+            'id' => $row[0],
+            'date' => $row[3],
+            'mail' => $row[1],
+            'amount'=>$row[4],
+            'concept'=>$row[5]
         );
     }
 
@@ -28,4 +29,6 @@ function selectPendentTaxes($mail) {
     return $results;
 }
 
-echo json_encode(selectPendentTaxes("member@mail.com"));
+ $json=selectAccountMoves("mocholo@mail.com");
+    $jsonstring = json_encode($json);
+    echo $jsonstring;;
