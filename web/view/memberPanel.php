@@ -68,6 +68,9 @@ if ($active == 0) {
 
 <?php
 if ($member && $active == 1) {
+    echo '<li class="nav-item">
+                                        <a class="nav-link p-3" href="profile.php">Profile</a>
+                                    </li>';
     echo '<li class="nav-item active">
 
 
