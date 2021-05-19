@@ -1,8 +1,5 @@
 
 import base_classes.User;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import junit.framework.TestCase;
 import mvc.Model;
 
