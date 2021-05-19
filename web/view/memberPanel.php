@@ -65,15 +65,12 @@ if ($active == 0) {
                         </li>
 
                         <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
-
-<?php
-if ($member && $active == 1) {
-    echo '<li class="nav-item">
+                        <?php
+                        if ($member) {
+                            echo '<li class="nav-item">
                                         <a class="nav-link p-3" href="profile.php">Profile</a>
                                     </li>';
-    echo '<li class="nav-item active">
-
-
+                            echo '<li class="nav-item active">
                         <a class="nav-link p-3 active disabled" href="#">Member Panel</a>
                         </li>';
 }
@@ -234,12 +231,7 @@ if (!$member || $active == 0) {
 
                             <div class="row">
                                 <!--Table to see the fees and to pay them-->
-<<<<<<< HEAD
                                 <div id="pendent-fees-table" class="col-12 col-lg-6 mt-4 pb-4">
-                                    <!
-                                    <!--Javascript content -->
-=======
-                                <div class="col-12 col-lg-6 mt-4 pb-4">
                                     <h3>Fees</h3>
                                     <table id="view-payments" class="table table-bordered">
                                         <thead>
@@ -263,7 +255,6 @@ if (!$member || $active == 0) {
                                     </table>
                                     <button id="view-fees" class="btn bg-yellow" type="button">Pay</button>
 
->>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
                                 </div>
 
                                 <!--Table to see the fees and to pay them-->

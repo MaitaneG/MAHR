@@ -58,6 +58,9 @@ if ($_SESSION["member"]) {
                                         <a class="nav-link p-3" href="profile.php">Profile</a>
                                     </li>';
                             echo '<li class="nav-item">
+                                        <a class="nav-link p-3" href="profile.php">Profile</a>
+                                    </li>';
+                            echo '<li class="nav-item">
                                         <a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
                                     </li>';
                         }
