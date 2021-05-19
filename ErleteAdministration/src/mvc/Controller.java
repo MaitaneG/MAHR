@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import tableModels.AccountTableModel;
-import tableModels.BookingTableModel; 
+import tableModels.BookingTableModel;
 import tableModels.CansTableModel;
 import tableModels.Cans_MergeTableModel;
 import tableModels.FeeTableModel;
@@ -303,7 +303,7 @@ public class Controller implements ActionListener {
             view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
             view.jPasswordFieldPassword.setText((String) view.jTableMember.getValueAt(lerroa, 4));
             view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
-            
+
             // Change the action command to UPDATE_MEMBER
             view.jButtonUpdateMember.setActionCommand("UPDATE_MEMBER");
             // If any row hasn't been selected
@@ -313,7 +313,7 @@ public class Controller implements ActionListener {
     }
 
     /**
-     * To update users' information 
+     * To update users' information
      *
      * You can change everything instead of email and admin, and active
      */
@@ -332,7 +332,7 @@ public class Controller implements ActionListener {
                     view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
                     new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
                     false, true);
-                    
+
             // If the update has been done correctly
             if (model.updateMember(gakoa, use) == 1) {
                 // Change the action command to TAKE
@@ -352,12 +352,8 @@ public class Controller implements ActionListener {
             view.jTextFieldAccount.setText("");
         }
     }
-    
-    public void enable(){
-        
-    }
-    
-    public void administrator(){
+
+    public void enable() {
         // Takes the selected row
         int lerroa = view.jTableMember.getSelectedRow();
         // If any row hasn't been selected
@@ -367,7 +363,27 @@ public class Controller implements ActionListener {
         } else {
             String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
             
-             // If the update has been done correctly
+            // If the update has been done correctly
+            if (model.updateEnable(gakoa) == 1) {
+                view.jLabelErrorMember.setText("");
+                taulakEguneratu();
+            } else {
+                view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+            }
+        }
+    }
+
+    public void administrator() {
+        // Takes the selected row
+        int lerroa = view.jTableMember.getSelectedRow();
+        // If any row hasn't been selected
+        if (lerroa == -1) {
+            view.jLabelErrorMember.setText("You have to choose a row");
+            // If a row has been selected
+        } else {
+            String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
+
+            // If the update has been done correctly
             if (model.updateAdministrator(gakoa) == 1) {
                 view.jLabelErrorMember.setText("");
                 taulakEguneratu();
