@@ -14,7 +14,7 @@ import mvc.Model;
 public class Cans_MergeTableModel extends AbstractTableModel {
 
     /**
-     * 
+     *
      * The attributes of the class
      */
     private Model model = new Model();
@@ -22,7 +22,7 @@ public class Cans_MergeTableModel extends AbstractTableModel {
     private final String[] ZUTABEAKIZENAK = {"ID CAN", "CAPACITY", "MEMBER", "START DATE", "END DATE"};
 
     /**
-     * 
+     *
      * The constructor of the class
      *
      * It is going to save in an ArrayList all the information of the Containers
@@ -31,9 +31,9 @@ public class Cans_MergeTableModel extends AbstractTableModel {
     public Cans_MergeTableModel() {
         datuak = model.showContainer_Merge();
     }
-    
+
     /**
-     * 
+     *
      * @param c
      * @return which class the object of that column has
      */
@@ -43,7 +43,7 @@ public class Cans_MergeTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @return how many column the table has
      */
     @Override
@@ -52,7 +52,7 @@ public class Cans_MergeTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @param col
      * @return a default name for the column
      */
@@ -60,9 +60,9 @@ public class Cans_MergeTableModel extends AbstractTableModel {
     public String getColumnName(int col) {
         return ZUTABEAKIZENAK[col];
     }
-     
+
     /**
-     * 
+     *
      * @return how many rows the table has
      */
     @Override
@@ -71,7 +71,7 @@ public class Cans_MergeTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @param row
      * @param col
      * @return the value of which is in the table in certain row and column

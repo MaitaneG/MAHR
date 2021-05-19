@@ -18,8 +18,9 @@ import org.junit.Test;
  * @author USAURIO
  */
 public class TestEmail extends TestCase {
+
     /**
-     * 
+     *
      * The attributes of the class
      */
     User user1;
@@ -27,9 +28,9 @@ public class TestEmail extends TestCase {
     Accounts account1;
     Container_Merge conMerge1;
     Fee fee1;
-    
+
     /**
-     * 
+     *
      * The constructor of the class
      */
     public TestEmail() {
@@ -45,11 +46,11 @@ public class TestEmail extends TestCase {
         extractor1 = new Extractor(1, "2021-02-02", "admin@erlete.eus");
         account1 = new Accounts(1, "pepipalos@gmail.com", "admin@erlete.eus", "2021-02-12", 30, 1234);
         conMerge1 = new Container_Merge(1, 150, "2021-02-02", "2021-02-22", "admin@erlete.eus");
-        fee1 = new Fee(1,2021,false,"pepipalos@gmail.com");
+        fee1 = new Fee(1, 2021, false, "pepipalos@gmail.com");
     }
 
     /**
-     * 
+     *
      * Test if the email has a correct format
      */
     @Test
@@ -60,7 +61,7 @@ public class TestEmail extends TestCase {
         boolean correct4 = account1.isCorrectEmail(account1.getPayer());
         boolean correct5 = conMerge1.isCorrectEmail(conMerge1.getEmail());
         boolean correct6 = fee1.isCorrectEmail(fee1.getEmail());
-        
+
         assertEquals(correct1, true);
         assertEquals(correct2, true);
         assertEquals(correct3, true);

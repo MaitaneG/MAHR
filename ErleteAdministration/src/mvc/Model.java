@@ -206,12 +206,12 @@ public class Model {
                     + "WHEN active = false THEN true "
                     + "END "
                     + "WHERE mail = ?";
-        }else{
+        } else {
             sql = "UPDATE members "
                     + "SET active = CASE "
-                    + "WHEN admin = false and active = true THEN false "
+                    + "WHEN admin = false AND active = true THEN false "
                     + "WHEN active = false THEN true "
-                    + "WHEN admin = true and active = true THEN true"
+                    + "WHEN admin = true AND active = true THEN true "
                     + "END "
                     + "WHERE mail = ?";
         }

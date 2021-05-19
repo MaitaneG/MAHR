@@ -43,7 +43,7 @@ public class Fee {
     }
 
     /**
-     * 
+     *
      * @return the id of the Fee
      */
     public int getId() {
@@ -51,7 +51,7 @@ public class Fee {
     }
 
     /**
-     * 
+     *
      * @return the year of the Fee
      */
     public int getYear() {
@@ -59,15 +59,15 @@ public class Fee {
     }
 
     /**
-     * 
-     * @return if the Fee has been payed or not  
+     *
+     * @return if the Fee has been payed or not
      */
     public boolean isPayed() {
         return payed;
     }
 
     /**
-     * 
+     *
      * @return who has to pay the Fee
      */
     public String getEmail() {
@@ -75,49 +75,49 @@ public class Fee {
     }
 
     /**
-     * 
+     *
      * Changes the id of the Fee
-     * 
-     * @param id 
+     *
+     * @param id
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * 
+     *
      * Changes the year of the Fee
-     * 
-     * @param year 
+     *
+     * @param year
      */
     public void setYear(int year) {
         this.year = year;
     }
 
     /**
-     * 
-     * Changes if the Fee has been payed or not  
-     * 
-     * @param payed 
+     *
+     * Changes if the Fee has been payed or not
+     *
+     * @param payed
      */
     public void setPayed(boolean payed) {
         this.payed = payed;
     }
 
     /**
-     * 
+     *
      * Changes who has to pay the Fee
-     * 
-     * @param email 
+     *
+     * @param email
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * 
+     *
      * Proves if the email has an at sign
-     * 
+     *
      * @param mail
      * @return 1 if the email has a correct format and 0 if not
      */

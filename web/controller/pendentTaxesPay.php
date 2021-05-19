@@ -1,7 +1,7 @@
 <?php
 
 include("../models/Productions.php");
-include("../models/Account.php");
+
 
 if (isset($_POST["kilos"])) {
     $mail = $_POST["mail"];
@@ -19,18 +19,10 @@ if (isset($_POST["pendent"])) {
         echo $jsonstring;
     }
 }
-/*
- * CHANGUE TAXES ESTATE AND ADD TO ACCOUNT
- */
+
 if (isset($_POST["confirm"])) {
     $mail = $_POST["mail"];
-    $taxesToPay=selectPendentTaxes($mail);
-    foreach ($taxesToPay as $tax) {
-            $amount=$tax["tax"];
-            addPayment($mail, $amount, "taxes");
-    }
     $payed = editProduction($mail);
-    
     if ($payed > 0) {
         echo "payed";
     } else {
