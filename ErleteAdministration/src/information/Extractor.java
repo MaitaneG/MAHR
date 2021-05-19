@@ -3,72 +3,58 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package information;
 
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- *
- * @author gallastegui.maitane
- */
-public class Fee {
+public class Extractor {
 
     /**
-     *
-     * The attributes of the class
+     * 
+     * The attributes of Extractor
      */
     private int id;
-    private int year;
-    private boolean payed;
+    private LocalDate date;
     private String email;
 
     /**
      *
-     * The constructor of the class
+     * The constructor of Extractor
      *
-     * It is going to be saved an id, the year of the fee, if it has been payed,
-     * and who has to pay it
+     * In this constructor it is going to be saved an id, the date where the
+     * extractor is going to be used, and the email of the person who has booked
      *
      * @param id
-     * @param year
-     * @param payed
+     * @param date
      * @param email
      */
-    public Fee(int id, int year, boolean payed, String email) {
+    public Extractor(int id, String date, String email) {
         this.id = id;
-        this.year = year;
-        this.payed = payed;
+        this.date = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
         this.email = email;
     }
 
     /**
-     * 
-     * @return the id of the Fee
+     *
+     * @return the id of the booking
      */
     public int getId() {
         return id;
     }
 
     /**
-     * 
-     * @return the year of the Fee
+     *
+     * @return the date of the booking
      */
-    public int getYear() {
-        return year;
+    public LocalDate getDate() {
+        return date;
     }
 
     /**
      * 
-     * @return if the Fee has been payed or not  
-     */
-    public boolean isPayed() {
-        return payed;
-    }
-
-    /**
-     * 
-     * @return who has to pay the Fee
+     * @return the email of the person who is going to use the Extractor
      */
     public String getEmail() {
         return email;
@@ -76,8 +62,7 @@ public class Fee {
 
     /**
      * 
-     * Changes the id of the Fee
-     * 
+     * Changes the id of the booking
      * @param id 
      */
     public void setId(int id) {
@@ -86,38 +71,25 @@ public class Fee {
 
     /**
      * 
-     * Changes the year of the Fee
-     * 
-     * @param year 
+     * Changes the date of the booking
+     * @param date 
      */
-    public void setYear(int year) {
-        this.year = year;
+    public void setDate(String date) {
+        this.date = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
     }
 
     /**
      * 
-     * Changes if the Fee has been payed or not  
-     * 
-     * @param payed 
-     */
-    public void setPayed(boolean payed) {
-        this.payed = payed;
-    }
-
-    /**
-     * 
-     * Changes who has to pay the Fee
-     * 
+     * Changes the email of the person who is going to use the Extractor
      * @param email 
      */
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     /**
      * 
      * Proves if the email has an at sign
-     * 
      * @param mail
      * @return 1 if the email has a correct format and 0 if not
      */

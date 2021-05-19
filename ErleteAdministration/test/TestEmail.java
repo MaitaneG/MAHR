@@ -1,9 +1,9 @@
 
-import Classes.Accounts;
-import Classes.Container_Merge;
-import Classes.Extractor;
-import Classes.Fee;
-import Classes.User;
+import information.Accounts;
+import information.Container_Merge;
+import information.Extractor;
+import information.Fee;
+import information.User;
 import junit.framework.TestCase;
 import static junit.framework.TestCase.assertEquals;
 import org.junit.Test;

@@ -5,7 +5,7 @@
  */
 package tableModels;
 
-import Classes.Extractor;
+import information.Extractor;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;

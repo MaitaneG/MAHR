@@ -5,7 +5,7 @@
  */
 package tableModels;
 
-import Classes.Fee;
+import information.Fee;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;
