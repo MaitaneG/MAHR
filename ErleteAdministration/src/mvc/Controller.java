@@ -362,7 +362,7 @@ public class Controller implements ActionListener {
             // If a row has been selected
         } else {
             String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-            
+
             // If the update has been done correctly
             if (model.updateEnable(gakoa) == 1) {
                 view.jLabelErrorMember.setText("");

@@ -5,7 +5,6 @@
  */
 package mvc;
 
-
 public class View extends javax.swing.JFrame {
 
     /**
@@ -950,10 +949,10 @@ public class View extends javax.swing.JFrame {
 //            }
 //        });
 //  }
-    
     /**
      * This method is going to run the JFrame
-     * @return 
+     *
+     * @return
      */
     public static View showView() {
         View v = new View();
@@ -964,7 +963,7 @@ public class View extends javax.swing.JFrame {
         });
         return v;
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton jButtonAddBin;
     javax.swing.JButton jButtonAddMember;

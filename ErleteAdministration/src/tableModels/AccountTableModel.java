@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;
 
-
 public class AccountTableModel extends AbstractTableModel {
+
     /**
      * The attributes of the class
      */
@@ -20,16 +20,16 @@ public class AccountTableModel extends AbstractTableModel {
     private final String[] ZUTABEAKIZENAK = {"ID", "PAYER", "COLLECTOR", "DATE", "AMOUNT", "TOTAL"};
 
     /**
-     * The constructor of the class 
-     * 
-     * It is going to save in an ArrayList all the information of the Accounts 
+     * The constructor of the class
+     *
+     * It is going to save in an ArrayList all the information of the Accounts
      */
     public AccountTableModel() {
         datuak = model.showAccounts();
     }
 
     /**
-     * 
+     *
      * @param c
      * @return which class the object of that column has
      */
@@ -39,7 +39,7 @@ public class AccountTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @return how many column the table has
      */
     @Override
@@ -48,7 +48,7 @@ public class AccountTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @param col
      * @return a default name for the column
      */
@@ -58,7 +58,7 @@ public class AccountTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @return how many rows the table has
      */
     @Override
@@ -67,7 +67,7 @@ public class AccountTableModel extends AbstractTableModel {
     }
 
     /**
-     * 
+     *
      * @param row
      * @param col
      * @return the value of which is in the table in certain row and column

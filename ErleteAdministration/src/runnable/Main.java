@@ -9,10 +9,9 @@ import mvc.Controller;
 import mvc.Model;
 import mvc.View;
 
-
 public class Main {
 
-    /** 
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -22,7 +21,7 @@ public class Main {
         Model model = new Model();
         // Create a controller object
         Controller controller = new Controller(model, view);
-        
+
     }
-    
+
 }
