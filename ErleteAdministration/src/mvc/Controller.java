@@ -172,7 +172,7 @@ public class Controller implements ActionListener {
             case "ERASER2":
                 eraser();
                 break;
-            /* When you want to enable a user */
+            /* When you want to enable or disable a user */
             // When you click ENABLE button
             case "ENABLE":
                 enable();
@@ -280,12 +280,15 @@ public class Controller implements ActionListener {
         } else {
             view.jLabelErrorMember.setText("The member couldn't be added correctly, Invalid Email");
         }
+        // Clear all the jTextFields
         view.jTextFieldDni.setText("");
         view.jTextFieldName.setText("");
         view.jTextFieldSurname.setText("");
         view.jPasswordFieldPassword.setText("");
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
+        eraser();
+        view.jButtonUpdateMember.setActionCommand("TAKE");
     }
 
     /**
@@ -351,6 +354,7 @@ public class Controller implements ActionListener {
             view.jTextFieldEmailMember.setText("");
             view.jTextFieldAccount.setText("");
         }
+        eraser();
     }
 
     public void enable() {
@@ -371,6 +375,8 @@ public class Controller implements ActionListener {
                 view.jLabelErrorMember.setText("The member couldn't be updated correctly");
             }
         }
+        eraser();
+        view.jButtonUpdateMember.setActionCommand("TAKE");
     }
 
     public void administrator() {
@@ -391,6 +397,8 @@ public class Controller implements ActionListener {
                 view.jLabelErrorMember.setText("The member couldn't be updated correctly");
             }
         }
+        eraser();
+        view.jButtonUpdateMember.setActionCommand("TAKE");
     }
 
     /**
