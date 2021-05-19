@@ -60,7 +60,17 @@ margin-bottom: 15px;
 
 
 }
+/*Class for the style of the profile image*/
+.userimag{
+height: 180px;
+padding: 10px;
 
+
+
+
+}
+
+/*Class for an image*/
 .imag{
 border-radius: 6px;
 width:100%;
@@ -85,7 +95,7 @@ h1{
         color:white;
 }
 
-/*A class wich change the the tiles of the acordion*/
+/*A class wich change the the tiles of the acordion */
 .acordeon-titulo{
 	text-decoration: none;
 	color: white;
@@ -95,7 +105,7 @@ background-repeat: no-repeat;
 background-size: 0% 2px;
 transition: background-size .3s;
 }
-
+/*A class to change the size of the background*/
 .acordeon-titulo:hover{
 	background-size: 100% 2px;
 }
@@ -112,24 +122,51 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%,
 h3{
 	font-size: 18px;
 }
-
+/*Class for the background of the container*/
 .bg-texture{
     background-image: url("../images/texture.jpg");
     background-repeat: repeat;
 }
-
+/*Style for the tables*/
 .table{
     background: white;
 }
-
+/*To change the opacio of the backgroun and the blur*/
 .bg-opaci{
     background-color: rgba(255, 255, 255, 0.15); 
     filter: blur(.4px);
     border: solid white 3px;
     box-shadow: 4px 2px 2px grey;
 }
-
+/*Class to make an animation when the mouse is hover the can*/
 .animate:hover{
     transform: scale(1.05);
     transition: 0.4s;
+}
+/*Class for the list to put the letter bold*/
+.user-ul{
+font-weight: bolder;
+}
+
+/*A class to declare the width and height of the iframe*/
+.iframe{
+width:50%;
+height:50%;
+
+}
+/*Animation wich make slide the text*/
+.p {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 150%;
+  }
 }
