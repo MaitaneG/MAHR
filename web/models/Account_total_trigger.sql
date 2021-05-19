@@ -2,7 +2,7 @@ CREATE TRIGGER Tr_total
  AFTER INSERT OF amount ON ACCOUNT
 FOR EACH ROW
 BEGIN
-   SET @last_Total FLOAT;
+   SET last_Total FLOAT;
     SELECT TOTAL INTO last_Total
     FROM ACCOUNT 
     ORDER by ID_MOVE DESC
