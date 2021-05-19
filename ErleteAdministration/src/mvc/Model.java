@@ -75,7 +75,7 @@ public class Model {
     public int addUser(User u) {
         // Enters into the members table the DNI, name, surname, email, password, 
         // account, if it is administrator or not and if it is active or not
-        String sql = "INSERT INTO members VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO members (dni, name, surname, mail, password, account, admin, active) VALUES (?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -85,8 +85,8 @@ public class Model {
             pstmt.setString(4, u.getEmail());
             pstmt.setString(5, u.getPassword());
             pstmt.setString(6, u.getAccount());
-            pstmt.setBoolean(7, u.isAdmin());
-            pstmt.setBoolean(8, u.isActive());
+            pstmt.setString(7, u.getPassword());
+            pstmt.setString(8, u.getAccount());
             return pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -108,7 +108,7 @@ public class Model {
         // admin, if it is administrator or not and if it is active or not, when 
         // the mail is in the table
         String sql = "UPDATE members "
-                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ?, admin = ?, active = ? WHERE mail = ?";
+                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ? WHERE mail = ?";
 
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -117,10 +117,109 @@ public class Model {
             pstmt.setString(3, u.getSurname());
             pstmt.setString(4, u.getPassword());
             pstmt.setString(5, u.getAccount());
-            pstmt.setBoolean(6, u.isAdmin());
-            pstmt.setBoolean(7, u.isActive());
-            pstmt.setString(8, key);
+            pstmt.setString(6, key);
             return pstmt.executeUpdate();
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+    }
+
+    public int updateAdministrator(String gakoa) {
+        ArrayList<User> use = new ArrayList<>();
+        String sqlSelect = "SELECT * FROM members";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
+                ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
+                if (u1.isAdmin()) {
+                    use.add(u1);
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // Changes from members table the DNI, name, surname, password, account, 
+        // admin, if it is administrator or not and if it is active or not, when 
+        // the mail is in the table
+        String sql;
+        if (use.size() >= 2) {
+            sql = "UPDATE members "
+                    + "SET admin = CASE "
+                    + "WHEN admin = true THEN false "
+                    + "WHEN admin = false THEN true "
+                    + "END "
+                    + "WHERE mail = ?";
+        } else {
+            sql = "UPDATE members "
+                    + "SET admin = CASE "
+                    + "WHEN admin = true THEN true "
+                    + "WHEN admin = false THEN true "
+                    + "END "
+                    + "WHERE mail = ?";
+        }
+
+        try (Connection connS = connect();
+                PreparedStatement pstmtS = connS.prepareStatement(sql)) {
+
+            pstmtS.setString(1, gakoa);
+            return pstmtS.executeUpdate();
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+    }
+
+    public int updateEnable(String gakoa) {
+        ArrayList<User> use = new ArrayList<>();
+        String sqlSelect = "SELECT * FROM members";
+
+        try (Connection conn = connect();
+                PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
+                ResultSet rs = pstmt.executeQuery()) {
+
+            while (rs.next()) {
+                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
+                if (u1.isAdmin()) {
+                    use.add(u1);
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // Changes from members table the DNI, name, surname, password, account, 
+        // admin, if it is administrator or not and if it is active or not, when 
+        // the mail is in the table
+        String sql;
+        if (use.size() >= 2) {
+            sql = "UPDATE members "
+                    + "SET active = CASE "
+                    + "WHEN active = true THEN false "
+                    + "WHEN active = false THEN true "
+                    + "END "
+                    + "WHERE mail = ?";
+        }else{
+            sql = "UPDATE members "
+                    + "SET active = CASE "
+                    + "WHEN admin = false and active = true THEN false "
+                    + "WHEN active = false THEN true "
+                    + "WHEN admin = true and active = true THEN true"
+                    + "END "
+                    + "WHERE mail = ?";
+        }
+
+        try (Connection connS = connect();
+                PreparedStatement pstmtS = connS.prepareStatement(sql)) {
+
+            pstmtS.setString(1, gakoa);
+            return pstmtS.executeUpdate();
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -260,24 +359,26 @@ public class Model {
      * Is going to add users to the database
      *
      * @param c
+     * @param price
      * @return 0 if it hadn't been added correctly and 1 if it had been added
      * correctly
      */
-    public int addContainer(Container c) {
+    public int addContainer(Container c, float price) {
         // Insert into cans the id and the capacity
-        String sql = "INSERT INTO cans VALUES (?,?)";
+        String sql = "INSERT INTO cans VALUES (?,?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, c.getId());
             pstmt.setInt(2, c.getCapacity());
+            pstmt.setFloat(3, price);
             return pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return 0;
         }
     }
-    
+
     /**
      * Gets all the information of the the Fees from the database
      *
