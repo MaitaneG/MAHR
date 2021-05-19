@@ -48,7 +48,6 @@ public class View extends javax.swing.JFrame {
         jButtonLogout1 = new javax.swing.JButton();
         jButtonEraser = new javax.swing.JButton();
         jButtonMemberEnable = new javax.swing.JButton();
-        jButtonMemberAdministator = new javax.swing.JButton();
         jPanelBookings = new javax.swing.JPanel();
         jLabelBookingTitle = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -277,12 +276,6 @@ public class View extends javax.swing.JFrame {
         jButtonMemberEnable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonMemberEnable.setFocusable(false);
 
-        jButtonMemberAdministator.setBackground(new java.awt.Color(219, 139, 34));
-        jButtonMemberAdministator.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jButtonMemberAdministator.setText("ADMINISTRATOR");
-        jButtonMemberAdministator.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButtonMemberAdministator.setFocusable(false);
-
         javax.swing.GroupLayout jPanelMembersLayout = new javax.swing.GroupLayout(jPanelMembers);
         jPanelMembers.setLayout(jPanelMembersLayout);
         jPanelMembersLayout.setHorizontalGroup(
@@ -301,14 +294,12 @@ public class View extends javax.swing.JFrame {
                         .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114)
                         .addComponent(jButtonEraser)
-                        .addGap(99, 99, 99)
-                        .addComponent(jButtonMemberEnable, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(jButtonMemberAdministator, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(158, 158, 158)
+                        .addComponent(jButtonMemberEnable, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelMembersLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 172, Short.MAX_VALUE))
+                .addGap(0, 210, Short.MAX_VALUE))
             .addGroup(jPanelMembersLayout.createSequentialGroup()
                 .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelMembersLayout.createSequentialGroup()
@@ -332,9 +323,7 @@ public class View extends javax.swing.JFrame {
                     .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonAddMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButtonUpdateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelMembersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonMemberEnable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonMemberAdministator, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButtonMemberEnable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
@@ -975,7 +964,6 @@ public class View extends javax.swing.JFrame {
     javax.swing.JButton jButtonLogout3;
     javax.swing.JButton jButtonLogout4;
     javax.swing.JButton jButtonLogout5;
-    javax.swing.JButton jButtonMemberAdministator;
     javax.swing.JButton jButtonMemberEnable;
     javax.swing.JButton jButtonSubmitLogin;
     javax.swing.JButton jButtonUpdateMember;

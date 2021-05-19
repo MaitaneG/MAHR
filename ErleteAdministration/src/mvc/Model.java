@@ -127,94 +127,14 @@ public class Model {
         }
     }
 
-    public int updateAdministrator(String gakoa) {
-        ArrayList<User> use = new ArrayList<>();
-        String sqlSelect = "SELECT * FROM members";
-
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
-                ResultSet rs = pstmt.executeQuery()) {
-
-            while (rs.next()) {
-                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
-                if (u1.isAdmin()) {
-                    use.add(u1);
-                }
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // Changes from members table the DNI, name, surname, password, account, 
-        // admin, if it is administrator or not and if it is active or not, when 
-        // the mail is in the table
-        String sql;
-        if (use.size() >= 2) {
-            sql = "UPDATE members "
-                    + "SET admin = CASE "
-                    + "WHEN admin = true THEN false "
-                    + "WHEN admin = false THEN true "
-                    + "END "
-                    + "WHERE mail = ?";
-        } else {
-            sql = "UPDATE members "
-                    + "SET admin = CASE "
-                    + "WHEN admin = true THEN true "
-                    + "WHEN admin = false THEN true "
-                    + "END "
-                    + "WHERE mail = ?";
-        }
-
-        try (Connection connS = connect();
-                PreparedStatement pstmtS = connS.prepareStatement(sql)) {
-
-            pstmtS.setString(1, gakoa);
-            return pstmtS.executeUpdate();
-
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            return 0;
-        }
-    }
-
     public int updateEnable(String gakoa) {
-        ArrayList<User> use = new ArrayList<>();
-        String sqlSelect = "SELECT * FROM members";
 
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
-                ResultSet rs = pstmt.executeQuery()) {
-
-            while (rs.next()) {
-                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
-                if (u1.isAdmin()) {
-                    use.add(u1);
-                }
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // Changes from members table the DNI, name, surname, password, account, 
-        // admin, if it is administrator or not and if it is active or not, when 
-        // the mail is in the table
-        String sql;
-        if (use.size() >= 2) {
-            sql = "UPDATE members "
-                    + "SET active = CASE "
-                    + "WHEN active = true THEN false "
-                    + "WHEN active = false THEN true "
-                    + "END "
-                    + "WHERE mail = ?";
-        } else {
-            sql = "UPDATE members "
-                    + "SET active = CASE "
-                    + "WHEN admin = false AND active = true THEN false "
-                    + "WHEN active = false THEN true "
-                    + "WHEN admin = true AND active = true THEN true "
-                    + "END "
-                    + "WHERE mail = ?";
-        }
+        String sql = "UPDATE members "
+                + "SET active = CASE "
+                + "WHEN admin = false AND active = true THEN false "
+                + "WHEN admin = false AND active = false THEN true "
+                + "END "
+                + "WHERE mail = ?";
 
         try (Connection connS = connect();
                 PreparedStatement pstmtS = connS.prepareStatement(sql)) {
