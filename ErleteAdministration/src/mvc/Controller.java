@@ -43,7 +43,7 @@ public class Controller implements ActionListener {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-
+        
         addKeyListener();
         addActionListener(this);
     }
@@ -276,12 +276,6 @@ public class Controller implements ActionListener {
             view.jLabelErrorMember.setText("The member couldn't be added correctly, Invalid Email");
         }
         // Clear all the jTextFields
-        view.jTextFieldDni.setText("");
-        view.jTextFieldName.setText("");
-        view.jTextFieldSurname.setText("");
-        view.jPasswordFieldPassword.setText("");
-        view.jTextFieldEmailMember.setText("");
-        view.jTextFieldAccount.setText("");
         eraser();
         view.jButtonUpdateMember.setActionCommand("TAKE");
     }
@@ -341,15 +335,8 @@ public class Controller implements ActionListener {
             } else {
                 view.jLabelErrorMember.setText("The member couldn't be updated correctly");
             }
-
-            view.jTextFieldDni.setText("");
-            view.jTextFieldName.setText("");
-            view.jTextFieldSurname.setText("");
-            view.jPasswordFieldPassword.setText("");
-            view.jTextFieldEmailMember.setText("");
-            view.jTextFieldAccount.setText("");
+            eraser();
         }
-        eraser();
     }
 
     public void enable() {
@@ -427,8 +414,7 @@ public class Controller implements ActionListener {
     }
 
     /**
-     * Clear all the jTextFields of members and bins, error fields and
-     * actionCommand
+     * Clear all the jTextFields of members and bins
      */
     public void eraser() {
         // Clears members information

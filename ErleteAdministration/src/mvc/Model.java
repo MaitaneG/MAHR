@@ -19,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 /**
+ *
  * This class is going to be used to connect with the database and to
  * get,change, add or delete information of the database
  *
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 public class Model {
 
     /**
+     *
      * Is to connect to the database
      *
      * @return the connection of the database
@@ -43,6 +45,7 @@ public class Model {
     }
 
     /**
+     *
      * Gets all the information of the users from the database
      *
      * @return an ArrayList of Users
@@ -67,6 +70,7 @@ public class Model {
     }
 
     /**
+     *
      * Is going to add users to the database
      *
      * @param u
@@ -75,7 +79,7 @@ public class Model {
      */
     public int addUser(User u) {
         // Enters into the members table the DNI, name, surname, email, password, 
-        // account, if it is administrator or not and if it is active or not
+        // account and it is going to be active and not administrator
         String sql = "INSERT INTO members (dni, name, surname, mail, password, account, admin, active) VALUES (?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -86,8 +90,8 @@ public class Model {
             pstmt.setString(4, u.getEmail());
             pstmt.setString(5, u.getPassword());
             pstmt.setString(6, u.getAccount());
-            pstmt.setString(7, u.getPassword());
-            pstmt.setString(8, u.getAccount());
+            pstmt.setBoolean(7, u.isAdmin());
+            pstmt.setBoolean(8, u.isActive());
             return pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -97,7 +101,9 @@ public class Model {
     }
 
     /**
-     * Is going to update a user's DNI depending on the email
+     *
+     * Is going to update a user's DNI, name, surname, password and account
+     * depending on the email
      *
      * @param key
      * @param u
@@ -106,8 +112,7 @@ public class Model {
      */
     public int updateMember(String key, User u) {
         // Changes from members table the DNI, name, surname, password, account, 
-        // admin, if it is administrator or not and if it is active or not, when 
-        // the mail is in the table
+        //when the mail is in the table
         String sql = "UPDATE members "
                 + "SET dni = ?, name = ?, surname = ?, password = ?, account = ? WHERE mail = ?";
 
@@ -127,8 +132,18 @@ public class Model {
         }
     }
 
+    /**
+     *
+     * It is going to change if a user is active or not
+     *
+     * @param gakoa
+     * @return 0 if it hadn't been updated correctly and 1 if it had been
+     * updated correctly
+     */
     public int updateEnable(String gakoa) {
-
+        // Changes from members table if the member is active or not
+        // If the user is not admin and is active, the user is going to become no active
+        // If the user is not admin and is not active, the user is going to become active
         String sql = "UPDATE members "
                 + "SET active = CASE "
                 + "WHEN admin = false AND active = true THEN false "
@@ -149,6 +164,7 @@ public class Model {
     }
 
     /**
+     * 
      * Gets all the information of the accounts from the database
      *
      * @return an ArrayList of Accounts
