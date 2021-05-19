@@ -5,7 +5,7 @@
  */
 package tableModels;
 
-import Classes.User;
+import information.User;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;
