@@ -5,8 +5,8 @@
  */
 package mvc;
 
-import information.Container;
-import information.User;
+import base_classes.Container;
+import base_classes.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
