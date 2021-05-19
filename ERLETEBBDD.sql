@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306
--- Generation Time: May 17, 2021 at 10:16 AM
+-- Generation Time: May 19, 2021 at 10:13 AM
 -- Server version: 8.0.22-13
 -- PHP Version: 7.2.34
 
@@ -43,11 +43,10 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`ID_MOVE`, `PAYER`, `COLLECTOR`, `DATE`, `AMOUNT`, `CONCEPT`, `TOTAL`) VALUES
-(1, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-04', 252, 'Deudas de moroso', 30522),
-(2, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-14', 50, 'taxes', NULL),
-(3, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-14', 25, 'taxes', NULL),
-(4, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-14', 2.5, 'taxes', NULL),
-(5, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-17', 25.25, 'taxes', NULL);
+(10, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-18', 50, '2021', NULL),
+(11, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-18', 50, '2021', NULL),
+(12, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-18', 50, '2021', NULL),
+(13, 'mocholo@mail.com', 'admin@erlete.eus', '2021-05-19', 5, 'taxes', 30000);
 
 -- --------------------------------------------------------
 
@@ -82,23 +81,25 @@ INSERT INTO `bookings` (`ID_BOOKING`, `DATE`, `MAIL`) VALUES
 
 CREATE TABLE `cans` (
   `ID_CAN` int NOT NULL,
-  `CAPACITY` int NOT NULL
+  `CAPACITY` int NOT NULL,
+  `PRICE` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `cans`
 --
 
-INSERT INTO `cans` (`ID_CAN`, `CAPACITY`) VALUES
-(1, 100),
-(2, 100),
-(3, 100),
-(4, 150),
-(5, 150),
-(6, 150),
-(7, 250),
-(8, 500),
-(9, 150);
+INSERT INTO `cans` (`ID_CAN`, `CAPACITY`, `PRICE`) VALUES
+(1, 100, NULL),
+(2, 100, NULL),
+(3, 100, NULL),
+(4, 150, NULL),
+(5, 150, NULL),
+(6, 150, NULL),
+(7, 250, NULL),
+(8, 500, NULL),
+(9, 150, NULL),
+(10, 150, 15);
 
 -- --------------------------------------------------------
 
@@ -110,8 +111,16 @@ CREATE TABLE `fees` (
   `ID_FEE` int NOT NULL,
   `YEAR` int NOT NULL,
   `MAIL` varchar(100) NOT NULL,
+  `AMOUNT` float NOT NULL,
   `PAYED` tinyint NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `fees`
+--
+
+INSERT INTO `fees` (`ID_FEE`, `YEAR`, `MAIL`, `AMOUNT`, `PAYED`) VALUES
+(1, 2021, 'mocholo@mail.com', 50, 1);
 
 -- --------------------------------------------------------
 
@@ -135,11 +144,12 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`DNI`, `NAME`, `SURNAME`, `MAIL`, `PASSWORD`, `ACCOUNT`, `ADMIN`, `ACTIVE`) VALUES
-('12221', 'Maitane', 'Gallastegui', 'admin@erlete.eus', 'Admin123', '32552532', 1, 0),
-('431441D', 'Manuel', 'Moreno', 'manuel@erlete.eus', '1234', '323552', 0, 0),
-('1234', 'member', 'member', 'member@mail.com', '1234', '1234', 0, 0),
-('64566546546', 'Mochales', 'Mocholo', 'mocholo@mail.com', '1234', '32118676432', 0, 0),
-('4455445544H', 'Ruben', 'Santibañez', 'rubensantibanezacosta902@gmail.com', '1234', '111222211111', 0, 0);
+('12221', 'Maitane', 'Gallastegui', 'admin@erlete.eus', 'Admin123', '32552532', 1, 1),
+('431441D', 'Manuel', 'Moreno', 'manuel@erlete.eus', '2345', '323552', 0, 1),
+('1234', 'member', 'member', 'member@mail.com', '1234', '1234', 0, 1),
+('64566546546', 'Mochales', 'Mocholo', 'mocholo@mail.com', '1234', '32118676432', 0, 1),
+('1111A', 'Pepe', 'Gonzalez', 'pepegonzo@gmail.com', 'Pe1234', '123456', 0, 1),
+('4455445544H', 'Ruben', 'Santibañez', 'rubensantibanezacosta902@gmail.com', '1234', '111222211111', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -161,10 +171,7 @@ CREATE TABLE `productions` (
 --
 
 INSERT INTO `productions` (`MAIL`, `ID_PRO`, `DATE`, `KILOS`, `TAX`, `PAYED`) VALUES
-('mocholo@mail.com', 98, '2021-05-14', 150, 37.5, 1),
-('mocholo@mail.com', 99, '2021-05-14', 100, 25, 1),
-('mocholo@mail.com', 100, '2021-05-14', 10, 2.5, 1),
-('mocholo@mail.com', 101, '2021-05-17', 101, 25.25, 1);
+('mocholo@mail.com', 104, '2021-05-19', 20, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -184,8 +191,7 @@ CREATE TABLE `using_cans` (
 --
 
 INSERT INTO `using_cans` (`MAIL`, `ID_CAN`, `DATE`, `DATE2`) VALUES
-('mocholo@mail.com', 1, '2021-05-14', '2021-06-03'),
-('mocholo@mail.com', 4, '2021-05-14', '2021-06-03');
+('mocholo@mail.com', 1, '2021-05-19', '2021-06-08');
 
 --
 -- Indexes for dumped tables
@@ -245,7 +251,7 @@ ALTER TABLE `using_cans`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `ID_MOVE` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_MOVE` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `bookings`
@@ -257,13 +263,13 @@ ALTER TABLE `bookings`
 -- AUTO_INCREMENT for table `fees`
 --
 ALTER TABLE `fees`
-  MODIFY `ID_FEE` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_FEE` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `productions`
 --
 ALTER TABLE `productions`
-  MODIFY `ID_PRO` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `ID_PRO` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- Constraints for dumped tables

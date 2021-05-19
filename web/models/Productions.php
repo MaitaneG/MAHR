@@ -76,7 +76,6 @@ function selectPendentTaxes($mail) {
     //return: String
     $conexion = ConnectDataBase();
     $query = "SELECT * FROM productions WHERE mail='$mail' AND PAYED=0";
-
     $result = mysqli_query($conexion, $query);
     if (!$result) {
         die("Query error" . mysqli_error($conexion));
@@ -89,7 +88,6 @@ function selectPendentTaxes($mail) {
             'payed' => $row[5]
         );
     }
-
     mysqli_close($conexion);
     return $results;
 }

@@ -7,7 +7,12 @@ if ($_SESSION["member"]) {
     $member = $_SESSION["member"];
     $mail = $member[0]["mail"];
     $admin = $member[0]["admin"];
-} else {
+    $active = $member[0]["active"];
+}
+if ($active == 0) {
+    echo "RESTRICTED AREA";
+    die();
+} if(!$_SESSION["member"])  {
     echo "RESTRICTED AREA";
     die();
 }
@@ -60,24 +65,24 @@ if ($_SESSION["member"]) {
                         </li>
 
                         <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
-                        <?php
-                        if ($member) {
-                            echo '<li class="nav-item active">
+<?php
+if ($member && $active == 1) {
+    echo '<li class="nav-item active">
                         <a class="nav-link p-3 active disabled" href="#">Member Panel</a>
                         </li>';
-                        }
-                        ?>
+}
+?>
 
                         <li class="nav-item">
                             <a class="nav-link p-3" href="contact.php">Contact</a>
                         </li>
                     </ul>
                     <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
-                    <?php
-                    if (!$member) {
+<?php
+if (!$member || $active == 0) {
 
 
-                        echo '<form action="../controller/LoginValidation.php" class="form-inline" method="POST">
+    echo '<form action="../controller/LoginValidation.php" class="form-inline" method="POST">
 
                     <input name="email" type="email" class="form-control mb-2 mr-sm-2" 
                     size="30" required placeholder="Email">
@@ -86,13 +91,13 @@ if ($_SESSION["member"]) {
 
                     <button type="submit" class="btn bg-yellow mb-2">Login</button>
                     </form>';
-                    } else {
-                        echo "<h6 id='currentMail' class='p-3'>$mail</h6>";
-                        echo '<form action="../controller/logout.php">'
-                        . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
-                        . '</form>';
-                    }
-                    ?>
+} else {
+    echo "<h6 id='currentMail' class='p-3'>$mail</h6>";
+    echo '<form action="../controller/logout.php">'
+    . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
+    . '</form>';
+}
+?>
 
                 </div>
             </nav>
@@ -218,34 +223,13 @@ if ($_SESSION["member"]) {
                             <div class="row">
                                 <!--Table to see the fees and to pay them-->
                                 <div id="pendent-fees-table" class="col-12 col-lg-6 mt-4 pb-4">
-                                    <h3>Fees</h3>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-
-
-                                                <th scope="col">Year</th>
-                                                <th scope="col">Payed</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-
-                                                <td></td>
-                                                <td></td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                    <button id="view-fees" class="btn bg-yellow" type="button">Pay</button>
-                                    <!--Javascript contain -->
+                                    <!
+                                    <!--Javascript content -->
                                 </div>
 
                                 <!--Table to see the fees and to pay them-->
                                 <div id="pendent-tax-table" class="col-12 col-lg-6 mt-4">
-                                    <!--   js contain-->
+                                    <!--   js content-->
                                 </div>
                             </div>
 

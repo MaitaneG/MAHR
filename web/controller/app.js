@@ -19,6 +19,11 @@ $(function () {
      *VISUALIZE ACCOUNT MOVES ON LOAD
      */
     fecthAccountMoves();
+    
+     /*
+     *VISUALIZE PENDENT FEES ON LOAD
+     */
+    fecthPendentFees();
 
     /*
      * REGISTER PRODUCTION, VIEW CANS, INSERT TAX
@@ -67,7 +72,7 @@ $(function () {
         Id = parseInt(Id);
         let litresleftText = ($("#litres-left").text());
         let litresleft = parseInt(litresleftText);
-        console.log(litresleft + 300);
+        
         let url = "../controller/cansUseC.php";
         let currentMail = document.getElementById("currentMail").textContent;
         if (litresleft > 0) {
@@ -204,6 +209,30 @@ $(function () {
             $.post("../controller/pendentTaxesPay.php", postData, function (response) {
                 
                 fecthPendentTaxes();
+                fecthAccountMoves();
+
+
+            });
+
+        }
+
+    });
+    
+        /*
+     * PAY FEES
+     */
+    $(document).on("click", "#pay-fees", function () {
+        if (confirm("Are you sure that you want to pay it?")) {
+            let confirm = 1;
+            let currentMail = document.getElementById("currentMail").textContent;
+
+            const postData = {
+                confirmFees: confirm,
+                mail: currentMail
+            };
+            $.post("../controller/feesC.php", postData, function (response) {
+                
+                fecthPendentFees();
                 fecthAccountMoves();
 
 
@@ -349,6 +378,7 @@ $(function () {
         $.post(url, postDate, function (response) {
 
             if (response) {
+               console.log("taxes: "+response);
                 let counter = 0;
                 let pendentTaxes = JSON.parse(response);
                 template = `<h3>Taxes</h3>
@@ -392,6 +422,63 @@ $(function () {
         });
     }
     ;
+    
+     /*
+     * VISUALIZE PENDENT FEES FUNCTION
+     */
+    function fecthPendentFees() {
+        
+        let currentMail = document.getElementById("currentMail").textContent;
+        let url = "../controller/feesC.php";
+        let pendentFeesConfirm=1;
+         const postDate = {
+            mail: currentMail,
+            pendent: pendentFeesConfirm
+        };
+        $.post(url, postDate, function (response) {
+     
+            if (response) {
+                let counterF = 0;    
+                let pendentFees = JSON.parse(response);
+                template = `<h3>Fees</h3>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                               
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Year</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>`;
+
+                pendentFees.forEach(pendentFee => {
+                    counterF += parseFloat(pendentFee.amount);
+                    template += `<tr>
+                                    
+                                    <td>${pendentFee.amount}€</td> 
+                                    <td>${pendentFee.year}</td>
+                    
+                                            </tr>`;
+
+                });
+                template += `</tbody>
+                                    </table>`;
+              
+                    template += `  <button id="pay-fees" class="btn btn-block bg-success" type="button">
+                                        <h5>Pay Now</h5></button>
+                                    <h5 align="right">TOTAL ${counterF}€</h5>`;
+
+                $("#pendent-fees-table").html(template);
+                $("#pendent-fees-table").show();
+
+
+            } else {
+                $("#pendent-fees-table").html("");
+                $("#pendent-fees-table").hide();
+            }
+        });
+    }
+    ;
 
    /*
      * VISUALIZE ACCOUNT MOVES FUNCTION
@@ -404,13 +491,13 @@ $(function () {
         $.post(url, {currentMail}, function (response) {
             
             if (response) {
-                console.log(response);
+            
                 let movements = JSON.parse(response);
                 template = "";
                  movements.forEach(movement => {
                      template+=`            <tr>
                                                 <td>${movement.date}</td>
-                                                <td>${movement.amount}</td>
+                                                <td>${movement.amount}€</td>
                                                 <td>${movement.concept}</td>
                                             </tr>  `;
                  });
@@ -428,64 +515,7 @@ $(function () {
         });
     }
     ;
- /*
-     * INSERT PAYMENTS ON ACCOUNT
-     */
-    function fecthPendentTaxes() {
-        let pendentTaxes = 1;
-        let currentMail = document.getElementById("currentMail").textContent;
-        let url = "../controller/ProductionsC.php";
-        const postDate = {
-            mail: currentMail,
-            pendent: pendentTaxes
-        };
 
-        $.post(url, postDate, function (response) {
-
-            if (response) {
-                let counter = 0;
-                let pendentTaxes = JSON.parse(response);
-                template = `<h3>Taxes</h3>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-
-                                                
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>`;
-
-                pendentTaxes.forEach(pendentTax => {
-                    counter += parseFloat(pendentTax.tax);
-                    template += `<tr>
-                                    <td>${pendentTax.date}</td>
-                                    <td>${pendentTax.tax}</td>          
-                                            </tr>`;
-
-                });
-                template += `</tbody>
-                                    </table>`;
-                if (counter > 0) {
-                    template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
-                                        <h5>Pay Now</h5></button>
-                                    <h5 align="right">TOTAL ${counter}€</h5>`;
-
-                }
-
-
-                $("#pendent-tax-table").html(template);
-                $("#pendent-tax-table").show();
-
-
-            } else {
-                $("#pendent-tax-table").html("");
-                
-            }
-        });
-    }
-    ;
 
 }
 );                 

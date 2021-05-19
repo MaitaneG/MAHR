@@ -6,6 +6,8 @@ if ($_SESSION["member"]) {
     $member = $_SESSION["member"];
     $mail = $member[0]["mail"];
     $admin = $member[0]["admin"];
+    $active = $member[0]["active"];
+   
 }
 ?>
 
@@ -51,7 +53,7 @@ if ($_SESSION["member"]) {
                         </li>
                         <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
                         <?php
-                        if ($member) {
+                        if ($member&&$active==1) {
                             echo '<li class="nav-item">
                                         <a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
                                     </li>';
@@ -64,7 +66,7 @@ if ($_SESSION["member"]) {
                     </ul>
                     <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
                     <?php
-                    if (!$member) {
+                    if (!$member||$active==0) {
 
 
                         echo '<form action="../controller/LoginValidation.php" class="form-inline" method="POST">

@@ -16,6 +16,7 @@ if (!$member) {
 } else {
     $_SESSION["submitted"] = "logged";
     $_SESSION["member"] = $member;
+ 
 }
 
 header("location:../view/index.php");
