@@ -5,12 +5,12 @@
  */
 package mvc;
 
-import information.Accounts;
-import information.Container;
-import information.Extractor;
-import information.User;
-import information.Container_Merge;
-import information.Fee;
+import base_classes.Accounts;
+import base_classes.Container;
+import base_classes.Extractor;
+import base_classes.User;
+import base_classes.Container_Merge;
+import base_classes.Fee;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
