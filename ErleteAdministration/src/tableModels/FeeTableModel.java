@@ -5,27 +5,33 @@
  */
 package tableModels;
 
-import base_classes.Extractor;
+import base_classes.Fee;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;
 
-public class BookingTableModel extends AbstractTableModel {
+/**
+ *
+ * @author gallastegui.maitane
+ */
+public class FeeTableModel extends AbstractTableModel {
 
     /**
+     *
      * The attributes of the class
      */
     private Model model = new Model();
-    private ArrayList<Extractor> datuak = new ArrayList<>();
-    private final String[] ZUTABEAKIZENAK = {"ID", "DATE", "EMAIL"};
+    private ArrayList<Fee> datuak = new ArrayList<>();
+    private final String[] ZUTABEAKIZENAK = {"ID FEE", "YEAR", "PAYED", "EMAIL"};
 
     /**
+     *
      * The constructor of the class
      *
-     * It is going to save in an ArrayList all the information of the Bookings
+     * It is going to save in an ArrayList all the information of the Fees
      */
-    public BookingTableModel() {
-        datuak = model.showBookings();
+    public FeeTableModel() {
+        datuak = model.showFee();
     }
 
     /**
@@ -79,8 +85,10 @@ public class BookingTableModel extends AbstractTableModel {
             case 0:
                 return datuak.get(row).getId();
             case 1:
-                return datuak.get(row).getDate();
+                return datuak.get(row).getYear();
             case 2:
+                return datuak.get(row).isPayed();
+            case 3:
                 return datuak.get(row).getEmail();
             default:
                 return null;

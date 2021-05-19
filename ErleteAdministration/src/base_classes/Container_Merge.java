@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package base_classes;
 
 import java.time.LocalDate;
 import java.util.regex.Matcher;
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class Container_Merge {
 
     /**
-     * 
+     *
      * The attributes of Container_Merge
      */
     private int id;
@@ -22,7 +22,7 @@ public class Container_Merge {
     private String email = "";
 
     /**
-     * 
+     *
      * The constructor of Container_Merge
      *
      * This class is going to save the id and the capacity of each container,
@@ -43,13 +43,13 @@ public class Container_Merge {
     }
 
     /**
-     * 
+     *
      * Other constructor of Container_Merge
-     * 
+     *
      * This class is going to save the id and the capacity of each container
-     * 
+     *
      * @param id
-     * @param capacity 
+     * @param capacity
      */
     public Container_Merge(int id, int capacity) {
         this.id = id;
@@ -57,7 +57,7 @@ public class Container_Merge {
     }
 
     /**
-     * 
+     *
      * @return the id of the Container
      */
     public int getId() {
@@ -65,7 +65,7 @@ public class Container_Merge {
     }
 
     /**
-     * 
+     *
      * @return the capacity of the Container
      */
     public int getCapacity() {
@@ -73,7 +73,7 @@ public class Container_Merge {
     }
 
     /**
-     * 
+     *
      * @return the email of the User who is using the can
      */
     public String getEmail() {
@@ -81,74 +81,75 @@ public class Container_Merge {
     }
 
     /**
-     * 
+     *
      * @return the start date when the can has being used
      */
     public LocalDate getDate() {
         return date;
     }
-    
+
     /**
-     * 
+     *
      * @return the end date when the can has being used
      */
     public LocalDate getDate2() {
         return date2;
     }
-    
+
     /**
-     * 
+     *
      * Changes the id of the Container
-     * 
-     * @param id 
+     *
+     * @param id
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * 
+     *
      * Changes the capacity of the Container
-     * 
-     * @param capacity 
+     *
+     * @param capacity
      */
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-    
+
     /**
-     * 
+     *
      * Changes the email of the User who is using the can
-     * 
-     * @param email 
+     *
+     * @param email
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * 
+     *
      * Changes the start date when the can has being used
-     * 
-     * @param date 
+     *
+     * @param date
      */
     public void setDate(String date) {
         this.date = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
     }
 
     /**
-     * 
+     *
      * Changes the end date when the can has being used
-     * 
-     * @param date 
+     *
+     * @param date
      */
     public void setDate2(String date) {
         this.date2 = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
     }
-    
+
     /**
-     * 
+     *
      * Proves if the email has an at sign
+     *
      * @param mail
      * @return 1 if the email has a correct format and 0 if not
      */
@@ -158,9 +159,9 @@ public class Container_Merge {
         Matcher mather = pat.matcher(mail);
         return mather.find();
     }
-    
+
     /**
-     * 
+     *
      * @return a String with all the attributes
      */
     @Override

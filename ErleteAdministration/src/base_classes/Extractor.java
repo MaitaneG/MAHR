@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classes;
+package base_classes;
 
 import java.time.LocalDate;
 import java.util.regex.Matcher;
@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class Extractor {
 
     /**
-     * 
+     *
      * The attributes of Extractor
      */
     private int id;
@@ -53,7 +53,7 @@ public class Extractor {
     }
 
     /**
-     * 
+     *
      * @return the email of the person who is going to use the Extractor
      */
     public String getEmail() {
@@ -61,35 +61,39 @@ public class Extractor {
     }
 
     /**
-     * 
+     *
      * Changes the id of the booking
-     * @param id 
+     *
+     * @param id
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * 
+     *
      * Changes the date of the booking
-     * @param date 
+     *
+     * @param date
      */
     public void setDate(String date) {
         this.date = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
     }
 
     /**
-     * 
+     *
      * Changes the email of the person who is going to use the Extractor
-     * @param email 
+     *
+     * @param email
      */
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     /**
-     * 
+     *
      * Proves if the email has an at sign
+     *
      * @param mail
      * @return 1 if the email has a correct format and 0 if not
      */

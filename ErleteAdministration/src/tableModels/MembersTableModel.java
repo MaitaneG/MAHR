@@ -5,7 +5,7 @@
  */
 package tableModels;
 
-import Classes.User;
+import base_classes.User;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import mvc.Model;
@@ -20,7 +20,7 @@ public class MembersTableModel extends AbstractTableModel {
     private final String[] ZUTABEAKIZENAK = {"DNI", "NAME", "SURNAME", "EMAIL", "PASSWORD", "ACCOUNT", "ADMIN", "ACTIVE"};
 
     /**
-     * The constractor of the class
+     * The constructor of the class
      *
      * It is going to save in an ArrayList all the information of the Users
      */

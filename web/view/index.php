@@ -55,6 +55,9 @@ if ($_SESSION["member"]) {
                         <?php
                         if ($member&&$active==1) {
                             echo '<li class="nav-item">
+                                        <a class="nav-link p-3" href="profile.php">Profile</a>
+                                    </li>';
+                            echo '<li class="nav-item">
                                         <a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
                                     </li>';
                         }
@@ -130,41 +133,50 @@ if ($_SESSION["member"]) {
                 <div class="col-12  p-5" align="center">
                     <h2>What is Erlete Beekepers' Association?</h2>
                     <p class="">Erlete Beekepers' Association is an association created to
-                        produce your own honey. For an annual fee of 30 euros it is possible to visit the honey extarction local, produce your own honey and take it home. Apart from the annual fee, the member will be required to pay 25 cents per kilo produced.</p>
-                    <p>To extract the honey you have to reserve the extractor. After you have used it, you will be authorised to use the honey extractor to store your honey for the next 20 days. </p>
+                        produce your own honey. It's not easy for little beekeepers on the basis of affection to produce honey. The usual options are to get home as best you can or to go to professional positions, but economically it brings investment or expense. Well, in Durango, they found an alternative: the production of honey for little beekeepers. They want the support of the institutions, convinced that this public investment would return to the environment and to the quality of life of the population.
+
+                        Along with eight other men and women, the beekeepers who have formed the Erlete Association are Aitor Unzueta, Urdaspal Alberdi, Felix Zabarte, Iñigo Mendibil, Hegoi Escudero, Inazio Uruburu and Roberto Ardanza.</p>
+                    <p>For an annual fee of 30 euros it is possible to visit the honey extarction local, produce your own honey and take it home. Apart from the annual fee, the member will be required to pay 25 cents per kilo produced.To extract the honey you have to reserve the extractor. After you have used it, you will be authorised to use the honey extractor to store your honey for the next 20 days. </p>
 
                     <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>   
                 </div>
 
             </div>
             <hr style="height:5px;background-color:#c46404 ">
-            <!--divide a row in 3 colums to put the rules of the association-->
+            <!--Divide a row in 3 colums to put the rules of the association-->
             <div class="row ">
                 <div class="col-sm-12 mt-3 p-2" align="center"><h2>Rules</h2></div>
 
                 <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">1. When they bring honey: </h3>
-                    <p>- Don't bring a bee to the honey.<br>
-                        - The doors of the window and car were always locked.<br>
-                        - Once the car's gone, take the car to the parking lot.<br>
-                        - Leave no sign of honey on the porch, keep it clean.<br>
-                        - "The straws do not leave [them] on the ground, but on the foundations prepared.</p>
+                    <ul>
+                        <li>Don't bring a bee to the honey.</li>
+                        <li>The doors of the window and car were always locked.</li>
+                        <li>Once the car's gone, take the car to the parking lot.</li>
+                        <li>Leave no sign of honey on the porch, keep it clean.</li>
+                        <li>"The straws do not leave [them] on the ground, but on the foundations prepared.</li>
+                    </ul>
+                    
                 </div>
                 <div class="col-11 col-lg-4 px-4">
 
                     <h3 align="center">2. Extracting honey: </h3>
-                    <p>- Don't bring a bee to the honey.<br>
-                        - After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.<br>
-                        - Fill out a file containing data from the honey campaign.<br>
-                        - Make your shop clean and clean for the next one.</p>
+                    <ul>
+                        <li>Don't bring a bee to the honey.</li>
+                        <li>After inserting the honey that was produced into the madurator, prefix it to the producer's name, name, and date.</li>
+                        <li>Fill out a file containing data from the honey campaign.</li>
+                        <li>Make your shop clean and clean for the next one.</li>
+                    </ul>
                 </div>
                 <div class="col-11 col-lg-4 px-4">
 
-                    <h3 align="center">3. The ship of honey: </h3>        
-                    <p>- It will be made in less than 20 days after the honey is extracted.<br>
-                        - Three samples or muestra must be left for each jar of honey.<br>
-                        - Fill in the section corresponding to the launch of the honey chip in the honey campaign.</p>
+                    <h3 align="center">3. The ship of honey: </h3>  
+                    <ul>
+                        <li>It will be made in less than 20 days after the honey is extracted.</li>
+                        <li>Three samples or muestra must be left for each jar of honey.</li>
+                        <li>Fill in the section corresponding to the launch of the honey chip in the honey campaign.</li>
+                    </ul>      
                 </div>
             </div>
             <br>
@@ -221,7 +233,7 @@ if ($_SESSION["member"]) {
             </div>
         </div>
 
-
+        
 
 
 

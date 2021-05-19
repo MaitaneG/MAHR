@@ -65,9 +65,18 @@ if ($active == 0) {
                         </li>
 
                         <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
+<<<<<<< HEAD
 <?php
 if ($member && $active == 1) {
     echo '<li class="nav-item active">
+=======
+                        <?php
+                        if ($member) {
+                            echo '<li class="nav-item">
+                                        <a class="nav-link p-3" href="profile.php">Profile</a>
+                                    </li>';
+                            echo '<li class="nav-item active">
+>>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
                         <a class="nav-link p-3 active disabled" href="#">Member Panel</a>
                         </li>';
 }
@@ -157,7 +166,7 @@ if (!$member || $active == 0) {
                     <div class="card-header gradient" id="headingTwo">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <h3 class="acordeon-titulo "> 2. Cans</h3>
+                               <h3 class="acordeon-titulo "> 2. Cans</h3>
                             </button>
                         </h5>
                     </div>
@@ -204,7 +213,6 @@ if (!$member || $active == 0) {
                                     <h3>View</h3>
                                     <table class="table table-bordered">
                                         <thead>
-
                                             <tr>
 
                                                 <th scope="col">Date</th>
@@ -212,19 +220,53 @@ if (!$member || $active == 0) {
                                                 <th scope="col">Concept</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="account-movements-table">
-                                            <!--javascript content-->
+                                        <tbody>
+                                            <tr>
+
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
 
 
                             <div class="row">
                                 <!--Table to see the fees and to pay them-->
+<<<<<<< HEAD
                                 <div id="pendent-fees-table" class="col-12 col-lg-6 mt-4 pb-4">
                                     <!
                                     <!--Javascript content -->
+=======
+                                <div class="col-12 col-lg-6 mt-4 pb-4">
+                                    <h3>Fees</h3>
+                                    <table id="view-payments" class="table table-bordered">
+                                        <thead>
+                                            <tr>
+
+
+                                                <th scope="col">Year</th>
+                                                <th scope="col">Payed</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <td></td>
+                                                <td></td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <button id="view-fees" class="btn bg-yellow" type="button">Pay</button>
+
+>>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
                                 </div>
 
                                 <!--Table to see the fees and to pay them-->

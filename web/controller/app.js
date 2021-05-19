@@ -14,6 +14,7 @@ $(function () {
      *VISUALIZE PENDENT TAXES ON LOAD
      */
     fecthPendentTaxes();
+<<<<<<< HEAD
     
     /*
      *VISUALIZE ACCOUNT MOVES ON LOAD
@@ -24,11 +25,12 @@ $(function () {
      *VISUALIZE PENDENT FEES ON LOAD
      */
     fecthPendentFees();
+=======
+>>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
 
     /*
      * REGISTER PRODUCTION, VIEW CANS, INSERT TAX
      */
-   
     console.log("jQuery esta funcionando 2");
     $("#registerProduction").click(function () {
         if ($("#production-kg").val()) {
@@ -207,9 +209,8 @@ $(function () {
                 mail: currentMail
             };
             $.post("../controller/pendentTaxesPay.php", postData, function (response) {
-                
+                console.log(response);
                 fecthPendentTaxes();
-                fecthAccountMoves();
 
 
             });
@@ -403,6 +404,7 @@ $(function () {
                 });
                 template += `</tbody>
                                     </table>`;
+<<<<<<< HEAD
               
                     template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
                                         <h5>Pay Now</h5></button>
@@ -515,6 +517,29 @@ $(function () {
         });
     }
     ;
+
+=======
+                if (counter > 0) {
+                    template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
+                                        <h5>Pay Now</h5></button>
+                                    <h5 align="right">TOTAL ${counter}€</h5>`;
+
+                }
+
+
+                $("#pendent-tax-table").html(template);
+                $("#pendent-tax-table").show();
+
+
+            } else {
+                $("#pendent-tax-table").html("");
+                $("#pendent-tax-table").show();
+            }
+        });
+    }
+    ;
+>>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
+
 
 
 }
