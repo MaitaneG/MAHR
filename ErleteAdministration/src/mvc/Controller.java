@@ -164,6 +164,8 @@ public class Controller implements ActionListener {
             // When you click ERASER button
             case "ERASER":
                 eraser();
+                view.jButtonUpdateMember.setActionCommand("TAKE");
+                view.jLabelErrorMember.setText("");
                 break;
             /* When you want to clear all the information of cans labels */
             // When you click ERASER2 button
@@ -436,8 +438,6 @@ public class Controller implements ActionListener {
         view.jPasswordFieldPassword.setText("");
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
-        view.jButtonUpdateMember.setActionCommand("TAKE");
-        view.jLabelErrorMember.setText("");
 
         // Clears cans information
         view.jTextFieldIdBin.setText("");
