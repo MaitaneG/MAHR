@@ -1,15 +1,20 @@
 <?php
-
 include("../models/Fees.php");
+/*
+ * FECTH PENDENT FEES A SEND TO JS
+ */
 if (isset($_POST["pendentFeesConfirm"])) {
     $mail = $_POST["currentMail"];
-    if (json_encode(selectPendentFees($mail))!="[]") {
+    if (selectPendentFees($mail)) {
          $json=selectPendentFees($mail);
         $jsonstring = json_encode($json);
         echo $jsonstring;
     }
 }
 
+/*
+ * CHANGE PENDENT FEES TO PAYED, AND INSERT IN ACCOUNT MOVEMENTS TABLE
+ */
 if (isset($_POST["confirmFees"])) {
     $mail = $_POST["mail"];
     $FeesToPay = selectPendentFees($mail);

@@ -1,7 +1,9 @@
 <?php
 
 include("../models/Account.php");
-
+/*
+ * FETCH ACCOUNT MOVES AND SEND TO JS
+ */
 if (isset($_POST["currentMail"])) {
     $mail =$_POST["currentMail"];
 

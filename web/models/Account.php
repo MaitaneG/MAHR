@@ -1,6 +1,7 @@
 <?php
-
-
+/*
+ * ACCOUNT TABLE API
+ */
 function selectAccountMoves($mail) {
     //Select full list of moves of an account for $mail
     //return: 
@@ -27,8 +28,6 @@ function selectAccountMoves($mail) {
     mysqli_close($conexion);
     return $results;
 }
-
-
 
 function insertMove($mail, $concept, $amount) {
     //Select full list of moves of an account for $mail
