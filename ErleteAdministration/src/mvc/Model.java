@@ -19,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 /**
+ *
  * This class is going to be used to connect with the database and to
  * get,change, add or delete information of the database
  *
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 public class Model {
 
     /**
+     *
      * Is to connect to the database
      *
      * @return the connection of the database
@@ -34,9 +36,14 @@ public class Model {
     public static Connection connect() {
         Connection conn = null;
         try {
+<<<<<<< HEAD
             //conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
             //conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.190:3306/erlete", "usuario1", "user123");
             conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/erlete", "root", "");
+=======
+            conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
+            //conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.190:3306/erlete", "usuario1", "user123");
+>>>>>>> 1c3adbd16d01f20e6458c2f16699789d3b0c6883
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -44,6 +51,7 @@ public class Model {
     }
 
     /**
+     *
      * Gets all the information of the users from the database
      *
      * @return an ArrayList of Users
@@ -68,6 +76,7 @@ public class Model {
     }
 
     /**
+     *
      * Is going to add users to the database
      *
      * @param u
@@ -76,7 +85,7 @@ public class Model {
      */
     public int addUser(User u) {
         // Enters into the members table the DNI, name, surname, email, password, 
-        // account, if it is administrator or not and if it is active or not
+        // account and it is going to be active and not administrator
         String sql = "INSERT INTO members (dni, name, surname, mail, password, account, admin, active) VALUES (?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -87,8 +96,8 @@ public class Model {
             pstmt.setString(4, u.getEmail());
             pstmt.setString(5, u.getPassword());
             pstmt.setString(6, u.getAccount());
-            pstmt.setString(7, u.getPassword());
-            pstmt.setString(8, u.getAccount());
+            pstmt.setBoolean(7, u.isAdmin());
+            pstmt.setBoolean(8, u.isActive());
             return pstmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -98,7 +107,9 @@ public class Model {
     }
 
     /**
-     * Is going to update a user's DNI depending on the email
+     *
+     * Is going to update a user's DNI, name, surname, password and account
+     * depending on the email
      *
      * @param key
      * @param u
@@ -107,8 +118,7 @@ public class Model {
      */
     public int updateMember(String key, User u) {
         // Changes from members table the DNI, name, surname, password, account, 
-        // admin, if it is administrator or not and if it is active or not, when 
-        // the mail is in the table
+        //when the mail is in the table
         String sql = "UPDATE members "
                 + "SET dni = ?, name = ?, surname = ?, password = ?, account = ? WHERE mail = ?";
 
@@ -128,94 +138,24 @@ public class Model {
         }
     }
 
-    public int updateAdministrator(String gakoa) {
-        ArrayList<User> use = new ArrayList<>();
-        String sqlSelect = "SELECT * FROM members";
-
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
-                ResultSet rs = pstmt.executeQuery()) {
-
-            while (rs.next()) {
-                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
-                if (u1.isAdmin()) {
-                    use.add(u1);
-                }
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // Changes from members table the DNI, name, surname, password, account, 
-        // admin, if it is administrator or not and if it is active or not, when 
-        // the mail is in the table
-        String sql;
-        if (use.size() >= 2) {
-            sql = "UPDATE members "
-                    + "SET admin = CASE "
-                    + "WHEN admin = true THEN false "
-                    + "WHEN admin = false THEN true "
-                    + "END "
-                    + "WHERE mail = ?";
-        } else {
-            sql = "UPDATE members "
-                    + "SET admin = CASE "
-                    + "WHEN admin = true THEN true "
-                    + "WHEN admin = false THEN true "
-                    + "END "
-                    + "WHERE mail = ?";
-        }
-
-        try (Connection connS = connect();
-                PreparedStatement pstmtS = connS.prepareStatement(sql)) {
-
-            pstmtS.setString(1, gakoa);
-            return pstmtS.executeUpdate();
-
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            return 0;
-        }
-    }
-
+    /**
+     *
+     * It is going to change if a user is active or not
+     *
+     * @param gakoa
+     * @return 0 if it hadn't been updated correctly and 1 if it had been
+     * updated correctly
+     */
     public int updateEnable(String gakoa) {
-        ArrayList<User> use = new ArrayList<>();
-        String sqlSelect = "SELECT * FROM members";
-
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
-                ResultSet rs = pstmt.executeQuery()) {
-
-            while (rs.next()) {
-                User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
-                if (u1.isAdmin()) {
-                    use.add(u1);
-                }
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // Changes from members table the DNI, name, surname, password, account, 
-        // admin, if it is administrator or not and if it is active or not, when 
-        // the mail is in the table
-        String sql;
-        if (use.size() >= 2) {
-            sql = "UPDATE members "
-                    + "SET active = CASE "
-                    + "WHEN active = true THEN false "
-                    + "WHEN active = false THEN true "
-                    + "END "
-                    + "WHERE mail = ?";
-        } else {
-            sql = "UPDATE members "
-                    + "SET active = CASE "
-                    + "WHEN admin = false AND active = true THEN false "
-                    + "WHEN active = false THEN true "
-                    + "WHEN admin = true AND active = true THEN true "
-                    + "END "
-                    + "WHERE mail = ?";
-        }
+        // Changes from members table if the member is active or not
+        // If the user is not admin and is active, the user is going to become no active
+        // If the user is not admin and is not active, the user is going to become active
+        String sql = "UPDATE members "
+                + "SET active = CASE "
+                + "WHEN admin = false AND active = true THEN false "
+                + "WHEN admin = false AND active = false THEN true "
+                + "END "
+                + "WHERE mail = ?";
 
         try (Connection connS = connect();
                 PreparedStatement pstmtS = connS.prepareStatement(sql)) {
@@ -230,6 +170,7 @@ public class Model {
     }
 
     /**
+     * 
      * Gets all the information of the accounts from the database
      *
      * @return an ArrayList of Accounts

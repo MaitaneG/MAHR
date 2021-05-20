@@ -2,6 +2,20 @@
 
 <?php
 
+<<<<<<< HEAD
+
+
+include("Fees.php");
+
+
+    if (selectPendentFees("mocholo@mail.com")) {
+         $json =selectPendentFees("mocholo@mail.com");
+        $jsonstring = json_encode($json);
+        echo $jsonstring;
+    }else{
+        echo "nada";
+    }
+=======
 include("TestConexion.php");
 
 function selectPendentTaxes($mail) {
@@ -29,3 +43,4 @@ function selectPendentTaxes($mail) {
 }
 
 echo json_encode(selectPendentTaxes("member@mail.com"));
+>>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
