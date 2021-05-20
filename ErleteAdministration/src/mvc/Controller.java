@@ -43,7 +43,7 @@ public class Controller implements ActionListener {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-
+        
         addKeyListener();
         addActionListener(this);
     }
@@ -76,8 +76,6 @@ public class Controller implements ActionListener {
         view.jButtonEraser2.addActionListener(listener);
         // To enable/ disable user
         view.jButtonMemberEnable.addActionListener(listener);
-        // To manage administrator
-        view.jButtonMemberAdministator.addActionListener(listener);
     }
 
     /**
@@ -166,6 +164,8 @@ public class Controller implements ActionListener {
             // When you click ERASER button
             case "ERASER":
                 eraser();
+                view.jButtonUpdateMember.setActionCommand("TAKE");
+                view.jLabelErrorMember.setText("");
                 break;
             /* When you want to clear all the information of cans labels */
             // When you click ERASER2 button
@@ -176,11 +176,6 @@ public class Controller implements ActionListener {
             // When you click ENABLE button
             case "ENABLE":
                 enable();
-                break;
-            /* When you want a user to become or not become administrator*/
-            // When you click ENABLE button
-            case "ADMINISTRATOR":
-                administrator();
                 break;
             /* When you want to logout */
             // When you click LOGOUT button
@@ -281,12 +276,6 @@ public class Controller implements ActionListener {
             view.jLabelErrorMember.setText("The member couldn't be added correctly, Invalid Email");
         }
         // Clear all the jTextFields
-        view.jTextFieldDni.setText("");
-        view.jTextFieldName.setText("");
-        view.jTextFieldSurname.setText("");
-        view.jPasswordFieldPassword.setText("");
-        view.jTextFieldEmailMember.setText("");
-        view.jTextFieldAccount.setText("");
         eraser();
         view.jButtonUpdateMember.setActionCommand("TAKE");
     }
@@ -346,15 +335,8 @@ public class Controller implements ActionListener {
             } else {
                 view.jLabelErrorMember.setText("The member couldn't be updated correctly");
             }
-
-            view.jTextFieldDni.setText("");
-            view.jTextFieldName.setText("");
-            view.jTextFieldSurname.setText("");
-            view.jPasswordFieldPassword.setText("");
-            view.jTextFieldEmailMember.setText("");
-            view.jTextFieldAccount.setText("");
+            eraser();
         }
-        eraser();
     }
 
     public void enable() {
@@ -369,28 +351,6 @@ public class Controller implements ActionListener {
 
             // If the update has been done correctly
             if (model.updateEnable(gakoa) == 1) {
-                view.jLabelErrorMember.setText("");
-                taulakEguneratu();
-            } else {
-                view.jLabelErrorMember.setText("The member couldn't be updated correctly");
-            }
-        }
-        eraser();
-        view.jButtonUpdateMember.setActionCommand("TAKE");
-    }
-
-    public void administrator() {
-        // Takes the selected row
-        int lerroa = view.jTableMember.getSelectedRow();
-        // If any row hasn't been selected
-        if (lerroa == -1) {
-            view.jLabelErrorMember.setText("You have to choose a row");
-            // If a row has been selected
-        } else {
-            String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-
-            // If the update has been done correctly
-            if (model.updateAdministrator(gakoa) == 1) {
                 view.jLabelErrorMember.setText("");
                 taulakEguneratu();
             } else {
@@ -454,8 +414,7 @@ public class Controller implements ActionListener {
     }
 
     /**
-     * Clear all the jTextFields of members and bins, error fields and
-     * actionCommand
+     * Clear all the jTextFields of members and bins
      */
     public void eraser() {
         // Clears members information
@@ -465,8 +424,6 @@ public class Controller implements ActionListener {
         view.jPasswordFieldPassword.setText("");
         view.jTextFieldEmailMember.setText("");
         view.jTextFieldAccount.setText("");
-        view.jButtonUpdateMember.setActionCommand("TAKE");
-        view.jLabelErrorMember.setText("");
 
         // Clears cans information
         view.jTextFieldIdBin.setText("");
