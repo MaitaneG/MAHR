@@ -14,25 +14,44 @@ import org.junit.Test;
  * @author gallastegui.maitane
  */
 public class TestDBConnections extends TestCase {
-
+    /**
+     *
+     * The attributes of the class
+     */
     Model model;
     User u;
 
+    /**
+     *
+     * The constructor of the class
+     */
     public TestDBConnections() {
-
+        setUp();
     }
-
+    
+    /**
+     * 
+     * Initialize all the objects
+     */
     public void setUp() {
         model = new Model();
         u = new User("11111A", "Pepito", "Palotes", "pepipalos@gmail.com", "1234", "12345", false, true);
     }
-
+    
+    /**
+     * 
+     * Test if the user has been addeds or not
+     */
     @Test
     public void testAddUser() {
         int result1 = model.addUser(u);
         assertEquals(result1, 1);
     }
-
+    
+    /**
+     *
+     * Test if the booking has been deleted or not
+     */
     @Test
     public void testDeleteBooking() {
         int gakoa = 1;

@@ -38,6 +38,7 @@ public class TestEmail extends TestCase {
     }
 
     /**
+     * 
      * Initialize all the objects
      */
     @Override
