@@ -56,8 +56,8 @@ public class TestDBConnections extends TestCase {
      */
     @Test
     public void testDeleteBooking() {
-        int gakoa = 1;
-        int result2 = model.deleteBooking(gakoa);
+        int id = 1;
+        int result2 = model.deleteBooking(id);
         assertEquals(result2,1);
     }
 }
