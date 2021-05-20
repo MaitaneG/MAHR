@@ -35,7 +35,8 @@ public class Model {
         Connection conn = null;
         try {
             //conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
-            conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.190:3306/erlete", "usuario1", "user123");
+            //conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.190:3306/erlete", "usuario1", "user123");
+            conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/erlete", "root", "");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
