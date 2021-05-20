@@ -238,7 +238,7 @@ if ($_SESSION["member"]) {
         
 
 <!-- Footer -->
-<footer class="bg-dark text-center text-white ml-0 mr-0">
+<footer class="bg-dark text-center text-white ">
     <!-- Section: Text -->
     <section class="mb-4">
       <p class="p">
