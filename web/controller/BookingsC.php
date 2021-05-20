@@ -50,7 +50,5 @@ if (isset($_POST["id"])) {
       
 }
   
-
-
-
+mysqli_close($conexion);
 

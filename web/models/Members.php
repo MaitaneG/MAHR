@@ -2,9 +2,6 @@
 
 include("testConexion.php");
 
-
-
-
 function searchMember($mailP, $passwordP) {
     //Select one member
     //return: 
@@ -30,49 +27,7 @@ function searchMember($mailP, $passwordP) {
             'active' => $row[7]
         );
     }
- 
+
     mysqli_close($conexion);
     return $results;
 }
-//function addMember($dni, $name, $surname, $mail, $password, $account) {
-//    //Insert a new member
-//    //return string
-//    include("connect.php");
-//    $conexion = ConnectDataBase();
-//
-//    $query = "INSERT INTO members(dni, name, surname, mail, password, account) VALUES('$dni',$name','$surname', '$mail', '$password', '$account')";
-//    $result = mysqli_query($conexion, $query);
-//    if (!$result) {
-//        return "SERVER ERROR";
-//    }
-//    echo "member added successfully";
-//}
-//
-//function updateMember($dni, $name, $surname, $mail, $password, $account) {
-//    //Update member
-//    //return string
-//    include("connect.php");
-//    $conexion = ConnectDataBase();
-//
-//
-//    $query = "UPDATE members SET dni=$dni, name=$name, surname=$surname, password=$password, account=$account, WHERE mail=$mail";
-//    $result = mysqli_query($conexion, $query);
-//    if (!$result) {
-//        return "NO MATCH";
-//    }
-//    echo "member edited successfully";
-//}
-//
-//function deleteMember($dni, $name, $surname, $mail, $password, $account) {
-//    //Delete a member
-//    //return string
-//    include("connect.php");
-//    $conexion = ConnectDataBase();
-//
-//    $query = "UPDATE members SET dni=$dni, name=$name, surname=$surname, password=$password, account=$account, WHERE mail=$mail";
-//    $result = mysqli_query($conexion, $query);
-//    if (!$result) {
-//        return "NO MATCH";
-//    }
-//    echo "member deleted";
-//}
