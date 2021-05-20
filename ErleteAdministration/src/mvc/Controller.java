@@ -410,6 +410,7 @@ public class Controller implements ActionListener {
             }
             view.jTextFieldIdBin.setText("");
             view.jTextFieldCapacity.setText("");
+            view.jTextFieldPrice.setText("");
         }
     }
 
