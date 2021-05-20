@@ -30,6 +30,8 @@ if ($_SESSION["member"]) {
               rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles/styles.css"> 
 
+<!--Link icono pestaña -->
+<link rel="shortcut icon" href="images/iconopestaña.png" />
 
         <title>Erlete beekepers' association</title>
     </head>
@@ -235,7 +237,56 @@ if ($_SESSION["member"]) {
 
         
 
+<!-- Footer -->
+<footer class="bg-dark text-center text-white ml-0 mr-0">
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p class="p">
+        If you want to contact with us here you have our links to send an email, call us, or to send us a message.
+      </p>
+    </section>
+    <!--Email, Call and Sms inside a footer.-->
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 " align="left">
+  <!-- Copyright -->
+  <a href="mailto:{email}?subject={subject}&body={content}">
+                    Send us an email 
+                </a>
+                <span class="material-icons-outlined text-light">
+mail
+</span>
+</div>
 
+<div class="col-lg-4 col-md-6 " align="center">
+  <!-- Copyright -->
+   <a href="tel:{phone}">
+                    Call us 
+                </a>
+                <span class="material-icons-outlined text-light">
+                phone
+                </span> 
+</div>
+
+<div class="col-lg-4 col-md-6 " align="right">
+  <!-- Copyright -->
+   <a href="sms:{phone}?body={content}">
+                    Send us a message 
+                </a> 
+                <span class="material-icons-outlined text-light">
+                sms
+                </span>   
+</div>
+
+</div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="index.php">ErleteBeekepersAssociation.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 
 
         <!--The necesary scripts to make it work the bootsatrap classes-->

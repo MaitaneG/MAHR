@@ -7,6 +7,10 @@ if ($_SESSION["member"]) {
     $member = $_SESSION["member"];
     $mail = $member[0]["mail"];
     $admin = $member[0]["admin"];
+    $name = $member[0]["name"];
+    $dni = $member[0]["dni"];
+    $surname = $member[0]["surname"];
+    $mail = $member[0]["mail"];
 }
 ?>
 
@@ -27,6 +31,9 @@ if ($_SESSION["member"]) {
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
               rel="stylesheet">
          <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+         <!--Link icono pestaña -->
+<link rel="shortcut icon" href="images/iconopestaña.png" />
 
         <title>Erlete beekepers' association</title>
     </head>
@@ -100,12 +107,15 @@ if ($_SESSION["member"]) {
                 <img src="images/user.png" class="userimag">
                 </div>
                 <div class="col-6 p-4 col-lg-6 px-4 user-ul" align="left"> 
-                <ul>
-                    <li>DNI:</li>
-                    <li>Name:</li>
-                    <li>Surname:</li>
-                    <li>Email:</li>
-                </ul>
+                <?php 
+echo "<ul>
+                    <li>DNI: " .$dni."</li>
+                    <li>Name: " .$name."</li>
+                    <li>Surname: " .$surname."</li>
+                    <li>Email: " .$mail."</li>
+                </ul>";
+                ?>
+                
 
                 </div>
             </div>
@@ -113,6 +123,57 @@ if ($_SESSION["member"]) {
         
         </div>
 
+
+<!-- Footer -->
+<footer class="bg-dark text-center text-white ml-0 mr-0">
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p class="p">
+        If you want to contact with us here you have our links to send an email, call us, or to send us a message.
+      </p>
+    </section>
+    <!--Email, Call and Sms inside a footer.-->
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 " align="left">
+  <!-- Copyright -->
+  <a href="mailto:{email}?subject={subject}&body={content}">
+                    Send us an email 
+                </a>
+                <span class="material-icons-outlined text-light">
+mail
+</span>
+</div>
+
+<div class="col-lg-4 col-md-6 " align="center">
+  <!-- Copyright -->
+   <a href="tel:{phone}">
+                    Call us 
+                </a>
+                <span class="material-icons-outlined text-light">
+                phone
+                </span> 
+</div>
+
+<div class="col-lg-4 col-md-6 " align="right">
+  <!-- Copyright -->
+   <a href="sms:{phone}?body={content}">
+                    Send us a message 
+                </a> 
+                <span class="material-icons-outlined text-light">
+                sms
+                </span>   
+</div>
+
+</div>
+
+  <div class="text-center p-3 mb-0" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="index.php">ErleteBeekepersAssociation.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

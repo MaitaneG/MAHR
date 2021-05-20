@@ -40,7 +40,10 @@ if ($active == 0) {
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
               rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="styles/styles.css"> 
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
+        <!--Link icono pestaña -->
+<link rel="shortcut icon" href="images/iconopestaña.png" /> 
 
         <title>Erlete beekepers' association</title>
     </head>
@@ -246,8 +249,64 @@ if (!$member || $active == 0) {
 
                         </div>
                     </div>
+                    </div>
                     <!--ACCORION END-->
+                
+
                 </div>
+            </div>
+<br><br>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white ml-0 mr-0 mb-0">
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p class="p">
+        If you want to contact with us here you have our links to send an email, call us, or to send us a message.
+      </p>
+    </section>
+    <!--Email, Call and Sms inside a footer.-->
+    <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 " align="left">
+  <!-- Copyright -->
+  <a href="mailto:{email}?subject={subject}&body={content}">
+                    Send us an email 
+                </a>
+                <span class="material-icons-outlined text-light">
+mail
+</span>
+</div>
+
+<div class="col-lg-4 col-md-6 " align="center">
+  <!-- Copyright -->
+   <a href="tel:{phone}">
+                    Call us 
+                </a>
+                <span class="material-icons-outlined text-light">
+                phone
+                </span> 
+</div>
+
+<div class="col-lg-4 col-md-6 " align="right">
+  <!-- Copyright -->
+   <a href="sms:{phone}?body={content}">
+                    Send us a message 
+                </a> 
+                <span class="material-icons-outlined text-light">
+                sms
+                </span>   
+</div>
+
+</div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="index.php">ErleteBeekepersAssociation.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
