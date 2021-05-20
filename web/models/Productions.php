@@ -1,8 +1,9 @@
 <?php
-
 include("TestConexion.php");
 
-//PRODUCTIONS TABLE API
+/*
+ * PRODUCTIONS TABLE API
+ */
 function selectProductionsMail($mail) {
     //Select productions list of productions for a mail
     //return: 

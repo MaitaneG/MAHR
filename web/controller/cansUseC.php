@@ -1,8 +1,10 @@
 <?php
 
-
 include("../models/cans.php");
 
+/*
+ * FECTH USING CANS FROM USING CANS API
+ */
 if (isset($_POST["elementId"])) {
         $id_can=$_POST["elementId"];
         $mail=$_POST["mail"];

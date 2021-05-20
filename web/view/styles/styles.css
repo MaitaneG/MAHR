@@ -1,4 +1,6 @@
-
+body::-webkit-scrollbar {
+    display: none;
+}
 
 /*It os a class used for the buttons and jumbotron*/
 
@@ -150,8 +152,8 @@ font-weight: bolder;
 
 /*A class to declare the width and height of the iframe*/
 .iframe{
-width:50%;
-height:50%;
+width:30%;
+height:30%;
 
 }
 /*Animation wich make slide the text*/

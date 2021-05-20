@@ -30,7 +30,7 @@ $(function () {
     /*
      * REGISTER PRODUCTION, VIEW CANS, INSERT TAX
      */
-    console.log("jQuery esta funcionando 2");
+    
     $("#registerProduction").click(function () {
         if ($("#production-kg").val()) {
 
@@ -104,7 +104,7 @@ $(function () {
     });
 
     /*
-     * SEARCH RESERVES BY DATE
+     * FILTER RESERVES BY DATE
      */
     $("#datepicker").change(function () {
         if ($("#datepicker").val()) {
@@ -182,7 +182,7 @@ $(function () {
 
     );
     /*
-     * CANCEL BOOKING
+     * CANCEL BOOKING BUTTON EVENT
      */
     $(document).on("click", ".reserve-delete", function () {
         if (confirm("Are you sure that you want to delete it?")) {
@@ -196,7 +196,7 @@ $(function () {
     });
 
     /*
-     * PAY TAXES
+     * PAY TAXES BUTTON EVENT
      */
     $(document).on("click", "#pay-taxes", function () {
         if (confirm("Are you sure that you want to pay it?")) {
@@ -221,7 +221,7 @@ $(function () {
     });
     
         /*
-     * PAY FEES
+     * PAY FEES BUTTON EVENT
      */
     $(document).on("click", "#pay-fees", function () {
         if (confirm("Are you sure that you want to pay it?")) {
@@ -520,10 +520,6 @@ $(function () {
         });
     }
     ;
-
-
-
-
 
 }
 );                 
