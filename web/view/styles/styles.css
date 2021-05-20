@@ -1,4 +1,6 @@
-
+body::-webkit-scrollbar {
+    display: none;
+}
 
 /*It os a class used for the buttons and jumbotron*/
 

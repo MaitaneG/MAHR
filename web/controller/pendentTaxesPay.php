@@ -3,7 +3,9 @@
 include("../models/Productions.php");
 include("../models/Account.php");
 
-
+/*
+ * INSERT PRODUCTION IN PRODUCTIONS API FROM JS
+ */
 if (isset($_POST["kilos"])) {
     $mail = $_POST["mail"];
     $kilos = $_POST["kilos"];
@@ -12,6 +14,9 @@ if (isset($_POST["kilos"])) {
     echo insertProduction($mail, $kilos, $tax);
 }
 
+/*
+ * FETCH NOT PAYED TAXES FROM PRODUCTIONS API
+ */
 if (isset($_POST["pendent"])) {
     $mail = $_POST["mail"];
     if (selectPendentTaxes($mail)) {
@@ -21,6 +26,9 @@ if (isset($_POST["pendent"])) {
     }
 }
 
+/*
+ * EDIT TAXES STATE TO PAYED A INSERT MOVEMNT ON ACCOUNT TABLE
+ */
 if (isset($_POST["confirm"])) {
     $mail = $_POST["mail"];
     $pendentTaxes=selectPendentTaxes($mail);
