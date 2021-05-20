@@ -1,3 +1,5 @@
+package testers;
+
 
 import base_classes.User;
 import junit.framework.TestCase;
