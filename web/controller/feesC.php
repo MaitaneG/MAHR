@@ -1,15 +1,13 @@
 <?php
 
 include("../models/Fees.php");
-
 if (isset($_POST["pendentFeesConfirm"])) {
     $mail = $_POST["currentMail"];
-    if (selectPendentFees($mail)) {
+    if (json_encode(selectPendentFees($mail))!="[]") {
          $json=selectPendentFees($mail);
         $jsonstring = json_encode($json);
         echo $jsonstring;
     }
-
 }
 
 if (isset($_POST["confirmFees"])) {
@@ -20,6 +18,6 @@ if (isset($_POST["confirmFees"])) {
         $concept = $fee["year"];
         addPaymentFee($mail, $amount, $concept);
         updateFeePayed($mail);
-    }
-    
+    } 
 }
+

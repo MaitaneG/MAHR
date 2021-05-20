@@ -33,7 +33,7 @@ function selectProductionDate($date) {
     //Select reserve of a selected day
     //return: String
     $conexion = ConnectDataBase();
-    $query = "SELECT * FROM productions WHERE date='$date";
+    $query = "SELECT * FROM productions WHERE date='$date'";
 
     $result = mysqli_query($conexion, $query);
     if (!$result) {

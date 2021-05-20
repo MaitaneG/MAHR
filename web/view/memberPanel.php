@@ -217,14 +217,9 @@ if (!$member || $active == 0) {
                                                 <th scope="col">Concept</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-
+                                        <tbody id="account-movements-table">
+                                        
+                                            <!--Javascript content -->
                                         </tbody>
                                     </table>
 
@@ -234,36 +229,11 @@ if (!$member || $active == 0) {
 
                             <div class="row">
                                 <!--Table to see the fees and to pay them-->
-<<<<<<< HEAD
+
                                 <div id="pendent-fees-table" class="col-12 col-lg-6 mt-4 pb-4">
                                     <!
                                     <!--Javascript content -->
-=======
-                                <div class="col-12 col-lg-6 mt-4 pb-4">
-                                    <h3>Fees</h3>
-                                    <table id="view-payments" class="table table-bordered">
-                                        <thead>
-                                            <tr>
 
-
-                                                <th scope="col">Year</th>
-                                                <th scope="col">Payed</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-
-                                                <td></td>
-                                                <td></td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                    <button id="view-fees" class="btn bg-yellow" type="button">Pay</button>
-
->>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
                                 </div>
 
                                 <!--Table to see the fees and to pay them-->

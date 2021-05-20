@@ -1,6 +1,7 @@
 <?php
 
 include("../models/Productions.php");
+include("../models/Account.php");
 
 
 if (isset($_POST["kilos"])) {
@@ -22,6 +23,10 @@ if (isset($_POST["pendent"])) {
 
 if (isset($_POST["confirm"])) {
     $mail = $_POST["mail"];
+    $pendentTaxes=selectPendentTaxes($mail);
+    foreach ($pendentTaxes as $pendentTax){
+        insertMove($mail, "Tax", $pendentTax["tax"]);
+    }
     $payed = editProduction($mail);
     if ($payed > 0) {
         echo "payed";
@@ -29,3 +34,4 @@ if (isset($_POST["confirm"])) {
         echo 'error';
     }
 }
+
