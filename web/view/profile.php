@@ -5,7 +5,6 @@
 	$logged = $_SESSION["submitted"];
 	if ($_SESSION["member"]) {
 		$member = $_SESSION["member"];
-		$mail = $member[0]["mail"];
 		$admin = $member[0]["admin"];
 		$name = $member[0]["name"];
 		$dni = $member[0]["dni"];

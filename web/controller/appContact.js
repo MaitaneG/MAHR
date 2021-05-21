@@ -15,7 +15,7 @@ $(function () {
         $.post(url, {fetch}, function (response) {
             
             if (response) {
-                console.log(response);
+                
                 let members = JSON.parse(response);
                 template = "";
                  members.forEach(member => {

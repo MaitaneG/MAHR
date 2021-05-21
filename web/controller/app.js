@@ -90,8 +90,16 @@ $(function () {
 
                 capacity = cans[0]["capacity"];
                 console.log(capacity);
+                /*
+                 * VERIFICAR ZONA TEXTO EN ROJO Y CERO
+                 */
+//=================================================================================
                 $("#litres-left").html(litresleft - capacity);
-
+                if ($("#litres-left").value<0){
+                    $("#litres-left").html("0");
+                    $("#litres-left").attr("class")="text-danger";                    
+                }
+//============================================================================
             });
 
 
