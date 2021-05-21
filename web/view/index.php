@@ -17,7 +17,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="refresh" content="900;url=../controller/logout.php"/>		
+	<meta http-equiv="refresh" content="900;url=../controller/Logout.php"/>		
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
@@ -31,7 +31,7 @@
         <link rel="stylesheet" type="text/css" href="styles/styles.css"> 
 		
 		<!--Link icono pestaña -->
-		<link rel="shortcut icon" href="images/iconopestaña.png" />
+		<link rel="shortcut icon" href="images/Iconopestaña.png" />
 		
         <title>Erlete beekepers' association</title>
 	</head>
@@ -57,16 +57,16 @@
                         <?php
 							if ($member&&$active==1) {
 								echo '<li class="nav-item">
-								<a class="nav-link p-3" href="profile.php">Profile</a>
+								<a class="nav-link p-3" href="Profile.php">Profile</a>
 								</li>';
 								echo '<li class="nav-item">
-								<a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
+								<a class="nav-link p-3" href="MemberPanel.php">Member Panel</a>
 								</li>';
 							}
 						?>
 						
                         <li class="nav-item">
-                            <a class="nav-link p-3" href="contact.php">Contact</a>
+                            <a class="nav-link p-3" href="Contact.php">Contact</a>
 						</li>
 					</ul>
                     <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
@@ -85,7 +85,7 @@
 							</form>';
 							} else {
 							echo "<h6 class='p-3'>$mail</h6>";
-							echo '<form action="../controller/logout.php">'
+							echo '<form action="../controller/Logout.php">'
 							. '<input class="btn btn-danger" type="submit" value="Log Out"/>'
 							. '</form>';
 						}
@@ -108,16 +108,16 @@
 				</ol>
                 <div class="carousel-inner rounded">
                     <div class="carousel-item active rounded">
-                        <img  loading="lazy"  class="d-block w-100 imag" src="images/img4.jpg" alt="First slide">
+                        <img  loading="lazy"  class="d-block w-100 imag" src="images/Img4.jpg" alt="First slide">
 					</div>
                     <div class="carousel-item rounded">
-                        <img loading="lazy"  class="d-block w-100 imag" src="images/img1.jpeg" alt="Second slide">
+                        <img loading="lazy"  class="d-block w-100 imag" src="images/Img1.jpeg" alt="Second slide">
 					</div>
                     <div class="carousel-item rounded">
-                        <img loading="lazy"  class="d-block w-100 imag" src="images/img2.jpg" alt="Third slide">
+                        <img loading="lazy"  class="d-block w-100 imag" src="images/Img2.jpg" alt="Third slide">
 					</div>
                     <div class="carousel-item rounded">
-                        <img loading="lazy"  class="d-block w-100 imag" src="images/img3.jpg" alt="Fourth slide">
+                        <img loading="lazy"  class="d-block w-100 imag" src="images/Img3.jpg" alt="Fourth slide">
 					</div>
 				</div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -187,7 +187,7 @@
 			<div class="row ">
                 <div class="col-sm-12 p-2 m-2" align="center"><h2>Bees Information</h2>
 					
-					<img src="images/gif1.gif" align="right" class="m-2 imagese">
+					<img src="images/Gif1.gif" align="right" class="m-2 imagese">
 					<p class="p-4">
 						Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
 						
@@ -198,7 +198,7 @@
 			<div class="row justify-content-center ">
                 <div class="col-11 col-lg-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
 					
-					<img src="images/abejaobrera.jpg" class="imagese" align="center">
+					<img src="images/Abejaobrera.jpg" class="imagese" align="center">
 					<p class="p-2">
 						Worker bees are the most familiar-looking member of the honeybee hive, as they make up about 99% of each colony's population.<br>
 						
@@ -220,7 +220,7 @@
 				</div>
                 <div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
 					
-					<img src="images/queen.jpg" class="imagese" align="center">
+					<img src="images/Queen.jpg" class="imagese" align="center">
 					<p>
 						There is one queen bee per hive - she is the mom of all the other bees. She is the only fertile member of the colony, and lays about 1,500 eggs a day during spring and summer.
 						<br>
@@ -282,7 +282,7 @@
 			
 			<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
 				© 2021 Copyright:
-				<a class="text-white" href="index.php">ErleteBeekepersAssociation.com</a>
+				<a class="text-white" href="Index.php">ErleteBeekepersAssociation.com</a>
 			</div>
 			<!-- Copyright -->
 		</footer>
