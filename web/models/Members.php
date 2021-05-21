@@ -1,6 +1,6 @@
 <?php
 
-include("testConexion.php");
+include("TestConexion.php");
 /*
  * API MEMBERS
  */

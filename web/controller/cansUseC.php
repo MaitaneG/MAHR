@@ -1,6 +1,6 @@
 <?php
 
-include("../models/cans.php");
+include("../models/Cans.php");
 
 /*
  * FECTH USING CANS FROM USING CANS API
