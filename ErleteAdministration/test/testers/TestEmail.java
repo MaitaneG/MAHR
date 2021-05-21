@@ -1,3 +1,5 @@
+package testers;
+
 
 import base_classes.Accounts;
 import base_classes.Container_Merge;
@@ -38,6 +40,7 @@ public class TestEmail extends TestCase {
     }
 
     /**
+     * 
      * Initialize all the objects
      */
     @Override
