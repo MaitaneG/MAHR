@@ -18,7 +18,7 @@ if (!$member) {
  
 }
 
-header("location:../view/Index.php");
+header("location:../view/index.php");
 ?>
 
 

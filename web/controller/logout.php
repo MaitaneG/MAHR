@@ -6,5 +6,5 @@
  */
 session_start();
 session_destroy();
-header("location:../view/Index.php");
+header("location:../view/index.php");
 ?>
