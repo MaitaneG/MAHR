@@ -1,7 +1,11 @@
 $(function () {
+    /*
+     *CALL FUNCTION VISUALIZE ACTIVE MEMBERS
+     */
+    fecthMembers();
     
     /*
-     * VISUALIZE ALL MEMBERS FUNCTION
+     * VISUALIZE ACTIVE MEMBERS FUNCTION
      */
     function fecthMembers() {
         
@@ -11,7 +15,7 @@ $(function () {
         $.post(url, {fetch}, function (response) {
             
             if (response) {
-          
+                console.log(response);
                 let members = JSON.parse(response);
                 template = "";
                  members.forEach(member => {
