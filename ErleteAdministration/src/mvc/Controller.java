@@ -182,6 +182,11 @@ public class Controller implements ActionListener {
             case "LOGOUT":
                 view.jDialogMenu.setVisible(false);
                 view.setVisible(true);
+                eraser();
+                view.jLabelErrorBin.setText("");
+                view.jLabelErrorBooking.setText("");
+                view.jLabelErrorMember.setText("");
+                view.jLabelErrorMessage.setText("");
                 break;
         }
     }
@@ -410,6 +415,7 @@ public class Controller implements ActionListener {
             }
             view.jTextFieldIdBin.setText("");
             view.jTextFieldCapacity.setText("");
+            view.jTextFieldPrice.setText("");
         }
     }
 
