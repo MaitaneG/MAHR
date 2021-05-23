@@ -1,7 +1,7 @@
 
 <?php
 
-include("testConexion.php");
+include("TestConexion.php");
 
 //FEES TABLE API
 function selectFeesMail($mail) {

@@ -16,7 +16,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
+	<meta http-equiv="refresh" content="900;url=../controller/Logout.php"/>	
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
@@ -29,7 +29,7 @@
 		<link rel="stylesheet" type="text/css" href="styles/styles.css">
 		
 		<!--Link icono pestaña -->
-		<link rel="shortcut icon" href="images/iconopestaña.png" />
+		<link rel="shortcut icon" href="images/Iconopestaña.png" />
 		
         <title>Erlete beekepers' association</title>
 	</head>
@@ -55,10 +55,10 @@
                         <?php
 							if ($member&&$active==1) {
 								echo '<li class="nav-item">
-								<a class="nav-link p-3" href="profile.php">Profile</a>
+								<a class="nav-link p-3" href="Profile.php">Profile</a>
 								</li>';
 								echo '<li class="nav-item">
-								<a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
+								<a class="nav-link p-3" href="MemberPanel.php">Member Panel</a>
 								</li>';
 							}
 						?>
@@ -83,7 +83,7 @@
 							</form>';
 							} else {
 							echo "<h6 class='p-3'>$mail</h6>";
-							echo '<form action="../controller/logout.php">'
+							echo '<form action="../controller/Logout.php">'
 							. '<input class="btn btn-danger" type="submit" value="Log Out"/>'
 							. '</form>';
 						}
@@ -129,18 +129,12 @@
 					
                     <div class="col-sm-12 mt-3 p-2" align="center"><h2>Members List</h2></div>
 					<div class="col-6 col-lg-6 px-4 " align="right">
-					<img src="images/user.png" class="userimag">
+					<img src="images/User.png" class="userimag">
 					</div>
 					<div class="col-6 col-lg-6 px-4 " align="left">
-                    <ul>
+                    <ul id="members-list">
 					
-					<li>Aitor Unzueta</li>
-					<li>Urdaspal Alberdi</li>
-					<li>Felix Zabarte</li>
-					<li>Iñigo Mendibil</li>
-					<li>Hegoi Escudero</li>
-					<li>Inazio Uruburu</li>
-					<li>Roberto Ardanza</li>
+					
 					
 					
 					
@@ -210,6 +204,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		
+        <script src="../controller/appContact.js"></script>
 	</body>
 </html>
