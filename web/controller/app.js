@@ -15,13 +15,13 @@ $(function () {
      */
     fecthPendentTaxes();
 
-    
+
     /*
      *VISUALIZE ACCOUNT MOVES ON LOAD
      */
     fecthAccountMoves();
-    
-     /*
+
+    /*
      *VISUALIZE PENDENT FEES ON LOAD
      */
     fecthPendentFees();
@@ -30,7 +30,7 @@ $(function () {
     /*
      * REGISTER PRODUCTION, VIEW CANS, INSERT TAX
      */
-    
+
     $("#registerProduction").click(function () {
         if ($("#production-kg").val()) {
 
@@ -71,9 +71,10 @@ $(function () {
 
         let Id = $(this).attr("data-id");
         Id = parseInt(Id);
+        $("#litres-left").removeClass("bg-danger");
         let litresleftText = ($("#litres-left").text());
         let litresleft = parseInt(litresleftText);
-        
+
         let url = "../controller/cansUseC.php";
         let currentMail = document.getElementById("currentMail").textContent;
         if (litresleft > 0) {
@@ -89,24 +90,30 @@ $(function () {
                 let cans = JSON.parse(response);
 
                 capacity = cans[0]["capacity"];
-                console.log(capacity);
+
 
                 $("#litres-left").html(litresleft - capacity);
-                               
-                
+
+                litresleftText = ($("#litres-left").text());
+                litresleft = parseInt(litresleftText);
+                if (litresleft < 0) {
+                    $("#litres-left").html("0");
+                    $("#litres-left").addClass("bg-danger");
+                }
+
+
+
+
 
             });
 
 
 
             fecthCans();
-        } 
-        if (litresleft<0){
-                    $("#litres-left").html("0");
-                    $("#litres-left").attr("class")="text-danger";     }
-        
-        else {
+        } else {
+
             alert("you have saved all the production");
+
         }
 
     });
@@ -219,7 +226,7 @@ $(function () {
                 console.log(response);
                 fecthPendentTaxes();
                 fecthAccountMoves();
-                
+
 
 
             });
@@ -227,8 +234,8 @@ $(function () {
         }
 
     });
-    
-        /*
+
+    /*
      * PAY FEES BUTTON EVENT
      */
     $(document).on("click", "#pay-fees", function () {
@@ -241,7 +248,7 @@ $(function () {
                 mail: currentMail
             };
             $.post("../controller/feesC.php", postData, function (response) {
-                
+
                 fecthPendentFees();
                 fecthAccountMoves();
 
@@ -388,10 +395,11 @@ $(function () {
         $.post(url, postDate, function (response) {
 
             if (response) {
-               
+                template="";
                 let counter = 0;
-                let pendentTaxes = JSON.parse(response);
-                template = `<h3>Taxes</h3>
+                try {
+                     let pendentTaxes = JSON.parse(response);
+                     template += `<h3>Taxes</h3>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -411,19 +419,27 @@ $(function () {
                                             </tr>`;
 
                 });
-                template += `</tbody>
+                 template += `</tbody>
                                     </table>`;
 
-              
-                    template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
+
+                template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
                                         <h5>Pay Now</h5></button>
                                     <h5 align="right">TOTAL ${counter}€</h5>`;
 
-                
+
 
 
                 $("#pendent-tax-table").html(template);
                 $("#pendent-tax-table").show();
+                
+                } catch (error) {
+                    console.warn("Empty data in pendent taxes table");
+ 
+                }
+
+
+               
 
 
             } else {
@@ -433,27 +449,28 @@ $(function () {
         });
     }
     ;
-    
-     /*
+
+    /*
      * VISUALIZE PENDENT FEES FUNCTION
      */
     function fecthPendentFees() {
-        
+
         let currentMail = document.getElementById("currentMail").textContent;
         let url = "../controller/feesC.php";
-        let pendentFeesConfirm=1;
-         let postDate = {
+        let pendentFeesConfirm = 1;
+        let postDate = {
             currentMail: currentMail,
             pendentFeesConfirm: pendentFeesConfirm
         };
-        
+
         $.post(url, postDate, function (response) {
             $("#pendent-fees-table").html("");
-            if (response&&response!==0) {
-                console.log(response);
-                let counterF = 0;    
-                let pendentFees = JSON.parse(response);
-                template = `<h3>Fees</h3>
+            if (response && response !== 0) {
+                template="";
+                let counterF = 0;
+                try {
+                    let pendentFees = JSON.parse(response);
+                    template += `<h3>Fees</h3>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -464,25 +481,31 @@ $(function () {
                                         </thead>
                                         <tbody>`;
 
-                pendentFees.forEach(pendentFee => {
-                    counterF += parseFloat(pendentFee.amount);
-                    template += `<tr>
+                    pendentFees.forEach(pendentFee => {
+                        counterF += parseFloat(pendentFee.amount);
+                        template += `<tr>
                                     
                                     <td>${pendentFee.amount}€</td> 
                                     <td>${pendentFee.year}</td>
                     
                                             </tr>`;
 
-                });
-                template += `</tbody>
+                    });
+                                    template += `</tbody>
                                     </table>`;
-              
-                    template += `  <button id="pay-fees" class="btn btn-block bg-success" type="button">
+
+                template += `  <button id="pay-fees" class="btn btn-block bg-success" type="button">
                                         <h5>Pay Now</h5></button>
                                     <h5 align="right">TOTAL ${counterF}€</h5>`;
 
                 $("#pendent-fees-table").html(template);
                 $("#pendent-fees-table").show();
+                } catch (e) {
+                    console.warn("Empty data in Pendent Fees table");
+                 
+                }
+
+
 
 
             } else {
@@ -493,37 +516,37 @@ $(function () {
     }
     ;
 
-   /*
+    /*
      * VISUALIZE ACCOUNT MOVES FUNCTION
      */
     function fecthAccountMoves() {
-        
+
         let currentMail = document.getElementById("currentMail").textContent;
         let url = "../controller/accountC.php";
 
         $.post(url, {currentMail}, function (response) {
-            
+
             if (response) {
-          
+
                 let movements = JSON.parse(response);
                 template = "";
-                 movements.forEach(movement => {
-                     template+=`            <tr>
+                movements.forEach(movement => {
+                    template += `            <tr>
                                                 <td>${movement.date}</td>
                                                 <td>${movement.amount}€</td>
                                                 <td>${movement.concept}</td>
                                             </tr>  `;
-                 });
-                                    
+                });
 
-                 
+
+
                 $("#account-movements-table").html(template);
                 $("#account-movements-table").show();
 
 
             } else {
                 $("#account-movements-table").html("");
-                
+
             }
         });
     }
