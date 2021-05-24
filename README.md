@@ -18,3 +18,4 @@ In this repository you will find a web application and desktop application desin
   
   # Web application
   
+  When a person enter's in our web page, it will be able to see
