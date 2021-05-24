@@ -20,13 +20,15 @@ function searchMember($mailP, $passwordP) {
     while ($row = mysqli_fetch_array($result)) {
         $results[] = array(
             'dni' => $row[0],
-            'name' => $row[1],
-            'surname' => $row[2],
-            'mail' => $row[3],
-            'password' => $row[4],
-            'account' => $row[5],
-            'admin' => $row[6],
-            'active' => $row[7]
+	    'picture' => $row[1],
+            'name' => $row[2],
+            'surname' => $row[3],
+            'mail' => $row[4],
+            'password' => $row[5],
+            'account' => $row[6],
+            'admin' => $row[7],
+            'active' => $row[8],
+            'picture' => $row[9]
         );
     }
 
@@ -51,13 +53,14 @@ function searchMembers() {
     while ($row = mysqli_fetch_array($result)) {
         $results[] = array(
             'dni' => $row[0],
-            'name' => $row[1],
-            'surname' => $row[2],
-            'mail' => $row[3],
-            'password' => $row[4],
-            'account' => $row[5],
-            'admin' => $row[6],
-            'active' => $row[7]
+	    'picture' => $row[1],
+            'name' => $row[2],
+            'surname' => $row[3],
+            'mail' => $row[4],
+            'password' => $row[5],
+            'account' => $row[6],
+            'admin' => $row[7],
+            'active' => $row[8]
         );
     }
 

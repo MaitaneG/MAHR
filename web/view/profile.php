@@ -5,12 +5,12 @@
 	$logged = $_SESSION["submitted"];
 	if ($_SESSION["member"]) {
 		$member = $_SESSION["member"];
-		$mail = $member[0]["mail"];
 		$admin = $member[0]["admin"];
 		$name = $member[0]["name"];
 		$dni = $member[0]["dni"];
 		$surname = $member[0]["surname"];
 		$mail = $member[0]["mail"];
+		$picture = $member[0]["picture"];
 	}
 ?>
 
@@ -55,7 +55,7 @@
                         <li class="nav-item">
                             <a class="nav-link p-3" href="index.php">Home<span class="sr-only">(current)</span></a>
 						</li>
-                        <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
+                        <!--The php code, if you are loged it will apear the member panel and member profile, but if you are not loged, you won't be able to see it.-->
                         <?php
 							if ($member) {
 								echo '<li class="nav-item active">
@@ -104,7 +104,7 @@
             <div class="row">
                 <div class="col-sm-12 mt-3 p-2" align="center"><h2>Profile</h2></div>
                 <div class="col-6 col-lg-6 px-4" align="right">   
-					<img src="images/User.png" class="userimag">
+					<?php echo "<img src='images/profile/".$picture."' class='userimag'>"; ?>
 				</div>
                 <div class="col-6 p-4 col-lg-6 px-4 user-ul" align="left"> 
 					<?php 

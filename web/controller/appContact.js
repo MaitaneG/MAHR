@@ -10,12 +10,12 @@ $(function () {
     function fecthMembers() {
         
         let fetch=1;
-        let url = "../controller/membersC.php";
+        let url = "../controller/MembersC.php";
 
         $.post(url, {fetch}, function (response) {
             
             if (response) {
-                console.log(response);
+                
                 let members = JSON.parse(response);
                 template = "";
                  members.forEach(member => {
