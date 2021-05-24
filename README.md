@@ -28,3 +28,9 @@ In this repository you will find a web application and desktop application desin
  
  _Member_
  
+The member will have the possibility of seeing its profile in a new page. If wanted, it will be able to change the DNI, name and surname. If it is wanted to change the password, the accountant will be in charge of that. 
+
+In the member panel, it will allow to do three different options:
+  - Book the extractor room the day wanted (if it is available). It will also be allowed to delete the booking.
+  - First of all you have to enter the kg produced. Then it will be needed to choose the day the can is going to be used. It will let the user to choose cans until all the honey is entered in the cans.
+  - The member will see the payments done. It will also appear the fees the user hasn't payed, and they have the chance of paying them.
