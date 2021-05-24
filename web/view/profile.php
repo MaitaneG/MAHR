@@ -55,7 +55,7 @@
                         <li class="nav-item">
                             <a class="nav-link p-3" href="index.php">Home<span class="sr-only">(current)</span></a>
 						</li>
-                        <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
+                        <!--The php code, if you are loged it will apear the member panel and member profile, but if you are not loged, you won't be able to see it.-->
                         <?php
 							if ($member) {
 								echo '<li class="nav-item active">
