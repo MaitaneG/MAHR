@@ -71,7 +71,7 @@
                         <?php
 							if ($member) {
 								echo '<li class="nav-item">
-								<a class="nav-link p-3" href="Profile.php">Profile</a>
+								<a class="nav-link p-3" href="profile.php">Profile</a>
 								</li>';
 								echo '<li class="nav-item active">
 								<a class="nav-link p-3 active disabled" href="#">Member Panel</a>

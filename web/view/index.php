@@ -57,7 +57,7 @@
                         <?php
 							if ($member&&$active==1) {
 								echo '<li class="nav-item">
-								<a class="nav-link p-3" href="Profile.php">Profile</a>
+								<a class="nav-link p-3" href="profile.php">Profile</a>
 								</li>';
 								echo '<li class="nav-item">
 								<a class="nav-link p-3" href="MemberPanel.php">Member Panel</a>
@@ -140,7 +140,7 @@
 					Along with eight other men and women, the beekeepers who have formed the Erlete Association are Aitor Unzueta, Urdaspal Alberdi, Felix Zabarte, Iñigo Mendibil, Hegoi Escudero, Inazio Uruburu and Roberto Ardanza.</p>
 					<p>For an annual fee of 30 euros it is possible to visit the honey extarction local, produce your own honey and take it home. Apart from the annual fee, the member will be required to pay 25 cents per kilo produced.To extract the honey you have to reserve the extractor. After you have used it, you will be authorised to use the honey extractor to store your honey for the next 20 days. </p>
 					
-					<p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>   
+					<p><b>Association Porpouse:</b> To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>   
 				</div>
 				
 			</div>

@@ -10,6 +10,7 @@
 		$dni = $member[0]["dni"];
 		$surname = $member[0]["surname"];
 		$mail = $member[0]["mail"];
+		$picture = $member[0]["picture"];
 	}
 ?>
 
@@ -103,7 +104,7 @@
             <div class="row">
                 <div class="col-sm-12 mt-3 p-2" align="center"><h2>Profile</h2></div>
                 <div class="col-6 col-lg-6 px-4" align="right">   
-					<img src="images/User.png" class="userimag">
+					<?php echo "<img src='images/profile/".$picture."' class='userimag'>"; ?>
 				</div>
                 <div class="col-6 p-4 col-lg-6 px-4 user-ul" align="left"> 
 					<?php 
