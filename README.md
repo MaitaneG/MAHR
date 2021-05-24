@@ -10,4 +10,11 @@ In this repository you will find a web application and desktop application desin
   
   Then, there is a part where you can see the cans (metal bins) the administration has, and in this moment which ones are being used. The accountant can also buy new cans by entering their information. 
   
-  Moreover, 
+  Moreover, in the bookings part, it is going to be displayed all the extractor's information. If the user can't go that day to the extractor, to produce honey, the booking can be deleted.
+  
+  Furthermore, the administrator can see all the financial movement of the association. 
+  
+  Finally, the admin can see if all user's fees (annual fee and commissions) have been payed or not.
+  
+  # Web application
+  
