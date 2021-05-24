@@ -280,7 +280,7 @@ if ($active == 0) {
             </div>
         </div>
         <br><br>
-           <!-- Footer -->
+         <!-- Footer -->
         <footer class="container-fluid bg-dark text-center text-white ">
             <!-- Section: Text -->
             <section class="mb-4">
@@ -295,30 +295,33 @@ if ($active == 0) {
                     <!-- Copyright -->
                     <a href="mailto:{email}?subject={subject}&body={content}">
                         
-                    </a>
+                    
                     <span class="material-icons-outlined text-light">
                         mail
                     </span>Send us an email 
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="tel:{phone}">
                         
-                    </a>
+                  
                     <span class="material-icons-outlined text-light">
                         phone
                     </span> Call us 
+                      </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="sms:{phone}?body={content}">
                         
-                    </a> 
+                    
                     <span class="material-icons-outlined text-light">
                         sms
                     </span>   Send us a message 
+                    </a> 
                 </div>
 
             </div>
