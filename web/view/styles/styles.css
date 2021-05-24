@@ -9,7 +9,9 @@ body::-webkit-scrollbar {
 	text-align: center;
 	color: black;
 }
-
+.22pixels{
+    font-size:22px;
+}
 
 /*When you put the cursor on the navbar item it will apear with this style*/
 a{
@@ -19,6 +21,8 @@ background-position: 0% 100%;
 background-repeat: no-repeat;
 background-size: 0% 2px;
 transition: background-size .3s;
+display: block;
+text-align: center;
 }
 
 
@@ -171,4 +175,11 @@ height:30%;
     margin-left: 0%;
     width: 150%;
   }
+}
+
+.material-icons-outlined{
+    font-size: 26px;
+    display: block;
+    text-align: center;
+    
 }
