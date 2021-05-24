@@ -45,7 +45,7 @@ object-fit: cover;
 }
 /*To put an image as a background an to not be repeated*/
 body{
-background-image: url(../images/fondo.jpg) ;
+background-image: url(../images/Fondo.jpg) ;
 background-position: center center;
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -126,7 +126,7 @@ h3{
 }
 /*Class for the background of the container*/
 .bg-texture{
-    background-image: url("../images/texture.jpg");
+    background-image: url("../images/Texture.jpg");
     background-repeat: repeat;
 }
 /*Style for the tables*/

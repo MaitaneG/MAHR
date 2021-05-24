@@ -4,7 +4,7 @@
  * CALL SELECT ALL METHODS ON TABLE BOOKINGS
  */
 include("../models/Bookings.php");
-include("../models/current_date.php");
+include("../models/Current_date.php");
 $conexion = ConnectDataBase();
 
 

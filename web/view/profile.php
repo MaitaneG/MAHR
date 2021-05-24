@@ -5,7 +5,6 @@
 	$logged = $_SESSION["submitted"];
 	if ($_SESSION["member"]) {
 		$member = $_SESSION["member"];
-		$mail = $member[0]["mail"];
 		$admin = $member[0]["admin"];
 		$name = $member[0]["name"];
 		$dni = $member[0]["dni"];
@@ -20,7 +19,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="refresh" content="900;url=logout.php"/>	
+	<meta http-equiv="refresh" content="900;url=../controller/Logout.php"/>		
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		
@@ -33,7 +32,7 @@
 		<link rel="stylesheet" type="text/css" href="styles/styles.css">
 		
 		<!--Link icono pestaña -->
-		<link rel="shortcut icon" href="images/iconopestaña.png" />
+		<link rel="shortcut icon" href="images/Iconopestaña.png" />
 		
         <title>Erlete beekepers' association</title>
 	</head>
@@ -62,13 +61,13 @@
 								<a class="nav-link p-3 active disabled" href="#">Profile</a>
 								</li>';
 								echo '<li class="nav-item">
-								<a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
+								<a class="nav-link p-3" href="MemberPanel.php">Member Panel</a>
 								</li>';
 							}
 						?>
 						
                         <li class="nav-item ">
-                            <a class="nav-link p-3" href="contact.php">Contact</a>
+                            <a class="nav-link p-3" href="Contact.php">Contact</a>
 						</li>
 					</ul>
                     <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
@@ -88,7 +87,7 @@
 							} else {
 							
 							echo "<h6 class='p-3'>$mail</h6>";
-							echo '<form action="../controller/logout.php">'
+							echo '<form action="../controller/Logout.php">'
 							. '<input class="btn btn-danger" type="submit" value="Log Out"/>'
 							. '</form>';
 						}
@@ -104,7 +103,7 @@
             <div class="row">
                 <div class="col-sm-12 mt-3 p-2" align="center"><h2>Profile</h2></div>
                 <div class="col-6 col-lg-6 px-4" align="right">   
-					<img src="images/user.png" class="userimag">
+					<img src="images/User.png" class="userimag">
 				</div>
                 <div class="col-6 p-4 col-lg-6 px-4 user-ul" align="left"> 
 					<?php 
