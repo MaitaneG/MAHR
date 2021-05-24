@@ -146,7 +146,9 @@ if ($active == 0) {
                                     <div class="col-12">
 
                                         <!--DATEPICKER using JQuery to show a calendar-->
-                                        Date: <input class="mb-2" type="text" id="datepicker" size="30"><button id="button-reserve" class="btn bg-yellow ml-3" type="button">Reserve</button>
+                                        Date: <input class="mb-2" type="text" id="datepicker" size="30"><button id="button-reserve" class="btn bg-yellow ml-3" type="button"><span class="material-icons-outlined mb-2">
+                                        edit_calendar
+                                    </span>Reserve</button>
 
 
                                     </div>
@@ -194,7 +196,9 @@ if ($active == 0) {
                             <div class="row">
                                 <div class="col-11 col-md-4 m-3">
                                     <input class="mt-2 mb-2" type="number" name="Production" placeholder="Production Kg" id="production-kg">
-                                    <button id="registerProduction" class="btn bg-yellow ml-3" type="button">Register</button>
+                                    <button id="registerProduction" class="btn bg-yellow ml-3" type="button"><span class="material-icons-outlined">
+                                    rate_review
+                                    </span>Register</button>
                                 </div>
                                 <div class="mt-3 col-11 col-md-4"><table class="table mx-1 table-bordered" id="production-litros"></table>
                                 </div>
