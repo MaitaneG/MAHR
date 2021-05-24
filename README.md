@@ -22,4 +22,4 @@ In this repository you will find a web application and desktop application desin
   
   When a person enter's in our web page, it will be able to enter in two pages. In the first one it will appear basic information of the association, rules, and some information about bees. 
   
-  
+  In the other 
