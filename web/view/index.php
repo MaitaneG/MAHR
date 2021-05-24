@@ -259,34 +259,34 @@ if ($_SESSION["member"]) {
             <!--Email, Call and Sms inside a footer.-->
             <div class="row">
                 <!--Grid column-->
-                <div class="col-lg-4 col-md-6 " align="left">
+                <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="mailto:{email}?subject={subject}&body={content}">
-                        Send us an email 
+                        
                     </a>
                     <span class="material-icons-outlined text-light">
                         mail
-                    </span>
+                    </span>Send us an email 
                 </div>
 
-                <div class="col-lg-4 col-md-6 " align="center">
+                <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="tel:{phone}">
-                        Call us 
+                        
                     </a>
                     <span class="material-icons-outlined text-light">
                         phone
-                    </span> 
+                    </span> Call us 
                 </div>
 
-                <div class="col-lg-4 col-md-6 " align="right">
+                <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="sms:{phone}?body={content}">
-                        Send us a message 
+                        
                     </a> 
                     <span class="material-icons-outlined text-light">
                         sms
-                    </span>   
+                    </span>   Send us a message 
                 </div>
 
             </div>
