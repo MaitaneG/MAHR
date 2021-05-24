@@ -47,7 +47,7 @@ $(function () {
             $("#production-litros").html(templateProduction);
             //REGISTER PRODUCTION
             if (confirm(`Are you sure to register ${kg}Kg of product?`)) {
-                let url = "../controller/productionsC.php";
+                let url = "../controller/ProductionsC.php";
                 const postDate = {
                     mail: currentMail,
                     kilos: kg,
@@ -75,7 +75,7 @@ $(function () {
         let litresleftText = ($("#litres-left").text());
         let litresleft = parseInt(litresleftText);
 
-        let url = "../controller/cansUseC.php";
+        let url = "../controller/CansUseC.php";
         let currentMail = document.getElementById("currentMail").textContent;
         if (litresleft > 0) {
 
@@ -222,7 +222,7 @@ $(function () {
                 confirm: confirm,
                 mail: currentMail
             };
-            $.post("../controller/pendentTaxesPay.php", postData, function (response) {
+            $.post("../controller/PendentTaxesPay.php", postData, function (response) {
                 console.log(response);
                 fecthPendentTaxes();
                 fecthAccountMoves();
@@ -247,7 +247,7 @@ $(function () {
                 confirmFees: confirm,
                 mail: currentMail
             };
-            $.post("../controller/feesC.php", postData, function (response) {
+            $.post("../controller/FeesC.php", postData, function (response) {
 
                 fecthPendentFees();
                 fecthAccountMoves();
@@ -303,7 +303,7 @@ $(function () {
 
         let cansList = 1;
         $.ajax({
-            url: "../controller/cansC.php",
+            url: "../controller/CansC.php",
             type: "POST",
             data: {cansList},
             success: function (response) {
@@ -317,12 +317,12 @@ $(function () {
 
                                                              <div class="card-body">`;
                     if (can.using === 1) {
-                        template += `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
+                        template += `<img loading="lazy" class="card-img-top img" src="images/CanOcupped.png" alt="honey can"> 
 
                                                                     <h6 class="text-center text-danger m-0">ENDS ${can.end_date}</h6>
                                                                     <h6 class="text-center m-0 py-2">${can.mail}</h6>                                                       `;
                     } else {
-                        template += ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">                         
+                        template += ` <img loading="lazy" class="card-img-top img" src="images/Can.png" alt="honey can">                         
                                            <button class="reserveCanToUse btn bg-yellow pl-5 pr-5 d-block m-auto" data-id="${can.id}">
                                                 <span class="material-icons-outlined">
                                                     done_outline
@@ -348,7 +348,7 @@ $(function () {
 
         let cansList = 1;
         $.ajax({
-            url: "../controller/cansC.php",
+            url: "../controller/CansC.php",
             type: "POST",
             data: {cansList},
             success: function (response) {
@@ -362,12 +362,12 @@ $(function () {
 
                                                              <div class="card-body">`;
                     if (can.using === 1) {
-                        template += `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
+                        template += `<img loading="lazy" class="card-img-top img" src="images/CanOcupped.png" alt="honey can"> 
 
                                                                     <h6 class="text-center text-danger m-0">ENDS ${can.end_date}</h6>
                                                                     <h6 class="text-center m-0 py-2">${can.mail}</h6>                                                       `;
                     } else {
-                        template += ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">`;
+                        template += ` <img loading="lazy" class="card-img-top img" src="images/Can.png" alt="honey can">`;
                     }
 
 
@@ -456,7 +456,7 @@ $(function () {
     function fecthPendentFees() {
 
         let currentMail = document.getElementById("currentMail").textContent;
-        let url = "../controller/feesC.php";
+        let url = "../controller/FeesC.php";
         let pendentFeesConfirm = 1;
         let postDate = {
             currentMail: currentMail,
@@ -522,7 +522,7 @@ $(function () {
     function fecthAccountMoves() {
 
         let currentMail = document.getElementById("currentMail").textContent;
-        let url = "../controller/accountC.php";
+        let url = "../controller/AccountC.php";
 
         $.post(url, {currentMail}, function (response) {
 
