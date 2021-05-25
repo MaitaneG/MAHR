@@ -49,7 +49,7 @@ if ($_SESSION["member"]) {
                 <div class="collapse navbar-collapse" id="navbarNav" >
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link px-4" href="index.php"><span class="material-icons-outlined">
+                            <a class="nav-link px-4 a" href="index.php"><span class="material-icons-outlined">
                                     home
                                 </span>Home<span class="sr-only">(current)</span></a>
                         </li>
@@ -57,12 +57,12 @@ if ($_SESSION["member"]) {
                         <?php
                         if ($member && $active == 1) {
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="profile.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4 a" href="profile.php"><span class="material-icons-outlined">
                                                                    person
                                                                    </span>Profile</a>
 								</li>';
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="MemberPanel.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4 a" href="MemberPanel.php"><span class="material-icons-outlined">
                                                                    engineering
                                                                    </span>Member Panel</a>
 								</li>';
@@ -70,7 +70,7 @@ if ($_SESSION["member"]) {
                         ?>
 
                         <li class="nav-item active">
-                            <a class="nav-link px-4 active disabled" href="#"><span class="material-icons-outlined">
+                            <a class="nav-link px-4 active disabled a" href="#"><span class="material-icons-outlined">
                                     alternate_email
                                 </span>Contact</a>
                         </li>
