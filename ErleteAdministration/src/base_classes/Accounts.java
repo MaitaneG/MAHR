@@ -29,7 +29,7 @@ public class Accounts {
      *
      * In this class we are going to save an id, who has payed, who has received
      * the money, the date the payment has been done, how much money has been
-     * payed and the total money of the association's account.
+     * payed, the concept of the payment and the total money of the association's account.
      *
      * @param id
      * @param payer
