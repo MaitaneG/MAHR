@@ -63,7 +63,7 @@ if ($_SESSION["member"]) {
                                                                    </span>Profile</a>
 								</li>';
                             echo '<li class="nav-item">
-								<a class="nav-link px-4 a" href="MemberPanel.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4" href="memberPanel.php"><span class="material-icons-outlined">
                                                                    engineering
                                                                    </span>Member Panel</a>
 								</li>';
@@ -71,7 +71,7 @@ if ($_SESSION["member"]) {
                         ?>
 
                         <li class="nav-item">
-                            <a class="nav-link px-4 a" href="Contact.php"><span class="material-icons-outlined">
+                            <a class="nav-link px-4" href="contact.php"><span class="material-icons-outlined">
                                     alternate_email
                                 </span>Contact</a>
                         </li>
