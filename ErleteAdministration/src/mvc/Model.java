@@ -78,7 +78,7 @@ public class Model {
      * correctly
      */
     public int addUser(User u) {
-        // Enters into the members table the DNI, name, surname, email, password, 
+        // Enters into the members table the DNI, name, surname, email, password,
         // account and it is going to be active and not administrator
         String sql = "INSERT INTO members (dni, name, surname, mail, password, account, admin, active) VALUES (?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
@@ -111,7 +111,7 @@ public class Model {
      * updated correctly
      */
     public int updateMember(String key, User u) {
-        // Changes from members table the DNI, name, surname, password, account, 
+        // Changes from members table the DNI, name, surname, password, account,
         //when the mail is in the table
         String sql = "UPDATE members "
                 + "SET dni = ?, name = ?, surname = ?, password = ?, account = ? WHERE mail = ?";
@@ -164,7 +164,7 @@ public class Model {
     }
 
     /**
-     * 
+     *
      * Gets all the information of the accounts from the database
      *
      * @return an ArrayList of Accounts
@@ -179,7 +179,7 @@ public class Model {
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getInt("Amount"),rs.getString("Concept"), rs.getInt("Total"));
+                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getInt("Amount"), rs.getString("Concept"), rs.getInt("Total"));
                 acc.add(u1);
             }
         } catch (Exception ex) {
@@ -243,8 +243,8 @@ public class Model {
     public ArrayList<Container_Merge> showContainer_Merge() {
 
         ArrayList<Container_Merge> boo = new ArrayList<>();
-        // Select from cans and using_cans the id_can, mail, date, date2 where 
-        // date is null and the current date is between date and date2 and order 
+        // Select from cans and using_cans the id_can, mail, date, date2 where
+        // date is null and the current date is between date and date2 and order
         // all the information by id_can
         String sql = "select cans.ID_CAN, capacity, mail, date, date2 from cans left join using_cans ON cans.ID_CAN = using_cans.ID_CAN where date is null or curdate() BETWEEN date and date2 order by cans.ID_CAN";
 
@@ -295,20 +295,19 @@ public class Model {
     /**
      * Is going to add users to the database
      *
-     * @param c
+     * @param capacity
      * @param price
      * @return 0 if it hadn't been added correctly and 1 if it had been added
      * correctly
      */
-    public int addContainer(Container c, float price) {
+    public int addContainer(int capacity, float price) {
         // Insert into cans the id and the capacity
-        String sql = "INSERT INTO cans VALUES (?,?,?)";
+        String sql = "INSERT INTO cans (capacity, price) VALUES (?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setInt(1, c.getId());
-            pstmt.setInt(2, c.getCapacity());
-            pstmt.setFloat(3, price);
+            pstmt.setInt(1, capacity);
+            pstmt.setFloat(2, price);
             return pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

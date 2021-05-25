@@ -22,12 +22,14 @@ import tableModels.MembersTableModel;
 public class Controller implements ActionListener {
 
     /**
+     *
      * The attributes of Controller
      */
     private Model model;
     private View view;
 
     /**
+     *
      * The constructor of Controller
      *
      * In the constructor the attributes are going to receive a value.
@@ -49,6 +51,7 @@ public class Controller implements ActionListener {
     }
 
     /**
+     *
      * It is going to give an actionListener to each button
      *
      * @param listener
@@ -79,15 +82,18 @@ public class Controller implements ActionListener {
     }
 
     /**
+     *
      * To give action to the board keys
      */
     private void addKeyListener() {
         /**
+         *
          * Create a key listener to jPasswordFieldPasswordLogin
          */
         view.jPasswordFieldPasswordLogin.addKeyListener(new KeyListener() {
 
             /**
+             *
              * When the key is pressed
              */
             @Override
@@ -98,6 +104,7 @@ public class Controller implements ActionListener {
             }
 
             /**
+             *
              * When the key is typed
              *
              * Compulsory method (Because it is an interface)
@@ -120,6 +127,7 @@ public class Controller implements ActionListener {
     }
 
     /**
+     *
      * It is going to say each button what is going to do
      *
      * @param e
@@ -192,6 +200,7 @@ public class Controller implements ActionListener {
     }
 
     /**
+     *
      * To update all the tables' information
      */
     public void taulakEguneratu() {
@@ -204,6 +213,7 @@ public class Controller implements ActionListener {
     }
 
     /**
+     *
      * Is to be used by the administrator in order to log in and prove that
      * he/she is the administrator
      */
@@ -244,12 +254,13 @@ public class Controller implements ActionListener {
                 view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not part of Erlete.");
             }
         }
-        // Clears the information of the labels
+        // Clears the information of the jTextFileds
         view.jTextFieldEmailLogin.setText("");
         view.jPasswordFieldPasswordLogin.setText("");
     }
 
     /**
+     *
      * Gets all the information entered of the user and calls to a method in
      * order to enter it in the database
      */
@@ -260,7 +271,7 @@ public class Controller implements ActionListener {
                 view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
                 User.getMD5(new String(view.jPasswordFieldPassword.getPassword())), view.jTextFieldAccount.getText().trim(),
                 false, true);
-        // Prove that all the gaps are filled
+        // Prove that all the jTextFileds are filled
         if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
                 || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
                 || new String(view.jPasswordFieldPassword.getPassword()).equals("")
@@ -286,7 +297,8 @@ public class Controller implements ActionListener {
     }
 
     /**
-     * Takes all the information and it puts in the labels
+     *
+     * Takes all the information and it puts in the jTextFileds
      */
     public void takeAllTableInformation() {
         // Takes the selected row
@@ -310,6 +322,7 @@ public class Controller implements ActionListener {
     }
 
     /**
+     *
      * To update users' information
      *
      * You can change everything instead of email and admin, and active
@@ -329,11 +342,12 @@ public class Controller implements ActionListener {
                     view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
                     new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
                     false, true);
-
+            // If there is any jTextFiled not filled
             if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
                     || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
                     || new String(view.jPasswordFieldPassword.getPassword()).equals("") || view.jTextFieldAccount.getText().trim().equals("")) {
                 view.jLabelErrorMember.setText("You have to fill all the information.");
+                // If all the jTextFileds filled
             } else {
                 // If the update has been done correctly
                 if (model.updateMember(gakoa, use) == 1) {
@@ -365,6 +379,7 @@ public class Controller implements ActionListener {
             if (model.updateEnable(gakoa) == 1) {
                 view.jLabelErrorMember.setText("");
                 taulakEguneratu();
+                // Not updated
             } else {
                 view.jLabelErrorMember.setText("The member couldn't be updated correctly");
             }
@@ -407,20 +422,20 @@ public class Controller implements ActionListener {
     public void enterBin() {
 
         // Not all information filled
-        if (view.jTextFieldIdBin.getText().trim().equals("") || view.jTextFieldCapacity.getText().trim().equals("") || view.jTextFieldPrice.getText().trim().equals("")) {
+        if (view.jTextFieldCapacity.getText().trim().equals("") || view.jTextFieldPrice.getText().trim().equals("")) {
             view.jLabelErrorBin.setText("You have to fill all the information.");
             // All information filled
         } else {
-            Container u = new Container(Integer.parseInt(view.jTextFieldIdBin.getText().trim()), Integer.parseInt(view.jTextFieldCapacity.getText().trim()));
+            int capacity = Integer.parseInt(view.jTextFieldCapacity.getText().trim());
             // Prove that the bin has been added
-            if (model.addContainer(u, Float.parseFloat(view.jTextFieldPrice.getText().trim())) == 1) {
+            if (model.addContainer(capacity, Float.parseFloat(view.jTextFieldPrice.getText().trim())) == 1) {
                 taulakEguneratu();
                 view.jLabelErrorBin.setText("");
                 // If not added correctly
             } else {
                 view.jLabelErrorBin.setText("The can couldn't be added correctly");
             }
-            view.jTextFieldIdBin.setText("");
+
             view.jTextFieldCapacity.setText("");
             view.jTextFieldPrice.setText("");
         }
@@ -439,7 +454,6 @@ public class Controller implements ActionListener {
         view.jTextFieldAccount.setText("");
 
         // Clears cans information
-        view.jTextFieldIdBin.setText("");
         view.jTextFieldCapacity.setText("");
         view.jLabelErrorBin.setText("");
     }

@@ -58,8 +58,6 @@ public class View extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jTextFieldCapacity = new javax.swing.JTextField();
         jLabelName2 = new javax.swing.JLabel();
-        jTextFieldIdBin = new javax.swing.JTextField();
-        jLabelDni2 = new javax.swing.JLabel();
         jLabelName3 = new javax.swing.JLabel();
         jTextFieldPrice = new javax.swing.JTextField();
         jLabelErrorBin = new javax.swing.JLabel();
@@ -393,13 +391,6 @@ public class View extends javax.swing.JFrame {
         jLabelName2.setForeground(new java.awt.Color(51, 51, 51));
         jLabelName2.setText("Capacity: ");
 
-        jTextFieldIdBin.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jTextFieldIdBin.setForeground(new java.awt.Color(51, 51, 51));
-
-        jLabelDni2.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        jLabelDni2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelDni2.setText("Id:");
-
         jLabelName3.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
         jLabelName3.setForeground(new java.awt.Color(51, 51, 51));
         jLabelName3.setText("Price:");
@@ -412,31 +403,24 @@ public class View extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelDni2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldIdBin, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(36, 36, 36)
                 .addComponent(jLabelName2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jLabelName3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(37, 37, 37))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelName3)
+                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelName3)
-                        .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldIdBin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelDni2)
                         .addComponent(jLabelName2)
                         .addComponent(jTextFieldCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17))
@@ -536,7 +520,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(jButtonAddBin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLogout3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneMenu.addTab("Metal Bins", jPanelBins);
@@ -977,7 +961,6 @@ public class View extends javax.swing.JFrame {
     javax.swing.JLabel jLabelAccount;
     private javax.swing.JLabel jLabelBookingTitle;
     private javax.swing.JLabel jLabelDni;
-    private javax.swing.JLabel jLabelDni2;
     private javax.swing.JLabel jLabelEmail;
     javax.swing.JLabel jLabelErrorBin;
     javax.swing.JLabel jLabelErrorBooking;
@@ -1019,7 +1002,6 @@ public class View extends javax.swing.JFrame {
     javax.swing.JTextField jTextFieldDni;
     javax.swing.JTextField jTextFieldEmailLogin;
     javax.swing.JTextField jTextFieldEmailMember;
-    javax.swing.JTextField jTextFieldIdBin;
     javax.swing.JTextField jTextFieldName;
     javax.swing.JTextField jTextFieldPrice;
     javax.swing.JTextField jTextFieldSurname;
