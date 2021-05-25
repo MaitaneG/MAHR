@@ -3,10 +3,7 @@
 <?php
 
 
-
-
-include("Fees.php");
-$json=selectPendentFees("member@mail.com");
+include("Members.php");
+$json= updateMember("11111A","Maya","Abeja","maya@erlete.eus");
 $jsonstring= json_encode($json);
 echo $jsonstring;
-
