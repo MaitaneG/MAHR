@@ -9,7 +9,8 @@ function searchMember($mailP, $passwordP) {
     //return: 
     //0-dni 1-name 2-surname 3-mail 4-password 5-account 6-admin
     $conexion = ConnectDataBase();
-    $query = "SELECT * FROM members WHERE mail='$mailP' and password='$passwordP'";
+    $md5Password= md5($passwordP);
+    $query = "SELECT * FROM members WHERE mail='$mailP' and password='$md5Password'";
 
 
     $result = mysqli_query($conexion, $query);
