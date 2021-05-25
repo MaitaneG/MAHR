@@ -70,8 +70,8 @@ if ($_SESSION["member"]) {
                         }
                         ?>
 
-                        <li class="nav-item">
-                            <a class="nav-link px-4" href="contact.php"><span class="material-icons-outlined">
+                        <li class="nav-item ">
+                            <a class="nav-link px-4 a" href="contact.php"><span class="material-icons-outlined">
                                     alternate_email
                                 </span>Contact</a>
                         </li>

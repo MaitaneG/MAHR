@@ -34,10 +34,6 @@ text-align: center;
 background-size: 100% 2px;
 }
 
-.link:link, .link:visited, .link:active {
-    text-decoration:none;
-}
-
 /*A class used to change the cursor*/
 /*.url{cursor:url(../images/puntero1.gif), auto;}*/
 

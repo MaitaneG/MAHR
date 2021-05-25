@@ -69,3 +69,17 @@ function searchMembers() {
     mysqli_close($conexion);
     return $results;
 }
+
+function updateMember($dni, $picture, $name, $surname, $mail){
+//Select active members
+    //return: 
+    //0-dni 1-name 2-surname 3-mail
+    $conexion = ConnectDataBase();
+    $query = "UPDATE members SET DNI='$dni', PICTURE= '$picture', NAME='$name', SURNAME='$surname' WHERE mail= '$mail'";
+    $result = mysqli_query($conexion, $query);
+    if(!$result){
+          die("Query error". mysqli_error($conexion));
+
+    }
+
+}

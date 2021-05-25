@@ -106,7 +106,7 @@ if ($_SESSION["member"]) {
         </div>
 
 
-        <!--    CONTENIDO-->
+        <!--CONTENIDO-->
 
         <div class="container bg-texture pb-6">
 
