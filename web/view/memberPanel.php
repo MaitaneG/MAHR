@@ -128,17 +128,21 @@ if ($active == 0) {
         <div class="container">
 
             <!-- ACCORDION-->
+            <!--Allows displaying various content classified into sections. The accordion uses collapse internally to make it collapsible.-->
             <div id="accordion" class="mt-3">
                 <div class="card bg-texture">
                     <div class="card-header gradient" id="headingOne">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <h3 class="acordeon-titulo"><span class="material-icons-outlined mb-2">
+                                <h3 class="acordeon-titulo">
+                                    <!--It is used to style text or group elements inline.-->
+                                    <span class="material-icons-outlined mb-2">
                                         edit_calendar
                                     </span>Bookings</h3>
                             </button>
                         </h5>
                     </div>
+                    <!--Collapse hide the content-->
                     <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <div class="container">
