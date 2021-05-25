@@ -64,7 +64,7 @@ if ($active == 0) {
                 <div class="collapse navbar-collapse" id="navbarNav" >
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link px-4" href="index.php"><span "center" class="material-icons-outlined">
+                            <a class="nav-link px-4 a" href="index.php"><span "center" class="material-icons-outlined">
                                     home
                                 </span>Home</span><span class="sr-only">(current)</span></a>
                         </li>
@@ -73,12 +73,12 @@ if ($active == 0) {
                         <?php
                         if ($member) {
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="profile.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4 a" href="profile.php"><span class="material-icons-outlined">
                                                                    person
                                                                    </span>Profile</a>
 								</li>';
                             echo '<li class="nav-item active">
-								<a class="nav-link px-4 active disabled" href="#"><span class="material-icons-outlined">
+								<a class="nav-link px-4 active disabled a" href="#"><span class="material-icons-outlined">
                                                                    engineering
                                                                    </span>Member Panel</a>
 								</li>';
@@ -86,7 +86,7 @@ if ($active == 0) {
                         ?>
 
                         <li class="nav-item">
-                            <a class="nav-link px-4" href="Contact.php"><span class="material-icons-outlined">
+                            <a class="nav-link px-4" href="contact.php"><span class="material-icons-outlined">
                                     alternate_email
                                 </span>Contact</a>
                         </li>
@@ -181,7 +181,7 @@ if ($active == 0) {
                     <div class="card-header gradient" id="headingTwo">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <h3 class="acordeon-titulo "><span class="material-icons-outlined mb-2">
+                                <h3 class="acordeon-titulo "><span class="material-icons-outlined mb-2 ">
                                         takeout_dining
                                     </span>Cans</h3>
                             </button>
