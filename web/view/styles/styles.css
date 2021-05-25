@@ -1,3 +1,5 @@
+
+/*To make dissapear the scrollbar of the webpage*/
 body::-webkit-scrollbar {
     display: none;
 }
@@ -9,12 +11,13 @@ body::-webkit-scrollbar {
 	text-align: center;
 	color: black;
 }
+/*To change the font-size*/
 .22pixels{
     font-size:22px;
 }
 
 /*When you put the cursor on the navbar item it will apear with this style*/
-a{
+ .a{
 text-decoration: none;
 background-image: linear-gradient(currentColor,currentColor);
 background-position: 0% 100%;
@@ -27,8 +30,12 @@ text-align: center;
 
 
 /*When the item on the navbar is checked will this this style*/
-a:hover,a:focus {
+.a:hover,.a:focus {
 background-size: 100% 2px;
+}
+
+.link:link, .link:visited, .link:active {
+    text-decoration:none;
 }
 
 /*A class used to change the cursor*/
@@ -70,10 +77,6 @@ margin-bottom: 15px;
 .userimag{
 height: 180px;
 padding: 10px;
-
-
-
-
 }
 
 /*Class for an image*/
@@ -82,9 +85,8 @@ border-radius: 6px;
 width:100%;
 object-fit: cover;
 height: 420px;
-
-
 }
+
 /*Class for the jumbotron*/
 .jumbotron{
     height: 120px;
@@ -156,11 +158,11 @@ font-weight: bolder;
 
 /*A class to declare the width and height of the iframe*/
 .iframe{
-width:30%;
-height:30%;
+width:40%;
+height:40%;
 
 }
-/*Animation wich make slide the text*/
+/*Animation wich make slide the text fo contact.php*/
 .p {
   animation-duration: 3s;
   animation-name: slidein;
@@ -177,6 +179,7 @@ height:30%;
   }
 }
 
+/*style for all the icons put on the webpage.*/
 .material-icons-outlined{
     font-size: 26px;
     display: block;

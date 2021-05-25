@@ -53,7 +53,7 @@ if ($_SESSION["member"]) {
                 <div class="collapse navbar-collapse" id="navbarNav" >
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link px-4" href="index.php"><span class="material-icons-outlined">
+                            <a class="nav-link px-4 a" href="index.php"><span class="material-icons-outlined">
                                     home
                                 </span>Home<span class="sr-only">(current)</span></a>
                         </li>
@@ -61,12 +61,12 @@ if ($_SESSION["member"]) {
                         <?php
                         if ($member) {
                             echo '<li class="nav-item active">
-								<a class="nav-link px-4 active disabled" href="#"><span class="material-icons-outlined">
+								<a class="nav-link px-4 active disabled a" href="#"><span class="material-icons-outlined">
                                                                    person
                                                                    </span>Profile</a>
 								</li>';
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="MemberPanel.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4" href="memberPanel.php"><span class="material-icons-outlined">
                                                                    engineering
                                                                    </span>Member Panel</a>
 								</li>';
@@ -74,7 +74,7 @@ if ($_SESSION["member"]) {
                         ?>
 
                         <li class="nav-item ">
-                            <a class="nav-link px-4" href="Contact.php"><span class="material-icons-outlined">
+                            <a class="nav-link px-4" href="contact.php"><span class="material-icons-outlined">
                                     alternate_email
                                 </span>Contact</a>
                         </li>
@@ -136,7 +136,7 @@ if ($_SESSION["member"]) {
         </div>
         <br><br>
 
-        <!-- Footer -->
+         <!-- Footer -->
         <footer class="container-fluid bg-dark text-center text-white ">
             <!-- Section: Text -->
             <section class="mb-4">
@@ -151,30 +151,33 @@ if ($_SESSION["member"]) {
                     <!-- Copyright -->
                     <a href="mailto:{email}?subject={subject}&body={content}">
                         
-                    </a>
+                    
                     <span class="material-icons-outlined text-light">
                         mail
                     </span>Send us an email 
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="tel:{phone}">
                         
-                    </a>
+                  
                     <span class="material-icons-outlined text-light">
                         phone
                     </span> Call us 
+                      </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="sms:{phone}?body={content}">
                         
-                    </a> 
+                    
                     <span class="material-icons-outlined text-light">
                         sms
                     </span>   Send us a message 
+                    </a> 
                 </div>
 
             </div>

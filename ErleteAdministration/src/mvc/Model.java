@@ -179,7 +179,7 @@ public class Model {
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getInt("Amount"), rs.getInt("Total"));
+                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getInt("Amount"),rs.getString("Concept"), rs.getInt("Total"));
                 acc.add(u1);
             }
         } catch (Exception ex) {

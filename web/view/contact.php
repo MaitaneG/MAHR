@@ -49,7 +49,7 @@ if ($_SESSION["member"]) {
                 <div class="collapse navbar-collapse" id="navbarNav" >
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link px-4" href="index.php"><span class="material-icons-outlined">
+                            <a class="nav-link px-4 a" href="index.php"><span class="material-icons-outlined">
                                     home
                                 </span>Home<span class="sr-only">(current)</span></a>
                         </li>
@@ -57,12 +57,12 @@ if ($_SESSION["member"]) {
                         <?php
                         if ($member && $active == 1) {
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="profile.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4 a" href="profile.php"><span class="material-icons-outlined">
                                                                    person
                                                                    </span>Profile</a>
 								</li>';
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="MemberPanel.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4" href="memberPanel.php"><span class="material-icons-outlined">
                                                                    engineering
                                                                    </span>Member Panel</a>
 								</li>';
@@ -70,7 +70,7 @@ if ($_SESSION["member"]) {
                         ?>
 
                         <li class="nav-item active">
-                            <a class="nav-link px-4 active disabled" href="#"><span class="material-icons-outlined">
+                            <a class="nav-link px-4 active disabled a" href="#"><span class="material-icons-outlined">
                                     alternate_email
                                 </span>Contact</a>
                         </li>
@@ -106,14 +106,14 @@ if ($_SESSION["member"]) {
         </div>
 
 
-        <!--    CONTENIDO-->
+        <!--CONTENIDO-->
 
-        <div class="container bg-texture">
+        <div class="container bg-texture pb-6">
 
             <br>
             <div class="row">
 
-                <div class="col-sm-12 p" align="center">
+                <div class="col-sm-12 p pb-5" align="center">
                     <h2>Location</h2>
                     <p><b>Direction:</b> San Juan Plaza 1;<br>
                         <b>Municipality:</b> Axpe;<br>
@@ -124,11 +124,11 @@ if ($_SESSION["member"]) {
                         <b>Length:</b> -2.5982992;</p>
                     <!--The code to put Erlete Beekepers' Association location taking it from google maps-->
 
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23302.940519782715!2d-2.603144!3d43.107298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fd2f2a4d7a841%3A0xdebc4249323c4949!2sSan%20Juan%20Plaza%2C%201%2C%2048291%20Axpe%2C%20Bizkaia%2C%20Spain!5e0!3m2!1sen!2sus!4v1620634544007!5m2!1sen!2sus" class="iframe mb-6" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d23302.940519782715!2d-2.603144!3d43.107298!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fd2f2a4d7a841%3A0xdebc4249323c4949!2sSan%20Juan%20Plaza%2C%201%2C%2048291%20Axpe%2C%20Bizkaia%2C%20Spain!5e0!3m2!1sen!2sus!4v1620634544007!5m2!1sen!2sus" class="iframe" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 
                 </div>
-                <br><br>
+              
 
             </div>
 
@@ -163,7 +163,7 @@ if ($_SESSION["member"]) {
         <br><br>
 
         <!-- Footer -->
-        <footer class="container-fluid bg-dark text-center text-white ">
+        <footer class="container-fluid bg-dark text-center text-white">
             <!-- Section: Text -->
             <section class="mb-4">
                 <p class="p">
@@ -177,30 +177,33 @@ if ($_SESSION["member"]) {
                     <!-- Copyright -->
                     <a href="mailto:{email}?subject={subject}&body={content}">
                         
-                    </a>
+                    
                     <span class="material-icons-outlined text-light">
                         mail
                     </span>Send us an email 
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="tel:{phone}">
                         
-                    </a>
+                  
                     <span class="material-icons-outlined text-light">
                         phone
                     </span> Call us 
+                      </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="sms:{phone}?body={content}">
                         
-                    </a> 
+                    
                     <span class="material-icons-outlined text-light">
                         sms
                     </span>   Send us a message 
+                    </a> 
                 </div>
 
             </div>
@@ -212,6 +215,7 @@ if ($_SESSION["member"]) {
             <!-- Copyright -->
         </footer>
         <!-- Footer -->
+
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

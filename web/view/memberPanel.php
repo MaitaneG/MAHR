@@ -64,7 +64,7 @@ if ($active == 0) {
                 <div class="collapse navbar-collapse" id="navbarNav" >
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link px-4" href="index.php"><span "center" class="material-icons-outlined">
+                            <a class="nav-link px-4 a" href="index.php"><span "center" class="material-icons-outlined">
                                     home
                                 </span>Home</span><span class="sr-only">(current)</span></a>
                         </li>
@@ -73,12 +73,12 @@ if ($active == 0) {
                         <?php
                         if ($member) {
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="profile.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4 a" href="profile.php"><span class="material-icons-outlined">
                                                                    person
                                                                    </span>Profile</a>
 								</li>';
                             echo '<li class="nav-item active">
-								<a class="nav-link px-4 active disabled" href="#"><span class="material-icons-outlined">
+								<a class="nav-link px-4 active disabled a" href="#"><span class="material-icons-outlined">
                                                                    engineering
                                                                    </span>Member Panel</a>
 								</li>';
@@ -86,7 +86,7 @@ if ($active == 0) {
                         ?>
 
                         <li class="nav-item">
-                            <a class="nav-link px-4" href="Contact.php"><span class="material-icons-outlined">
+                            <a class="nav-link px-4" href="contact.php"><span class="material-icons-outlined">
                                     alternate_email
                                 </span>Contact</a>
                         </li>
@@ -128,17 +128,21 @@ if ($active == 0) {
         <div class="container">
 
             <!-- ACCORDION-->
+            <!--Allows displaying various content classified into sections. The accordion uses collapse internally to make it collapsible.-->
             <div id="accordion" class="mt-3">
                 <div class="card bg-texture">
                     <div class="card-header gradient" id="headingOne">
                         <h5 class="mb-0">
                             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <h3 class="acordeon-titulo"><span class="material-icons-outlined mb-2">
+                                <h3 class="acordeon-titulo">
+                                    <!--It is used to style text or group elements inline.-->
+                                    <span class="material-icons-outlined mb-2">
                                         edit_calendar
                                     </span>Bookings</h3>
                             </button>
                         </h5>
                     </div>
+                    <!--Collapse hide the content-->
                     <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <div class="container">
@@ -181,7 +185,7 @@ if ($active == 0) {
                     <div class="card-header gradient" id="headingTwo">
                         <h5 class="mb-0">
                             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <h3 class="acordeon-titulo "><span class="material-icons-outlined mb-2">
+                                <h3 class="acordeon-titulo "><span class="material-icons-outlined mb-2 ">
                                         takeout_dining
                                     </span>Cans</h3>
                             </button>
@@ -280,7 +284,7 @@ if ($active == 0) {
             </div>
         </div>
         <br><br>
-           <!-- Footer -->
+         <!-- Footer -->
         <footer class="container-fluid bg-dark text-center text-white ">
             <!-- Section: Text -->
             <section class="mb-4">
@@ -295,30 +299,33 @@ if ($active == 0) {
                     <!-- Copyright -->
                     <a href="mailto:{email}?subject={subject}&body={content}">
                         
-                    </a>
+                    
                     <span class="material-icons-outlined text-light">
                         mail
                     </span>Send us an email 
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="tel:{phone}">
                         
-                    </a>
+                  
                     <span class="material-icons-outlined text-light">
                         phone
                     </span> Call us 
+                      </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="sms:{phone}?body={content}">
                         
-                    </a> 
+                    
                     <span class="material-icons-outlined text-light">
                         sms
                     </span>   Send us a message 
+                    </a> 
                 </div>
 
             </div>

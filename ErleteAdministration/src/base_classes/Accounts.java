@@ -20,6 +20,7 @@ public class Accounts {
     private String collector;
     private LocalDate date;
     private float amount;
+    private String concept;
     private float total;
 
     /**
@@ -35,14 +36,16 @@ public class Accounts {
      * @param collector
      * @param date
      * @param amount
+     * @param concept
      * @param total
      */
-    public Accounts(int id, String payer, String collector, String date, float amount, float total) {
+    public Accounts(int id, String payer, String collector, String date, float amount, String concept, float total) {
         this.id = id;
         this.payer = payer;
         this.collector = collector;
         this.date = LocalDate.parse(date); //It recieves a String and it converts the String into a LocalDate 
         this.amount = amount;
+        this.concept = concept;
         this.total = total;
     }
 
@@ -94,6 +97,10 @@ public class Accounts {
         return total;
     }
 
+    public String getConcept() {
+        return concept;
+    }
+    
     /**
      *
      * Changes the id of the Accounts
@@ -154,6 +161,10 @@ public class Accounts {
         this.total = total;
     }
 
+    public void setConcept(String concept) {
+        this.concept = concept;
+    }
+    
     /**
      *
      * Proves if the email has an at sign

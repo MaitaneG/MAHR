@@ -50,7 +50,7 @@ if ($_SESSION["member"]) {
                 <div class="collapse navbar-collapse" id="navbarNav" >
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link active px-4 disabled" href="#"><span class="material-icons-outlined pb-0">
+                            <a class="nav-link active px-4 disabled a" href="#"><span class="material-icons-outlined pb-0">
                                     home
                                 </span>Home<span class="sr-only">(current)</span></a>
                         </li>
@@ -58,20 +58,20 @@ if ($_SESSION["member"]) {
                         <?php
                         if ($member && $active == 1) {
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="profile.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4 a" href="profile.php"><span class="material-icons-outlined">
                                                                    person
                                                                    </span>Profile</a>
 								</li>';
                             echo '<li class="nav-item">
-								<a class="nav-link px-4" href="MemberPanel.php"><span class="material-icons-outlined">
+								<a class="nav-link px-4" href="memberPanel.php"><span class="material-icons-outlined">
                                                                    engineering
                                                                    </span>Member Panel</a>
 								</li>';
                         }
                         ?>
 
-                        <li class="nav-item">
-                            <a class="nav-link px-4" href="Contact.php"><span class="material-icons-outlined">
+                        <li class="nav-item ">
+                            <a class="nav-link px-4 a" href="contact.php"><span class="material-icons-outlined">
                                     alternate_email
                                 </span>Contact</a>
                         </li>
@@ -263,30 +263,33 @@ if ($_SESSION["member"]) {
                     <!-- Copyright -->
                     <a href="mailto:{email}?subject={subject}&body={content}">
                         
-                    </a>
+                    
                     <span class="material-icons-outlined text-light">
                         mail
                     </span>Send us an email 
+                    </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="tel:{phone}">
                         
-                    </a>
+                  
                     <span class="material-icons-outlined text-light">
                         phone
                     </span> Call us 
+                      </a>
                 </div>
 
                 <div class="col-lg-4 col-md-6 my-2">
                     <!-- Copyright -->
                     <a href="sms:{phone}?body={content}">
                         
-                    </a> 
+                    
                     <span class="material-icons-outlined text-light">
                         sms
                     </span>   Send us a message 
+                    </a> 
                 </div>
 
             </div>
