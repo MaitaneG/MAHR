@@ -1,3 +1,5 @@
+
+/**/
 body::-webkit-scrollbar {
     display: none;
 }
@@ -14,7 +16,7 @@ body::-webkit-scrollbar {
 }
 
 /*When you put the cursor on the navbar item it will apear with this style*/
-a{
+ .a{
 text-decoration: none;
 background-image: linear-gradient(currentColor,currentColor);
 background-position: 0% 100%;
@@ -27,8 +29,12 @@ text-align: center;
 
 
 /*When the item on the navbar is checked will this this style*/
-a:hover,a:focus {
+.a:hover,.a:focus {
 background-size: 100% 2px;
+}
+
+.link:link, .link:visited, .link:active {
+    text-decoration:none;
 }
 
 /*A class used to change the cursor*/
@@ -156,8 +162,8 @@ font-weight: bolder;
 
 /*A class to declare the width and height of the iframe*/
 .iframe{
-width:30%;
-height:30%;
+width:40%;
+height:40%;
 
 }
 /*Animation wich make slide the text*/
@@ -182,4 +188,7 @@ height:30%;
     display: block;
     text-align: center;
     
+}
+.none{
+	text-decoration: none;
 }
