@@ -17,7 +17,7 @@ public class AccountTableModel extends AbstractTableModel {
      */
     private Model model = new Model();
     private ArrayList<Accounts> datuak = new ArrayList<>();
-    private final String[] ZUTABEAKIZENAK = {"ID", "PAYER", "COLLECTOR", "DATE", "AMOUNT", "TOTAL"};
+    private final String[] ZUTABEAKIZENAK = {"ID", "PAYER", "COLLECTOR", "DATE", "AMOUNT", "CONCEPT", "TOTAL"};
 
     /**
      * The constructor of the class
@@ -87,6 +87,8 @@ public class AccountTableModel extends AbstractTableModel {
             case 4:
                 return datuak.get(row).getAmount();
             case 5:
+                return datuak.get(row).getConcept();
+            case 6:
                 return datuak.get(row).getTotal();
             default:
                 return null;

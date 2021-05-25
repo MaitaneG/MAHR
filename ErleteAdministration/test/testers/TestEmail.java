@@ -47,7 +47,7 @@ public class TestEmail extends TestCase {
     public void setUp() {
         user1 = new User("11111A", "Pepito", "Palotes", "pepipalos@gmail.com", "1234", "12345", false, true);
         extractor1 = new Extractor(1, "2021-02-02", "admin@erlete.eus");
-        account1 = new Accounts(1, "pepipalos@gmail.com", "admin@erlete.eus", "2021-02-12", 30, 1234);
+        account1 = new Accounts(1, "pepipalos@gmail.com", "admin@erlete.eus", "2021-02-12", 30,"Tax", 1234);
         conMerge1 = new Container_Merge(1, 150, "2021-02-02", "2021-02-22", "admin@erlete.eus");
         fee1 = new Fee(1, 2021, false, "pepipalos@gmail.com");
     }
