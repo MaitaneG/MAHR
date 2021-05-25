@@ -326,7 +326,7 @@ $(function () {
                                            <button class="reserveCanToUse btn bg-yellow pl-5 pr-5 d-block m-auto" data-id="${can.id}">
                                                 <span class="material-icons-outlined">
                                                     done_outline
-                                                </span>
+                                                </span>Select
                                             </button>`;
                     }
 
@@ -424,7 +424,9 @@ $(function () {
 
 
                 template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
-                                        <h5>Pay Now</h5></button>
+                                        <h5><span class="material-icons-outlined">
+                                        credit_score
+                                    </span>Pay Now</h5></button>
                                     <h5 align="right">TOTAL ${counter}€</h5>`;
 
 
@@ -495,7 +497,9 @@ $(function () {
                                     </table>`;
 
                 template += `  <button id="pay-fees" class="btn btn-block bg-success" type="button">
-                                        <h5>Pay Now</h5></button>
+                                        <h5><span class="material-icons-outlined">
+                                        credit_score
+                                        </span>Pay Now</h5></button>
                                     <h5 align="right">TOTAL ${counterF}€</h5>`;
 
                 $("#pendent-fees-table").html(template);

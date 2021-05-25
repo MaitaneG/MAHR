@@ -27,7 +27,8 @@ function searchMember($mailP, $passwordP) {
             'password' => $row[5],
             'account' => $row[6],
             'admin' => $row[7],
-            'active' => $row[8]
+            'active' => $row[8],
+           
         );
     }
 
@@ -59,7 +60,8 @@ function searchMembers() {
             'password' => $row[5],
             'account' => $row[6],
             'admin' => $row[7],
-            'active' => $row[8]
+            'active' => $row[8],
+           
         );
     }
 
