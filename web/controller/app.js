@@ -172,7 +172,7 @@ $(function () {
             function () {
                 if ($("#datepicker").val()) {
                     let date = $("#datepicker").val();
-//                    document.querySelector("#datepicker").value = date;
+//                    
                     let currentMail = document.getElementById("currentMail").textContent;
                     let url = "../controller/BookingsC.php";
                     const postDate = {
