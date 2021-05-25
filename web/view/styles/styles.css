@@ -1,5 +1,5 @@
 
-/**/
+/*To make dissapear the scrollbar of the webpage*/
 body::-webkit-scrollbar {
     display: none;
 }
@@ -11,6 +11,7 @@ body::-webkit-scrollbar {
 	text-align: center;
 	color: black;
 }
+/*To change the font-size*/
 .22pixels{
     font-size:22px;
 }
@@ -76,10 +77,6 @@ margin-bottom: 15px;
 .userimag{
 height: 180px;
 padding: 10px;
-
-
-
-
 }
 
 /*Class for an image*/
@@ -88,9 +85,8 @@ border-radius: 6px;
 width:100%;
 object-fit: cover;
 height: 420px;
-
-
 }
+
 /*Class for the jumbotron*/
 .jumbotron{
     height: 120px;
@@ -183,12 +179,10 @@ height:40%;
   }
 }
 
+/*style for all the icons put on the webpage.*/
 .material-icons-outlined{
     font-size: 26px;
     display: block;
     text-align: center;
     
-}
-.none{
-	text-decoration: none;
 }
