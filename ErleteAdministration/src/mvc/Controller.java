@@ -379,14 +379,17 @@ public class Controller implements ActionListener {
             // If a row has been selected
         } else {
             String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-            
-            // If the update has been done correctly
-            if (model.updatePassword(gakoa, User.getMD5(new String(view.jPasswordFieldPassword.getPassword()))) == 1) {
-                view.jLabelErrorMember.setText("");
-                taulakEguneratu();
-                // If the update hasn't been done correctly
+            if(new String(view.jPasswordFieldPassword.getPassword()).equals("")){
+                view.jLabelErrorMember.setText("You have to filled the password gap");
             }else{
-                view.jLabelErrorMember.setText("The password couldn't be updated correctly");
+                // If the update has been done correctly
+                if (model.updatePassword(gakoa, User.getMD5(new String(view.jPasswordFieldPassword.getPassword()))) == 1) {
+                    view.jLabelErrorMember.setText("");
+                    taulakEguneratu();
+                    // If the update hasn't been done correctly
+                }else{
+                    view.jLabelErrorMember.setText("The password couldn't be updated correctly");
+                }
             }
         }
     }
