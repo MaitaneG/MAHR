@@ -5,7 +5,6 @@
  */
 package mvc;
 
-import base_classes.Container;
 import base_classes.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -314,7 +313,6 @@ public class Controller implements ActionListener {
             view.jTextFieldDni.setText((String) view.jTableMember.getValueAt(lerroa, 0));
             view.jTextFieldName.setText((String) view.jTableMember.getValueAt(lerroa, 1));
             view.jTextFieldSurname.setText((String) view.jTableMember.getValueAt(lerroa, 2));
-            view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
             view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
 
             // Change the action command to UPDATE_MEMBER
