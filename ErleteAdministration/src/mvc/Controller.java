@@ -187,7 +187,7 @@ public class Controller implements ActionListener {
                 break;
             /* When you want to enable or disable a user */
             // When you click ENABLE button
-            case "ENABLE":
+            case "ENABLE/DISABLE":
                 enable();
                 break;
             /* When you want to logout */
