@@ -62,7 +62,7 @@ public class Controller implements ActionListener {
         // To add member
         view.jButtonAddMember.addActionListener(listener);
         // To update password
-        jButtonMemberPassword.addActionListener(listener);
+        view.jButtonMemberPassword.addActionListener(listener);
         // To update member
         view.jButtonUpdateMember.addActionListener(listener);
         // To delete booking
@@ -233,7 +233,7 @@ public class Controller implements ActionListener {
         // Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             // If the user exists
-            if (u.equalsIgnoreCase(us.get(i).getEmail()) && User.getMD5(p).equals(us.get(i).getPassword())) {
+            if (u.equalsIgnoreCase(us.get(i).getEmail()) && User.getMD5(p).equals(User.getMD5(us.get(i).getPassword()))) {
                 // If the user is administrator
                 if (us.get(i).isAdmin()) {
                     // If the user is active
@@ -379,10 +379,9 @@ public class Controller implements ActionListener {
             // If a row has been selected
         } else {
             String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
-            String password = (String)view.jTableMember.getValueAt(lerroa,3);
             
             // If the update has been done correctly
-            if (model.updatePassword(gakoa, password) == 1) {
+            if (model.updatePassword(gakoa, User.getMD5(new String(view.jPasswordFieldPassword.getPassword()))) == 1) {
                 view.jLabelErrorMember.setText("");
                 taulakEguneratu();
                 // If the update hasn't been done correctly
