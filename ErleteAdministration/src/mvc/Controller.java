@@ -233,7 +233,7 @@ public class Controller implements ActionListener {
         // Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             // If the user exists
-            if (u.equalsIgnoreCase(us.get(i).getEmail()) && User.getMD5(p).equals(User.getMD5(us.get(i).getPassword()))) {
+            if (u.equalsIgnoreCase(us.get(i).getEmail()) && User.getMD5(p).equals(us.get(i).getPassword())) {
                 // If the user is administrator
                 if (us.get(i).isAdmin()) {
                     // If the user is active
@@ -349,7 +349,7 @@ public class Controller implements ActionListener {
             // If there is any jTextFiled not filled
             if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
                     || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
-                    || new String(view.jPasswordFieldPassword.getPassword()).equals("") || view.jTextFieldAccount.getText().trim().equals("")) {
+                    || view.jTextFieldAccount.getText().trim().equals("")) {
                 view.jLabelErrorMember.setText("You have to fill all the information.");
                 // If all the jTextFileds filled
             } else {
