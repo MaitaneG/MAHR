@@ -191,7 +191,7 @@ public class Model {
 
         try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql);  ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getInt("Amount"), rs.getString("Concept"), rs.getInt("Total"));
+                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getFloat("Amount"), rs.getString("Concept"), rs.getFloat("Total"));
                 acc.add(u1);
             }
         } catch (Exception ex) {
