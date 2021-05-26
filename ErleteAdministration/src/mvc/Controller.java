@@ -61,6 +61,8 @@ public class Controller implements ActionListener {
         view.jButtonSubmitLogin.addActionListener(listener);
         // To add member
         view.jButtonAddMember.addActionListener(listener);
+        // To update password
+        view.jButtonMemberPassword.addActionListener(listener);
         // To update member
         view.jButtonUpdateMember.addActionListener(listener);
         // To delete booking
@@ -158,6 +160,9 @@ public class Controller implements ActionListener {
             case "UPDATE_MEMBER":
                 updateUser();
                 break;
+            case "CHANGE PASSWORD":
+                updateUserPassword();
+                break;
             /* When you want to delete a booking */
             // When you click DELETE_BOOKING button
             case "DELETE_BOOKING":
@@ -182,7 +187,7 @@ public class Controller implements ActionListener {
                 break;
             /* When you want to enable or disable a user */
             // When you click ENABLE button
-            case "ENABLE":
+            case "ENABLE/DISABLE":
                 enable();
                 break;
             /* When you want to logout */
@@ -224,7 +229,7 @@ public class Controller implements ActionListener {
 
         // Save in an ArrayList all users' information
         ArrayList<User> us = model.showUsers();
-
+        
         // Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             // If the user exists
@@ -254,7 +259,7 @@ public class Controller implements ActionListener {
                 view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not part of Erlete.");
             }
         }
-        // Clears the information of the jTextFileds
+        // Clears the information of the jTextFields
         view.jTextFieldEmailLogin.setText("");
         view.jPasswordFieldPasswordLogin.setText("");
     }
@@ -310,7 +315,6 @@ public class Controller implements ActionListener {
             view.jTextFieldName.setText((String) view.jTableMember.getValueAt(lerroa, 1));
             view.jTextFieldSurname.setText((String) view.jTableMember.getValueAt(lerroa, 2));
             view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
-            view.jPasswordFieldPassword.setText((String) view.jTableMember.getValueAt(lerroa, 4));
             view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
 
             // Change the action command to UPDATE_MEMBER
@@ -345,7 +349,7 @@ public class Controller implements ActionListener {
             // If there is any jTextFiled not filled
             if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
                     || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
-                    || new String(view.jPasswordFieldPassword.getPassword()).equals("") || view.jTextFieldAccount.getText().trim().equals("")) {
+                    || view.jTextFieldAccount.getText().trim().equals("")) {
                 view.jLabelErrorMember.setText("You have to fill all the information.");
                 // If all the jTextFileds filled
             } else {
@@ -365,6 +369,31 @@ public class Controller implements ActionListener {
         }
     }
 
+    public void updateUserPassword() {
+        // Takes the selected row
+        int lerroa = view.jTableMember.getSelectedRow();
+        
+        // If any row hasn't been selected
+        if (lerroa == -1) {
+            view.jLabelErrorMember.setText("You have to choose a row");
+            // If a row has been selected
+        } else {
+            String gakoa = (String) view.jTableMember.getValueAt(lerroa, 3);
+            if(new String(view.jPasswordFieldPassword.getPassword()).equals("")){
+                view.jLabelErrorMember.setText("You have to filled the password gap");
+            }else{
+                // If the update has been done correctly
+                if (model.updatePassword(gakoa, User.getMD5(new String(view.jPasswordFieldPassword.getPassword()))) == 1) {
+                    view.jLabelErrorMember.setText("");
+                    taulakEguneratu();
+                    // If the update hasn't been done correctly
+                }else{
+                    view.jLabelErrorMember.setText("The password couldn't be updated correctly");
+                }
+            }
+        }
+    }
+    
     public void enable() {
         // Takes the selected row
         int lerroa = view.jTableMember.getSelectedRow();
