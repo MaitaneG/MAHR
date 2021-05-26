@@ -158,8 +158,8 @@ font-weight: bolder;
 
 /*A class to declare the width and height of the iframe*/
 .iframe{
-width:40%;
-height:40%;
+/*width:40%;*/
+height:37%;
 
 }
 /*Animation wich make slide the text fo contact.php*/
