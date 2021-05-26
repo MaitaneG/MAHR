@@ -4,6 +4,6 @@
 
 
 include("Members.php");
-$json= updateMember("11111A","Maya","Abeja","maya@erlete.eus");
-$jsonstring= json_encode($json);
-echo $jsonstring;
+$json=searchMemberByDni("11111A");
+$jsonString=json_encode($json);
+echo $jsonString;

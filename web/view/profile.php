@@ -11,6 +11,7 @@ if ($_SESSION["member"]) {
     $surname = $member[0]["surname"];
     $mail = $member[0]["mail"];
     $picture = $member[0]["picture"];
+   
 }
 ?>
 
@@ -113,25 +114,43 @@ if ($_SESSION["member"]) {
 
         <!--CONTENIDO-->
         <div class="container bg-texture">
-            <div class="row">
-                <div class="col-sm-12 mt-3 p-2" align="center"><h2>Profile</h2></div>
-                <div class="col-6 col-lg-6 px-4" align="right">   
-                    <?php echo "<img src='images/profile/" . $picture . "' class='userimag'>"; ?>
+            <div class="row align-items-end">
+                
+                <div class="col-12 col-lg-5 px-4" align="right">   
+                    <?php echo "<img src='" . $picture . "' class='userimag mb-3'>
+                    <form  action='../controller/memberPicture.php' method='POST' enctype='multipart/form-data'>
+                                <input type='text' class='form-control' name='pictureDni'  value='".$dni."' hidden>
+                                <input type='file' class='form-control' required name='uploadedPicture' placeholder='Enter picture'>
+                                <button type='submit' class='btn bg-success  btn-block my-2'>Update</button>
+                                </form>"
+                    ; ?>
                 </div>
-                <div class="col-6 p-4 col-lg-6 px-4 user-ul" align="left"> 
+                <div class="col-12 col-lg-6 px-4 user-ul" align="left"> 
+                    <h2>Profile</h2>
                     <?php
-                    echo "<ul>
-						<li>DNI: " . $dni . "</li>
-						<li>Name: " . $name . "</li>
-						<li>Surname: " . $surname . "</li>
-						<li>Email: " . $mail . "</li>
-						</ul>";
+                echo '<form action="../controller/memberData.php" method="POST" enctype="multipart/form-data"> 
+                     <div class="form-group">
+                        <label for="dni">DNI: </label>
+                            <input type="text" class="form-control" id="dni" required name="dataDni" placeholder="DNI" value="'.$dni.'" > 
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name: </label>
+                            <input type="text" class="form-control" id="name" required name="dataName" placeholder="Name" value="'.$name.'" >
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Surname: </label>
+                            <input type="text" class="form-control" id="surname" required name="dataSurname" placeholder="Surname" value="'.$surname.'" >
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">Email: </label>
+                            <input type="email" class="form-control" id="mail" name="dataMail" placeholder="Email" value="'.$mail.'" readonly >
+                    </div>
+                        <button type="submit" class="btn bg-success mb-2  btn-block">Update</button>
+                    </form>';
                     ?>
                 </div>
             </div>
-
-
-        </div>
+    </div>
         <br><br>
 
          <!-- Footer -->
