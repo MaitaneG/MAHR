@@ -38,8 +38,8 @@ public class Model {
     public static Connection connect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
-            //conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.190:3306/erlete", "usuario1", "user123");
+            //conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
+            conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.190:3306/erlete", "usuario1", "user123");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -164,7 +164,7 @@ public class Model {
         // Changes from members table if the member is active or not
         // If the user is not admin and is active, the user is going to become no active
         // If the user is not admin and is not active, the user is going to become active
-        String sql = "UPDATE members SET password = ? WHERE = ?";
+        String sql = "UPDATE members SET password = ? WHERE mail = ?";
 
         try ( Connection connS = connect();  PreparedStatement pstmtS = connS.prepareStatement(sql)) {
             pstmtS.setString(1, password);
