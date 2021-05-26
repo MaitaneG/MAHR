@@ -213,6 +213,13 @@ public class User {
         return mather.find();
     }
 
+    /**
+     *
+     * It is going to get the encrypted password with MD5
+     *
+     * @param enteredPassword
+     * @return the encrypted password
+     */
     public static String getMD5(String enteredPassword) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -223,7 +230,7 @@ public class User {
             while (hashtext.length() < 32) {
                 hashtext = "0" + hashtext;
             }
-            
+
             return hashtext;
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);

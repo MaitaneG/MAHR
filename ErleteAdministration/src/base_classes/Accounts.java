@@ -10,7 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Accounts {
- 
+
     /**
      *
      * All the attributes of Accounts
@@ -29,7 +29,8 @@ public class Accounts {
      *
      * In this class we are going to save an id, who has payed, who has received
      * the money, the date the payment has been done, how much money has been
-     * payed, the concept of the payment and the total money of the association's account.
+     * payed, the concept of the payment and the total money of the
+     * association's account.
      *
      * @param id
      * @param payer
@@ -97,10 +98,14 @@ public class Accounts {
         return total;
     }
 
+    /**
+     *
+     * @return the concept of the payment
+     */
     public String getConcept() {
         return concept;
     }
-    
+
     /**
      *
      * Changes the id of the Accounts
@@ -161,10 +166,16 @@ public class Accounts {
         this.total = total;
     }
 
+    /**
+     *
+     * Changes the concept of the payment
+     *
+     * @param concept
+     */
     public void setConcept(String concept) {
         this.concept = concept;
     }
-    
+
     /**
      *
      * Proves if the email has an at sign

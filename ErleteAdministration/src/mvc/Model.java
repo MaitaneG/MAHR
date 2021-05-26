@@ -27,6 +27,8 @@ import java.util.ArrayList;
  */
 public class Model {
 
+    public static View view = new View();
+
     /**
      *
      * Is to connect to the database
@@ -38,6 +40,7 @@ public class Model {
         try {
             //conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
             conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.146:3306/erlete", "usuario1", "user123");
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -56,9 +59,7 @@ public class Model {
         // Selects all the attributes of members
         String sql = "SELECT * FROM members";
 
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery()) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql);  ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 User u1 = new User(rs.getString("DNI"), rs.getString("Name"), rs.getString("Surname"), rs.getString("Mail"), rs.getString("Password"), rs.getString("Account"), rs.getBoolean("Admin"), rs.getBoolean("Active"));
                 use.add(u1);
@@ -78,11 +79,10 @@ public class Model {
      * correctly
      */
     public int addUser(User u) {
-        // Enters into the members table the DNI, name, surname, email, password, 
+        // Enters into the members table the DNI, name, surname, email, password,
         // account and it is going to be active and not administrator
         String sql = "INSERT INTO members (dni, name, surname, mail, password, account, admin, active) VALUES (?,?,?,?,?,?,?,?)";
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, u.getDni());
             pstmt.setString(2, u.getName());
@@ -111,19 +111,17 @@ public class Model {
      * updated correctly
      */
     public int updateMember(String key, User u) {
-        // Changes from members table the DNI, name, surname, password, account, 
+        // Changes from members table the DNI, name, surname, password, account,
         //when the mail is in the table
         String sql = "UPDATE members "
-                + "SET dni = ?, name = ?, surname = ?, password = ?, account = ? WHERE mail = ?";
+                + "SET dni = ?, name = ?, surname = ?, account = ? WHERE mail = ?";
 
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, u.getDni());
             pstmt.setString(2, u.getName());
             pstmt.setString(3, u.getSurname());
-            pstmt.setString(4, u.getPassword());
-            pstmt.setString(5, u.getAccount());
-            pstmt.setString(6, key);
+            pstmt.setString(4, u.getAccount());
+            pstmt.setString(5, key);
             return pstmt.executeUpdate();
 
         } catch (Exception ex) {
@@ -151,8 +149,7 @@ public class Model {
                 + "END "
                 + "WHERE mail = ?";
 
-        try (Connection connS = connect();
-                PreparedStatement pstmtS = connS.prepareStatement(sql)) {
+        try ( Connection connS = connect();  PreparedStatement pstmtS = connS.prepareStatement(sql)) {
 
             pstmtS.setString(1, gakoa);
             return pstmtS.executeUpdate();
@@ -162,9 +159,26 @@ public class Model {
             return 0;
         }
     }
+    
+    public int updatePassword(String gakoa, String password) {
+        // Changes from members table if the member is active or not
+        // If the user is not admin and is active, the user is going to become no active
+        // If the user is not admin and is not active, the user is going to become active
+        String sql = "UPDATE members SET password = ? WHERE mail = ?";
 
+        try ( Connection connS = connect();  PreparedStatement pstmtS = connS.prepareStatement(sql)) {
+            pstmtS.setString(1, password);
+            pstmtS.setString(2, gakoa);
+            return pstmtS.executeUpdate();
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            return 0;
+        }
+    }
+    
     /**
-     * 
+     *
      * Gets all the information of the accounts from the database
      *
      * @return an ArrayList of Accounts
@@ -175,11 +189,9 @@ public class Model {
         // Selects all the attributes of Accounts
         String sql = "SELECT * FROM account";
 
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql);  ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getInt("Amount"),rs.getString("Concept"), rs.getInt("Total"));
+                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getFloat("Amount"), rs.getString("Concept"), rs.getFloat("Total"));
                 acc.add(u1);
             }
         } catch (Exception ex) {
@@ -199,9 +211,7 @@ public class Model {
         // Selects all the attributes of Bookings
         String sql = "SELECT * FROM bookings";
 
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql);  ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
                 Extractor u1 = new Extractor(rs.getInt("ID_BOOKING"), rs.getString("DATE"), rs.getString("MAIL"));
                 boo.add(u1);
@@ -223,8 +233,7 @@ public class Model {
     public int deleteBooking(int b) {
         // Delete recordings from Bookings when the id_booking is in the table
         String sql = "DELETE FROM bookings WHERE id_booking = ?";
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, b);
             return pstmt.executeUpdate();
@@ -243,14 +252,12 @@ public class Model {
     public ArrayList<Container_Merge> showContainer_Merge() {
 
         ArrayList<Container_Merge> boo = new ArrayList<>();
-        // Select from cans and using_cans the id_can, mail, date, date2 where 
-        // date is null and the current date is between date and date2 and order 
+        // Select from cans and using_cans the id_can, mail, date, date2 where
+        // date is null and the current date is between date and date2 and order
         // all the information by id_can
         String sql = "select cans.ID_CAN, capacity, mail, date, date2 from cans left join using_cans ON cans.ID_CAN = using_cans.ID_CAN where date is null or curdate() BETWEEN date and date2 order by cans.ID_CAN";
 
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql);  ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
                 // If mail is null
                 if (rs.getString("mail") == null) {
@@ -279,9 +286,7 @@ public class Model {
         // Selects the id_can and capacity from cans
         String sql = "select ID_CAN, capacity from cans";
 
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql);  ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
                 Container u1 = new Container(rs.getInt("ID_CAN"), rs.getInt("capacity"));
                 boo.add(u1);
@@ -295,20 +300,19 @@ public class Model {
     /**
      * Is going to add users to the database
      *
-     * @param c
+     * @param capacity
      * @param price
      * @return 0 if it hadn't been added correctly and 1 if it had been added
      * correctly
      */
-    public int addContainer(Container c, float price) {
+    public int addContainer(int capacity, float price) {
         // Insert into cans the id and the capacity
-        String sql = "INSERT INTO cans VALUES (?,?,?)";
+        String sql = "INSERT INTO cans (capacity, price) VALUES (?,?)";
         try (Connection conn = connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            pstmt.setInt(1, c.getId());
-            pstmt.setInt(2, c.getCapacity());
-            pstmt.setFloat(3, price);
+            pstmt.setInt(1, capacity);
+            pstmt.setFloat(2, price);
             return pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -327,9 +331,7 @@ public class Model {
         // Selects the id_fee,year, payed and email from fees
         String sql = "select ID_FEE, year, payed, mail from fees";
 
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql);  ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
                 Fee u1 = new Fee(rs.getInt("ID_FEE"), rs.getInt("year"), rs.getBoolean("payed"), rs.getString("mail"));
                 fe.add(u1);
