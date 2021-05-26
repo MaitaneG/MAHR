@@ -14,24 +14,23 @@ $(function () {
      *VISUALIZE PENDENT TAXES ON LOAD
      */
     fecthPendentTaxes();
-<<<<<<< HEAD
-    
+
+
     /*
      *VISUALIZE ACCOUNT MOVES ON LOAD
      */
     fecthAccountMoves();
-    
-     /*
+
+    /*
      *VISUALIZE PENDENT FEES ON LOAD
      */
     fecthPendentFees();
-=======
->>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
+
 
     /*
      * REGISTER PRODUCTION, VIEW CANS, INSERT TAX
      */
-    console.log("jQuery esta funcionando 2");
+
     $("#registerProduction").click(function () {
         if ($("#production-kg").val()) {
 
@@ -48,7 +47,7 @@ $(function () {
             $("#production-litros").html(templateProduction);
             //REGISTER PRODUCTION
             if (confirm(`Are you sure to register ${kg}Kg of product?`)) {
-                let url = "../controller/productionsC.php";
+                let url = "../controller/ProductionsC.php";
                 const postDate = {
                     mail: currentMail,
                     kilos: kg,
@@ -72,10 +71,11 @@ $(function () {
 
         let Id = $(this).attr("data-id");
         Id = parseInt(Id);
+        $("#litres-left").removeClass("bg-danger");
         let litresleftText = ($("#litres-left").text());
         let litresleft = parseInt(litresleftText);
-        
-        let url = "../controller/cansUseC.php";
+
+        let url = "../controller/CansUseC.php";
         let currentMail = document.getElementById("currentMail").textContent;
         if (litresleft > 0) {
 
@@ -90,8 +90,20 @@ $(function () {
                 let cans = JSON.parse(response);
 
                 capacity = cans[0]["capacity"];
-                console.log(capacity);
+
+
                 $("#litres-left").html(litresleft - capacity);
+
+                litresleftText = ($("#litres-left").text());
+                litresleft = parseInt(litresleftText);
+                if (litresleft < 0) {
+                    $("#litres-left").html("0");
+                    $("#litres-left").addClass("bg-danger");
+                }
+
+
+
+
 
             });
 
@@ -99,13 +111,15 @@ $(function () {
 
             fecthCans();
         } else {
+
             alert("you have saved all the production");
+
         }
 
     });
 
     /*
-     * SEARCH RESERVES BY DATE
+     * FILTER RESERVES BY DATE
      */
     $("#datepicker").change(function () {
         if ($("#datepicker").val()) {
@@ -158,7 +172,7 @@ $(function () {
             function () {
                 if ($("#datepicker").val()) {
                     let date = $("#datepicker").val();
-//                    document.querySelector("#datepicker").value = date;
+//                    
                     let currentMail = document.getElementById("currentMail").textContent;
                     let url = "../controller/BookingsC.php";
                     const postDate = {
@@ -183,7 +197,7 @@ $(function () {
 
     );
     /*
-     * CANCEL BOOKING
+     * CANCEL BOOKING BUTTON EVENT
      */
     $(document).on("click", ".reserve-delete", function () {
         if (confirm("Are you sure that you want to delete it?")) {
@@ -197,7 +211,7 @@ $(function () {
     });
 
     /*
-     * PAY TAXES
+     * PAY TAXES BUTTON EVENT
      */
     $(document).on("click", "#pay-taxes", function () {
         if (confirm("Are you sure that you want to pay it?")) {
@@ -208,9 +222,11 @@ $(function () {
                 confirm: confirm,
                 mail: currentMail
             };
-            $.post("../controller/pendentTaxesPay.php", postData, function (response) {
+            $.post("../controller/PendentTaxesPay.php", postData, function (response) {
                 console.log(response);
                 fecthPendentTaxes();
+                fecthAccountMoves();
+
 
 
             });
@@ -218,9 +234,9 @@ $(function () {
         }
 
     });
-    
-        /*
-     * PAY FEES
+
+    /*
+     * PAY FEES BUTTON EVENT
      */
     $(document).on("click", "#pay-fees", function () {
         if (confirm("Are you sure that you want to pay it?")) {
@@ -231,8 +247,8 @@ $(function () {
                 confirmFees: confirm,
                 mail: currentMail
             };
-            $.post("../controller/feesC.php", postData, function (response) {
-                
+            $.post("../controller/FeesC.php", postData, function (response) {
+
                 fecthPendentFees();
                 fecthAccountMoves();
 
@@ -287,7 +303,7 @@ $(function () {
 
         let cansList = 1;
         $.ajax({
-            url: "../controller/cansC.php",
+            url: "../controller/CansC.php",
             type: "POST",
             data: {cansList},
             success: function (response) {
@@ -301,16 +317,16 @@ $(function () {
 
                                                              <div class="card-body">`;
                     if (can.using === 1) {
-                        template += `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
+                        template += `<img loading="lazy" class="card-img-top img" src="images/CanOcupped.png" alt="honey can"> 
 
                                                                     <h6 class="text-center text-danger m-0">ENDS ${can.end_date}</h6>
                                                                     <h6 class="text-center m-0 py-2">${can.mail}</h6>                                                       `;
                     } else {
-                        template += ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">                         
+                        template += ` <img loading="lazy" class="card-img-top img" src="images/Can.png" alt="honey can">                         
                                            <button class="reserveCanToUse btn bg-yellow pl-5 pr-5 d-block m-auto" data-id="${can.id}">
                                                 <span class="material-icons-outlined">
                                                     done_outline
-                                                </span>
+                                                </span>Select
                                             </button>`;
                     }
 
@@ -332,7 +348,7 @@ $(function () {
 
         let cansList = 1;
         $.ajax({
-            url: "../controller/cansC.php",
+            url: "../controller/CansC.php",
             type: "POST",
             data: {cansList},
             success: function (response) {
@@ -346,12 +362,12 @@ $(function () {
 
                                                              <div class="card-body">`;
                     if (can.using === 1) {
-                        template += `<img loading="lazy" class="card-img-top img" src="images/canOcupped.png" alt="honey can"> 
+                        template += `<img loading="lazy" class="card-img-top img" src="images/CanOcupped.png" alt="honey can"> 
 
                                                                     <h6 class="text-center text-danger m-0">ENDS ${can.end_date}</h6>
                                                                     <h6 class="text-center m-0 py-2">${can.mail}</h6>                                                       `;
                     } else {
-                        template += ` <img loading="lazy" class="card-img-top img" src="images/can.png" alt="honey can">`;
+                        template += ` <img loading="lazy" class="card-img-top img" src="images/Can.png" alt="honey can">`;
                     }
 
 
@@ -371,7 +387,7 @@ $(function () {
         let pendentTaxes = 1;
         let currentMail = document.getElementById("currentMail").textContent;
         let url = "../controller/ProductionsC.php";
-        const postDate = {
+        let postDate = {
             mail: currentMail,
             pendent: pendentTaxes
         };
@@ -379,10 +395,11 @@ $(function () {
         $.post(url, postDate, function (response) {
 
             if (response) {
-               console.log("taxes: "+response);
+                template="";
                 let counter = 0;
-                let pendentTaxes = JSON.parse(response);
-                template = `<h3>Taxes</h3>
+                try {
+                     let pendentTaxes = JSON.parse(response);
+                     template += `<h3>Taxes</h3>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -402,19 +419,29 @@ $(function () {
                                             </tr>`;
 
                 });
-                template += `</tbody>
+                 template += `</tbody>
                                     </table>`;
-<<<<<<< HEAD
-              
-                    template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
-                                        <h5>Pay Now</h5></button>
+
+
+                template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
+                                        <h5><span class="material-icons-outlined">
+                                        credit_score
+                                    </span>Pay Now</h5></button>
                                     <h5 align="right">TOTAL ${counter}€</h5>`;
 
-                
+
 
 
                 $("#pendent-tax-table").html(template);
                 $("#pendent-tax-table").show();
+                
+                } catch (error) {
+                    console.warn("Empty data in pendent taxes table");
+ 
+                }
+
+
+               
 
 
             } else {
@@ -424,25 +451,28 @@ $(function () {
         });
     }
     ;
-    
-     /*
+
+    /*
      * VISUALIZE PENDENT FEES FUNCTION
      */
     function fecthPendentFees() {
-        
+
         let currentMail = document.getElementById("currentMail").textContent;
-        let url = "../controller/feesC.php";
-        let pendentFeesConfirm=1;
-         const postDate = {
-            mail: currentMail,
-            pendent: pendentFeesConfirm
+        let url = "../controller/FeesC.php";
+        let pendentFeesConfirm = 1;
+        let postDate = {
+            currentMail: currentMail,
+            pendentFeesConfirm: pendentFeesConfirm
         };
+
         $.post(url, postDate, function (response) {
-     
-            if (response) {
-                let counterF = 0;    
-                let pendentFees = JSON.parse(response);
-                template = `<h3>Fees</h3>
+            $("#pendent-fees-table").html("");
+            if (response && response !== 0) {
+                template="";
+                let counterF = 0;
+                try {
+                    let pendentFees = JSON.parse(response);
+                    template += `<h3>Fees</h3>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -453,25 +483,33 @@ $(function () {
                                         </thead>
                                         <tbody>`;
 
-                pendentFees.forEach(pendentFee => {
-                    counterF += parseFloat(pendentFee.amount);
-                    template += `<tr>
+                    pendentFees.forEach(pendentFee => {
+                        counterF += parseFloat(pendentFee.amount);
+                        template += `<tr>
                                     
                                     <td>${pendentFee.amount}€</td> 
                                     <td>${pendentFee.year}</td>
                     
                                             </tr>`;
 
-                });
-                template += `</tbody>
+                    });
+                                    template += `</tbody>
                                     </table>`;
-              
-                    template += `  <button id="pay-fees" class="btn btn-block bg-success" type="button">
-                                        <h5>Pay Now</h5></button>
+
+                template += `  <button id="pay-fees" class="btn btn-block bg-success" type="button">
+                                        <h5><span class="material-icons-outlined">
+                                        credit_score
+                                        </span>Pay Now</h5></button>
                                     <h5 align="right">TOTAL ${counterF}€</h5>`;
 
                 $("#pendent-fees-table").html(template);
                 $("#pendent-fees-table").show();
+                } catch (e) {
+                    console.warn("Empty data in Pendent Fees table");
+                 
+                }
+
+
 
 
             } else {
@@ -482,65 +520,41 @@ $(function () {
     }
     ;
 
-   /*
+    /*
      * VISUALIZE ACCOUNT MOVES FUNCTION
      */
     function fecthAccountMoves() {
-        
+
         let currentMail = document.getElementById("currentMail").textContent;
-        let url = "../controller/accountC.php";
+        let url = "../controller/AccountC.php";
 
         $.post(url, {currentMail}, function (response) {
-            
+
             if (response) {
-            
+
                 let movements = JSON.parse(response);
                 template = "";
-                 movements.forEach(movement => {
-                     template+=`            <tr>
+                movements.forEach(movement => {
+                    template += `            <tr>
                                                 <td>${movement.date}</td>
                                                 <td>${movement.amount}€</td>
                                                 <td>${movement.concept}</td>
                                             </tr>  `;
-                 });
-                                    
+                });
 
-                 
+
+
                 $("#account-movements-table").html(template);
                 $("#account-movements-table").show();
 
 
             } else {
                 $("#account-movements-table").html("");
-                
+
             }
         });
     }
     ;
-
-=======
-                if (counter > 0) {
-                    template += `  <button id="pay-taxes" class="btn btn-block bg-success" type="button">
-                                        <h5>Pay Now</h5></button>
-                                    <h5 align="right">TOTAL ${counter}€</h5>`;
-
-                }
-
-
-                $("#pendent-tax-table").html(template);
-                $("#pendent-tax-table").show();
-
-
-            } else {
-                $("#pendent-tax-table").html("");
-                $("#pendent-tax-table").show();
-            }
-        });
-    }
-    ;
->>>>>>> be1142c754dc6531329eb7a464cba4eb33f83aaf
-
-
 
 }
 );                 

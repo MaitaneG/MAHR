@@ -1,4 +1,8 @@
 
+/*To make dissapear the scrollbar of the webpage*/
+body::-webkit-scrollbar {
+    display: none;
+}
 
 /*It os a class used for the buttons and jumbotron*/
 
@@ -7,22 +11,31 @@
 	text-align: center;
 	color: black;
 }
-
+/*To change the font-size*/
+.22pixels{
+    font-size:22px;
+}
 
 /*When you put the cursor on the navbar item it will apear with this style*/
-a{
+ .a{
 text-decoration: none;
 background-image: linear-gradient(currentColor,currentColor);
 background-position: 0% 100%;
 background-repeat: no-repeat;
 background-size: 0% 2px;
 transition: background-size .3s;
+display: block;
+text-align: center;
 }
 
 
 /*When the item on the navbar is checked will this this style*/
-a:hover,a:focus {
+.a:hover,.a:focus {
 background-size: 100% 2px;
+}
+
+.link:link, .link:visited, .link:active {
+    text-decoration:none;
 }
 
 /*A class used to change the cursor*/
@@ -43,7 +56,7 @@ object-fit: cover;
 }
 /*To put an image as a background an to not be repeated*/
 body{
-background-image: url(../images/fondo.jpg) ;
+background-image: url(../images/Fondo.jpg) ;
 background-position: center center;
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -64,10 +77,6 @@ margin-bottom: 15px;
 .userimag{
 height: 180px;
 padding: 10px;
-
-
-
-
 }
 
 /*Class for an image*/
@@ -76,9 +85,8 @@ border-radius: 6px;
 width:100%;
 object-fit: cover;
 height: 420px;
-
-
 }
+
 /*Class for the jumbotron*/
 .jumbotron{
     height: 120px;
@@ -124,7 +132,7 @@ h3{
 }
 /*Class for the background of the container*/
 .bg-texture{
-    background-image: url("../images/texture.jpg");
+    background-image: url("../images/Texture.jpg");
     background-repeat: repeat;
 }
 /*Style for the tables*/
@@ -150,11 +158,11 @@ font-weight: bolder;
 
 /*A class to declare the width and height of the iframe*/
 .iframe{
-width:50%;
-height:50%;
+/*width:40%;*/
+height:37%;
 
 }
-/*Animation wich make slide the text*/
+/*Animation wich make slide the text fo contact.php*/
 .p {
   animation-duration: 3s;
   animation-name: slidein;
@@ -169,4 +177,12 @@ height:50%;
     margin-left: 0%;
     width: 150%;
   }
+}
+
+/*style for all the icons put on the webpage.*/
+.material-icons-outlined{
+    font-size: 26px;
+    display: block;
+    text-align: center;
+    
 }

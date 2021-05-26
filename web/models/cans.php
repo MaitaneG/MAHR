@@ -1,6 +1,6 @@
 <?php
 
-include("cansUse.php");
+include("CansUse.php");
 
 //CANS TABLE API
 function selectCans() {

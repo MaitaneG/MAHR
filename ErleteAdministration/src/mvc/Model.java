@@ -38,9 +38,14 @@ public class Model {
     public static Connection connect() {
         Connection conn = null;
         try {
+<<<<<<< HEAD
             conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
             //conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.190:3306/erlete", "usuario1", "user123");
 
+=======
+            //conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
+            conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.146:3306/erlete", "usuario1", "user123");
+>>>>>>> main
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -191,7 +196,7 @@ public class Model {
 
         try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql);  ResultSet rs = pstmt.executeQuery(sql)) {
             while (rs.next()) {
-                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getInt("Amount"), rs.getInt("Total"));
+                Accounts u1 = new Accounts(rs.getInt("ID_Move"), rs.getString("Payer"), rs.getString("Collector"), rs.getString("Date"), rs.getInt("Amount"),rs.getString("Concept"), rs.getInt("Total"));
                 acc.add(u1);
             }
         } catch (Exception ex) {

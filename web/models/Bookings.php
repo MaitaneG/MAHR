@@ -1,10 +1,15 @@
 <?php
 
 include("TestConexion.php");
+/*
+ * BOOKING TABLE API
+ */
 function selectBookings() {
-    //Select full list of bookings for today and after today
-    //return: 
-    //0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
+    /*
+     * Select full list of bookings for today and after today
+     * @return id, date and mail
+     */
+
     $conexion = ConnectDataBase();
     $today=date("Y/m/d", time());
     $query = "SELECT * FROM bookings where date>='$today' ORDER BY date ASC";
@@ -26,9 +31,11 @@ function selectBookings() {
 }
 
 function searchReserve($date) {
-    //Select reserve of a selected day
-    //return: 
-    //0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
+    /*
+     * Select reserve of a selected day
+     *@return: 0-id 1-date 2-mail 3-mail 4-password 5-account 6-admin
+     */
+     
      $today=date("Y/m/d", time());
     $conexion = ConnectDataBase();
     $query = "SELECT * FROM bookings WHERE date='$date' and date>='$today' ORDER BY date ASC";
@@ -52,9 +59,11 @@ function searchReserve($date) {
 }
 
 function addReserve($date, $mail) {
-    //Add a new reserve
-    //return String
- 
+    /*
+     * Add a new reserve
+     * @return String
+     */
+    
     $conexion = ConnectDataBase();
 
     $query = "INSERT INTO bookings(date, mail) VALUES('$date','$mail')";
@@ -67,9 +76,11 @@ function addReserve($date, $mail) {
 }
 
 function deleteReserve($id) {
-    //Delete a reserve
-    //return string
-   
+    /*
+     * Delete a reserve
+     * @return string
+     */
+
     $conexion = ConnectDataBase();
 
     $query = "DELETE FROM bookings where id_booking=$id";

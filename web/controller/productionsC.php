@@ -2,6 +2,9 @@
 
 include("../models/Productions.php");
 
+/*
+ * INSERT PRODUCTION FROM JS TO PRODUCTIONS API
+ */
 if (isset($_POST["kilos"])) {
     $mail = $_POST["mail"];
     $kilos = $_POST["kilos"];
@@ -10,6 +13,9 @@ if (isset($_POST["kilos"])) {
     echo insertProduction($mail, $kilos, $tax);
 }
 
+/*
+ * FETCH NOT PAYED TAXES FROM API
+ */
 if (isset($_POST["pendent"])) {
     $mail = $_POST["mail"];
     if (selectPendentTaxes($mail)) {

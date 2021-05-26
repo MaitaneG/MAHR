@@ -7,7 +7,6 @@ if ($_SESSION["member"]) {
     $mail = $member[0]["mail"];
     $admin = $member[0]["admin"];
     $active = $member[0]["active"];
-   
 }
 ?>
 
@@ -17,7 +16,7 @@ if ($_SESSION["member"]) {
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta http-equiv="refresh" content="900;url=../controller/Logout.php"/>		
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -30,6 +29,10 @@ if ($_SESSION["member"]) {
               rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles/styles.css"> 
 
+        <!--Link icono pestaña -->
+        <link rel="shortcut icon" href="images/Iconopestaña.png" />
+      
+        
 
         <title>Erlete beekepers' association</title>
     </head>
@@ -49,43 +52,57 @@ if ($_SESSION["member"]) {
                 <div class="collapse navbar-collapse" id="navbarNav" >
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link active p-3 disabled" href="#">Home<span class="sr-only">(current)</span></a>
+                            <a class="nav-link active px-4 disabled a" href="#"><span class="material-icons-outlined pb-0">
+                                    home
+                                </span>Home<span class="sr-only">(current)</span></a>
                         </li>
-                        <!--The php code, if you are loged it will apear the member panel but if you are not loged, you won't be able to see it.-->
+                        <!--The php code, if you are loged it will apear the member panel and member profile, but if you are not loged, you won't be able to see it.-->
                         <?php
-                        if ($member&&$active==1) {
+                        if ($member && $active == 1) {
                             echo '<li class="nav-item">
-                                        <a class="nav-link p-3" href="profile.php">Profile</a>
-                                    </li>';
+								<a class="nav-link px-4 a" href="profile.php"><span class="material-icons-outlined">
+                                                                   person
+                                                                   </span>Profile</a>
+								</li>';
                             echo '<li class="nav-item">
-                                        <a class="nav-link p-3" href="memberPanel.php">Member Panel</a>
-                                    </li>';
+								<a class="nav-link px-4 a" href="memberPanel.php"><span class="material-icons-outlined">
+                                                                   engineering
+                                                                   </span>Member Panel</a>
+								</li>';
                         }
                         ?>
 
-                        <li class="nav-item">
-                            <a class="nav-link p-3" href="contact.php">Contact</a>
+                        <li class="nav-item ">
+                            <a class="nav-link px-4 a" href="contact.php"><span class="material-icons-outlined">
+                                    alternate_email
+                                </span>Contact</a>
                         </li>
                     </ul>
                     <!--If you are not a member You will see the login on the navbar, but if you login and you are a member yo will see your mail, and the option to logout -->
                     <?php
-                    if (!$member||$active==0) {
+                    if (!$member || $active == 0) {
 
 
                         echo '<form action="../controller/LoginValidation.php" class="form-inline" method="POST">
-
+							
                             <input name="email" type="email" class="form-control mb-2 mr-sm-2" 
-                                   size="30" required placeholder="Email">
-
+							size="30" required placeholder="Email">
+							
                             <input name="password" type="password" class="form-control mb-2 mr-sm-2" placeholder="Password" required/>
-
-                            <button type="submit" class="btn bg-yellow mb-2">Login</button>
-                        </form>';
+							
+                            <button type="submit" class="btn bg-yellow mb-2"><span class="material-icons-outlined">
+                            login
+                            </span>Login</button>
+							</form>';
                     } else {
                         echo "<h6 class='p-3'>$mail</h6>";
-                        echo '<form action="../controller/logout.php">'
-                        . '<input class="btn btn-danger" type="submit" value="Log Out"/>'
-                        . '</form>';
+                        echo '<form action="../controller/Logout.php">'
+                        . '<button class="btn btn-danger" type="submit"><span class="material-icons-outlined">
+                        logout
+                        </span>Log Out</button>'
+                        . '</form>'
+                                ;
+                        
                     }
                     ?>
 
@@ -106,16 +123,16 @@ if ($_SESSION["member"]) {
                 </ol>
                 <div class="carousel-inner rounded">
                     <div class="carousel-item active rounded">
-                        <img  loading="lazy"  class="d-block w-100 imag" src="images/img4.jpg" alt="First slide">
+                        <img  loading="lazy"  class="d-block w-100 imag" src="images/Img4.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item rounded">
-                        <img loading="lazy"  class="d-block w-100 imag" src="images/img1.jpeg" alt="Second slide">
+                        <img loading="lazy"  class="d-block w-100 imag" src="images/Img1.jpeg" alt="Second slide">
                     </div>
                     <div class="carousel-item rounded">
-                        <img loading="lazy"  class="d-block w-100 imag" src="images/img2.jpg" alt="Third slide">
+                        <img loading="lazy"  class="d-block w-100 imag" src="images/Img2.jpg" alt="Third slide">
                     </div>
                     <div class="carousel-item rounded">
-                        <img loading="lazy"  class="d-block w-100 imag" src="images/img3.jpg" alt="Fourth slide">
+                        <img loading="lazy"  class="d-block w-100 imag" src="images/Img3.jpg" alt="Fourth slide">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -138,7 +155,7 @@ if ($_SESSION["member"]) {
                         Along with eight other men and women, the beekeepers who have formed the Erlete Association are Aitor Unzueta, Urdaspal Alberdi, Felix Zabarte, Iñigo Mendibil, Hegoi Escudero, Inazio Uruburu and Roberto Ardanza.</p>
                     <p>For an annual fee of 30 euros it is possible to visit the honey extarction local, produce your own honey and take it home. Apart from the annual fee, the member will be required to pay 25 cents per kilo produced.To extract the honey you have to reserve the extractor. After you have used it, you will be authorised to use the honey extractor to store your honey for the next 20 days. </p>
 
-                    <p><b>Association Porpouse:</b>To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>   
+                    <p><b>Association Porpouse:</b> To serve the regional beekeepers, so that honey can be boarded as well as possible. The characteristics of care, problems and benefits of society.</p>   
                 </div>
 
             </div>
@@ -157,7 +174,7 @@ if ($_SESSION["member"]) {
                         <li>Leave no sign of honey on the porch, keep it clean.</li>
                         <li>"The straws do not leave [them] on the ground, but on the foundations prepared.</li>
                     </ul>
-                    
+
                 </div>
                 <div class="col-11 col-lg-4 px-4">
 
@@ -185,7 +202,7 @@ if ($_SESSION["member"]) {
             <div class="row ">
                 <div class="col-sm-12 p-2 m-2" align="center"><h2>Bees Information</h2>
 
-                    <img src="images/gif1.gif" align="right" class="m-2 imagese">
+                    <img src="images/Gif1.gif" align="right" class="m-2 imagese">
                     <p class="p-4">
                         Honeybees are flying insects, and close relatives of wasps and ants. They are found on every continent on earth, except for Antarctica.<br><br>
 
@@ -196,7 +213,7 @@ if ($_SESSION["member"]) {
             <div class="row justify-content-center ">
                 <div class="col-11 col-lg-3 p-2 ml-2 "><h5 align="center">Worker Bees</h5>
 
-                    <img src="images/abejaobrera.jpg" class="imagese" align="center">
+                    <img src="images/Abejaobrera.jpg" class="imagese" align="center">
                     <p class="p-2">
                         Worker bees are the most familiar-looking member of the honeybee hive, as they make up about 99% of each colony's population.<br>
 
@@ -218,7 +235,7 @@ if ($_SESSION["member"]) {
                 </div>
                 <div class="col-11 col-lg-3 p-2 ml-4"><h5 align="center">Queen Bees</h5>
 
-                    <img src="images/queen.jpg" class="imagese" align="center">
+                    <img src="images/Queen.jpg" class="imagese" align="center">
                     <p>
                         There is one queen bee per hive - she is the mom of all the other bees. She is the only fertile member of the colony, and lays about 1,500 eggs a day during spring and summer.
                         <br>
@@ -232,10 +249,62 @@ if ($_SESSION["member"]) {
                 </div>
             </div>
         </div>
+        <br><br>
 
-        
+
+        <!-- Footer -->
+        <footer class="container-fluid bg-dark text-center text-white ">
+            <!-- Section: Text -->
+            <section class="mb-4">
+                <p class="p">
+                    If you want to contact with us here you have our links to send an email, call us, or to send us a message.
+                </p>
+            </section>
+            <!--Email, Call and Sms inside a footer.-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 my-2">
+                    <!-- Copyright -->
+                    <a href="mailto:{email}?subject={subject}&body={content}">
 
 
+                        <span class="material-icons-outlined text-light">
+                            mail
+                        </span>Send us an email 
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 my-2">
+                    <!-- Copyright -->
+                    <a href="tel:{phone}">
+
+
+                        <span class="material-icons-outlined text-light">
+                            phone
+                        </span> Call us 
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6 my-2">
+                    <!-- Copyright -->
+                    <a href="sms:{phone}?body={content}">
+
+
+                        <span class="material-icons-outlined text-light">
+                            sms
+                        </span>   Send us a message 
+                    </a> 
+                </div>
+
+            </div>
+
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2021 Copyright:
+                <a class="text-white" href="Index.php">ErleteBeekepersAssociation.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
 
 
         <!--The necesary scripts to make it work the bootsatrap classes-->
@@ -243,6 +312,9 @@ if ($_SESSION["member"]) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+       
+
+
 
     </body>
-</html>
+</html>				

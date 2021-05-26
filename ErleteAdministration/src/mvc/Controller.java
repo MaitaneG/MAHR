@@ -43,7 +43,7 @@ public class Controller implements ActionListener {
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
-        
+
         addKeyListener();
         addActionListener(this);
     }
@@ -187,6 +187,11 @@ public class Controller implements ActionListener {
             case "LOGOUT":
                 view.jDialogMenu.setVisible(false);
                 view.setVisible(true);
+                eraser();
+                view.jLabelErrorBin.setText("");
+                view.jLabelErrorBooking.setText("");
+                view.jLabelErrorMember.setText("");
+                view.jLabelErrorMessage.setText("");
                 break;
         }
     }
@@ -218,7 +223,7 @@ public class Controller implements ActionListener {
         // Proves if the email and password exists and if this person is administrator
         for (int i = 0; i < us.size(); i++) {
             // If the user exists
-            if (u.equalsIgnoreCase(us.get(i).getEmail()) && p.equals(us.get(i).getPassword())) {
+            if (u.equalsIgnoreCase(us.get(i).getEmail()) && User.getMD5(p).equals(us.get(i).getPassword())) {
                 // If the user is administrator
                 if (us.get(i).isAdmin()) {
                     // If the user is active
@@ -230,12 +235,12 @@ public class Controller implements ActionListener {
                         break;
                         // Not active
                     } else {
-                        view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because your account has been disabled");
+                        view.jLabelErrorMessage.setText("Sorry, you cannot enter to the application, because your account has been disabled");
                         break;
                     }
                     // Not administrator
                 } else {
-                    view.jLabelErrorMessage.setText("Sorry, you cannot enter to the appliacation, because you are not the administrator.");
+                    view.jLabelErrorMessage.setText("Sorry, you cannot enter to the application, because you are not the administrator.");
                     break;
                 }
                 // Not exists
@@ -258,7 +263,7 @@ public class Controller implements ActionListener {
         // Create an object with the information
         User u = new User(view.jTextFieldDni.getText().trim(), view.jTextFieldName.getText().trim(),
                 view.jTextFieldSurname.getText().trim(), view.jTextFieldEmailMember.getText().trim(),
-                new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
+                User.getMD5(new String(view.jPasswordFieldPassword.getPassword())), view.jTextFieldAccount.getText().trim(),
                 false, true);
         // Prove that all the gaps are filled
         if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
@@ -329,17 +334,24 @@ public class Controller implements ActionListener {
                     new String(view.jPasswordFieldPassword.getPassword()), view.jTextFieldAccount.getText().trim(),
                     false, true);
 
-            // If the update has been done correctly
-            if (model.updateMember(gakoa, use) == 1) {
-                // Change the action command to TAKE
-                view.jButtonUpdateMember.setActionCommand("TAKE");
-                view.jLabelErrorMember.setText("");
-                taulakEguneratu();
-                // If the update hasn't been done correctly
+            if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
+                    || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
+                    || new String(view.jPasswordFieldPassword.getPassword()).equals("") || view.jTextFieldAccount.getText().trim().equals("")) {
+                view.jLabelErrorMember.setText("You have to fill all the information.");
             } else {
-                view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+                // If the update has been done correctly
+                if (model.updateMember(gakoa, use) == 1) {
+                    // Change the action command to TAKE
+                    view.jButtonUpdateMember.setActionCommand("TAKE");
+                    view.jLabelErrorMember.setText("");
+                    taulakEguneratu();
+                    // If the update hasn't been done correctly
+                } else {
+                    view.jLabelErrorMember.setText("The member couldn't be updated correctly");
+                }
+                eraser();
             }
-            eraser();
+
         }
     }
 
@@ -437,6 +449,7 @@ public class Controller implements ActionListener {
             }
             view.jTextFieldIdBin.setText("");
             view.jTextFieldCapacity.setText("");
+            view.jTextFieldPrice.setText("");
         }
     }
 

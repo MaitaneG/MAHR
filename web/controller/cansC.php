@@ -1,6 +1,9 @@
 <?php
-include("../models/cans.php");
+include("../models/Cans.php");
 
+/*
+ * FECTH EXISTIN CANS FROM CANS API
+ */
 if (isset($_POST["cansList"])) {
 
     

@@ -1,12 +1,12 @@
 
 <?php
+error_reporting(0);
 /**
- * Login validation
- * 
+* LOGIN VALIDATION 
 */
 session_start();
 $_SESSION["submitted"] ="";
-//error_reporting(0);
+
 
 include("../models/Members.php");
 
