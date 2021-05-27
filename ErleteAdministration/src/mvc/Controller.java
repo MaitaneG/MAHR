@@ -5,7 +5,6 @@
  */
 package mvc;
 
-import base_classes.Container;
 import base_classes.User;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -184,6 +183,7 @@ public class Controller implements ActionListener {
             // When you click ERASER2 button
             case "ERASER2":
                 eraser();
+                view.jLabelErrorBin.setText("");
                 break;
             /* When you want to enable or disable a user */
             // When you click ENABLE button
@@ -314,7 +314,6 @@ public class Controller implements ActionListener {
             view.jTextFieldDni.setText((String) view.jTableMember.getValueAt(lerroa, 0));
             view.jTextFieldName.setText((String) view.jTableMember.getValueAt(lerroa, 1));
             view.jTextFieldSurname.setText((String) view.jTableMember.getValueAt(lerroa, 2));
-            view.jTextFieldEmailMember.setText((String) view.jTableMember.getValueAt(lerroa, 3));
             view.jTextFieldAccount.setText((String) view.jTableMember.getValueAt(lerroa, 5));
 
             // Change the action command to UPDATE_MEMBER
@@ -348,7 +347,7 @@ public class Controller implements ActionListener {
                     false, true);
             // If there is any jTextFiled not filled
             if (view.jTextFieldDni.getText().trim().equals("") || view.jTextFieldName.getText().trim().equals("")
-                    || view.jTextFieldSurname.getText().trim().equals("") || view.jTextFieldEmailMember.getText().trim().equals("")
+                    || view.jTextFieldSurname.getText().trim().equals("")
                     || view.jTextFieldAccount.getText().trim().equals("")) {
                 view.jLabelErrorMember.setText("You have to fill all the information.");
                 // If all the jTextFileds filled
@@ -391,6 +390,7 @@ public class Controller implements ActionListener {
                     view.jLabelErrorMember.setText("The password couldn't be updated correctly");
                 }
             }
+            view.jPasswordFieldPassword.setText("");
         }
     }
     
@@ -484,6 +484,6 @@ public class Controller implements ActionListener {
 
         // Clears cans information
         view.jTextFieldCapacity.setText("");
-        view.jLabelErrorBin.setText("");
+        view.jTextFieldPrice.setText("");
     }
 }

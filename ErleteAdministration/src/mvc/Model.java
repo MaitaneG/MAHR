@@ -40,6 +40,7 @@ public class Model {
         try {
             //conn = DriverManager.getConnection("jdbc:mariadb://btkd4fugj67roxefnqpx-mysql.services.clever-cloud.com:3306/btkd4fugj67roxefnqpx", "urojaxibigfd3tey", "ZSy7SoXUJhC4yqyrMokh");
             conn = DriverManager.getConnection("jdbc:mariadb://10.2.0.146:3306/erlete", "usuario1", "user123");
+            //conn = DriverManager.getConnection("jdbc:mariadb://localhost/erlete", "root", "");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -159,7 +160,7 @@ public class Model {
             return 0;
         }
     }
-    
+
     public int updatePassword(String gakoa, String password) {
         // Changes from members table if the member is active or not
         // If the user is not admin and is active, the user is going to become no active
@@ -176,7 +177,7 @@ public class Model {
             return 0;
         }
     }
-    
+
     /**
      *
      * Gets all the information of the accounts from the database
@@ -308,8 +309,7 @@ public class Model {
     public int addContainer(int capacity, float price) {
         // Insert into cans the id and the capacity
         String sql = "INSERT INTO cans (capacity, price) VALUES (?,?)";
-        try (Connection conn = connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try ( Connection conn = connect();  PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, capacity);
             pstmt.setFloat(2, price);
